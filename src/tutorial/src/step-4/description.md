@@ -1,12 +1,12 @@
-# Event Listeners {#event-listeners}
+# Zarządzanie wydarzeniami {#event-listeners}
 
-We can listen to DOM events using the `v-on` directive:
+Możemy nasłuchiwać zdarzeń DOM za pomocą dyrektywy `v-on`:
 
 ```vue-html
 <button v-on:click="increment">{{ count }}</button>
 ```
 
-Due to its frequent use, `v-on` also has a shorthand syntax:
+Ze względu na częste użycie, `v-on` ma również skróconą składnię:
 
 ```vue-html
 <button @click="increment">{{ count }}</button>
@@ -14,7 +14,7 @@ Due to its frequent use, `v-on` also has a shorthand syntax:
 
 <div class="options-api">
 
-Here, `increment` references a function declared using the `methods` option:
+Tutaj `increment` odwołuje się do funkcji zadeklarowanej przy użyciu opcji `methods`:
 
 <div class="sfc">
 
@@ -55,7 +55,7 @@ createApp({
 
 </div>
 
-Inside a method, we can access the component instance using `this`. The component instance exposes the data properties declared by `data`. We can update the component state by mutating these properties.
+Wewnątrz metody możemy uzyskać dostęp do instancji komponentu za pomocą `this`. Instancja komponentu udostępnia właściwości danych zadeklarowane przez `data`. Możemy aktualizować stan komponentu poprzez mutowanie tych właściwości.
 
 </div>
 
@@ -63,7 +63,7 @@ Inside a method, we can access the component instance using `this`. The componen
 
 <div class="sfc">
 
-Here, `increment` is referencing a function declared in `<script setup>`:
+Tutaj `increment` odwołuje się do funkcji zadeklarowanej w `<script setup>`:
 
 ```vue{6-9}
 <script setup>
@@ -82,7 +82,7 @@ function increment() {
 
 <div class="html">
 
-Here, `increment` is referencing a method in the object returned from `setup()`:
+Tutaj, `increment` odwołuje się do metody w obiekcie zwróconym z `setup()`:
 
 ```js{$}
 setup() {
@@ -102,10 +102,10 @@ setup() {
 
 </div>
 
-Inside the function, we can update the component state by mutating refs.
+Wewnątrz funkcji możemy zaktualizować stan komponentu poprzez mutację referencji.
 
 </div>
 
-Event handlers can also use inline expressions, and can simplify common tasks with modifiers. These details are covered in <a target="_blank" href="/guide/essentials/event-handling.html">Guide - Event Handling</a>.
+Programy obsługi zdarzeń mogą również używać wyrażeń wbudowanych i mogą upraszczać typowe zadania za pomocą modyfikatorów. Szczegóły te zostały omówione w  <a target="_blank" href="/guide/essentials/event-handling.html">Przewodniku - Obsługa zdarzeń</a>.
 
-Now, try to implement the `increment` <span class="options-api">method</span><span class="composition-api">function</span> yourself and bind it to the button using `v-on`.
+Teraz spróbuj samodzielnie zaimplementować <span class="options-api">metodę</span><span class="composition-api">fukncję</span>  `increment` i  powiązać ją z przyciskiem za pomocą `v-on`.
