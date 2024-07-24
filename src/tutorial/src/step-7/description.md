@@ -1,6 +1,6 @@
-# List Rendering {#list-rendering}
+# Renderowanie listy {#list-rendering}
 
-We can use the `v-for` directive to render a list of elements based on a source array:
+Możemy użyć dyrektywy `v-for`, aby wyrenderować listę elementów na podstawie tablicy źródłowej:
 
 ```vue-html
 <ul>
@@ -10,13 +10,13 @@ We can use the `v-for` directive to render a list of elements based on a source 
 </ul>
 ```
 
-Here `todo` is a local variable representing the array element currently being iterated on. It's only accessible on or inside the `v-for` element, similar to a function scope.
+Tutaj `todo` jest zmienną lokalną reprezentującą aktualnie iterowany element tablicy. Jest ona dostępna tylko na lub wewnątrz elementu `v-for`, podobnie do zakresu funkcji.
 
-Notice how we are also giving each todo object a unique `id`, and binding it as the <a target="_blank" href="/api/built-in-special-attributes.html#key">special `key` attribute</a> for each `<li>`. The `key` allows Vue to accurately move each `<li>` to match the position of its corresponding object in the array.
+Zauważ, że każdemu obiektowi todo nadajemy unikalny `id` i wiążemy go z <a target="_blank" href="/api/built-in-special-attributes.html#key">specjalnym atrybutem `key`</a> dla każdego `<li>`. Klucz `key` pozwala Vue na dokładne przesunięcie każdego `<li>`, aby dopasować go do pozycji odpowiadającego mu obiektu w tablicy.
 
-There are two ways to update the list:
+Istnieją dwa sposoby aktualizacji listy:
 
-1. Call [mutating methods](https://stackoverflow.com/questions/9009879/which-javascript-array-functions-are-mutating) on the source array:
+1. Wywołaj [metody mutujące](https://stackoverflow.com/questions/9009879/which-javascript-array-functions-are-mutating) na tablicy źródłowej:
 
    <div class="composition-api">
 
@@ -33,7 +33,7 @@ There are two ways to update the list:
 
    </div>
 
-2. Replace the array with a new one:
+2. Zastąp tablicę nową tablicą:
 
    <div class="composition-api">
 
@@ -50,6 +50,6 @@ There are two ways to update the list:
 
    </div>
 
-Here we have a simple todo list - try to implement the logic for `addTodo()` and `removeTodo()` methods to make it work!
+Tutaj mamy prostą listę rzeczy do zrobienia - spróbuj zaimplementować logikę dla metod `addTodo()` i `removeTodo()`, aby działała!
 
-More details on `v-for`: <a target="_blank" href="/guide/essentials/list.html">Guide - List Rendering</a>
+Więcej informacji na temat `v-for`: <a target="_blank" href="/guide/essentials/list.html">Przewonik - Renderowanie listy</a>
