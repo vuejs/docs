@@ -777,5 +777,5 @@ export default defineConfigWithTheme<ThemeConfig>({
     json: {
       stringify: true
     }
-  },
+  }
 })
