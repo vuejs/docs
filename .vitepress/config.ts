@@ -563,6 +563,10 @@ export const sidebar: ThemeConfig['sidebar'] = {
 export default defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
+  sitemap: {
+    hostname: 'https://vuejs.org'
+  },
+
   lang: 'en-US',
   title: 'Vue.js',
   description: 'Vue.js - The Progressive JavaScript Framework',
@@ -773,5 +777,5 @@ export default defineConfigWithTheme<ThemeConfig>({
     json: {
       stringify: true
     }
-  }
+  },
 })
