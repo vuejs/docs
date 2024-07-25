@@ -11,7 +11,7 @@ onMounted(() => {
 
 # Odniesienie do kodu błędu produkcyjnego {#error-reference}
 
-## Błędy uruchomieniowe {#runtime-errors}
+## Błędy runtime {#runtime-errors}
 
 W kompilacjach produkcyjnych trzecim argumentem przekazywanym do następujących interfejsów API obsługi błędów będzie krótki kod zamiast pełnego ciągu informacji:
 
