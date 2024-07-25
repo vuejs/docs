@@ -1,6 +1,6 @@
-# Zarządzanie wydarzeniami {#event-listeners}
+# Nasłuchiwanie na zdarzenia {#event-listeners}
 
-Możemy nasłuchiwać zdarzeń DOM za pomocą dyrektywy `v-on`:
+Możemy nasłuchiwać zdarzenia DOM za pomocą dyrektywy `v-on`:
 
 ```vue-html
 <button v-on:click="increment">{{ count }}</button>
@@ -106,6 +106,6 @@ Wewnątrz funkcji możemy zaktualizować stan komponentu poprzez mutację refere
 
 </div>
 
-Programy obsługi zdarzeń mogą również używać wyrażeń wbudowanych i mogą upraszczać typowe zadania za pomocą modyfikatorów. Szczegóły te zostały omówione w  <a target="_blank" href="/guide/essentials/event-handling.html">Przewodniku - Obsługa zdarzeń</a>.
+Obsługa zdarzeń może również korzystać z wyrażeń liniowych i upraszczać typowe zadania za pomocą modyfikatorów. Szczegóły te zostały omówione w  <a target="_blank" href="/guide/essentials/event-handling.html">Przewodniku - Obsługa zdarzeń</a>.
 
 Teraz spróbuj samodzielnie zaimplementować <span class="options-api">metodę</span><span class="composition-api">fukncję</span>  `increment` i  powiązać ją z przyciskiem za pomocą `v-on`.

@@ -1,6 +1,6 @@
 # Renderowanie listy {#list-rendering}
 
-Możemy użyć dyrektywy `v-for`, aby wyrenderować listę elementów na podstawie tablicy źródłowej:
+Możemy użyć dyrektywy `v-for`, aby wyrenderować listę elementów na podstawie tablicy:
 
 ```vue-html
 <ul>
@@ -10,13 +10,13 @@ Możemy użyć dyrektywy `v-for`, aby wyrenderować listę elementów na podstaw
 </ul>
 ```
 
-Tutaj `todo` jest zmienną lokalną reprezentującą aktualnie iterowany element tablicy. Jest ona dostępna tylko na lub wewnątrz elementu `v-for`, podobnie do zakresu funkcji.
+Tutaj `todo` jest zmienną lokalną reprezentującą aktualnie iterowany element tablicy. Jest ona dostępna tylko na lub wewnątrz elementu `v-for`, podobnie jak zakres funkcji.
 
-Zauważ, że każdemu obiektowi todo nadajemy unikalny `id` i wiążemy go z <a target="_blank" href="/api/built-in-special-attributes.html#key">specjalnym atrybutem `key`</a> dla każdego `<li>`. Klucz `key` pozwala Vue na dokładne przesunięcie każdego `<li>`, aby dopasować go do pozycji odpowiadającego mu obiektu w tablicy.
+Zauważ, że każdemu obiektowi todo nadajemy unikalne `id` i wiążemy go z <a target="_blank" href="/api/built-in-special-attributes.html#key">specjalnym atrybutem `key`</a> dla każdego `<li>`. Klucz `key` pozwala Vue na dokładne przesunięcie każdego `<li>`, aby dopasować go do pozycji odpowiadającego mu obiektu w tablicy.
 
 Istnieją dwa sposoby aktualizacji listy:
 
-1. Wywołaj [metody mutujące](https://stackoverflow.com/questions/9009879/which-javascript-array-functions-are-mutating) na tablicy źródłowej:
+1. Wywołanie [metody mutującej](https://stackoverflow.com/questions/9009879/which-javascript-array-functions-are-mutating) na tablicy źródłowej:
 
    <div class="composition-api">
 
@@ -33,7 +33,7 @@ Istnieją dwa sposoby aktualizacji listy:
 
    </div>
 
-2. Zastąp tablicę nową tablicą:
+2. Zastąpienie tablicę nową tablicą:
 
    <div class="composition-api">
 

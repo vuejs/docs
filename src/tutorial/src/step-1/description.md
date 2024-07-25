@@ -10,7 +10,7 @@ Samouczek zakłada podstawową znajomość HTML, CSS i JavaScript. Jeśli jeste�
 
 ## Jak korzystać z tego samouczka {#how-to-use-this-tutorial}
 
-Możesz edytować kod <span class="wide">po prawej</span><span class="narrow">stronie</span> i natychmiast zobaczyć aktualizację wyniku. Każdy krok przedstawi podstawową funkcję Vue, a od użytkownika oczekuje się ukończenia kodu w celu uruchomienia wersji demonstracyjnej. Jeśli utkniesz, będziesz mieć przycisk „Pokaż mi!”, który ujawni działający kod. Postaraj się nie polegać na nim zbytnio - szybciej nauczysz się samodzielnie.
+Możesz edytować kod <span class="wide">po prawej</span><span class="narrow">stronie</span> i natychmiast zobaczyć aktualizację wyniku. Każdy krok przedstawi podstawową funkcję Vue, a od użytkownika oczekuje się ukończenia kodu w celu uruchomienia wersji demonstracyjnej. Jeśli utkniesz, możesz skorzystać z przycisku „Pokaż odpowiedź!”, który ujawni działający kod. Postaraj się nie polegać na nim zbyt często - szybciej nauczysz się samodzielnie.
 
 Jeśli jesteś doświadczonym programistą pochodzącym z Vue 2 lub innych frameworków, istnieje kilka ustawień, które możesz dostosować, aby jak najlepiej wykorzystać ten samouczek. Jeśli jesteś początkującym programistą, zalecamy skorzystanie z ustawień domyślnych.
 
@@ -50,4 +50,4 @@ Więcej informacji można znaleźć w [sekcji przewodnika po narzędziach.](/gui
 
 </details>
 
-Gotowy? Kliknij „Next”, aby rozpocząć.
+Gotowy? Kliknij Następny, aby rozpocząć.

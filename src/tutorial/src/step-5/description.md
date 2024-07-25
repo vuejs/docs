@@ -1,4 +1,4 @@
-# Form Bindings {#form-bindings}
+# Przypisywanie formularzy {#form-bindings}
 
 Używając `v-bind` i `v-on` razem, możemy tworzyć dwukierunkowe wiązania na elementach wejściowych formularza:
 
@@ -32,15 +32,16 @@ function onInput(e) {
 
 </div>
 
-Spróbuj wpisać tekst w polu input - powinieneś zobaczyć tekst w `<p>` aktualizujący się podczas pisania.
+Spróbuj wpisać tekst w polu input - powinieneś zobaczyć tekst w `<p>`, który aktualizuje się podczas pisania.
 
-Aby uprościć dwukierunkowe wiązania, Vue udostępnia dyrektywę `v-model`, która jest uproszczoną wersją powyższego:
+Aby uprościć dwukierunkowe wiązania, Vue udostępnia dyrektywę `v-model`, która jest uproszczoną wersją powyższego przykładu:
 
 ```vue-html
 <input v-model="text">
 ```
+
 `v-model` automatycznie synchronizuje wartość `<input>` z powiązanym stanem, więc nie musimy już używać do tego obsługi zdarzeń.
 
-`v-model` działa nie tylko na wejściach tekstowych, ale także na innych typach wejść, takich jak checkboxes, radio buttons i select. Więcej szczegółów na ten temat znajduje się w <a target="_blank" href="/guide/essentials/forms.html">Przewodnik - Form Bindings</a>.
+`v-model` działa nie tylko na elementach tekstowych, ale także na takich jak checkbox, radio button i select. Więcej szczegółów na ten temat znajduje się w <a target="_blank" href="/guide/essentials/forms.html">Przewodnik - Form Bindings</a>.
 
 Teraz spróbuj zrefaktoryzować kod, aby zamiast tego użyć `v-model`.

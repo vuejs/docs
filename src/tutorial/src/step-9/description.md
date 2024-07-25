@@ -1,4 +1,4 @@
-# Cykl życia i odnośniki do szablonów {#lifecycle-and-template-refs}
+# Cykl życia i odnośniki do elementów w szablonie {#lifecycle-and-template-refs}
 
 Do tej pory Vue obsługiwało za nas wszystkie aktualizacje DOM, dzięki reaktywności i deklaratywnemu renderowaniu. Jednak nieuchronnie pojawią się przypadki, w których będziemy musieli ręcznie pracować z DOM.
 
@@ -33,7 +33,7 @@ setup() {
 
 </div>
 
-Zauważ, że ref jest inicjowany wartością `null`. Dzieje się tak, ponieważ element jeszcze nie istnieje, gdy wykonywana jest funkcja <span class="sfc">`<script setup>`</span><span class="html">`setup()`</span>. Szablon ref jest dostępny dopiero po **zamontowaniu** komponentu.
+Zauważ, że ref jest inicjowany wartością `null`. Dzieje się tak, ponieważ element jeszcze nie istnieje, gdy wykonywana jest funkcja <span class="sfc">`<script setup>`</span><span class="html">`setup()`</span>. Element ref w szablonie jest dostępny dopiero po **zamontowaniu** komponentu.
 
 Aby uruchomić kod po zamontowaniu, możemy użyć funkcji `onMounted()`:
 
@@ -97,4 +97,4 @@ createApp({
 
 Nazywa się to **lifecycle hook** - pozwala nam zarejestrować wywołanie zwrotne, które będzie wywoływane w określonych momentach cyklu życia komponentu. Istnieją inne hook'i, takie jak  <span class="options-api">`created` i `updated`</span><span class="composition-api">`onUpdated` i `onUnmounted`</span>. Sprawdź <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">diagram cyklu życia komponentu</a> aby uzyskać więcej informacji.
 
-Teraz spróbuj dodać <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span> hook, następnie odwołaj się do `<p>` poprzez użycie <span class="options-api">`this.$refs.pElementRef`</span><span class="composition-api">`pElementRef.value`</span> i wykonaj na nim kilka bezpośrednich operacji DOM (np. zmieniając jego `textContent`).
+Teraz spróbuj dodać hook <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>, następnie odwołaj się do `<p>` poprzez użycie <span class="options-api">`this.$refs.pElementRef`</span><span class="composition-api">`pElementRef.value`</span> i wykonaj na nim kilka bezpośrednich operacji DOM (np. zmieniając jego `textContent`).

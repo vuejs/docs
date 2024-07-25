@@ -1,6 +1,6 @@
 # Rekwizyty {#props}
 
-Komponent podrzędny może akceptować dane wejściowe od komponentu nadrzędnego poprzez **props**. Po pierwsze, musi zadeklarować rekwizyty, które akceptuje:
+Komponent podrzędny może akceptować dane wejściowe od komponentu nadrzędnego poprzez **props**. Po pierwsze, komponent podrzędny musi zadeklarować rekwizyty, które akceptuje:
 
 <div class="composition-api">
 <div class="sfc">

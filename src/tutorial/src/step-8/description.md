@@ -1,6 +1,6 @@
 # Właściwość computed {#computed-property}
 
-Kontynuujmy budowanie na podstawie listy zadań z ostatniego kroku. Tutaj dodaliśmy już funkcję przełączania do każdego todo. Odbywa się to poprzez dodanie właściwości `done` do każdego obiektu todo i użycie `v-model` do powiązania jej z polem wyboru:
+Kontynuujmy budowanie na podstawie listy zadań z ostatniego kroku. Tutaj dodaliśmy już funkcję przełączania do każdego todo. Odbywa się to poprzez dodanie właściwości `done` do każdego obiektu todo i użycie `v-model` do powiązania jej z polem checkbox:
 
 ```vue-html{2}
 <li v-for="todo in todos">
@@ -47,7 +47,7 @@ createApp({
 </div>
 <div class="composition-api">
 
-Przedstawiamy <a target="_blank" href="/guide/essentials/computed.html">`computed()`</a>. Możemy utworzyć wyliczany ref, który oblicza swoją `.value` na podstawie innych reaktywnych źródeł danych:
+Przedstawiamy <a target="_blank" href="/guide/essentials/computed.html">`computed()`</a>. Możemy utworzyć wyliczany ref, który oblicza swoje `.value` na podstawie innych reaktywnych źródeł danych:
 
 <div class="sfc">
 

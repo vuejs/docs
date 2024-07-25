@@ -6,7 +6,7 @@ To, co widzisz w edytorze, to Vue Single-File Component (SFC). SFC to samodzieln
 
 </div>
 
-Podstawową cechą Vue jest **deklaratywne renderowanie**: używając składni szablonu, która rozszerza HTML, możemy opisać, jak HTML powinien wyglądać w oparciu o stan JavaScript. Gdy stan się zmienia, HTML aktualizuje się automatycznie.
+Podstawową cechą Vue jest **renderowanie deklaratywne**: używając składni szablonu, która rozszerza HTML, możemy opisać, jak HTML powinien wyglądać w oparciu o stan JavaScript. Gdy stan się zmienia, HTML aktualizuje się automatycznie.
 
 <div class="composition-api">
 
@@ -23,7 +23,7 @@ console.log(counter.count) // 0
 counter.count++
 ```
 
-`reactive()` działa tylko na obiektach (włączając w to tablice i wbudowane typy takie jak `Map` i `Set`). Funkcja `ref()`, z drugiej strony, może przyjąć dowolny typ wartości i utworzyć obiekt, który eksponuje wewnętrzną wartość pod właściwością `.value`:
+`reactive()` działa tylko na obiektach (włączając w to tablice i wbudowane typy takie jak `Map` i `Set`). Funkcja `ref()`, z drugiej strony, może przyjąć dowolny typ wartości i utworzy obiekt, który eksponuje wewnętrzną wartość pod właściwością `.value`:
 
 ```js
 import { ref } from 'vue'
@@ -34,7 +34,7 @@ console.log(message.value) // "Hello World!"
 message.value = 'Changed'
 ```
 
-Szczegóły dotyczące funkcji `reactive()` i `ref()` zostały omówione w <a target="_blank" href="/guide/essentials/reactivity-fundamentals.html">Przewodniku - Podstawy reaktywności</a>.
+Szczegóły dotyczące funkcji `reactive()` i `ref()` zostały omówione w <a target="_blank" href="/guide/essentials/reactivity-fundamentals.html">Przewodnik - Podstawy reaktywności</a>.
 
 <div class="sfc">
 
@@ -66,13 +66,13 @@ Właściwości w zwróconym obiekcie zostaną udostępnione w szablonie. W ten s
 <p>Count is: {{ counter.count }}</p>
 ```
 
-Zauważ, że nie musieliśmy używać `.value` podczas uzyskiwania dostępu `message` w szablonie: jest on automatycznie rozpakowywany w celu bardziej zwięzłego użycia.
+Zauważ, że nie musieliśmy używać `.value` gdy użyliśmy `message` w szablonie: jest on automatycznie rozpakowywany w celu bardziej zwięzłego użycia.
 
 </div>
 
 <div class="options-api">
 
-State that can trigger updates when changed are considered **reactive**. In Vue, reactive state is held in components. <span class="html">In the example code, the object being passed to `createApp()` is a component.</span>
+Stan, który może wyzwalać aktualizacje po zmianie, jest uważany za **reaktywny**. W Vue stan reaktywny jest przechowywany w komponentach. <span class="html">W przykładowym kodzie obiekt przekazywany do funkcji `createApp()` jest komponentem.</span>
 
 Możemy zadeklarować stan reaktywny za pomocą opcji `data`, który powinien być funkcją zwracającą obiekt:
 

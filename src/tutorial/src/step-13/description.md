@@ -1,4 +1,4 @@
-# Emits {#emits}
+# Emitowanie zdarzeń {#emits}
 
 Oprócz otrzymywania rekwizytów, komponent podrzędny może również emitować zdarzenia do komponentu nadrzędnego:
 

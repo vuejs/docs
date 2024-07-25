@@ -15,7 +15,7 @@ watch(count, (newCount) => {
 })
 ```
 
-`watch()` może bezpośrednio obserwować ref, a wywołanie zwrotne jest uruchamiane za każdym razem, gdy zmienia się wartość `count`. `watch()` może również obserwować inne typy źródeł danych - więcej szczegółów znajduje się w  <a target="_blank" href="/guide/essentials/watchers.html">Przewodnik - Obserwatorzy</a>.
+`watch()` może bezpośrednio obserwować ref, a wywołanie zwrotne jest uruchamiane za każdym razem, gdy zmienia się wartość `count`. `watch()` może również obserwować inne typy źródeł danych - więcej szczegółów znajduje się w  <a target="_blank" href="/guide/essentials/watchers.html">Przewodnik - Watchers</a>.
 
 </div>
 <div class="options-api">
@@ -40,4 +40,4 @@ Tutaj używamy opcji `watch` do obserwowania zmian we właściwości `count`. Wy
 
 </div>
 
-Bardziej praktycznym przykładem niż logowanie do konsoli byłoby pobieranie nowych danych po zmianie identyfikatora. Kod, który mamy, pobiera dane todo z mock API na zamontowanym komponencie. Posiadamy również przycisk, który zwiększa identyfikator todo, który powinien zostać pobrany. Spróbuj zaimplementować metodę obserwującą, która pobiera nowe todo po kliknięciu przycisku.
+Bardziej praktycznym przykładem niż logowanie do konsoli byłoby pobieranie nowych danych po zmianie identyfikatora. Kod który mamy, pobiera dane todo z mock API gdy komponent zostanie zamontowany. Posiadamy również przycisk, który zwiększa identyfikator todo, który powinien zostać pobrany. Spróbuj zaimplementować metodę obserwującą, która pobiera nowe todo po kliknięciu przycisku.

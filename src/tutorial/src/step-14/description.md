@@ -1,4 +1,4 @@
-# Slots {#slots}
+# Sloty {#slots}
 
 Oprócz przekazywania danych za pośrednictwem rekwizytów, komponent nadrzędny może również przekazywać fragmenty szablonu do komponentu podrzędnego za pośrednictwem **slotów**:
 
@@ -21,7 +21,7 @@ Oprócz przekazywania danych za pośrednictwem rekwizytów, komponent nadrzędny
 
 </div>
 
-Komponent podrzędny może on renderować zawartość slotu od rodzica, używając elementu <slot> jako wyjścia:
+Komponent podrzędny może renderować zawartość slotu od rodzica, używając elementu <slot> jako wyjścia:
 
 <div class="sfc">
 
