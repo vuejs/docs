@@ -2,7 +2,6 @@
 
 Do tej pory pracowaliśmy tylko z pojedynczym komponentem. Prawdziwe aplikacje Vue są zazwyczaj tworzone z zagnieżdżonymi komponentami.
 
-
 Komponent nadrzędny może renderować inny komponent w swoim szablonie jako komponent podrzędny. Aby użyć komponentu podrzędnego, musimy go najpierw zaimportować:
 
 <div class="composition-api">
