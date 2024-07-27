@@ -230,3 +230,26 @@ When used on components, custom directives will always apply to a component's ro
 ```
 
 Note that components can potentially have more than one root node. When applied to a multi-root component, a directive will be ignored and a warning will be thrown. Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`.
+
+
+## Typing Global Custom Directives {#typing-global-custom-directives}
+
+In order to get autocompletion and type-checking for your global custom directives, you can extend the `ComponentCustomProperties` interface.
+
+```ts
+import { type Directive } from "vue"
+
+declare module "vue" {
+  interface ComponentCustomProperties {
+    vCustomDirective: Directive<unknown, {foo: "value1" | "value2"}>
+  }
+}
+```
+
+```vue-html
+<!-- template of MyComponent -->
+
+<div v-custom-directive="{ foo: 'value1' }"> <!-- autocompletion + type-check -->
+  <span>My component content</span>
+</div>
+```
