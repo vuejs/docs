@@ -199,7 +199,7 @@ For manually resolving a registered component by name.
   <div class="composition-api">
 
   ```js
-  const { h, resolveComponent } = Vue
+  import { h, resolveComponent } from 'vue'
 
   export default {
     setup() {
@@ -216,7 +216,7 @@ For manually resolving a registered component by name.
   <div class="options-api">
 
   ```js
-  const { h, resolveComponent } = Vue
+  import { h, resolveComponent } from 'vue'
 
   export default {
     render() {
@@ -242,7 +242,7 @@ For manually resolving a registered directive by name.
 
 - **Details**
 
-  **Note: you do not need this if you can import the component directly.**
+  **Note: you do not need this if you can import the directive directly.**
 
   `resolveDirective()` must be called inside<span class="composition-api"> either `setup()` or</span> the render function in order to resolve from the correct component context.
 
@@ -305,7 +305,7 @@ For adding built-in [`v-on` modifiers](/guide/essentials/event-handling#event-mo
 - **Type**
 
   ```ts
-  function withModifiers(fn: Function, modifiers: string[]): Function
+  function withModifiers(fn: Function, modifiers: ModifierGuardsKeys[]): Function
   ```
 
 - **Example**

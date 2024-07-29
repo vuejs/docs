@@ -8,7 +8,7 @@ A Vue component needs to be "registered" so that Vue knows where to locate its i
 
 ## Global Registration {#global-registration}
 
-We can make components available globally in the current [Vue application](/guide/essentials/application) using the `app.component()` method:
+We can make components available globally in the current [Vue application](/guide/essentials/application) using the `.component()` method:
 
 ```js
 import { createApp } from 'vue'
@@ -33,7 +33,7 @@ import MyComponent from './App.vue'
 app.component('MyComponent', MyComponent)
 ```
 
-The `app.component()` method can be chained:
+The `.component()` method can be chained:
 
 ```js
 app
@@ -136,6 +136,6 @@ Throughout the guide, we are using PascalCase names when registering components.
 
 2. `<PascalCase />` makes it more obvious that this is a Vue component instead of a native HTML element in templates. It also differentiates Vue components from custom elements (web components).
 
-This is the recommended style when working with SFC or string templates. However, as discussed in [DOM Template Parsing Caveats](/guide/essentials/component-basics#dom-template-parsing-caveats), PascalCase tags are not usable in DOM templates.
+This is the recommended style when working with SFC or string templates. However, as discussed in [in-DOM Template Parsing Caveats](/guide/essentials/component-basics#in-dom-template-parsing-caveats), PascalCase tags are not usable in in-DOM templates.
 
 Luckily, Vue supports resolving kebab-case tags to components registered using PascalCase. This means a component registered as `MyComponent` can be referenced in the template via both `<MyComponent>` and `<my-component>`. This allows us to use the same JavaScript component registration code regardless of template source.

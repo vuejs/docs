@@ -18,7 +18,9 @@ Called when the instance is initialized.
 
 - **Details**
 
-  Called immediately when the instance is initialized, after props resolution, before processing other options such as `data()` or `computed`.
+  Called immediately when the instance is initialized and props are resolved.
+
+  Then the props will be defined as reactive properties and the state such as `data()` or `computed` will be set up.
 
   Note that the `setup()` hook of Composition API is called before any Options API hooks, even `beforeCreate()`.
 
@@ -194,6 +196,10 @@ Called when an error propagating from a descendant component has been captured.
   - Transition hooks
 
   The hook receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
+
+  :::tip
+  In production, the 3rd argument (`info`) will be a shortened code instead of the full information string. You can find the code to string mapping in the [Production Error Code Reference](/error-reference/#runtime-errors).
+  :::
 
   You can modify component state in `errorCaptured()` to display an error state to the user. However, it is important that the error state should not render the original content that caused the error; otherwise the component will be thrown into an infinite render loop.
 

@@ -116,7 +116,7 @@ methods: {
 
 </div>
 
-A method handler automatically receives the native DOM Event object that triggers it - in the example above, we are able to access the element dispatching the event via `event.target.tagName`.
+A method handler automatically receives the native DOM Event object that triggers it - in the example above, we are able to access the element dispatching the event via `event.target`.
 
 <div class="composition-api">
 
@@ -257,8 +257,9 @@ Order matters when using modifiers because the relevant code is generated in the
 The `.capture`, `.once`, and `.passive` modifiers mirror the [options of the native `addEventListener` method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options):
 
 ```vue-html
-<!-- use capture mode when adding the event listener -->
-<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+<!-- use capture mode when adding the event listener     -->
+<!-- i.e. an event targeting an inner element is handled -->
+<!-- here before being handled by that element           -->
 <div @click.capture="doThis">...</div>
 
 <!-- the click event will be triggered at most once -->
@@ -270,7 +271,7 @@ The `.capture`, `.once`, and `.passive` modifiers mirror the [options of the nat
 <div @scroll.passive="onScroll">...</div>
 ```
 
-The `.passive` modifier is typically used with touch event listeners for [improving performance on mobile devices](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners).
+The `.passive` modifier is typically used with touch event listeners for [improving performance on mobile devices](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scroll_performance_using_passive_listeners).
 
 ::: tip
 Do not use `.passive` and `.prevent` together, because `.passive` already indicates to the browser that you _do not_ intend to prevent the event's default behavior, and you will likely see a warning from the browser if you do so.

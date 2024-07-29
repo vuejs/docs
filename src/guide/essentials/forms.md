@@ -41,7 +41,7 @@ In addition, `v-model` can be used on inputs of different types, `<textarea>`, a
 
 - `<input>` with text types and `<textarea>` elements use `value` property and `input` event;
 - `<input type="checkbox">` and `<input type="radio">` use `checked` property and `change` event;
-- `<select>` use `value` as a prop and `change` as an event.
+- `<select>` uses `value` as a prop and `change` as an event.
 
 ::: tip Note
 `v-model` will ignore the initial `value`, `checked` or `selected` attributes found on any form elements. It will always treat the current bound JavaScript state as the source of truth. You should declare the initial value on the JavaScript side, using <span class="options-api">the [`data`](/api/options-state.html#data) option</span><span class="composition-api">[reactivity APIs](/api/reactivity-core.html#reactivity-api-core)</span>.
@@ -163,26 +163,26 @@ export default {
 ```vue-html
 <div>Checked names: {{ checkedNames }}</div>
 
-<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+<input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
 <label for="jack">Jack</label>
 
-<input type="checkbox" id="john" value="John" v-model="checkedNames">
+<input type="checkbox" id="john" value="John" v-model="checkedNames" />
 <label for="john">John</label>
 
-<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+<input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
 <label for="mike">Mike</label>
 ```
 
 <div class="demo">
   <div>Checked names: {{ checkedNames }}</div>
 
-  <input type="checkbox" id="demo-jack" value="Jack" v-model="checkedNames">
+  <input type="checkbox" id="demo-jack" value="Jack" v-model="checkedNames" />
   <label for="demo-jack">Jack</label>
 
-  <input type="checkbox" id="demo-john" value="John" v-model="checkedNames">
+  <input type="checkbox" id="demo-john" value="John" v-model="checkedNames" />
   <label for="demo-john">John</label>
 
-  <input type="checkbox" id="demo-mike" value="Mike" v-model="checkedNames">
+  <input type="checkbox" id="demo-mike" value="Mike" v-model="checkedNames" />
   <label for="demo-mike">Mike</label>
 </div>
 
@@ -341,7 +341,7 @@ export default {
 
 ```vue-html
 <select v-model="selected">
-  <option v-for="option in options" :key="option.value" :value="option.value">
+  <option v-for="option in options" :value="option.value">
     {{ option.text }}
   </option>
 </select>

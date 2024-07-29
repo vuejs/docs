@@ -126,7 +126,7 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
 
-- **See also** [`<Transition>` Guide](/guide/built-ins/transition)
+- **See also** [Guide - Transition](/guide/built-ins/transition)
 
 ## `<TransitionGroup>` {#transitiongroup}
 
@@ -294,17 +294,17 @@ Renders its slot content to another part of the DOM.
   Specifying target container:
 
   ```vue-html
-  <teleport to="#some-id" />
-  <teleport to=".some-class" />
-  <teleport to="[data-teleport]" />
+  <Teleport to="#some-id" />
+  <Teleport to=".some-class" />
+  <Teleport to="[data-teleport]" />
   ```
 
   Conditionally disabling:
 
   ```vue-html
-  <teleport to="#popup" :disabled="displayVideoInline">
+  <Teleport to="#popup" :disabled="displayVideoInline">
     <video src="./my-movie.mp4">
-  </teleport>
+  </Teleport>
   ```
 
 - **See also** [Guide - Teleport](/guide/built-ins/teleport)
@@ -318,6 +318,7 @@ Used for orchestrating nested async dependencies in a component tree.
   ```ts
   interface SuspenseProps {
     timeout?: string | number
+    suspensible?: boolean
   }
   ```
 
@@ -332,5 +333,7 @@ Used for orchestrating nested async dependencies in a component tree.
   `<Suspense>` accepts two slots: the `#default` slot and the `#fallback` slot. It will display the content of the fallback slot while rendering the default slot in memory.
 
   If it encounters async dependencies ([Async Components](/guide/components/async) and components with [`async setup()`](/guide/built-ins/suspense#async-setup)) while rendering the default slot, it will wait until all of them are resolved before displaying the default slot.
+
+  By setting the Suspense as `suspensible`, all the async dependency handling will be handled by the parent Suspense. See [implementation details](https://github.com/vuejs/core/pull/6736)
 
 - **See also** [Guide - Suspense](/guide/built-ins/suspense)

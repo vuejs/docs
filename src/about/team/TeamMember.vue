@@ -9,7 +9,7 @@ import {
   VTIconLink,
   VTIconLinkedIn,
   VTIconMapPin,
-  VTIconTwitter,
+  VTIconX,
   VTLink
 } from '@vue/theme'
 import type { Member } from './Member'
@@ -24,6 +24,10 @@ const avatarUrl = computed(() => {
     `https://www.github.com/${props.member.socials.github}.png`
   )
 })
+
+function arrayify(value: string | string[]): string[] {
+  return Array.isArray(value) ? value : [value]
+}
 </script>
 
 <template>
@@ -93,9 +97,15 @@ const avatarUrl = computed(() => {
             <h2 class="sr-only">Location</h2>
             <VTIconMapPin class="desc-icon" />
           </div>
-          <p class="desc-text">
-            {{ member.location }}
-          </p>
+          <ul class="desc-list">
+            <li
+              v-for="location in arrayify(member.location)"
+              :key="location"
+              class="desc-item"
+            >
+              {{ location }}
+            </li>
+          </ul>
         </section>
 
         <section class="desc">
@@ -146,7 +156,7 @@ const avatarUrl = computed(() => {
               :href="`https://twitter.com/${member.socials.twitter}`"
               :no-icon="true"
             >
-              <VTIconTwitter class="social-icon" />
+              <VTIconX class="social-icon" />
             </VTLink>
           </li>
           <li v-if="member.socials.linkedin" class="social-item">

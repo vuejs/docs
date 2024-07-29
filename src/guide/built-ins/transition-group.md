@@ -21,7 +21,7 @@ import ListStagger from './transition-demos/ListStagger.vue'
 - CSS transition classes will be applied to individual elements in the list, **not** to the group / container itself.
 
 :::tip
-When used in [DOM templates](/guide/essentials/component-basics#dom-template-parsing-caveats), it should be referenced as `<transition-group>`.
+When used in [in-DOM templates](/guide/essentials/component-basics#in-dom-template-parsing-caveats), it should be referenced as `<transition-group>`.
 :::
 
 ## Enter / Leave Transitions {#enter-leave-transitions}
@@ -102,7 +102,7 @@ By communicating with JavaScript transitions through data attributes, it's also 
 </TransitionGroup>
 ```
 
-Then, in JavaScript hooks, we animate the element with a delay based on the data attribute. This example is using the [GreenSock library](https://greensock.com/) to perform the animation:
+Then, in JavaScript hooks, we animate the element with a delay based on the data attribute. This example is using the [GSAP library](https://gsap.com/) to perform the animation:
 
 ```js{5}
 function onEnter(el, done) {

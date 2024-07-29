@@ -1,5 +1,5 @@
 <script setup>
-import TestingApiSwitcher from './TestingApiSwitcher.vue'
+import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 </script>
 
 # Testing {#testing}
@@ -24,7 +24,7 @@ When designing your Vue application's testing strategy, you should leverage the 
 - **Component**: Checks that your component mounts, renders, can be interacted with, and behaves as expected. These tests import more code than unit tests, are more complex, and require more time to execute.
 - **End-to-end**: Checks features that span multiple pages and makes real network requests against your production-built Vue application. These tests often involve standing up a database or other backend.
 
-Each testing type plays a role in your application's testing strategy and each will protect you against different types of issues.
+Each testing type plays a role in your application's testing strategy, and each will protect you against different types of issues.
 
 ## Overview {#overview}
 
@@ -82,7 +82,7 @@ There are two instances where you DO unit test Vue-specific features:
 
 ### Composables {#composables}
 
-One category of functions specific to Vue applications are [Composables](/guide/reusability/composables), which may require special handling during tests.
+One category of functions specific to Vue applications is [Composables](/guide/reusability/composables), which may require special handling during tests.
 See [Testing Composables](#testing-composables) below for more details.
 
 ### Unit Testing Components {#unit-testing-components}
@@ -105,9 +105,7 @@ A component can be tested in two ways:
 
 ### Other Options {#other-options}
 
-- [Peeky](https://peeky.dev/) is another fast unit test runner with first-class Vite integration. It is also created by a Vue core team member and offers a GUI-based testing interface.
-
-- [Jest](https://jestjs.io/) is a popular unit testing framework, and can be made to work with Vite via the [vite-jest](https://github.com/sodatea/vite-jest) package. However, we only recommend Jest if you have an existing Jest test suite that needs to be migrated over to a Vite-based project, as Vitest offers a more seamless integration and better performance.
+- [Jest](https://jestjs.io/) is a popular unit testing framework. However, we only recommend Jest if you have an existing Jest test suite that needs to be migrated over to a Vite-based project, as Vitest offers a more seamless integration and better performance.
 
 ## Component Testing {#component-testing}
 
@@ -128,72 +126,68 @@ Component tests should focus on the component's public interfaces rather than in
 
   We know nothing about the implementation of Stepper, only that the "input" is the `max` prop and the "output" is the state of the DOM as the user will see it.
 
-<TestingApiSwitcher>
+<VTCodeGroup>
+  <VTCodeGroupTab label="Vue Test Utils">
 
-<div class="testing-library-api">
+  ```js
+  const valueSelector = '[data-testid=stepper-value]'
+  const buttonSelector = '[data-testid=increment]'
 
-```js
-const { getByText } = render(Stepper, {
-  props: {
-    max: 1
-  }
-})
+  const wrapper = mount(Stepper, {
+    props: {
+      max: 1
+    }
+  })
 
-getByText('0') // Implicit assertion that "0" is within the component
+  expect(wrapper.find(valueSelector).text()).toContain('0')
 
-const button = getByText('increment')
+  await wrapper.find(buttonSelector).trigger('click')
 
-// Dispatch a click event to our increment button.
-await fireEvent.click(button)
+  expect(wrapper.find(valueSelector).text()).toContain('1')
+  ```
 
-getByText('1')
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="Cypress">
 
-await fireEvent.click(button)
-```
+  ```js
+  const valueSelector = '[data-testid=stepper-value]'
+  const buttonSelector = '[data-testid=increment]'
 
-</div>
+  mount(Stepper, {
+    props: {
+      max: 1
+    }
+  })
 
-<div class="vtu-api">
+  cy.get(valueSelector).should('be.visible').and('contain.text', '0')
+    .get(buttonSelector).click()
+    .get(valueSelector).should('contain.text', '1')
+  ```
 
-```js
-const valueSelector = '[data-testid=stepper-value]'
-const buttonSelector = '[data-testid=increment]'
+  </VTCodeGroupTab>
+  <VTCodeGroupTab label="Testing Library">
 
-const wrapper = mount(Stepper, {
-  props: {
-    max: 1
-  }
-})
+  ```js
+  const { getByText } = render(Stepper, {
+    props: {
+      max: 1
+    }
+  })
 
-expect(wrapper.find(valueSelector).text()).toContain('0')
+  getByText('0') // Implicit assertion that "0" is within the component
 
-await wrapper.find(buttonSelector).trigger('click')
+  const button = getByRole('button', { name: /increment/i })
 
-expect(wrapper.find(valueSelector).text()).toContain('1')
-```
+  // Dispatch a click event to our increment button.
+  await fireEvent.click(button)
 
-</div>
+  getByText('1')
 
-<div class="cypress-api">
+  await fireEvent.click(button)
+  ```
 
-```js
-const valueSelector = '[data-testid=stepper-value]'
-const buttonSelector = '[data-testid=increment]'
-
-mount(Stepper, {
-  props: {
-    max: 1
-  }
-})
-
-cy.get(valueSelector).should('be.visible').and('contain.text', '0')
-  .get(buttonSelector).click()
-  .get(valueSelector).should('contain.text', '1')
-```
-
-</div>
-
-</TestingApiSwitcher>
+  </VTCodeGroupTab>
+</VTCodeGroup>
 
 - **DON'T**
 
@@ -209,7 +203,7 @@ cy.get(valueSelector).should('be.visible').and('contain.text', '0')
 
 - [Vitest](https://vitest.dev/) for components or composables that render headlessly (e.g. the [`useFavicon`](https://vueuse.org/core/useFavicon/#usefavicon) function in VueUse). Components and DOM can be tested using [`@vue/test-utils`](https://github.com/vuejs/test-utils).
 
-- [Cypress Component Testing](https://on.cypress.io/component) for components whose expected behavior depends on properly rendering styles or triggering native DOM events. Can be used with Testing Library via [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro).
+- [Cypress Component Testing](https://on.cypress.io/component) for components whose expected behavior depends on properly rendering styles or triggering native DOM events. It can be used with Testing Library via [@testing-library/cypress](https://testing-library.com/docs/cypress-testing-library/intro).
 
 The main differences between Vitest and browser-based runners are speed and execution context. In short, browser-based runners, like Cypress, can catch issues that node-based runners, like Vitest, cannot (e.g. style issues, real native DOM events, cookies, local storage, and network failures), but browser-based runners are _orders of magnitude slower than Vitest_ because they do open a browser, compile your stylesheets, and more. Cypress is a browser-based runner that supports component testing. Please read [Vitest's comparison page](https://vitest.dev/guide/comparisons.html#cypress) for the latest information comparing Vitest and Cypress.
 
@@ -227,7 +221,7 @@ We recommend using `@vue/test-utils` for testing components in applications. `@t
 
 - [Nightwatch](https://nightwatchjs.org/) is an E2E test runner with Vue Component Testing support. ([Example Project](https://github.com/nightwatchjs-community/todo-vue))
 
-- [WebdriverIO](https://webdriver.io/docs/component-testing/vue) for cross browser component testing that relies on native user interaction based on standardised automation. Can also be used with Testing Library. 
+- [WebdriverIO](https://webdriver.io/docs/component-testing/vue) for cross-browser component testing that relies on native user interaction based on standardized automation. It can also be used with Testing Library. 
 
 ## E2E Testing {#e2e-testing}
 
@@ -237,11 +231,11 @@ End-to-end tests focus on multi-page application behavior that makes network req
 
 End-to-end tests will often catch issues with your router, state management library, top-level components (e.g. an App or Layout), public assets, or any request handling. As stated above, they catch critical issues that may be impossible to catch with unit tests or component tests.
 
-End-to-end tests do not import any of your Vue application's code, but instead rely completely on testing your application by navigating through entire pages in a real browser.
+End-to-end tests do not import any of your Vue application's code but instead rely completely on testing your application by navigating through entire pages in a real browser.
 
-End-to-end tests validate many of the layers in your application. They can either target your locally built application, or even a live Staging environment. Testing against your Staging environment not only includes your frontend code and static server, but all associated backend services and infrastructure.
+End-to-end tests validate many of the layers in your application. They can either target your locally built application or even a live Staging environment. Testing against your Staging environment not only includes your frontend code and static server but all associated backend services and infrastructure.
 
-> The more your tests resemble the way your software is used, the more confidence they can give you. - [Kent C. Dodds](https://twitter.com/kentcdodds/status/977018512689455106) - Author of the Testing Library
+> The more your tests resemble how your software is used, the more confidence they can give you. - [Kent C. Dodds](https://twitter.com/kentcdodds/status/977018512689455106) - Author of the Testing Library
 
 By testing how user actions impact your application, E2E tests are often the key to higher confidence in whether an application is functioning properly or not.
 
@@ -251,31 +245,31 @@ While end-to-end (E2E) testing on the web has gained a negative reputation for u
 
 #### Cross-browser testing {#cross-browser-testing}
 
-One of the primary benefits that end-to-end (E2E) testing is known for is its ability to test your application across multiple browsers. While it may seem desirable to have 100% cross-browser coverage, it is important to note that cross browser testing has diminishing returns on a team's resources due the additional time and machine power required to run them consistently. As a result, it is important to be mindful of this trade-off when choosing the amount of cross-browser testing your application needs.
+One of the primary benefits that end-to-end (E2E) testing is known for is its ability to test your application across multiple browsers. While it may seem desirable to have 100% cross-browser coverage, it is important to note that cross browser testing has diminishing returns on a team's resources due to the additional time and machine power required to run them consistently. As a result, it is important to be mindful of this trade-off when choosing the amount of cross-browser testing your application needs.
 
 #### Faster feedback loops {#faster-feedback-loops}
 
-One of the primary problems with end-to-end (E2E) tests and development is that running the entire suite takes a long time. Typically, this is only done in continuous integration and deployment (CI/CD) pipelines. Modern E2E testing frameworks have helped to solve this by adding features like parallelization, which allows for CI/CD pipelines to often run magnitudes faster than before. In addition, when developing locally, the ability to selectively run a single test for the page you are working on while also providing hot reloading of tests can help to boost a developer's workflow and productivity.
+One of the primary problems with end-to-end (E2E) tests and development is that running the entire suite takes a long time. Typically, this is only done in continuous integration and deployment (CI/CD) pipelines. Modern E2E testing frameworks have helped to solve this by adding features like parallelization, which allows for CI/CD pipelines to often run magnitudes faster than before. In addition, when developing locally, the ability to selectively run a single test for the page you are working on while also providing hot reloading of tests can help boost a developer's workflow and productivity.
 
 #### First-class debugging experience {#first-class-debugging-experience}
 
-While developers have traditionally relied on scanning logs in a terminal window to help determine what went wrong in a test, modern end-to-end (E2E) test frameworks allow developers to leverage tools that they are already familiar with, e.g. browser developer tools.
+While developers have traditionally relied on scanning logs in a terminal window to help determine what went wrong in a test, modern end-to-end (E2E) test frameworks allow developers to leverage tools they are already familiar with, e.g. browser developer tools.
 
 #### Visibility in headless mode {#visibility-in-headless-mode}
 
-When end-to-end (E2E) tests are run in continuous integration / deployment pipelines, they are often run in headless browsers (i.e., no visible browser is opened for the user to watch). A critical feature of modern E2E testing frameworks is the ability to see snapshots and/or videos of the application during testing, providing some insight into why errors are happening. Historically, it was tedious to maintain these integrations.
+When end-to-end (E2E) tests are run in continuous integration/deployment pipelines, they are often run in headless browsers (i.e., no visible browser is opened for the user to watch). A critical feature of modern E2E testing frameworks is the ability to see snapshots and/or videos of the application during testing, providing some insight into why errors are happening. Historically, it was tedious to maintain these integrations.
 
 ### Recommendation {#recommendation-2}
 
 - [Cypress](https://www.cypress.io/)
 
-  Overall, we believe Cypress provides the most complete E2E solution with features like an informative graphical interface, excellent debuggability, built-in assertions and stubs, flake-resistance, parallelization, and snapshots. As mentioned above, it also provides support for [Component Testing](https://docs.cypress.io/guides/component-testing/introduction). However, it only supports Chromium-based browsers and Firefox.
+  Overall, we believe Cypress provides the most complete E2E solution with features like an informative graphical interface, excellent debuggability, built-in assertions, stubs, flake-resistance, parallelization, and snapshots. As mentioned above, it also provides support for [Component Testing](https://docs.cypress.io/guides/component-testing/introduction). It supports Chromium-based browsers, Firefox, and Electron. WebKit support is available, but marked experimental.
 
 ### Other Options {#other-options-2}
 
-- [Playwright](https://playwright.dev/) is also a great E2E testing solution with a wider range of browser support (mainly WebKit). See [Why Playwright](https://playwright.dev/docs/why-playwright) for more details.
+- [Playwright](https://playwright.dev/) is also a great E2E testing solution that supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation of Google Chrome for Android and Mobile Safari.
 
-- [Nightwatch](https://nightwatchjs.org/) is an E2E testing solution based on [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). This gives it the widest browser support range.
+- [Nightwatch](https://nightwatchjs.org/) is an E2E testing solution based on [Selenium WebDriver](https://www.npmjs.com/package/selenium-webdriver). This gives it the widest browser support range, including native mobile testing. Selenium-based solutions will be slower than Playwright or Cypress.
 
 - [WebdriverIO](https://webdriver.io/) is a test automation framework for web and mobile testing based on the WebDriver protocol.
 
@@ -308,7 +302,7 @@ export default defineConfig({
 ```
 
 :::tip
-If you are using TypeScript, add `vitest/globals` to the `types` field in your `tsconfig.json`.
+If you use TypeScript, add `vitest/globals` to the `types` field in your `tsconfig.json`.
 
 ```json
 // tsconfig.json
@@ -322,7 +316,7 @@ If you are using TypeScript, add `vitest/globals` to the `types` field in your `
 
 :::
 
-Then create a file ending in `*.test.js` in your project. You can place all test files in a test directory in project root, or in test directories next to your source files. Vitest will automatically search for them using the naming convention.
+Then, create a file ending in `*.test.js` in your project. You can place all test files in a test directory in the project root or in test directories next to your source files. Vitest will automatically search for them using the naming convention.
 
 ```js
 // MyComponent.test.js
@@ -367,7 +361,7 @@ A composable depends on a host component instance when it uses the following API
 - Lifecycle hooks
 - Provide / Inject
 
-If a composable only uses Reactivity APIs, then it can be tested by directly invoking it and asserting its returned state / methods:
+If a composable only uses Reactivity APIs, then it can be tested by directly invoking it and asserting its returned state/methods:
 
 ```js
 // counter.js
@@ -414,7 +408,7 @@ export function withSetup(composable) {
   })
   app.mount(document.createElement('div'))
   // return the result and the app instance
-  // for testing provide / unmount
+  // for testing provide/unmount
   return [result, app]
 }
 ```

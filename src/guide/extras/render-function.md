@@ -241,13 +241,23 @@ Vue's type definition also provides type inference for TSX usage. When using TSX
 
 ### JSX Type Inference {#jsx-type-inference}
 
-Similar to the transform, Vue's JSX also needs different type definitions. Currently, Vue's types automatically registers Vue's JSX types globally. This means TSX will work out of the box when Vue's type is available.
+Similar to the transform, Vue's JSX also needs different type definitions.
 
-The global JSX types may cause conflict with used together with other libraries that also needs JSX type inference, in particular React. Starting in 3.3, Vue supports specifying JSX namespace via TypeScript's [jsxImportSource](https://www.typescriptlang.org/tsconfig#jsxImportSource) option. We plan to remove the default global JSX namespace registration in 3.4.
+Starting in Vue 3.4, Vue no longer implicitly registers the global `JSX` namespace. To instruct TypeScript to use Vue's JSX type definitions, make sure to include the following in your `tsconfig.json`:
 
-For TSX users, it is suggested to set [jsxImportSource](https://www.typescriptlang.org/tsconfig#jsxImportSource) to `'vue'` in `tsconfig.json` after upgrading to 3.3, or opt-in per file with `/* @jsxImportSource vue */`. This will allow you to opt-in to the new behavior now and upgrade seamlessly when 3.4 releases.
+```json
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "vue"
+    // ...
+  }
+}
+```
 
-If there is code that depends on the presence of the global `JSX` namespace,  you can retain the exact pre-3.4 global behavior by explicitly referencing `vue/jsx`, which registers the global `JSX` namespace.
+You can also opt-in per file by adding a `/* @jsxImportSource vue */` comment at the top of the file.
+
+If there is code that depends on the presence of the global `JSX` namespace,  you can retain the exact pre-3.4 global behavior by explicitly importing or referencing `vue/jsx` in your project, which registers the global `JSX` namespace.
 
 ## Render Function Recipes {#render-function-recipes}
 
@@ -357,7 +367,7 @@ h(
       /* ... */
     }
   },
-  'click me'
+  'Click Me'
 )
 ```
 
@@ -367,7 +377,7 @@ h(
     /* ... */
   }}
 >
-  click me
+  Click Me
 </button>
 ```
 
@@ -567,6 +577,41 @@ JSX equivalent:
 
 Passing slots as functions allows them to be invoked lazily by the child component. This leads to the slot's dependencies being tracked by the child instead of the parent, which results in more accurate and efficient updates.
 
+### Scoped Slots {#scoped-slots}
+
+To render a scoped slot in the parent component, a slot is passed to the child. Notice how the slot now has a parameter `text`. The slot will be called in the child component and the data from the child component will be passed up to the parent component.
+
+```js
+// parent component
+export default {
+  setup() {
+    return () => h(MyComp, null, {
+      default: ({ text }) => h('p', text)
+    })
+  }
+}
+```
+
+Remember to pass `null` so the slots will not be treated as props.
+
+```js
+// child component
+export default {
+  setup(props, { slots }) {
+    const text = ref('hi')
+    return () => h('div', null, slots.default({ text: text.value }))
+  }
+}
+```
+
+JSX equivalent:
+
+```jsx
+<MyComponent>{{
+  default: ({ text }) => <p>{ text }</p>  
+}}</MyComponent>
+```
+
 ### Built-in Components {#built-in-components}
 
 [Built-in components](/api/built-in-components) such as `<KeepAlive>`, `<Transition>`, `<TransitionGroup>`, `<Teleport>` and `<Suspense>` must be imported for use in render functions:
@@ -742,7 +787,7 @@ Functional components can be registered and consumed just like normal components
 
 ### Typing Functional Components<sup class="vt-badge ts" /> {#typing-functional-components}
 
-Functional Components can be typed based on whether they are named or anonymous. Volar also supports type checking properly typed functional components when consuming them in SFC templates.
+Functional Components can be typed based on whether they are named or anonymous. [Vue - Official extension](https://github.com/vuejs/language-tools) also supports type checking properly typed functional components when consuming them in SFC templates.
 
 **Named Functional Component**
 

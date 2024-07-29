@@ -53,6 +53,7 @@
   {
     "name": "Monterail",
     "logo": "monterail.png",
+    "hero": "monterail-hero.png",
     "flipLogo": true,
     "intro": "Monterail is a full-service software development company from Poland. Since 2010, we have been building innovative software for start-ups, SMBs, and enterprises from various industries globally. Our Vue experts, using battle-tested technologies and frameworks, have delivered more than 30 Vue-based projects.",
     "description": [
@@ -77,7 +78,7 @@
     "region": ["Europe"],
     "website": {
       "text": "www.monterail.com",
-      "url": "https://www.monterail.com/services/vue-js-development/?utm_source=vuejs.org"
+      "url": "https://www.monterail.com/services/vue/?utm_source=vuejs.org"
     },
     "contact": "hello@monterail.com",
     "hiring": "https://www.monterail.com/careers?utm_source=vuejs.org&utm_medium=referral&utm_campaign=partner-hiring-link",
@@ -86,39 +87,31 @@
   {
     "name": "Curotec",
     "logo": "curotec.png",
-    "intro": "Our clients leverage our deep Vue.js & Nuxt.js expertise to develop better digital products and quickly expand their product development team velocity.",
+    "intro": "Work with a team that understands Vue.js inside and out. SaaS and enterprise teams leverage Curotec for best-in-class project execution and staff augmentation services focused on Vue.js.",
     "description": [
-      "Curotec approaches software development and IT support differently – address the business problems that our clients tell us they need to have solved with technology and with the right resources at the right time. That starts with understanding your challenges and pairing it with solutions and talent to get the outcome you’re driving for.",
-      "The result? Products that are responsive to your needs and primed for your growth, while ensuring your applications have a clean and straightforward end-user experience. And with well-developed and elegantly written code, it’s seamless for us to support and maintain as your needs evolve."
+      "Whether you need a firm to build your idea, support an existing codebase, or augment your front-end dev team, we’ve got you covered. SaaS and enterprise product teams turn to Curotec for a firm that can get the job done right.",
+      "We've got an all-shores model with team members in the US, LATAM, and South Asia. We'll create a flexible engagement for your needs aligned with your budget, timezone, and project goals. We also cover three main focus areas which include:",
+      "- Enterprise software development",
+      "- SaaS product development",
+      "- Headless / Jamstack website development",
+      "If you're looking for a Vue.js-focused front-end development team that writes great quality code and gets stuff done, click the contact button below and get in touch!"
     ],
     "region": ["North America", "Latin America"],
-    "proficiencies": ["Vue", "Nuxt", "Laravel", "Jamstack"],
+    "proficiencies": [
+      "Vue.js",
+      "Nuxt",
+      "Laravel",
+      "Headless",
+      "Node.js",
+      "Python",
+      "WordPress"
+    ],
     "website": {
       "text": "www.curotec.com",
       "url": "https://www.curotec.com/services/technologies/vuejs/"
     },
     "contact": "sales@curotec.com",
     "hiring": "https://www.curotec.com/careers?source=vuejs-partner",
-    "platinum": true
-  },
-  {
-    "name": "Tighten",
-    "logo": "tighten.svg",
-    "flipLogo": true,
-    "intro": "Treat people well, solve the right problems, build spectacular software—that's how we roll. We're ultra-focused and deeply experienced in the technology powering modern business, including Vue.js. Via our signature method, our meticulously assembled team delivers unparalleled service, helping you do more with your software, and do right by your business.",
-    "description": [
-      "Empathetically opinionated, expertly executed development. That's what we deliver.",
-      "At Tighten, we sweat the hell out of the details to give your app the fit-and-finish today's users expect, while giving you the clarity and confidence to charge ahead.",
-      "Whether you’re looking to simply enhance a user interface or build a sophisticated JavaScript-based application, we’ve got you covered. Vue.js is a flexible and robust framework, capable of powering a complex single-page application. We typically combine it with a Laravel-based API.",
-      "If you're building a development team, you know it takes time and diligence, and it could be the make-or-break factor for your business. Companies turn to Tighten at key turning points, to propel their technology forward while they assemble the <b>right</b> team for their business."
-    ],
-    "region": ["North America", "Europe", "Latin America"],
-    "proficiencies": ["Vue", "Nuxt", "Laravel", "Inertia", "Tailwind"],
-    "website": {
-      "text": "tighten.com",
-      "url": "https://tighten.com/vue"
-    },
-    "contact": "hello@tighten.co",
     "platinum": true
   },
   {
@@ -163,56 +156,6 @@
     },
     "contact": "we@webreinvent.com",
     "hiring": "https://webreinvent.com/career?utm_source=vuejs.org&utm_medium=website&utm_campaign=partner-hiring-link"
-  },
-  {
-    "name": "Dreamonkey",
-    "logo": "dreamonkey.png",
-    "hero": "dreamonkey-hero.png",
-    "intro": "We are an Italian software house, including international team collaborators, with 8 years of experience in software design and development. We build software from scratch or re-design it and support other companies’ teams, especially for industrial IoT, delivery, finance, medical, automotive and supply chain, working mostly for American and Canadian clients. We are proud sponsors of the Quasar framework and members of its core team.",
-    "description": [
-      "Our stack includes Vue, Quasar, Laravel and, when requested, Angular too. We strive to produce high quality, clean and well-documented code, making it rock-solid by means of automatic tests. Our frontend follows the main guidelines of Google Material Design.",
-      "We are able to lead projects from the very start to their deployment, including requirements analysis, UX/UI design, design assets hand-off, development and setup of CI/CD pipelines on AWS. We can merge with the client’s agile methodology and, when requested, we can take care of project management too with a dedicated professional.",
-      "We have experience with different project complexity, from startup to enterprise-level. We can provide static UIs, working MPVs, fully operative SPA or mobile apps. We also split our team in order to provide the client just with the specific expertise that is needed, be it development, design or just a feasibility analysis.",
-      "If you need to integrate new skills in your team, we can structure a training program focusing on development or design topics of your interest and help your employees progress with dedicated lessons."
-    ],
-    "proficiencies": [
-      "Vue",
-      "Quasar",
-      "Angular",
-      "Capacitor",
-      "Laravel",
-      "Node.js",
-      "NestJS",
-      "UX Design",
-      "AWS"
-    ],
-    "region": ["Europe", "North America"],
-    "website": {
-      "text": "dreamonkey.com",
-      "url": "https://dreamonkey.com/en/vue-partner"
-    },
-    "contact": "info@dreamonkey.com",
-    "hiring": "https://dreamonkey.com/en/work-with-us"
-  },
-  {
-    "name": "Jump24",
-    "logo": "jump24.svg",
-    "flipLogo": true,
-    "hero": "jump24-hero.jpg",
-    "intro": "Hand crafted software, delivered. We work alongside start-ups, enterprises and tech teams creating bespoke web software solutions that will help them grow. Honing our skills since 2013, our strength is our people. We design and build custom applications to the highest standard, so you can reap the benefits.",
-    "description": [
-      "Jump24 is a full-circle development studio that brings ideas to life. From our base in the UK, we’ve worked closely over the years with clients in Europe and the United States, including Jamie Oliver, Admiral, InPost and Buffer. With a team of 16 developers, you’ll be in safe hands with us.",
-      "Long-lasting relationships are our speciality. Whether you’re a startup, enterprise or agency, your story is important to us. We focus on the minute details to help create something that reflects you and your business.",
-      "We’re a talkative bunch, so to find out even more about us, head to our Twitter and LinkedIn."
-    ],
-    "proficiencies": ["Vue", "Laravel", "Tailwind", "Inertia", "React"],
-    "region": ["Europe"],
-    "website": {
-      "text": "jump24.co.uk",
-      "url": "https://jump24.co.uk/vue-specialist/"
-    },
-    "contact": "hello@jump24.co.uk",
-    "hiring": "jump24.co.uk/careers"
   },
   {
     "name": "HeroDevs",

@@ -148,7 +148,7 @@ export default {
 <span>{{ greetingMessage }}</span>
 ```
 
-Technically, you can also use camelCase when passing props to a child component (except in [DOM templates](/guide/essentials/component-basics#dom-template-parsing-caveats)). However, the convention is using kebab-case in all cases to align with HTML attributes:
+Technically, you can also use camelCase when passing props to a child component (except in [in-DOM templates](/guide/essentials/component-basics#in-dom-template-parsing-caveats)). However, the convention is using kebab-case in all cases to align with HTML attributes:
 
 ```vue-html
 <MyComponent greeting-message="hello" />
@@ -389,13 +389,18 @@ defineProps({
     type: String,
     required: true
   },
-  // Number with a default value
+  // Required but nullable string
   propD: {
+    type: [String, null],
+    required: true
+  },
+  // Number with a default value
+  propE: {
     type: Number,
     default: 100
   },
   // Object with a default value
-  propE: {
+  propF: {
     type: Object,
     // Object or array defaults must be returned from
     // a factory function. The function receives the raw
@@ -405,16 +410,17 @@ defineProps({
     }
   },
   // Custom validator function
-  propF: {
-    validator(value) {
+  // full props passed as 2nd argument in 3.4+
+  propG: {
+    validator(value, props) {
       // The value must match one of these strings
       return ['success', 'warning', 'danger'].includes(value)
     }
   },
   // Function with a default value
-  propG: {
+  propH: {
     type: Function,
-    // Unlike object or array default, this is not a factory 
+    // Unlike object or array default, this is not a factory
     // function - this is a function to serve as a default value
     default() {
       return 'Default function'
@@ -443,13 +449,18 @@ export default {
       type: String,
       required: true
     },
-    // Number with a default value
+    // Required but nullable string
     propD: {
+      type: [String, null],
+      required: true
+    },
+    // Number with a default value
+    propE: {
       type: Number,
       default: 100
     },
     // Object with a default value
-    propE: {
+    propF: {
       type: Object,
       // Object or array defaults must be returned from
       // a factory function. The function receives the raw
@@ -459,16 +470,17 @@ export default {
       }
     },
     // Custom validator function
-    propF: {
-      validator(value) {
+    // full props passed as 2nd argument in 3.4+
+    propG: {
+      validator(value, props) {
         // The value must match one of these strings
         return ['success', 'warning', 'danger'].includes(value)
       }
     },
     // Function with a default value
-    propG: {
+    propH: {
       type: Function,
-      // Unlike object or array default, this is not a factory 
+      // Unlike object or array default, this is not a factory
       // function - this is a function to serve as a default value
       default() {
         return 'Default function'
@@ -517,6 +529,7 @@ The `type` can be one of the following native constructors:
 - `Date`
 - `Function`
 - `Symbol`
+- `Error`
 
 In addition, `type` can also be a custom class or constructor function and the assertion will be made with an `instanceof` check. For example, given the following class:
 
@@ -553,6 +566,39 @@ export default {
 </div>
 
 Vue will use `instanceof Person` to validate whether the value of the `author` prop is indeed an instance of the `Person` class.
+
+### Nullable Type {#nullable-type}
+
+If the type is required but nullable, you can use the array syntax that includes `null`:
+
+<div class="composition-api">
+
+```js
+defineProps({
+  id: {
+    type: [String, null],
+    required: true
+  }
+})
+```
+
+</div>
+<div class="options-api">
+
+```js
+export default {
+  props: {
+    id: {
+      type: [String, null],
+      required: true
+    }
+  }
+}
+```
+
+</div>
+
+Note that if `type` is just `null` without using the array syntax, it will allow any type.
 
 ## Boolean Casting {#boolean-casting}
 
@@ -598,17 +644,17 @@ When a prop is declared to allow multiple types, the casting rules for `Boolean`
 defineProps({
   disabled: [Boolean, Number]
 })
-  
+
 // disabled will be casted to true
 defineProps({
   disabled: [Boolean, String]
 })
-  
+
 // disabled will be casted to true
 defineProps({
   disabled: [Number, Boolean]
 })
-  
+
 // disabled will be parsed as an empty string (disabled="")
 defineProps({
   disabled: [String, Boolean]
@@ -625,21 +671,21 @@ export default {
     disabled: [Boolean, Number]
   }
 }
-  
+
 // disabled will be casted to true
 export default {
   props: {
     disabled: [Boolean, String]
   }
 }
-  
+
 // disabled will be casted to true
 export default {
   props: {
     disabled: [Number, Boolean]
   }
 }
-  
+
 // disabled will be parsed as an empty string (disabled="")
 export default {
   props: {

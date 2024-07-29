@@ -212,7 +212,7 @@ Imperative API for creating watchers.
 
 - **Details**
 
-  The first argument is the watch source. It can be a component property name string, a simple dot-delimited path string, or a getter function.
+  The first argument is the watch source. It can be a component property name string, a simple dot-delimited path string, or a [getter function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description).
 
   The second argument is the callback function. The callback receives the new value and the old value of the watched source.
 

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { Repl, ReplStore } from '@vue/repl'
-import { inject, watch, version, Ref, ref, computed, nextTick } from 'vue'
+import { Repl, useStore, useVueImportMap } from '@vue/repl'
+import CodeMirror from '@vue/repl/codemirror-editor'
+import { inject, watch, Ref, ref, computed, nextTick } from 'vue'
 import { data } from './tutorial.data'
 import {
   resolveSFCExample,
   resolveNoBuildExample,
   onHashChange
 } from '../examples/utils'
-import '@vue/repl/style.css'
 import PreferenceSwitch from '@theme/components/PreferenceSwitch.vue'
 import {
   VTFlyout,
@@ -16,8 +16,14 @@ import {
   VTLink
 } from '@vue/theme'
 
-const store = new ReplStore({
-  defaultVueRuntimeURL: `https://unpkg.com/vue@${version}/dist/vue.esm-browser.js`
+const { vueVersion, defaultVersion, importMap } = useVueImportMap({
+  runtimeDev: () =>
+    `https://unpkg.com/vue@${
+      vueVersion.value || defaultVersion
+    }/dist/vue.esm-browser.js`
+})
+const store = useStore({
+  builtinImportMap: importMap
 })
 
 const instruction = ref<HTMLElement>()
@@ -136,6 +142,7 @@ updateExample()
     </article>
     <Repl
       layout="vertical"
+      :editor="CodeMirror"
       :store="store"
       :showCompileOutput="false"
       :clearConsole="false"

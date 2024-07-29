@@ -6,11 +6,11 @@ What you see in the editor is a Vue Single-File Component (SFC). An SFC is a reu
 
 </div>
 
-The core feature of Vue is **declarative rendering**: using a template syntax that extends HTML, we can describe how the HTML should look like based on JavaScript state. When the state changes, the HTML updates automatically.
+The core feature of Vue is **declarative rendering**: using a template syntax that extends HTML, we can describe how the HTML should look based on JavaScript state. When the state changes, the HTML updates automatically.
 
 <div class="composition-api">
 
-State that can trigger updates when changed are considered **reactive**. We can declare reactive state using Vue's `reactive()` API. Objects created from `reactive()` are JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) that work just like normal objects:
+State that can trigger updates when changed is considered **reactive**. We can declare reactive state using Vue's `reactive()` API. Objects created from `reactive()` are JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) that work just like normal objects:
 
 ```js
 import { reactive } from 'vue'
@@ -63,7 +63,7 @@ Properties in the returned object will be made available in the template. This i
 
 ```vue-html
 <h1>{{ message }}</h1>
-<p>count is: {{ counter.count }}</p>
+<p>Count is: {{ counter.count }}</p>
 ```
 
 Notice how we did not need to use `.value` when accessing the `message` ref in templates: it is automatically unwrapped for more succinct usage.

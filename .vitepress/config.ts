@@ -17,6 +17,7 @@ const nav: ThemeConfig['nav'] = [
       { text: 'Quick Start', link: '/guide/quick-start' },
       // { text: 'Style Guide', link: '/style-guide/' },
       { text: 'Glossary', link: '/glossary/' },
+      { text: 'Error Reference', link: '/error-reference/' },
       {
         text: 'Vue 2 Docs',
         link: 'https://v2.vuejs.org'
@@ -45,9 +46,10 @@ const nav: ThemeConfig['nav'] = [
         items: [
           { text: 'Partners', link: '/partners/' },
           { text: 'Themes', link: '/ecosystem/themes' },
+          { text: 'UI Components', link: 'https://ui-libs.vercel.app/' },
           {
             text: 'Certification',
-            link: 'https://certification.vuejs.org/?ref=vuejs-nav'
+            link: 'https://certificates.dev/vuejs/?ref=vuejs-nav'
           },
           { text: 'Jobs', link: 'https://vuejobs.com/?ref=vuejs' },
           { text: 'T-Shirt Shop', link: 'https://vue.threadless.com/' }
@@ -111,6 +113,7 @@ const nav: ThemeConfig['nav'] = [
         link: '/about/community-guide'
       },
       { text: 'Code of Conduct', link: '/about/coc' },
+      { text: 'Privacy Policy', link: '/about/privacy' },
       {
         text: 'The Documentary',
         link: 'https://www.youtube.com/watch?v=OrxmtDw4pVI'
@@ -417,7 +420,8 @@ export const sidebar: ThemeConfig['sidebar'] = {
         { text: 'Render Function', link: '/api/render-function' },
         { text: 'Server-Side Rendering', link: '/api/ssr' },
         { text: 'TypeScript Utility Types', link: '/api/utility-types' },
-        { text: 'Custom Renderer', link: '/api/custom-renderer' }
+        { text: 'Custom Renderer', link: '/api/custom-renderer' },
+        { text: 'Compile-Time Flags', link: '/api/compile-time-flags' }
       ]
     }
   ],
@@ -567,15 +571,25 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   head: [
     ['meta', { name: 'theme-color', content: '#3c8772' }],
-    ['meta', { name: 'twitter:site', content: '@vuejs' }],
-    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { property: 'og:url', content: 'https://vuejs.org/' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: 'Vue.js' }],
     [
       'meta',
       {
-        name: 'twitter:image',
+        property: 'og:description',
+        content: 'Vue.js - The Progressive JavaScript Framework'
+      }
+    ],
+    [
+      'meta',
+      {
+        property: 'og:image',
         content: 'https://vuejs.org/images/logo.png'
       }
     ],
+    ['meta', { name: 'twitter:site', content: '@vuejs' }],
+    ['meta', { name: 'twitter:card', content: 'summary' }],
     [
       'link',
       {
@@ -588,6 +602,14 @@ export default defineConfigWithTheme<ThemeConfig>({
       {},
       fs.readFileSync(
         path.resolve(__dirname, './inlined-scripts/restorePreference.js'),
+        'utf-8'
+      )
+    ],
+    [
+      'script',
+      {},
+      fs.readFileSync(
+        path.resolve(__dirname, './inlined-scripts/uwu.js'),
         'utf-8'
       )
     ],
@@ -630,6 +652,46 @@ export default defineConfigWithTheme<ThemeConfig>({
         repo: 'https://github.com/vuejs-translations/docs-fr'
       },
       {
+        link: 'https://ko.vuejs.org',
+        text: '한국어',
+        repo: 'https://github.com/vuejs-translations/docs-ko'
+      },
+      {
+        link: 'https://pt.vuejs.org',
+        text: 'Português',
+        repo: 'https://github.com/vuejs-translations/docs-pt'
+      },
+      {
+        link: 'https://bn.vuejs.org',
+        text: 'বাংলা',
+        repo: 'https://github.com/vuejs-translations/docs-bn'
+      },
+      {
+        link: 'https://it.vuejs.org',
+        text: 'Italiano',
+        repo: 'https://github.com/vuejs-translations/docs-it'
+      },
+      {
+        link: 'https://fa.vuejs.org',
+        text: 'فارسی',
+        repo: 'https://github.com/vuejs-translations/docs-fa'
+      },
+      {
+        link: 'https://ru.vuejs.org',
+        text: 'Русский',
+        repo: 'https://github.com/translation-gang/docs-ru'
+      },
+      {
+        link: 'https://cs.vuejs.org',
+        text: 'Čeština',
+        repo: 'https://github.com/vuejs-translations/docs-cs'
+      },
+      {
+        link: 'https://zh-hk.vuejs.org',
+        text: '繁體中文',
+        repo: 'https://github.com/vuejs-translations/docs-zh-hk'
+      },
+      {
         link: '/translations/',
         text: 'Help Us Translate!',
         isTranslationsDesc: true
@@ -639,7 +701,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     algolia: {
       indexName: 'vuejs',
       appId: 'ML0LEBN7FQ',
-      apiKey: 'f49cbd92a74532cc55cfbffa5e5a7d01',
+      apiKey: '21cf9df0734770a2448a9da64a700c22',
       searchParameters: {
         facetFilters: ['version:v3']
       }
@@ -653,7 +715,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/' },
       { icon: 'twitter', link: 'https://twitter.com/vuejs' },
-      { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
+      { icon: 'discord', link: 'https://discord.com/invite/vue' }
     ],
 
     editLink: {
@@ -671,9 +733,10 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
 
   markdown: {
+    theme: 'github-dark',
     config(md) {
       md.use(headerPlugin)
-        // .use(textAdPlugin)
+      // .use(textAdPlugin)
     }
   },
 

@@ -79,6 +79,8 @@ To extract public facing props, i.e. props that the parent is allowed to pass, u
 
 Extract prop types from a runtime props options object. The extracted types are public facing - i.e. the props that the parent is allowed to pass.
 
+- Only supported in 3.3+.
+
 - **Example**
 
   ```ts

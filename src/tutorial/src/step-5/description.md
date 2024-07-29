@@ -34,7 +34,7 @@ function onInput(e) {
 
 Try typing in the input box - you should see the text in `<p>` updating as you type.
 
-To simplify two-way bindings, Vue provides a directive, `v-model`, which is essentially a syntax sugar for the above:
+To simplify two-way bindings, Vue provides a directive, `v-model`, which is essentially syntactic sugar for the above:
 
 ```vue-html
 <input v-model="text">

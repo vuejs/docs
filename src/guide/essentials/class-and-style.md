@@ -95,7 +95,13 @@ data() {
 <div :class="classObject"></div>
 ```
 
-This will render the same result. We can also bind to a [computed property](./computed) that returns an object. This is a common and powerful pattern:
+This will render:
+
+```vue-html
+<div class="active"></div>
+```
+
+We can also bind to a [computed property](./computed) that returns an object. This is a common and powerful pattern:
 
 <div class="composition-api">
 
@@ -183,7 +189,7 @@ This will always apply `errorClass`, but `activeClass` will only be applied when
 However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside the array syntax:
 
 ```vue-html
-<div :class="[{ active: isActive }, errorClass]"></div>
+<div :class="[{ [activeClass]: isActive }, errorClass]"></div>
 ```
 
 ### With Components {#with-components}
@@ -290,7 +296,7 @@ It is often a good idea to bind to a style object directly so that the template 
 ```js
 const styleObject = reactive({
   color: 'red',
-  fontSize: '13px'
+  fontSize: '30px'
 })
 ```
 

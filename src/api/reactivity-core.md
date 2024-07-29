@@ -35,24 +35,24 @@ Takes an inner value and returns a reactive and mutable ref object, which has a 
   const count = ref(0)
   console.log(count.value) // 0
 
-  count.value++
+  count.value = 1
   console.log(count.value) // 1
   ```
 
 - **See also**
-  - [Guide - Reactive Variables with `ref()`](/guide/essentials/reactivity-fundamentals#reactive-variables-with-ref)
+  - [Guide - Reactivity Fundamentals with `ref()`](/guide/essentials/reactivity-fundamentals#ref)
   - [Guide - Typing `ref()`](/guide/typescript/composition-api#typing-ref) <sup class="vt-badge ts" />
 
 ## computed() {#computed}
 
-Takes a getter function and returns a readonly reactive [ref](#ref) object for the returned value from the getter. It can also take an object with `get` and `set` functions to create a writable ref object.
+Takes a [getter function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description) and returns a readonly reactive [ref](#ref) object for the returned value from the getter. It can also take an object with `get` and `set` functions to create a writable ref object.
 
 - **Type**
 
   ```ts
   // read-only
   function computed<T>(
-    getter: () => T,
+    getter: (oldValue: T | undefined) => T,
     // see "Computed Debugging" link below
     debuggerOptions?: DebuggerOptions
   ): Readonly<Ref<Readonly<T>>>
@@ -60,7 +60,7 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
   // writable
   function computed<T>(
     options: {
-      get: () => T
+      get: (oldValue: T | undefined) => T
       set: (value: T) => void
     },
     debuggerOptions?: DebuggerOptions
@@ -112,6 +112,7 @@ Takes a getter function and returns a readonly reactive [ref](#ref) object for t
   - [Guide - Computed Properties](/guide/essentials/computed)
   - [Guide - Computed Debugging](/guide/extras/reactivity-in-depth#computed-debugging)
   - [Guide - Typing `computed()`](/guide/typescript/composition-api#typing-computed) <sup class="vt-badge ts" />
+  - [Guide - Performance - Computed Stability](/guide/best-practices/performance#computed-stability) <sup class="vt-badge" data-text="3.4+" />
 
 ## reactive() {#reactive}
 
@@ -360,6 +361,7 @@ Watches one or more reactive data sources and invokes a callback function when t
     flush?: 'pre' | 'post' | 'sync' // default: 'pre'
     onTrack?: (event: DebuggerEvent) => void
     onTrigger?: (event: DebuggerEvent) => void
+    once?: boolean // default: false (3.4+)
   }
   ```
 
@@ -386,6 +388,7 @@ Watches one or more reactive data sources and invokes a callback function when t
   - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
   - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth#watcher-debugging).
+  - **`once`**: run the callback only once. The watcher is automatically stopped after the first callback run. <sup class="vt-badge" data-text="3.4+" />
 
   Compared to [`watchEffect()`](#watcheffect), `watch()` allows us to:
 

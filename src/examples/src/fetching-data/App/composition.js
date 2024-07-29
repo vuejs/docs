@@ -6,7 +6,7 @@ const branches = ['main', 'v2-compat']
 export default {
   setup() {
     const currentBranch = ref(branches[0])
-    const commits = ref(null)
+    const commits = ref([])
 
     watchEffect(async () => {
       // this effect will run immediately and then

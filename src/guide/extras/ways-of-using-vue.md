@@ -47,13 +47,14 @@ There are two flavors of SSG: single-page and multi-page. Both flavors pre-rende
 
 Single-page SSGs are better suited if you expect non-trivial interactivity, deep session lengths, or persisted elements / state across navigations. Otherwise, multi-page SSG would be the better choice.
 
-The Vue team also maintains a static-site generator called [VitePress](https://vitepress.vuejs.org/), which powers this website you are reading right now! VitePress supports both flavors of SSG. [Nuxt](https://nuxt.com/) also supports SSG. You can even mix SSR and SSG for different routes in the same Nuxt app.
+The Vue team also maintains a static-site generator called [VitePress](https://vitepress.dev/), which powers this website you are reading right now! VitePress supports both flavors of SSG. [Nuxt](https://nuxt.com/) also supports SSG. You can even mix SSR and SSG for different routes in the same Nuxt app.
 
 ## Beyond the Web {#beyond-the-web}
 
 Although Vue is primarily designed for building web applications, it is by no means limited to just the browser. You can:
 
-- Build desktop apps with [Electron](https://www.electronjs.org/) or [Tauri](https://tauri.studio/en/)
+- Build desktop apps with [Electron](https://www.electronjs.org/)
 - Build mobile apps with [Ionic Vue](https://ionicframework.com/docs/vue/overview)
-- Build desktop and mobile apps from the same codebase with [Quasar](https://quasar.dev/)
-- Use Vue's [Custom Renderer API](/api/custom-renderer) to build custom renderers targeting [WebGL](https://troisjs.github.io/) or even [the terminal](https://github.com/vue-terminal/vue-termui)!
+- Build desktop and mobile apps from the same codebase with [Quasar](https://quasar.dev/) or [Tauri](https://tauri.app)
+- Build 3D WebGL experiences with [TresJS](https://tresjs.org/)
+- Use Vue's [Custom Renderer API](/api/custom-renderer) to build custom renderers, like those for [the terminal](https://github.com/vue-terminal/vue-termui)!

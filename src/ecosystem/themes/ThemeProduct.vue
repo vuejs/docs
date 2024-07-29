@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { VTLink } from '@vue/theme'
 
-const props = defineProps<{
+defineProps<{
   product: Record<string, any>
 }>()
 </script>

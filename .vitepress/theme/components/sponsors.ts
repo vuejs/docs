@@ -13,6 +13,7 @@ export interface Sponsor {
   img: string
   name: string
   description?: string
+  priority?: boolean
 }
 
 export interface SponsorData {

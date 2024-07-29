@@ -111,23 +111,23 @@ A directive definition object can provide several hook functions (all optional):
 const myDirective = {
   // called before bound element's attributes
   // or event listeners are applied
-  created(el, binding, vnode, prevVnode) {
+  created(el, binding, vnode) {
     // see below for details on arguments
   },
   // called right before the element is inserted into the DOM.
-  beforeMount(el, binding, vnode, prevVnode) {},
+  beforeMount(el, binding, vnode) {},
   // called when the bound element's parent component
   // and all its children are mounted.
-  mounted(el, binding, vnode, prevVnode) {},
+  mounted(el, binding, vnode) {},
   // called before the parent component is updated
   beforeUpdate(el, binding, vnode, prevVnode) {},
   // called after the parent component and
   // all of its children have updated
   updated(el, binding, vnode, prevVnode) {},
   // called before the parent component is unmounted
-  beforeUnmount(el, binding, vnode, prevVnode) {},
+  beforeUnmount(el, binding, vnode) {},
   // called when the parent component is unmounted
-  unmounted(el, binding, vnode, prevVnode) {}
+  unmounted(el, binding, vnode) {}
 }
 ```
 
@@ -147,7 +147,7 @@ Directive hooks are passed these arguments:
   - `dir`: the directive definition object.
 
 - `vnode`: the underlying VNode representing the bound element.
-- `prevNode`: the VNode representing the bound element from the previous render. Only available in the `beforeUpdate` and `updated` hooks.
+- `prevVnode`: the VNode representing the bound element from the previous render. Only available in the `beforeUpdate` and `updated` hooks.
 
 As an example, consider the following directive usage:
 
@@ -210,6 +210,11 @@ app.directive('demo', (el, binding) => {
 
 ## Usage on Components {#usage-on-components}
 
+:::warning Not recommended
+Using custom directives on components is not recommended. Unexpected behaviour may occur when a component has multiple root nodes.
+:::
+
+
 When used on components, custom directives will always apply to a component's root node, similar to [Fallthrough Attributes](/guide/components/attrs).
 
 ```vue-html
@@ -224,4 +229,4 @@ When used on components, custom directives will always apply to a component's ro
 </div>
 ```
 
-Note that components can potentially have more than one root node. When applied to a multi-root component, a directive will be ignored and a warning will be thrown. Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`. In general, it is **not** recommended to use custom directives on components.
+Note that components can potentially have more than one root node. When applied to a multi-root component, a directive will be ignored and a warning will be thrown. Unlike attributes, directives can't be passed to a different element with `v-bind="$attrs"`.

@@ -285,7 +285,7 @@ Execute a callback with the current app as injection context.
 
 - **Details**
 
-  Expects a callback function and runs the callback immediately. During the synchronous call of the callback,  `inject()` calls are able to look up injections from the values provided by the current app, even when there is no current active component instance. The return value of the callback will also be returned.
+  Expects a callback function and runs the callback immediately. During the synchronous call of the callback, `inject()` calls are able to look up injections from the values provided by the current app, even when there is no current active component instance. The return value of the callback will also be returned.
 
 - **Example**
 
@@ -373,6 +373,10 @@ Assign a global handler for uncaught errors propagating from within the applicat
   - Watchers
   - Custom directive hooks
   - Transition hooks
+
+  :::tip
+  In production, the 3rd argument (`info`) will be a shortened code instead of the full information string. You can find the code to string mapping in the [Production Error Code Reference](/error-reference/#runtime-errors).
+  :::
 
 - **Example**
 

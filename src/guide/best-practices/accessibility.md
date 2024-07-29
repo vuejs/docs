@@ -123,7 +123,7 @@ Users can navigate an application through headings. Having descriptive headings 
 | main            | role="main"          | The main or central content of the document.                                                                     |
 | footer          | role="contentinfo"   | Information about the parent document: footnotes/copyrights/links to privacy statement                           |
 | aside           | role="complementary" | Supports the main content, yet is separated and meaningful on its own content                                    |
-| _Not available_ | role="search"        | This section contains the search functionality for the application                                               |
+| search          | role="search"        | This section contains the search functionality for the application                                               |
 | form            | role="form"          | Collection of form-associated elements                                                                           |
 | section         | role="region"        | Content that is relevant and that users will likely want to navigate to. Label must be provided for this element |
 
@@ -154,8 +154,6 @@ Labels are typically placed on top or to the left of the form fields:
 </form>
 ```
 
-<!-- <common-codepen-snippet title="Simple Form" slug="dyNzzWZ" :height="368" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
-
 Notice how you can include `autocomplete='on'` on the form element and it will apply to all inputs in your form. You can also set different [values for autocomplete attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for each input.
 
 ### Labels {#labels}
@@ -163,13 +161,11 @@ Notice how you can include `autocomplete='on'` on the form element and it will a
 Provide labels to describe the purpose of all form control; linking `for` and `id`:
 
 ```vue-html
-<label for="name">Name</label>
+<label for="name">Name: </label>
 <input type="text" name="name" id="name" v-model="name" />
 ```
 
-<!-- <common-codepen-snippet title="Form Label" slug="XWpaaaj" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
-
-If you inspect this element in your chrome developer tools and open the Accessibility tab inside the Elements tab, you will see how the input gets its name from the label:
+If you inspect this element in your Chrome DevTools and open the Accessibility tab inside the Elements tab, you will see how the input gets its name from the label:
 
 ![Chrome Developer Tools showing input accessible name from label](./images/AccessibleLabelChromeDevTools.png)
 
@@ -191,7 +187,7 @@ Explicitly setting the labels with a matching id is better supported by assistiv
 You can also give the input an accessible name with [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label).
 
 ```vue-html
-<label for="name">Name</label>
+<label for="name">Name: </label>
 <input
   type="text"
   name="name"
@@ -200,8 +196,6 @@ You can also give the input an accessible name with [`aria-label`](https://devel
   :aria-label="nameLabel"
 />
 ```
-
-<!-- <common-codepen-snippet title="Form ARIA label" slug="NWdvvYQ" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 Feel free to inspect this element in Chrome DevTools to see how the accessible name has changed:
 
@@ -220,7 +214,7 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 >
   <h1 id="billing">Billing</h1>
   <div class="form-item">
-    <label for="name">Name:</label>
+    <label for="name">Name: </label>
     <input
       type="text"
       name="name"
@@ -232,8 +226,6 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
   <button type="submit">Submit</button>
 </form>
 ```
-
-<!-- <common-codepen-snippet title="Form ARIA labelledby" slug="MWJvvBe" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 ![Chrome Developer Tools showing input accessible name from aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
 
@@ -250,7 +242,7 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 >
   <h1 id="billing">Billing</h1>
   <div class="form-item">
-    <label for="name">Full Name:</label>
+    <label for="name">Full Name: </label>
     <input
       type="text"
       name="name"
@@ -264,8 +256,6 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
   <button type="submit">Submit</button>
 </form>
 ```
-
-<!-- <common-codepen-snippet title="Form ARIA describedby" slug="gOgxxQE" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 You can see the description by inspecting Chrome DevTools:
 
@@ -330,7 +320,7 @@ You can provide additional instructions and bind multiple ids inside an [`aria-l
 ```vue-html
 <fieldset>
   <legend>Using aria-labelledby</legend>
-  <label id="date-label" for="date">Current Date:</label>
+  <label id="date-label" for="date">Current Date: </label>
   <input
     type="date"
     name="date"
@@ -346,13 +336,11 @@ Alternatively, you can attach the instructions to the input with [`aria-describe
 ```vue-html
 <fieldset>
   <legend>Using aria-describedby</legend>
-  <label id="dob" for="dob">Date of Birth:</label>
+  <label id="dob" for="dob">Date of Birth: </label>
   <input type="date" name="dob" id="dob" aria-describedby="dob-instructions" />
   <p id="dob-instructions">MM/DD/YYYY</p>
 </fieldset>
 ```
-
-<!-- <common-codepen-snippet title="Form Instructions" slug="WNREEqv" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 ### Hiding Content {#hiding-content}
 
@@ -386,8 +374,6 @@ We can use CSS to visually hide elements but keep them available for assistive t
 }
 ```
 
-<!-- <common-codepen-snippet title="Form Search" slug="QWdMqWy" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
-
 #### `aria-hidden="true"` {#aria-hidden-true}
 
 Adding `aria-hidden="true"` will hide the element from assistive technology but leave it visually available for other users. Do not use it on focusable elements, purely on decorative, duplicated or offscreen content.
@@ -413,8 +399,6 @@ You can also use an input to create buttons:
   <input type="submit" value="Submit" />
 </form>
 ```
-
-<!-- <common-codepen-snippet title="Form Buttons" slug="JjEyrYZ" :height="467" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 ### Functional Images {#functional-images}
 
@@ -449,8 +433,6 @@ You can use this technique to create functional images.
   </button>
 </form>
 ```
-
-<!-- <common-codepen-snippet title="Functional Images" slug="jOyLGqM" :height="265" tab="js,result" theme="light" :preview="false" :editable="false" /> -->
 
 ## Standards {#standards}
 
@@ -503,7 +485,7 @@ W3C's WAI-ARIA provides guidance on how to build dynamic content and advanced us
   - [ChromeVox](https://chrome.google.com/webstore/detail/chromevox-classic-extensi/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en)
 - Zooming Tools
   - [MAGic](https://www.freedomscientific.com/products/software/magic/)
-  - [ZoomText](https://www.zoomtext.com/)
+  - [ZoomText](https://www.freedomscientific.com/products/software/zoomtext/)
   - [Magnifier](https://support.microsoft.com/en-us/help/11542/windows-use-magnifier-to-make-things-easier-to-see)
 
 ### Testing {#testing}
@@ -518,7 +500,6 @@ W3C's WAI-ARIA provides guidance on how to build dynamic content and advanced us
 - Other Helpful Tools
   - [HeadingMap](https://chrome.google.com/webstore/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi?hl=en…)
   - [Color Oracle](https://colororacle.org)
-  - [Focus Indicator](https://chrome.google.com/webstore/detail/focus-indicator/heeoeadndnhebmfebjccbhmccmaoedlf?hl=en-US…)
   - [NerdeFocus](https://chrome.google.com/webstore/detail/nerdefocus/lpfiljldhgjecfepfljnbjnbjfhennpd?hl=en-US…)
   - [Visual Aria](https://chrome.google.com/webstore/detail/visual-aria/lhbmajchkkmakajkjenkchhnhbadmhmk?hl=en-US)
   - [Silktide Website Accessibility Simulator](https://chrome.google.com/webstore/detail/silktide-website-accessib/okcpiimdfkpkjcbihbmhppldhiebhhaf?hl=en-US)

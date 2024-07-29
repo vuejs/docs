@@ -17,6 +17,7 @@ if (typeof window !== 'undefined') {
   }
 }
 </script>
+
 # Component Events {#component-events}
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
@@ -31,7 +32,7 @@ A component can emit custom events directly in template expressions (e.g. in a `
 
 ```vue-html
 <!-- MyComponent -->
-<button @click="$emit('someEvent')">click me</button>
+<button @click="$emit('someEvent')">Click Me</button>
 ```
 
 <div class="options-api">
@@ -176,14 +177,14 @@ export default {
 
 </div>
 
-The `emits` option also supports an object syntax, which allows us to perform runtime validation of the payload of the emitted events:
+The `emits` option and `defineEmits()` macro also support an object syntax. If using TypeScript you can type arguments, which allows us to perform runtime validation of the payload of the emitted events:
 
 <div class="composition-api">
 
 ```vue
-<script setup>
+<script setup lang="ts">
 const emit = defineEmits({
-  submit(payload) {
+  submit(payload: { email: string, password: string }) {
     // return `true` or `false` to indicate
     // validation pass / fail
   }
@@ -210,7 +211,7 @@ More details: [Typing Component Emits](/guide/typescript/composition-api#typing-
 ```js
 export default {
   emits: {
-    submit(payload) {
+    submit(payload: { email: string, password: string }) {
       // return `true` or `false` to indicate
       // validation pass / fail
     }

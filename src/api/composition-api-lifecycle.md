@@ -206,6 +206,10 @@ Registers a hook to be called when an error propagating from a descendant compon
 
   The hook receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
 
+  :::tip
+  In production, the 3rd argument (`info`) will be a shortened code instead of the full information string. You can find the code to string mapping in the [Production Error Code Reference](/error-reference/#runtime-errors).
+  :::
+
   You can modify component state in `errorCaptured()` to display an error state to the user. However, it is important that the error state should not render the original content that caused the error; otherwise the component will be thrown into an infinite render loop.
 
   The hook can return `false` to stop the error from propagating further. See error propagation details below.
