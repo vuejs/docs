@@ -50,18 +50,6 @@ onMounted(load)
           />
         </svg>
       </a>
-      <a class="viteconf" href="https://viteconf.org/?utm=vue-homepage" target="_blank">
-        ViteConf 24
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"
-          />
-        </svg>
-      </a>
     </p>
   </section>
 
@@ -185,23 +173,6 @@ html:not(.dark) .accent,
     linear-gradient(45deg, #42d392, #647eff) border-box;
 }
 
-.actions .viteconf {
-  background: linear-gradient(var(--vt-c-bg-mute), var(--vt-c-bg-mute)) padding-box,
-    linear-gradient(45deg, #647eff, #647eff) border-box;
-  border: 2px solid transparent;
-}
-
-.actions .viteconf:hover {
-  background: linear-gradient(var(--vt-c-gray-light-4), var(--vt-c-gray-light-4)) padding-box,
-    linear-gradient(45deg, #647eff, #647eff) border-box;
-}
-
-.dark .actions .viteconf:hover {
-  background: linear-gradient(var(--vt-c-gray-dark-3), var(--vt-c-gray-dark-3)) padding-box,
-    linear-gradient(45deg, #647eff, #647eff) border-box;
-}
-
-.actions .viteconf .icon,
 .actions .security .icon {
   width: 12px;
   height: 12px;
@@ -209,8 +180,7 @@ html:not(.dark) .accent,
 }
 
 .actions .get-started,
-.actions .setup,
-.actions .security {
+.actions .setup {
   margin-right: 18px;
 }
 
@@ -233,23 +203,20 @@ html:not(.dark) .accent,
 
 .actions .get-started,
 .actions .setup,
-.actions .security,
-.actions .viteconf {
+.actions .security {
   color: var(--vt-c-text-code);
 }
 
 .actions .get-started:hover,
 .actions .setup:hover,
-.actions .security:hover,
-.actions .viteconf:hover {
+.actions .security:hover {
   background-color: var(--vt-c-gray-light-4);
   transition-duration: 0.2s;
 }
 
 .dark .actions .get-started:hover,
 .dark .actions .setup:hover,
-.dark .actions .security:hover,
-.dark .actions .viteconf:hover {
+.dark .actions .security:hover {
   background-color: var(--vt-c-gray-dark-3);
 }
 
@@ -336,9 +303,6 @@ html:not(.dark) .accent,
     font-size: 18px;
     margin-bottom: 48px;
   }
-  .actions .viteconf {
-    margin-top: 18px;
-  }
 }
 
 @media (max-width: 794px) {
@@ -378,8 +342,7 @@ html:not(.dark) .accent,
   .actions a {
     margin: 18px 0;
   }
-  .actions .security,
-  .actions .viteconf {
+  .actions .security {
     margin-top: 0;
   }
 }
