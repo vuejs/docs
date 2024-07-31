@@ -164,7 +164,7 @@ html:not(.dark) .accent,
 }
 
 .actions .security:hover {
-  background: linear-gradient(var(--vt-c-gray-light-4), var(--vt-c-gray-light-4)) padding-box,
+  background: linear-gradient(var(--vt-c-gray-light-4), var(--vt-c-gray-light-4)) padding-box, 
     linear-gradient(45deg, #42d392, #647eff) border-box;
 }
 
