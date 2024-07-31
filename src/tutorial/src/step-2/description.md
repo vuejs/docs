@@ -10,7 +10,7 @@ Podstawową cechą Vue jest **renderowanie deklaratywne**: używając składni s
 
 <div class="composition-api">
 
-Stan, który może wyzwalać aktualizacje po zmianie, jest uważany za **reaktywny**. Możemy zadeklarować stan reaktywny za pomocą interfejsu API `reactive()`. Obiekty utworzone za pomocą `reactive()` są JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) które działają jak zwykłe obiekty:
+Stan, który może wyzwalać aktualizacje po zmianie, jest uważany za **reaktywny**. Możemy zadeklarować stan reaktywny za pomocą interfejsu API `reactive()`. Obiekty utworzone za pomocą `reactive()` są obiektami [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) które działają jak zwykłe obiekty:
 
 ```js
 import { reactive } from 'vue'
@@ -38,7 +38,7 @@ Szczegóły dotyczące funkcji `reactive()` i `ref()` zostały omówione w <a ta
 
 <div class="sfc">
 
-Stan reaktywny zadeklarowany w bloku `<script setup>` komponentu może być użyty bezpośrednio w szablonie. W ten sposób możemy renderować dynamiczny tekst na podstawie wartości obiektu `counter` i `message`, używając składni wąsów:
+Stan reaktywny zadeklarowany w bloku `<script setup>` komponentu może być użyty bezpośrednio w szablonie. W ten sposób możemy renderować dynamiczny tekst na podstawie wartości obiektu `counter` i `message`, używając składni "wąsów":
 
 </div>
 
@@ -57,7 +57,7 @@ setup() {
 }
 ```
 
-Właściwości w zwróconym obiekcie zostaną udostępnione w szablonie. W ten sposób możemy renderować dynamiczny tekst na podstawie wartości `message`, używając składni wąsów:
+Właściwości w zwróconym obiekcie zostaną udostępnione w szablonie. W ten sposób możemy renderować dynamiczny tekst na podstawie wartości `message`, używając składni "wąsów":
 
 </div>
 
@@ -74,7 +74,7 @@ Zauważ, że nie musieliśmy używać `.value` gdy użyliśmy `message` w szablo
 
 Stan, który może wyzwalać aktualizacje po zmianie, jest uważany za **reaktywny**. W Vue stan reaktywny jest przechowywany w komponentach. <span class="html">W przykładowym kodzie obiekt przekazywany do funkcji `createApp()` jest komponentem.</span>
 
-Możemy zadeklarować stan reaktywny za pomocą opcji `data`, który powinien być funkcją zwracającą obiekt:
+Możemy zadeklarować stan reaktywny za pomocą opcji `data`, która powinna być funkcją zwracającą obiekt:
 
 <div class="sfc">
 
@@ -103,7 +103,7 @@ createApp({
 
 </div>
 
-Właściwość `message` zostanie udostępniona w szablonie. W ten sposób możemy renderować dynamiczny tekst na podstawie wartości `message`, używając składni wąsów:
+Właściwość `message` zostanie udostępniona w szablonie. W ten sposób możemy renderować dynamiczny tekst na podstawie wartości `message`, używając składni "wąsów":
 
 ```vue-html
 <h1>{{ message }}</h1>
@@ -111,7 +111,7 @@ Właściwość `message` zostanie udostępniona w szablonie. W ten sposób może
 
 </div>
 
-Zawartość wewnątrz wąsów nie jest ograniczona tylko do identyfikatorów lub ścieżek - możemy użyć dowolnego poprawnego wyrażenia JavaScript:
+Zawartość wewnątrz "wąsów" nie jest ograniczona tylko do identyfikatorów lub ścieżek - możemy użyć dowolnego poprawnego wyrażenia JavaScript:
 
 ```vue-html
 <h1>{{ message.split('').reverse().join('') }}</h1>
@@ -125,6 +125,6 @@ Teraz spróbuj samodzielnie utworzyć stan reaktywny i użyj go do renderowania 
 
 <div class="options-api">
 
-Teraz spróbuj samodzielnie utworzyć właściwość danych i użyć jej jako zawartości tekstowej dla `<h1>` w szablonie.
+Teraz spróbuj samodzielnie utworzyć właściwość data i użyć jej jako zawartości tekstowej dla `<h1>` w szablonie.
 
 </div>

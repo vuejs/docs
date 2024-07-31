@@ -99,6 +99,6 @@ createApp({
 + <li v-for="todo in filteredTodos">
 ```
 
-Obliczana właściwość śledzi inne stany reaktywne używane w jej obliczeniach jako zależności. Buforuje wynik i automatycznie aktualizuje go, gdy zmieniają się jego zależności.
+Właściwość computed śledzi inne stany reaktywne używane w jej obliczeniach jako zależności. Cache'uje wynik i automatycznie aktualizuje go, gdy zmieniają się jego zależności.
 
-Teraz spróbuj dodać właściwość obliczaną `filteredTodos` i zaimplementuj jej logikę obliczeniową! Jeśli zostanie zaimplementowana poprawnie, zaznaczenie todo podczas ukrywania ukończonych elementów powinno natychmiast je ukryć.
+Teraz spróbuj dodać właściwość computed `filteredTodos` i zaimplementuj jej logikę obliczeniową! Jeśli zostanie zaimplementowana poprawnie, zaznaczenie todo podczas ukrywania ukończonych elementów powinno natychmiast je ukryć.

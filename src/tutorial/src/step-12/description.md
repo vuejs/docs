@@ -1,6 +1,6 @@
-# Rekwizyty {#props}
+# Props {#props}
 
-Komponent podrzędny może akceptować dane wejściowe od komponentu nadrzędnego poprzez **props**. Po pierwsze, komponent podrzędny musi zadeklarować rekwizyty, które akceptuje:
+Komponent podrzędny może akceptować dane wejściowe od komponentu nadrzędnego poprzez **props**. Po pierwsze, komponent podrzędny musi zadeklarować parametry, które akceptuje:
 
 <div class="composition-api">
 <div class="sfc">
@@ -14,7 +14,7 @@ const props = defineProps({
 </script>
 ```
 
-Uwaga: `defineProps()` jest makrem czasu kompilacji i nie musi być importowany. Po zadeklarowaniu, właściwość `msg` może być użyta w szablonie komponentu potomnego. Można również uzyskać do niego dostęp w JavaScript poprzez zwrócony obiekt funkcji `defineProps()`.
+Uwaga: `defineProps()` jest makrem czasu kompilacji i nie musi być importowane. Po zadeklarowaniu, właściwość `msg` może być użyta w szablonie komponentu potomnego. Można również uzyskać do niej dostęp w JavaScript poprzez obiekt zwrócony z funkcji `defineProps()`.
 
 </div>
 
@@ -32,7 +32,7 @@ export default {
 }
 ```
 
-Po zadeklarowaniu, właściwość `msg` jest widoczna w `this` i może być użyta w szablonie komponentu potomnego. Otrzymane właściwości są przekazywane do funkcji `setup()` jako pierwszy argument.
+Po zadeklarowaniu, prop `msg` jest dostępny w `this` i może być użyty w szablonie komponentu potomnego. Otrzymane props są przekazywane do funkcji `setup()` jako pierwszy argument.
 
 </div>
 
@@ -49,11 +49,11 @@ export default {
 }
 ```
 
-Po zadeklarowaniu, właściwość `msg` jest widoczna w `this` i może być użyta w szablonie komponentu potomnego.
+Po zadeklarowaniu, props `msg` jest widoczny w `this` i może być użyty w szablonie komponentu potomnego.
 
 </div>
 
-Rodzic może przekazać właściwość do dziecka, tak jak atrybuty. Aby przekazać wartość dynamiczną, możemy również użyć składni `v-bind`:
+Rodzic może przekazać prop do dziecka, tak jak atrybuty. Aby przekazać wartość dynamiczną, możemy również użyć składni `v-bind`:
 
 <div class="sfc">
 

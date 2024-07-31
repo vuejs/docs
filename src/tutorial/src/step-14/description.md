@@ -1,6 +1,6 @@
-# Sloty {#slots}
+# Slots {#slots}
 
-Oprócz przekazywania danych za pośrednictwem rekwizytów, komponent nadrzędny może również przekazywać fragmenty szablonu do komponentu podrzędnego za pośrednictwem **slotów**:
+Oprócz przekazywania danych za pośrednictwem props, komponent nadrzędny może również przekazywać fragmenty szablonu do komponentu podrzędnego za pośrednictwem **slotów**:
 
 <div class="sfc">
 

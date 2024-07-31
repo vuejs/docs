@@ -1,6 +1,6 @@
-# Emitowanie zdarzeń {#emits}
+# Emits {#emits}
 
-Oprócz otrzymywania rekwizytów, komponent podrzędny może również emitować zdarzenia do komponentu nadrzędnego:
+Oprócz otrzymywania props, komponent podrzędny może również emitować zdarzenia do komponentu nadrzędnego:
 
 <div class="composition-api">
 <div class="sfc">
@@ -10,7 +10,7 @@ Oprócz otrzymywania rekwizytów, komponent podrzędny może również emitować
 // deklaracja zdarzeń emitujących
 const emit = defineEmits(['response'])
 
-// zdarzenie emitujące z argumentem
+// emitowanie zdarzenie z argumentem
 emit('response', 'hello from child')
 </script>
 ```
@@ -24,7 +24,7 @@ export default {
   // ddeklaracja zdarzeń emitujących
   emits: ['response'],
   setup(props, { emit }) {
-    // zdarzenie emitujące z argumentem
+    // emitowanie zdarzenie z argumentem
     emit('response', 'hello from child')
   }
 }
@@ -41,7 +41,7 @@ export default {
   // deklaracja zdarzeń emitujących
   emits: ['response'],
   created() {
-    // zdarzenie emitujące z argumentem
+    // emitowanie zdarzenie z argumentem
     this.$emit('response', 'hello from child')
   }
 }

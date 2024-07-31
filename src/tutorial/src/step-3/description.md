@@ -1,6 +1,6 @@
 # Przypisywanie atrybutów {#attribute-bindings}
 
-W Vue wąsy są używane tylko do interpolacji tekstu. Aby powiązać atrybut z wartością dynamiczną, używamy dyrektywy `v-bind`:
+W Vue "wąsy" są używane tylko do interpolacji tekstu. Aby powiązać atrybut z wartością dynamiczną, używamy dyrektywy `v-bind`:
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>

@@ -55,7 +55,7 @@ createApp({
 
 </div>
 
-Wewnątrz metody możemy uzyskać dostęp do instancji komponentu za pomocą `this`. Instancja komponentu udostępnia właściwości danych zadeklarowane przez `data`. Możemy aktualizować stan komponentu poprzez mutowanie tych właściwości.
+Wewnątrz metody możemy uzyskać dostęp do instancji komponentu za pomocą `this`. Instancja komponentu udostępnia właściwości danych zadeklarowane przez `data`. Możemy aktualizować stan komponentu poprzez modyfikowanie tych właściwości.
 
 </div>
 
@@ -102,10 +102,10 @@ setup() {
 
 </div>
 
-Wewnątrz funkcji możemy zaktualizować stan komponentu poprzez mutację referencji.
+Wewnątrz funkcji możemy zaktualizować stan komponentu poprzez modyfikowanie odpowiednich ref.
 
 </div>
 
-Obsługa zdarzeń może również korzystać z wyrażeń liniowych i upraszczać typowe zadania za pomocą modyfikatorów. Szczegóły te zostały omówione w  <a target="_blank" href="/guide/essentials/event-handling.html">Przewodniku - Obsługa zdarzeń</a>.
+Obsługa zdarzeń może również korzystać z wyrażeń inline i upraszczać typowe zadania za pomocą modyfikatorów. Szczegóły te zostały omówione w  <a target="_blank" href="/guide/essentials/event-handling.html">Przewodniku - Obsługa zdarzeń</a>.
 
-Teraz spróbuj samodzielnie zaimplementować <span class="options-api">metodę</span><span class="composition-api">fukncję</span>  `increment` i  powiązać ją z przyciskiem za pomocą `v-on`.
+Teraz spróbuj samodzielnie zaimplementować <span class="options-api">metodę</span><span class="composition-api">funkcję</span>  `increment` i  powiązać ją z przyciskiem za pomocą `v-on`.

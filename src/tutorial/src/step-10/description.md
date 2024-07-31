@@ -36,8 +36,8 @@ export default {
 }
 ```
 
-Tutaj używamy opcji `watch` do obserwowania zmian we właściwości `count`. Wywołanie zwrotne watch jest wywoływane, gdy zmienia się `count` i otrzymuje nową wartość jako argument. Więcej szczegółów znajduje się w <a target="_blank" href="/guide/essentials/watchers.html">Przewodnik - Obserwatorz</a>.
+Tutaj używamy opcji `watch` do obserwowania zmian we właściwości `count`. Wywołanie zwrotne watch jest wywoływane, gdy zmienia się `count` i otrzymuje nową wartość jako argument. Więcej szczegółów znajduje się w <a target="_blank" href="/guide/essentials/watchers.html">Przewodnik - Watchers</a>.
 
 </div>
 
-Bardziej praktycznym przykładem niż logowanie do konsoli byłoby pobieranie nowych danych po zmianie identyfikatora. Kod który mamy, pobiera dane todo z mock API gdy komponent zostanie zamontowany. Posiadamy również przycisk, który zwiększa identyfikator todo, który powinien zostać pobrany. Spróbuj zaimplementować metodę obserwującą, która pobiera nowe todo po kliknięciu przycisku.
+Bardziej praktycznym przykładem niż logowanie do konsoli byłoby pobieranie nowych danych po zmianie identyfikatora. Kod który mamy, pobiera dane todo ze zmockowanego API gdy komponent zostanie zamontowany. Posiadamy również przycisk, który inkrementuje identyfikator todo, który powinien zostać pobrany. Spróbuj zaimplementować metodę obserwującą, która pobiera nowe todo po kliknięciu przycisku.

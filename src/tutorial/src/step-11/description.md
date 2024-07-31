@@ -27,7 +27,7 @@ export default {
 }
 ```
 
-Musimy również zarejestrować komponent za pomocą opcji `components`. Tutaj używamy skrótu właściwości obiektu, aby zarejestrować komponent `ChildComp` pod kluczem `ChildComp`.
+Musimy również zarejestrować komponent za pomocą opcji `components`. Tutaj używamy tzw "shorthand property notation", aby zarejestrować komponent `ChildComp` pod kluczem `ChildComp`.
 
 </div>
 </div>

@@ -6,13 +6,13 @@ Celem tego samouczka jest szybkie pokazanie, jak to jest pracować z Vue bezpoś
 
 ## Wymagania wstępne {#prerequisites}
 
-Samouczek zakłada podstawową znajomość HTML, CSS i JavaScript. Jeśli jesteś zupełnie nowy w rozwoju front-endu, może nie być najlepszym pomysłem przeskakiwanie od razu do frameworka jako pierwszego kroku - opanuj podstawy, a następnie wróć! Wcześniejsze doświadczenie z innymi frameworkami pomaga, ale nie jest wymagane.
+Samouczek zakłada podstawową znajomość HTML, CSS i JavaScript. Jeśli jesteś zupełnie nowy w budowaniu front-endu, może nie być najlepszym pomysłem zaczynanie od razu do frameworka jako pierwszy krok - opanuj podstawy, a następnie wróć! Wcześniejsze doświadczenie z innymi frameworkami pomaga, ale nie jest wymagane.
 
 ## Jak korzystać z tego samouczka {#how-to-use-this-tutorial}
 
-Możesz edytować kod <span class="wide">po prawej</span><span class="narrow">stronie</span> i natychmiast zobaczyć aktualizację wyniku. Każdy krok przedstawi podstawową funkcję Vue, a od użytkownika oczekuje się ukończenia kodu w celu uruchomienia wersji demonstracyjnej. Jeśli utkniesz, możesz skorzystać z przycisku „Pokaż odpowiedź!”, który ujawni działający kod. Postaraj się nie polegać na nim zbyt często - szybciej nauczysz się samodzielnie.
+Możesz edytować kod <span class="wide">po prawej</span><span class="narrow">poniżej</span> i natychmiast zobaczyć aktualizację wyniku. Każdy krok przedstawi podstawową funkcję Vue, a od użytkownika oczekuje się ukończenia kodu w celu uruchomienia wersji demonstracyjnej. Jeśli utkniesz, możesz skorzystać z przycisku „Pokaż odpowiedź!”, który ujawni działający kod. Postaraj się nie polegać na nim zbyt często - szybciej nauczysz się samodzielnie.
 
-Jeśli jesteś doświadczonym programistą pochodzącym z Vue 2 lub innych frameworków, istnieje kilka ustawień, które możesz dostosować, aby jak najlepiej wykorzystać ten samouczek. Jeśli jesteś początkującym programistą, zalecamy skorzystanie z ustawień domyślnych.
+Jeśli jesteś doświadczonym programistą z doświadczeniem z Vue 2 lub innych frameworków, istnieje kilka ustawień, które możesz dostosować, aby jak najlepiej wykorzystać ten samouczek. Jeśli jesteś początkującym programistą, zalecamy skorzystanie z ustawień domyślnych.
 
 <details>
 <summary>Szczegóły ustawień samouczka</summary>
@@ -30,7 +30,7 @@ Jeśli zamierzasz używać trybu HTML bez kroku kompilacji we własnych aplikacj
 import { ... } from 'vue/dist/vue.esm-bundler.js'
 ```
 
-wewnątrz skryptów lub skonfiguruj narzędzie kompilacji, aby odpowiednio rozwiązaywało `vue`. Przykładowa konfiguracja dla [Vite](https://vitejs.dev/):
+wewnątrz skryptów lub skonfiguruj narzędzie kompilacji, aby odpowiednio rozumiało `vue`. Przykładowa konfiguracja dla [Vite](https://vitejs.dev/):
 
 ```js
 // vite.config.js

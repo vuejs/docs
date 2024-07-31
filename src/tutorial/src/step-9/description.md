@@ -1,4 +1,4 @@
-# Cykl życia i odnośniki do elementów w szablonie {#lifecycle-and-template-refs}
+# Cykl życia i template refs  {#lifecycle-and-template-refs}
 
 Do tej pory Vue obsługiwało za nas wszystkie aktualizacje DOM, dzięki reaktywności i deklaratywnemu renderowaniu. Jednak nieuchronnie pojawią się przypadki, w których będziemy musieli ręcznie pracować z DOM.
 
@@ -10,7 +10,7 @@ Możemy użyć **template ref** - tj. odniesienia do elementu w szablonie - <a t
 
 <div class="composition-api">
 
-Aby uzyskać dostęp do referencji, musimy zadeklarować<span class="html"> i udostępnić</span> referencję o pasującej nazwie:
+Aby uzyskać dostęp do referencji, musimy zadeklarować<span class="html"> i udostępnić</span> wartość ref o pasującej nazwie:
 
 <div class="sfc">
 
@@ -95,6 +95,6 @@ createApp({
 </div>
 </div>
 
-Nazywa się to **lifecycle hook** - pozwala nam zarejestrować wywołanie zwrotne, które będzie wywoływane w określonych momentach cyklu życia komponentu. Istnieją inne hook'i, takie jak  <span class="options-api">`created` i `updated`</span><span class="composition-api">`onUpdated` i `onUnmounted`</span>. Sprawdź <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">diagram cyklu życia komponentu</a> aby uzyskać więcej informacji.
+Nazywa się to **lifecycle hook** - pozwala nam zarejestrować funkcję, która będzie wywoływana w określonych momentach cyklu życia komponentu. Istnieją inne hook'i, takie jak  <span class="options-api">`created` i `updated`</span><span class="composition-api">`onUpdated` i `onUnmounted`</span>. Sprawdź <a target="_blank" href="/guide/essentials/lifecycle.html#lifecycle-diagram">diagram cyklu życia komponentu</a> aby uzyskać więcej informacji.
 
 Teraz spróbuj dodać hook <span class="options-api">`mounted`</span><span class="composition-api">`onMounted`</span>, następnie odwołaj się do `<p>` poprzez użycie <span class="options-api">`this.$refs.pElementRef`</span><span class="composition-api">`pElementRef.value`</span> i wykonaj na nim kilka bezpośrednich operacji DOM (np. zmieniając jego `textContent`).

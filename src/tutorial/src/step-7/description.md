@@ -12,7 +12,7 @@ Możemy użyć dyrektywy `v-for`, aby wyrenderować listę elementów na podstaw
 
 Tutaj `todo` jest zmienną lokalną reprezentującą aktualnie iterowany element tablicy. Jest ona dostępna tylko na lub wewnątrz elementu `v-for`, podobnie jak zakres funkcji.
 
-Zauważ, że każdemu obiektowi todo nadajemy unikalne `id` i wiążemy go z <a target="_blank" href="/api/built-in-special-attributes.html#key">specjalnym atrybutem `key`</a> dla każdego `<li>`. Klucz `key` pozwala Vue na dokładne przesunięcie każdego `<li>`, aby dopasować go do pozycji odpowiadającego mu obiektu w tablicy.
+Zauważ, że każdemu obiektowi todo nadajemy unikalne `id` i wiążemy go z <a target="_blank" href="/api/built-in-special-attributes.html#key">specjalnym atrybutem `key`</a> dla każdego `<li>`. Atrybut `key` pozwala Vue na dokładne przesunięcie każdego `<li>`, aby dopasować go do pozycji odpowiadającego mu obiektu w tablicy.
 
 Istnieją dwa sposoby aktualizacji listy:
 
@@ -52,4 +52,4 @@ Istnieją dwa sposoby aktualizacji listy:
 
 Tutaj mamy prostą listę rzeczy do zrobienia - spróbuj zaimplementować logikę dla metod `addTodo()` i `removeTodo()`, aby działała!
 
-Więcej informacji na temat `v-for`: <a target="_blank" href="/guide/essentials/list.html">Przewonik - Renderowanie listy</a>
+Więcej informacji na temat `v-for`: <a target="_blank" href="/guide/essentials/list.html">Przewodnik - Renderowanie listy</a>
