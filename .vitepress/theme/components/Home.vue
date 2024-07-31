@@ -169,7 +169,7 @@ html:not(.dark) .accent,
 }
 
 .dark .actions .security:hover {
-  background: linear-gradient(var(--vt-c-gray-dark-3), var(--vt-c-gray-dark-3)) padding-box,
+  background: linear-gradient(var(--vt-c-gray-dark-3), var(--vt-c-gray-dark-3)) padding-box, 
     linear-gradient(45deg, #42d392, #647eff) border-box;
 }
 
