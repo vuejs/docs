@@ -134,7 +134,7 @@ You can also use `of` as the delimiter instead of `in`, so that it is closer to 
 
 ## `v-for` with an Object {#v-for-with-an-object}
 
-You can also use `v-for` to iterate through the properties of an object. The iteration order will be based on the result of calling `Object.keys()` on the object:
+You can also use `v-for` to iterate through the properties of an object. The iteration order will be based on the result of calling `Object.values()` on the object:
 
 <div class="composition-api">
 
