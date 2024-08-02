@@ -7,7 +7,7 @@ const { frontmatter } = useData()
 <template>
   <a
     class="viteconf-cta-aside"
-    href="https://viteconf.org/?utm=vite-sidebar"
+    href="https://viteconf.org/?utm=vue-sidebar"
     target="_blank"
   >
     <img width="22" height="22" src="/viteconf.svg" />
