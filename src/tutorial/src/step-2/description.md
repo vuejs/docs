@@ -10,7 +10,7 @@ The core feature of Vue is **declarative rendering**: using a template syntax th
 
 <div class="composition-api">
 
-State that can trigger updates when changed is considered **reactive**. We can declare reactive state using Vue's `reactive()` API. Objects created from `reactive()` are JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) that work just like normal objects:
+States that can trigger updates when changed are considered **reactive**. We can declare reactive state using Vue's `reactive()` API. Objects created from `reactive()` are JavaScript [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) that work just like normal objects:
 
 ```js
 import { reactive } from 'vue'
@@ -72,7 +72,7 @@ Notice how we did not need to use `.value` when accessing the `message` ref in t
 
 <div class="options-api">
 
-State that can trigger updates when changed are considered **reactive**. In Vue, reactive state is held in components. <span class="html">In the example code, the object being passed to `createApp()` is a component.</span>
+States that can trigger updates when changed are considered **reactive**. In Vue, reactive state is held in components. <span class="html">In the example code, the object being passed to `createApp()` is a component.</span>
 
 We can declare reactive state using the `data` component option, which should be a function that returns an object:
 
