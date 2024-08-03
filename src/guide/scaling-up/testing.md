@@ -189,9 +189,9 @@ Component tests should focus on the component's public interfaces rather than in
   </VTCodeGroupTab>
 </VTCodeGroup>
 
-- **DON'T**
+**DON'T**
 
-  Don't assert the private state of a component instance or test the private methods of a component. Testing implementation details makes the tests brittle, as they are more likely to break and require updates when the implementation changes.
+- Don't assert the private state of a component instance or test the private methods of a component. Testing implementation details makes the tests brittle, as they are more likely to break and require updates when the implementation changes.
 
   The component's ultimate job is rendering the correct DOM output, so tests focusing on the DOM output provide the same level of correctness assurance (if not more) while being more robust and resilient to change.
 
