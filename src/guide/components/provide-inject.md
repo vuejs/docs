@@ -2,6 +2,10 @@
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
+<div class="composition-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/using-provide-inject-with-the-composition-api" title="Free Vue.js Provide and Inject Lesson"/>
+</div>
+
 ## Prop Drilling {#prop-drilling}
 
 Usually, when we need to pass data from the parent to a child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:

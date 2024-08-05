@@ -18,6 +18,14 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 ## Creating a Vue Application {#creating-a-vue-application}
 
+<div class="options-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-local-setup-with-vite" title="Free Vue.js and Vite Setup Lesson"/>
+</div>
+
+<div class="composition-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-local-setup-with-vite" title="Free Vue.js and Vite Setup Lesson"/>
+</div>
+
 :::tip Prerequisites
 
 - Familiarity with the command line

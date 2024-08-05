@@ -1,5 +1,13 @@
 # Components Basics {#components-basics}
 
+<div class="composition-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/using-watch-with-the-composition-api" title="Watch a Free Component Fundamentals Video Course on Vue School"/>
+</div>
+
+<div class="options-api">
+  <VueSchoolLink href="https://vueschool.io/courses/vue-js-3-components-fundamentals" title="Watch a Free Component Fundamentals Video Course on Vue School"/>
+</div>
+
 Components allow us to split the UI into independent and reusable pieces, and think about each piece in isolation. It's common for an app to be organized into a tree of nested components:
 
 ![Component Tree](./images/components.png)
