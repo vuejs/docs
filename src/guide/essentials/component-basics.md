@@ -1,7 +1,7 @@
 # Components Basics {#components-basics}
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/using-watch-with-the-composition-api" title="Watch a Free Component Fundamentals Video Course on Vue School"/>
+  <VueSchoolLink href="https://vueschool.io/courses/vue-component-fundamentals-with-the-composition-api" title="Watch a Free Component Fundamentals Video Course on Vue School"/>
 </div>
 
 <div class="options-api">
