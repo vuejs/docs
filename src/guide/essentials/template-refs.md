@@ -1,9 +1,5 @@
 # Template Refs {#template-refs}
 
-<div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/typing-template-refs" title="Free Vue.js Template Refs with TypeScript Lesson"/>
-</div>
-
 While Vue's declarative rendering model abstracts away most of the direct DOM operations for you, there may still be cases where we need direct access to the underlying DOM elements. To achieve this, we can use the special `ref` attribute:
 
 ```vue-html
