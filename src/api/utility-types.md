@@ -106,6 +106,24 @@ Extract prop types from a runtime props options object. The extracted types are 
   // }
   ```
 
+## ComponentInstance {#componentinstance}
+
+Used to extract the instance type of a component (equivalent to the type of `this` in its options).
+
+- **Example**
+
+```vue
+<script setup lang="ts">
+import { ComponentInstance } from 'vue'
+import Foo from './Foo.vue'
+
+const fooEl = ref<null | ComponentInstance<typeof Foo>>(null)
+</script>
+<template>
+  <Foo ref="fooEl" />
+</template>
+```
+
 ## ComponentCustomProperties {#componentcustomproperties}
 
 Used to augment the component instance type to support custom global properties.
@@ -209,3 +227,299 @@ SFC `<style>` tags support linking CSS values to dynamic component state using t
 
 - [v-bind() in CSS](/api/sfc-css-features#v-bind-in-css)
   :::
+
+## DeclareComponent {#declarecomponent}
+
+More user friendly way to generate or extend `DefineComponent` type.
+
+:::warning
+Note that you must define the properties, using `DeclareComponent` is just
+typescript, it will fail at runtime.
+:::
+
+- **Validator Example**
+
+```ts
+type Validator<T> = { value: T; validate(): boolean }
+declare function generateComponent<
+  T extends Record<string, Validator<any>>
+>(schema: T): DeclareComponent<{ [K in keyof T]: T[K]['value'] }>
+
+generateComponent({
+  test: {
+    value: 'test',
+    validate: () => true
+  }
+}).props.test // { type: String, required: true}
+```
+
+- **HoC Example**
+
+```ts
+declare function extendAsHTMLElement<T extends DefineComponent>(
+  options: T
+): T & DeclareComponent<HTMLAttributes>
+
+extendAsHTMLElement(
+  defineComponent({
+    setup:
+      (_, { attrs }) =>
+      () =>
+        h('input', attrs)
+  })
+).props.about // { type: String, required: false}
+```
+
+- **Generic Example**
+
+You don't necessarily need to you `DeclareComponent`, but you can.
+
+> Is necessary to use `new<...>{ $props: { ... } }` for Generic components, using type helpers with Generic params might break generic types.
+
+```ts
+type ErrorLevel = 'debug' | 'warning' | 'error'
+
+declare function ErrorComponent<T>(options: T): T &
+    new <T extends ErrorLevel = 'debug'>(): {
+      $props: { type: T } & {
+        [K in `on${Capitalize<T>}`]: (msg: string) => void
+      }
+      $slots: SlotsType<Record<T, (msg: string) => any[]>>
+    }
+
+const Comp = ErrorComponent(
+  defineComponent({
+    props: {
+      type: {
+        type: String as () => ErrorLevel,
+        default: 'debug'
+      }
+    },
+    emits: ['debug', 'warning', 'error']
+  })
+)
+;<Comp type="debug" onDebug={() => {}} />
+// @ts-expect-error onError is not there
+;<Comp type="debug" onError={(v) => {}} />
+```
+
+## ExtractComponentOptions\<T> {#extractcomponentoptions}
+
+Extracts component declared options.
+
+```ts
+const Comp = defineComponent({
+  props: {
+    foo: String
+  }
+})
+const options = {} as ExtractComponentOptions<typeof Comp>
+options.props // { foo: StringConstructor }
+```
+
+## ExtractComponentPropOptions\<T> {#extractcomponentpropoptions}
+
+Extracts the component props as the component was created, or the props from the ComponentPublicInstance.
+
+```ts
+const Comp = defineComponent({
+  props: {
+    foo: String
+  }
+})
+const props = {} as ExtractComponentPropOptions<typeof Comp>
+props.foo // StringConstructor
+```
+
+## ExtractComponentSlotOptions\<T> {#extractcomponentslotoptions}
+
+Extracts the component slots as the component was created.
+
+```ts
+const Comp = defineComponent({
+  slots: {} as SlotsType<{
+    foo: (bar: string) => any
+    baz: (bar: number) => any
+  }>
+})
+const slots = {} as ExtractComponentSlotOptions<typeof Comp>
+slots // SlotsType<{ foo: (bar: string) => any; baz: (bar: number) => any; }>
+```
+
+## ExtractComponentEmitOptions\<T> {#extractcomponentemitoptions}
+
+Extracts the component emits as the component was created.
+
+```ts
+const Comp = defineComponent({
+  emits: {
+    foo: (test: string) => true
+  }
+})
+const emits = {} as ExtractComponentEmitOptions<typeof Comp>
+emits.foo // (test: string) => true
+```
+
+## ObjectToComponentProps\<T> {#objecttocomponentprops}
+
+Converts an Record<string, any> into a props definition like object.
+
+Useful for extending component props.
+
+```ts
+const props: ObjectToComponentProps<{ foo: 'bar' | 'baz', baz?: number }>
+ // props is:
+ {
+   foo: {
+    type: Prop<'bar' | 'baz'>,
+    required: true
+   },
+   baz: {
+    type: Prop<number>,
+    required: false
+   }
+ }
+```
+
+## ComponentEmitsAsProps\<T> {#componentemitsasprops}
+
+Converts `Emit` declaration into `props` declaration, returned object will be optional.
+
+```ts
+declare const emit: ComponentEmitsAsProps<{ emits: { foo: () => true } }>
+emit.onFoo?.() // ok
+```
+
+## ComponentProps\<T> {#componentprops}
+
+Returns runtime props for a component.
+
+```ts
+const Comp = defineComponent({
+  props: {
+    foo: String
+  }
+})
+const props = {} as ComponentProps<typeof Comp>
+props.foo // string | undefined
+```
+
+## ComponentSlots\<T> {#componentslots}
+
+Returns runtime slots for a component.
+
+```ts
+const Comp = defineComponent({
+  slots: {} as SlotsType<{
+    default: (arg: { msg: string }) => any
+  }>
+})
+
+const slots = {} as ComponentSlots<typeof Comp>
+slots.default // { arg: { msg: string } } => any
+```
+
+## ComponentEmit\<T> {#componentemit}
+
+Returns the `emit` function from options.
+
+```ts
+const CompSlotsTyped = defineComponent({
+  emits: {
+    foo: (arg: string) => true
+  }
+})
+
+const emit = {} as ComponentEmit<typeof CompSlotsTyped>
+emit // (event: 'foo', arg: string) => void
+```
+
+## ComponentData\<T> {#componentdata}
+
+Returns the component bindings from `data` and `setup`.
+
+```ts
+const Comp = defineComponent({
+  data() {
+    return {
+      foo: 'string'
+    }
+  },
+
+  setup(props, ctx) {
+    return {
+      bar: 42
+    }
+  }
+})
+
+const data = {} as ComponentData<typeof Comp>
+data.foo // string
+data.bar // number
+```
+
+## DefineComponentOptions & DefineComponentFromOptions {#definecomponentoptions}
+
+Allows to get vue component options and generate `DefineComponent` type.
+
+:::warning
+The generic order is not prone to change, but it might, `Options` should be the last generic used, new generics will be added before `Options`.
+:::
+
+:::info
+Note that you if you need to handle generics, it should be it's own overload, since
+any change to the Generic definition might break the Generic type.
+:::
+
+```ts
+declare function defineComponentWithDefaults<
+  Props = never,
+  RawBindings = {},
+  D = {},
+  C extends ComputedOptions = {},
+  M extends MethodOptions = {},
+  Mixin extends ComponentOptionsMixin = ComponentOptionsMixin,
+  Extends extends ComponentOptionsMixin = ComponentOptionsMixin,
+  E extends EmitsOptions = {},
+  EE extends string = string,
+  I extends ComponentInjectOptions = {},
+  II extends string = string,
+  S extends SlotsType = {},
+  Options extends {} = {}
+>(
+  options: DefineComponentOptions<
+    Props,
+    RawBindings,
+    D,
+    C,
+    M,
+    Mixin,
+    Extends,
+    E,
+    EE,
+    I,
+    II,
+    S,
+    Options
+  >,
+  defaults: Partial<
+    [Props] extends [string]
+      ? { [K in Props]?: any }
+      : ExtractPropTypes<Props>
+  >
+): DefineComponentFromOptions<
+  undefined extends Props ? {} : Props,
+  RawBindings,
+  D,
+  C,
+  M,
+  Mixin,
+  Extends,
+  E,
+  EE,
+  I,
+  II,
+  S,
+  Options
+>
+```

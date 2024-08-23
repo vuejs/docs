@@ -124,9 +124,11 @@ A type helper for defining a Vue component with type inference.
   You can extract the instance type of a component (equivalent to the type of `this` in its options) from the return type of `defineComponent()` like this:
 
   ```ts
+  import { ComponentInstance } from 'vue'
+  
   const Foo = defineComponent(/* ... */)
 
-  type FooInstance = InstanceType<typeof Foo>
+  type FooInstance = ComponentInstance<typeof Foo>
   ```
 
   ### Function Signature <sup class="vt-badge" data-text="3.3+" /> {#function-signature}

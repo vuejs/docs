@@ -289,6 +289,10 @@ export const sidebar: ThemeConfig['sidebar'] = {
         {
           text: 'TS with Options API',
           link: '/guide/typescript/options-api'
+        },
+        {
+          text: 'Typescript: Advanced',
+          link: '/guide/typescript/advanced'
         }
       ]
     },
