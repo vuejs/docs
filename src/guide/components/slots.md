@@ -541,3 +541,32 @@ An example renderless component could be one that encapsulates the logic of trac
 While an interesting pattern, most of what can be achieved with Renderless Components can be achieved in a more efficient fashion with Composition API, without incurring the overhead of extra component nesting. Later, we will see how we can implement the same mouse tracking functionality as a [Composable](/guide/reusability/composables).
 
 That said, scoped slots are still useful in cases where we need to both encapsulate logic **and** compose visual output, like in the `<FancyList>` example.
+
+
+### Programmatic Access {#programmatic-access}
+
+Sometimes you need to access the content of a slot in vue 3 programmatically. For example you may want to render your content in an iframe.
+
+```vue-html
+<VIframe>
+   <div>My Content</div>
+</VIframe>
+````
+
+In your iframe component, you can get his information like this:
+
+```javascript
+import { useSlots, createApp } from 'vue';
+  
+const slots = useSlots();
+const iframeApp = createApp({
+    render() {
+        return slots.default();
+    }
+});
+iApp.mount(el);
+```
+
+When you mount the iframeApp now to the iframe (not shown), the internal content will reflect whatever you passed in the slot.
+
+
