@@ -7,6 +7,7 @@ const websiteLabel = 'proxify.io'
 const websiteUrl = 'https://proxify.io/'
 const applyUrl = 'https://career.proxify.io/apply'
 const hireUrl = 'https://proxify.io/hire-vuejs'
+const vueLinkSEO = 'https://proxify.io/hire-vue-developers'
 const cloudinaryUrl = 'https://res.cloudinary.com/proxify-io/image/upload'
 
 
@@ -48,8 +49,8 @@ const partnerConfig = {
     text: `This highly vetted developer is brought to you by Vue’s partner:`,
     email: 'vue@proxify.io',
     phone: '+44 20 4614 2667',
-    websiteVueLink: hireUrl,
-    websiteVueLabel: websiteLabel + '/vue'
+    websiteVueLink: vueLinkSEO,
+    websiteVueLabel: websiteLabel + '/hire-vue-developers'
   },
 
   // Diagram sections
