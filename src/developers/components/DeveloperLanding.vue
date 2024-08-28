@@ -113,6 +113,4 @@ onMounted(() => {
     right: 48px;
   }
 }
-
-
 </style>

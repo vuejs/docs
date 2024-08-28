@@ -2,7 +2,7 @@
 import { DeveloperProfile } from './type'
 import { truncateTextFromArray } from './utils'
 import { VTIconMapPin } from '@vue/theme'
-import CloudinaryImage from './CloudinaryImage.vue'
+import DeveloperImage from './DeveloperImage.vue'
 import DeveloperProficiencies from './DeveloperProficiencies.vue'
 import DeveloperCompensations from './DeveloperCompensations.vue'
 
@@ -27,7 +27,7 @@ const trimmedDescription = truncateTextFromArray(description, 220)
   >
     <div class="developer-card__header">
       <div v-if="!hero && profileImage" class="developer-card__avatar">
-        <CloudinaryImage
+        <DeveloperImage
           :src="profileImage"
           :alt="name"
           :width="120"
@@ -67,7 +67,7 @@ const trimmedDescription = truncateTextFromArray(description, 220)
     />
 
     <div v-if="hero && profileImage" class="developer-card__image">
-      <CloudinaryImage
+      <DeveloperImage
         :src="profileImage"
         :alt="name"
         :width="526"

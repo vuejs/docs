@@ -7,7 +7,7 @@ import { generateUTMUrl } from './utils'
 
 const route = useRoute()
 
-const logoLink = computed(() => generateUTMUrl(partnerConfig.websiteUrl, route.path))
+const logoLink = computed(() => generateUTMUrl(partnerConfig.pageFooter.websiteVueLink || partnerConfig.websiteUrl, route.path))
 const hireUsLink = computed(() => generateUTMUrl(partnerConfig.hireUsButtonUrl, route.path))
 const websiteVuePageLink = computed(() => generateUTMUrl(partnerConfig.pageFooter.websiteVueLink, route.path))
 
@@ -38,7 +38,9 @@ const { logo, partnerName } = partnerConfig
 
     <div class="partner-footer__social-links">
       <a v-if="email" :href="`mailto:${email}`">{{ email }}</a>
-      <p v-if="phone">{{ phone }}</p>
+      <br />
+      <a v-if="phone" :href="`tel:${phone}`">{{ phone }}</a>
+      <br />
       <a v-if="websiteVuePageLink" :href="websiteVuePageLink" target="_blank">{{ websiteVueLabel }}</a>
     </div>
 

@@ -4,7 +4,7 @@ import partnerConfig from '../partnerConfig.js'
 import { DeveloperProfile } from './type'
 import { generateUTMUrl } from './utils'
 import { VTIconChevronLeft, VTIconMapPin } from '@vue/theme'
-import CloudinaryImage from './CloudinaryImage.vue'
+import DeveloperImage from './DeveloperImage.vue'
 import DeveloperCompensations from './DeveloperCompensations.vue'
 import DeveloperProficiencies from './DeveloperProficiencies.vue'
 import DeveloperProfileDiagram from './DeveloperProfileDiagram.vue'
@@ -36,7 +36,7 @@ const hireUsLink = computed(() => generateUTMUrl(partnerConfig.hireUsButtonUrl, 
 
     <div class="developer-page__content">
       <div v-if="profileImage" class="developer-page__profile-image">
-        <CloudinaryImage
+        <DeveloperImage
           :src="profileImage"
           :alt="name"
           :width="592"

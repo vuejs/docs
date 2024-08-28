@@ -2,23 +2,23 @@
 import { computed } from 'vue'
 import partnerConfig from '../partnerConfig.js'
 
-const { cloudinaryUrl } = partnerConfig
+const { imageStorageUrl } = partnerConfig
 
 const props = withDefaults(defineProps<{
-  src: string,
-  alt: string,
-  width: number,
-  height: number,
-  quality?: string,
-  crop?: string,
-  faceRecognition?: boolean,
-  loading?: 'lazy' | 'eager',
-  className?: string,
+  src: string
+  alt: string
+  width: number
+  height: number
+  quality?: string
+  crop?: string
+  faceRecognition?: boolean
+  loading?: 'lazy' | 'eager'
+  className?: string
 }>(), {
   quality: 'q_auto:best',
   crop: 'c_fit',
-  faceRecognition: false,
-});
+  faceRecognition: false
+})
 
 const imageSrc = computed(() => {
   const attributes = [
@@ -31,9 +31,9 @@ const imageSrc = computed(() => {
     props.height ? `h_${props.height}` : '',
   ]
     .filter((item) => item !== '')
-    .join(',');
+    .join(',')
 
-  return `${cloudinaryUrl}/${attributes}/v1/${props.src.replace(/^\/+/, '')}`;
+  return `${imageStorageUrl}/${attributes}/v1/${props.src.replace(/^\/+/, '')}`
 })
 </script>
 
