@@ -84,6 +84,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 This will be compiled to equivalent runtime props `default` options. In addition, the `withDefaults` helper provides type checks for the default values, and ensures the returned `props` type has the optional flags removed for properties that do have default values declared.
 
+:::info
+Note that default values for mutable reference types (like arrays or objects) should be wrapped in functions to avoid accidental modification and external side effects. This ensures each component instance gets its own copy of the default value.
+:::
+
 ### Without `<script setup>` {#without-script-setup}
 
 If not using `<script setup>`, it is necessary to use `defineComponent()` to enable props type inference. The type of the props object passed to `setup()` is inferred from the `props` option.
@@ -419,3 +423,38 @@ import type { ComponentPublicInstance } from 'vue'
 
 const child = ref<ComponentPublicInstance | null>(null)
 ```
+
+In cases where the component referenced is a [generic component](/guide/typescript/overview.html#generic-components), for instance `MyGenericModal`:
+
+```vue
+<!-- MyGenericModal.vue -->
+<script setup lang="ts" generic="ContentType extends string | number">
+import { ref } from 'vue'
+
+const content = ref<ContentType | null>(null)
+
+const open = (newContent: ContentType) => (content.value = newContent)
+
+defineExpose({
+  open
+})
+</script>
+```
+
+It needs to be referenced using `ComponentExposed` from the [`vue-component-type-helpers`](https://www.npmjs.com/package/vue-component-type-helpers) library as `InstanceType` won't work.
+
+```vue
+<!-- App.vue -->
+<script setup lang="ts">
+import MyGenericModal from './MyGenericModal.vue'
+
+import type { ComponentExposed } from 'vue-component-type-helpers';
+
+const modal = ref<ComponentExposed<typeof MyModal> | null>(null)
+
+const openModal = () => {
+  modal.value?.open('newValue')
+}
+</script>
+```
+

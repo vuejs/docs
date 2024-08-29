@@ -163,26 +163,26 @@ export default {
 ```vue-html
 <div>Checked names: {{ checkedNames }}</div>
 
-<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+<input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
 <label for="jack">Jack</label>
 
-<input type="checkbox" id="john" value="John" v-model="checkedNames">
+<input type="checkbox" id="john" value="John" v-model="checkedNames" />
 <label for="john">John</label>
 
-<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+<input type="checkbox" id="mike" value="Mike" v-model="checkedNames" />
 <label for="mike">Mike</label>
 ```
 
 <div class="demo">
   <div>Checked names: {{ checkedNames }}</div>
 
-  <input type="checkbox" id="demo-jack" value="Jack" v-model="checkedNames">
+  <input type="checkbox" id="demo-jack" value="Jack" v-model="checkedNames" />
   <label for="demo-jack">Jack</label>
 
-  <input type="checkbox" id="demo-john" value="John" v-model="checkedNames">
+  <input type="checkbox" id="demo-john" value="John" v-model="checkedNames" />
   <label for="demo-john">John</label>
 
-  <input type="checkbox" id="demo-mike" value="Mike" v-model="checkedNames">
+  <input type="checkbox" id="demo-mike" value="Mike" v-model="checkedNames" />
   <label for="demo-mike">Mike</label>
 </div>
 

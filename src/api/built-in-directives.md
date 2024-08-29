@@ -451,7 +451,7 @@ Render the element and component once only, and skip future updates.
   <span v-once>This will never change: {{msg}}</span>
   <!-- the element have children -->
   <div v-once>
-    <h1>comment</h1>
+    <h1>Comment</h1>
     <p>{{msg}}</p>
   </div>
   <!-- component -->

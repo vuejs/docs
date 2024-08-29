@@ -286,7 +286,7 @@ declare module 'vue' {
 
 Now the `beforeRouteEnter` option will be properly typed. Note this is just an example - well-typed libraries like `vue-router` should automatically perform these augmentations in their own type definitions.
 
-The placement of this augmentation is subject the [same restrictions](#type-augmentation-placement) as global property augmentations.
+The placement of this augmentation is subject to the [same restrictions](#type-augmentation-placement) as global property augmentations.
 
 See also:
 

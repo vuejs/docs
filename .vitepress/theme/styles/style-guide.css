@@ -59,3 +59,7 @@
 .style-verb.avoid {
   background-color: var(--vt-c-red);
 }
+.vt-doc summary {
+  width: fit-content;
+  cursor: pointer;
+}

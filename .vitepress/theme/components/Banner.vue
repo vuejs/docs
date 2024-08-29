@@ -58,6 +58,12 @@ html:not(.banner-dismissed) {
   font-weight: 600;
   color: #fff;
   background-color: var(--vt-c-green);
+  background: linear-gradient(
+    90deg,
+    rgba(66, 184, 131, 1) 0%,
+    rgba(39, 179, 137, 1) 19%,
+    rgba(100, 126, 255, 1) 100%
+  );
 }
 
 .banner-dismissed .banner {
@@ -72,7 +78,7 @@ button {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 20px 10px;
+  padding: 5px;
 }
 
 .close {
@@ -99,4 +105,11 @@ button {
   border-radius: 50%;
   cursor: pointer;
 }
+
+/*
+@media (max-width: 720px) {
+  a > span {
+    display: none;
+  }
+} */
 </style>
