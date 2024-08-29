@@ -485,5 +485,5 @@ Obserwuje jedno lub więcej reaktywnych źródeł danych i wywołuje funkcję zw
 
 - **Zobacz również**
 
-  - [Poradnik - Watchery](/guide/essentials/watchers)
-  - [Poradnik - Debugowanie obserwatorów](/guide/extras/reactivity-in-depth#watcher-debugging)
+  - [Poradnik - Watchers](/guide/essentials/watchers)
+  - [Poradnik - Watchers debugowanie](/guide/extras/reactivity-in-depth#watcher-debugging)
