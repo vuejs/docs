@@ -22,12 +22,13 @@ function dismiss() {
 
 <template>
   <div class="banner banner-vuejsconf" v-if="open">
-    <a href="https://conf.vuejs.de/?utm_source=vuejs&utm_medium=referral&utm_campaign=banner-placement&utm_content=banner"
+    <a href="https://conf.vuejs.de/tickets/?voucher=COMMUNITY&utm_source=vuejs&utm_medium=referral&utm_campaign=banner-placement&utm_content=banner"
       target="_blank">
       <picture>
-        <source media="(min-width:1200px)" srcset="/vuejsde-conf/vuejsdeconf_banner_large.png" />
-        <source media="(min-width:920px)" srcset="/vuejsde-conf/vuejsdeconf_banner_medium.png" />
-        <img src="/vuejsde-conf/vuejsdeconf_banner_small.png" alt="" />
+        <source media="(min-width:1260px)" srcset="/vuejsde-conf/vuejsdeconf_banner_large.png" />
+        <source media="(min-width:970px)" srcset="/vuejsde-conf/vuejsdeconf_banner_medium.png" />
+        <source media="(min-width:576px)" srcset="/vuejsde-conf/vuejsdeconf_banner_small.png" />
+        <img src="/vuejsde-conf/vuejsdeconf_banner_smallest.png" alt="" />
       </picture>
     </a>
     <div class="close-btn" @click.stop.prevent="dismiss">
@@ -38,7 +39,7 @@ function dismiss() {
 
 <style>
 html:not(.banner-dismissed) {
-  --vt-banner-height: 60px;
+  --vt-banner-height: 72px;
 }
 </style>
 
@@ -77,12 +78,12 @@ button {
 .close {
   width: 20px;
   height: 20px;
-  fill: #fff;
+  fill: #000;
   transform: rotate(45deg);
 }
 
 .banner-vuejsconf {
-  background: linear-gradient(90deg, #fff 50%, #43b883 50%);
+  background: linear-gradient(90deg, #fff 50%, #6f97c4 50%);
 }
 
 .banner-vuejsconf a {
@@ -91,12 +92,11 @@ button {
 }
 
 .banner-vuejsconf .close-btn {
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  left: 0px;
   z-index: 99;
   position: absolute;
   border-radius: 50%;
-  padding: 10px;
   cursor: pointer;
 }
 </style>
