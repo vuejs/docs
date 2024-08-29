@@ -272,9 +272,9 @@
   },
   {
     "name": "GU Yiling",
-    "title": "Senior web developer",
-    "company": "Baidu, inc.",
-    "companyLink": "https://www.baidu.com/",
+    "title": "Staff Software Engineer",
+    "company": "Kong Inc.",
+    "companyLink": "https://konghq.com/",
     "projects": [
       {
         "label": "vue",
@@ -285,19 +285,11 @@
         "url": "https://cn.vuejs.org"
       },
       {
-        "label": "Justineo/vue-awesome",
-        "url": "https://github.com/Justineo/vue-awesome"
-      },
-      {
-        "label": "Justineo/vue-awesome",
-        "url": "https://github.com/Justineo/vue-awesome"
-      },
-      {
-        "label": "ecomfe/vue-echarts",
+        "label": "vue-echarts",
         "url": "https://github.com/ecomfe/vue-echarts"
       },
       {
-        "label": "ecomfe/veui",
+        "label": "veui",
         "url": "https://github.com/ecomfe/veui"
       }
     ],
