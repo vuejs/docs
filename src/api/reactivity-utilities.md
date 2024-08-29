@@ -209,7 +209,7 @@ Konwertuje obiekt reaktywny na zwykły obiekt, w którym każda właściwość o
   console.log(state.foo) // 3
   ```
 
-  `toRefs` is useful when returning a reactive object from a composable function so that the consuming component can destructure/spread the returned object without losing reactivity:
+  Funkcja `toRefs` jest przydatna podczas zwracania reaktywnego obiektu z funkcji composable, dzięki czemu komponent który używa wspomnianej funkcji może zniszczyć/rozłożyć zwrócony obiekt bez utraty reaktywności:
 
   ```js
   function useFeatureX() {
@@ -218,23 +218,23 @@ Konwertuje obiekt reaktywny na zwykły obiekt, w którym każda właściwość o
       bar: 2
     })
 
-    // ...logic operating on state
+    // ...logika operująca na stanie
 
-    // convert to refs when returning
+    // konwersja na refs po powrocie
     return toRefs(state)
   }
 
-  // can destructure without losing reactivity
+  // może ulec destrukcji bez utraty reaktywności
   const { foo, bar } = useFeatureX()
   ```
 
-  `toRefs` will only generate refs for properties that are enumerable on the source object at call time. To create a ref for a property that may not exist yet, use [`toRef`](#toref) instead.
+  `toRefs` wygeneruje referencje tylko dla właściwości, które są wyliczalne na obiekcie źródłowym w czasie wywołania. Aby utworzyć ref dla właściwości, która może jeszcze nie istnieć, należy użyć [`toRef`](#toref).
 
 ## isProxy() {#isproxy}
 
-Checks if an object is a proxy created by [`reactive()`](./reactivity-core#reactive), [`readonly()`](./reactivity-core#readonly), [`shallowReactive()`](./reactivity-advanced#shallowreactive) or [`shallowReadonly()`](./reactivity-advanced#shallowreadonly).
+Sprawdza, czy obiekt jest proxy utworzonym przez [`reactive()`](./reactivity-core#reactive), [`readonly()`](./reactivity-core#readonly), [`shallowReactive()`](./reactivity-advanced#shallowreactive) lub [`shallowReadonly()`](./reactivity-advanced#shallowreadonly).
 
-- **Type**
+- **Typ**
 
   ```ts
   function isProxy(value: any): boolean
@@ -242,9 +242,9 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core#react
 
 ## isReactive() {#isreactive}
 
-Checks if an object is a proxy created by [`reactive()`](./reactivity-core#reactive) or [`shallowReactive()`](./reactivity-advanced#shallowreactive).
+Sprawdza, czy obiekt jest proxy utworzonym przez [`reactive()`](./reactivity-core#reactive) lub [`shallowReactive()`](./reactivity-advanced#shallowreactive).
 
-- **Type**
+- **Typ**
 
   ```ts
   function isReactive(value: unknown): boolean
@@ -252,11 +252,11 @@ Checks if an object is a proxy created by [`reactive()`](./reactivity-core#react
 
 ## isReadonly() {#isreadonly}
 
-Checks whether the passed value is a readonly object. The properties of a readonly object can change, but they can't be assigned directly via the passed object.
+Sprawdza, czy przekazana wartość jest obiektem tylko do odczytu. Właściwości obiektu readonly mogą się zmieniać, ale nie mogą być przypisywane bezpośrednio przez przekazany obiekt.
 
-The proxies created by [`readonly()`](./reactivity-core#readonly) and [`shallowReadonly()`](./reactivity-advanced#shallowreadonly) are both considered readonly, as is a [`computed()`](./reactivity-core#computed) ref without a `set` function.
+Proxy utworzone przez [`readonly()`](./reactivity-core#readonly) i [`shallowReadonly()`](./reactivity-advanced#shallowreadonly) są uważane za readonly, podobnie jak [`computed()`](./reactivity-core#computed) bez funkcji `set`.
 
-- **Type**
+- **Typ**
 
   ```ts
   function isReadonly(value: unknown): boolean
