@@ -283,9 +283,11 @@ Provide a value that can be injected in all descendant components within the app
   - [App-level Provide](/guide/components/provide-inject#app-level-provide)
   - [app.runWithContext()](#app-runwithcontext)
 
-## app.runWithContext()<sup class="vt-badge" data-text="3.3+" /> {#app-runwithcontext}
+## app.runWithContext() {#app-runwithcontext}
 
 Execute a callback with the current app as injection context.
+
+- Only supported in 3.3+
 
 - **Type**
 
