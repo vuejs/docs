@@ -2,17 +2,38 @@
 
 ## useAttrs() {#useattrs}
 
+Returns the `attrs` object from the [Setup Context](/api/composition-api-setup#setup-context), which includes the [fallthrough attributes](/guide/components/attrs#fallthrough-attributes) of the current component. This is intended to be used in `<script setup>` where the setup context object is not available.
+
 ## useSlots() {#useslots}
 
+Returns the `slots` object from the [Setup Context](/api/composition-api-setup#setup-context), which includes parent passed slots as callable functions that return Virtual DOM nodes. This is intended to be used in `<script setup>` where the setup context object is not available.
+
+If using TypeScript, [`defineSlots()`](/api/sfc-script-setup#defineslots) should be preferred instead.
+
 ## useModel() <sup class="vt-badge" data-text="3.4+" /> {#usemodel}
+
+This is the underlying helper that powers [`defineModel()`](/api/sfc-script-setup#definemodel). If using `<script setup>`, `defineModel()` should be preferred instead.
+
+`useModel()` can be used in non-SFC components, e.g. when using raw `setup()` function. It expects the `props` object as the first argument, and the model name as the second argument. The optional third argument can be used to declare custom getter and setter for the resulting model ref. Note that unlike `defineModel()`, you are responsible for declaring the props and emits yourself.
+
+- **Example**
+
+  ```js
+  export default {
+    props: ['count'],
+    emits: ['update:count'],
+    setup(props) {
+      const msg = useModel(props, 'count')
+      msg.value = 1
+    }
+  }
+  ```
 
 ## useTemplateRef() <sup class="vt-badge" data-text="3.5+" /> {#usetemplateref}
 
 ## useId() <sup class="vt-badge" data-text="3.5+" /> {#useid}
 
 `useId()` is an API that can be used to generate unique-per-application IDs.
-
-- **Composition API only.**
 
 - **Example**
 
