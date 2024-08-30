@@ -610,3 +610,23 @@ An object for defining merging strategies for custom component options.
   ```
 
 - **See also** [Component Instance - `$options`](/api/component-instance#options)
+
+## app.config.idPrefix <sup class="vt-badge" data-text="3.5+" /> {#app-config-idprefix}
+
+Configure a prefix for all IDs generated via [useId()](/api/general#useid) inside this application.
+
+- **Type:** `string`
+
+- **Default:** `undefined`
+
+- **Example:**
+
+  ```js
+  app.config.idPrefix = 'my-app'
+  ```
+
+  ```js
+  // in a component:
+  const id1 = useId() // 'my-app:0'
+  const id2 = useId() // 'my-app:1'
+  ```
