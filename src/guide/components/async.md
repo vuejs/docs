@@ -108,6 +108,105 @@ If a loading component is provided, it will be displayed first while the inner c
 
 If an error component is provided, it will be displayed when the Promise returned by the loader function is rejected. You can also specify a timeout to show the error component when the request is taking too long.
 
+## Lazy Hydration <sup class="vt-badge" data-text="3.5+" /> {#lazy-hydration}
+
+> This section only applies if you are using [Server-Side Rendering](/guide/scaling-up/ssr).
+
+In Vue 3.5+, async components can control when they are hydrated by providing a hydration strategy.
+
+- Vue provides a number of built-in hydration strategies. These built-in strategies need to be individually imported so they can be tree-shaken if not used.
+
+- The design is intentionally low-level for flexibility. Compiler syntax sugar can potentially be built on top of this in the future either in core or in higher level solutions (e.g. Nuxt).
+
+### Hydrate on Idle
+
+Hydrates via `requestIdleCallback`:
+
+```js
+import { defineAsyncComponent, hydrateOnIdle } from 'vue'
+
+const AsyncComp = defineAsyncComponent({
+  loader: () => import('./Comp.vue'),
+  hydrate: hydrateOnIdle(/* optionally pass a max timeout */)
+})
+```
+
+### Hydrate on Visible
+
+Hydrate when element(s) become visible via `IntersectionObserver`.
+
+```js
+import { defineAsyncComponent, hydrateOnVisible } from 'vue'
+
+const AsyncComp = defineAsyncComponent({
+  loader: () => import('./Comp.vue'),
+  hydrate: hydrateOnVisible()
+})
+```
+
+Can optionally pass in an options object value for the observer:
+
+```js
+hydrateOnVisible({ rootMargin: '100px' })
+```
+
+### Hydrate on Media Query
+
+Hydrates when the specified media query matches.
+
+```js
+import { defineAsyncComponent, hydrateOnMediaQuery } from 'vue'
+
+const AsyncComp = defineAsyncComponent({
+  loader: () => import('./Comp.vue'),
+  hydrate: hydrateOnMediaQuery('(max-width:500px)')
+})
+```
+
+### Hydrate on Interaction
+
+Hydrates when specified event(s) are triggered on the component element(s). The event that triggered the hydration will also be replayed once hydration is complete.
+
+```js
+import { defineAsyncComponent, hydrateOnInteraction } from 'vue'
+
+const AsyncComp = defineAsyncComponent({
+  loader: () => import('./Comp.vue'),
+  hydrate: hydrateOnInteraction('click')
+})
+```
+
+Can also be a list of multiple event types:
+
+```js
+hydrateOnInteraction(['wheel', 'mouseover'])
+```
+
+### Custom Strategy
+
+```ts
+import { defineAsyncComponent, type HydrationStrategy } from 'vue'
+
+const myStrategy: HydrationStrategy = (hydrate, forEachElement) => {
+  // forEachElement is a helper to iterate through all the root elememts
+  // in the component's non-hydrated DOM, since the root can be a fragment
+  // instead of a single element
+  forEachElement(el => {
+    // ...
+  })
+  // call `hydrate` when ready
+  hydrate()
+  return () => {
+    // return a teardown function if needed
+  }
+}
+
+const AsyncComp = defineAsyncComponent({
+  loader: () => import('./Comp.vue'),
+  hydrate: myStrategy
+})
+```
+
 ## Using with Suspense {#using-with-suspense}
 
 Async components can be used with the `<Suspense>` built-in component. The interaction between `<Suspense>` and async components is documented in the [dedicated chapter for `<Suspense>`](/guide/built-ins/suspense).
