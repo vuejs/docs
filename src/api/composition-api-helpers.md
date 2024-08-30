@@ -22,11 +22,11 @@ If using TypeScript, [`defineSlots()`](/api/sfc-script-setup#defineslots) should
   function useSlots(): Record<string, (...args: any[]) => VNode[]>
   ```
 
-## useModel() <sup class="vt-badge" data-text="3.4+" /> {#usemodel}
+## useModel() {#usemodel}
 
 This is the underlying helper that powers [`defineModel()`](/api/sfc-script-setup#definemodel). If using `<script setup>`, `defineModel()` should be preferred instead.
 
-`useModel()` can be used in non-SFC components, e.g. when using raw `setup()` function. It expects the `props` object as the first argument, and the model name as the second argument. The optional third argument can be used to declare custom getter and setter for the resulting model ref. Note that unlike `defineModel()`, you are responsible for declaring the props and emits yourself.
+- Only available in 3.4+
 
 - **Type**
 
@@ -55,6 +55,10 @@ This is the underlying helper that powers [`defineModel()`](/api/sfc-script-setu
     }
   }
   ```
+
+- **Details**
+
+  `useModel()` can be used in non-SFC components, e.g. when using raw `setup()` function. It expects the `props` object as the first argument, and the model name as the second argument. The optional third argument can be used to declare custom getter and setter for the resulting model ref. Note that unlike `defineModel()`, you are responsible for declaring the props and emits yourself.
 
 ## useTemplateRef() <sup class="vt-badge" data-text="3.5+" /> {#usetemplateref}
 

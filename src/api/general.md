@@ -129,7 +129,9 @@ A type helper for defining a Vue component with type inference.
   type FooInstance = InstanceType<typeof Foo>
   ```
 
-  ### Function Signature <sup class="vt-badge" data-text="3.3+" /> {#function-signature}
+  ### Function Signature {#function-signature}
+
+  - Only supported in 3.3+
 
   `defineComponent()` also has an alternative signature that is meant to be used with Composition API and [render functions or JSX](/guide/extras/render-function.html).
 

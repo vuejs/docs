@@ -267,7 +267,9 @@ This will be compiled to equivalent runtime props `default` options. In addition
 Note that default values for mutable reference types (like arrays or objects) should be wrapped in functions when using `withDefaults` to avoid accidental modification and external side effects. This ensures each component instance gets its own copy of the default value. This is **not** necessary when using default values with destructure.
 :::
 
-## defineModel() <sup class="vt-badge" data-text="3.4+" /> {#definemodel}
+## defineModel() {#definemodel}
+
+- Only available in 3.4+
 
 This macro can be used to declare a two-way binding prop that can be consumed via `v-model` from the parent component. Example usage is also discussed in the [Component `v-model`](/guide/components/v-model) guide.
 

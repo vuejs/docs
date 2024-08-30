@@ -124,9 +124,9 @@ Now, for most components the `active` prop will remain the same when `activeId` 
 
 `v-memo` is a built-in directive that can be used to conditionally skip the update of large sub-trees or `v-for` lists. Consult its [API reference](/api/built-in-directives#v-memo) for more details.
 
-### Computed Stability <sup class="vt-badge" data-text="3.4+" /> {#computed-stability}
+### Computed Stability {#computed-stability}
 
-Starting in 3.4, a computed property will only trigger effects when its computed value has changed from the previous one. For example, the following `isEven` computed only triggers effects if the returned value has changed from `true` to `false`, or vice-versa:
+In Vue 3.4 and above, a computed property will only trigger effects when its computed value has changed from the previous one. For example, the following `isEven` computed only triggers effects if the returned value has changed from `true` to `false`, or vice-versa:
 
 ```js
 const count = ref(0)
