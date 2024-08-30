@@ -333,9 +333,9 @@ Rejestruje funkcję asynchroniczną, która ma zostać rozwiązana przed rendero
 
   onMounted(async () => {
     if (!data.value) {
-      // if data is null on mount, it means the component
-      // is dynamically rendered on the client. Perform a
-      // client-side fetch instead.
+      // jeśli dane są nullem po zamontowaniu, oznacza to, że komponent
+      // jest dynamicznie renderowany po stronie klienta. Zamiast tego wykonaj
+      // pobieranie po stronie klienta.
       data.value = await fetchOnClient(/* ... */)
     }
   })
