@@ -90,6 +90,18 @@ Unmounts a mounted application instance, triggering the unmount lifecycle hooks 
   }
   ```
 
+## app.onUnmount() <sup class="vt-badge" data-text="3.5+" /> {#app-onunmount}
+
+Registers a callback to be called when the app is unmounted.
+
+- **Type**
+
+  ```ts
+  interface App {
+    onUnmount(callback: () => any): void
+  }
+  ```
+
 ## app.component() {#app-component}
 
 Registers a global component if passing both a name string and a component definition, or retrieves an already registered one if only the name is passed.
@@ -619,7 +631,7 @@ Configure a prefix for all IDs generated via [useId()](/api/general#useid) insid
 
 - **Default:** `undefined`
 
-- **Example:**
+- **Example**
 
   ```js
   app.config.idPrefix = 'my-app'
@@ -630,3 +642,21 @@ Configure a prefix for all IDs generated via [useId()](/api/general#useid) insid
   const id1 = useId() // 'my-app:0'
   const id2 = useId() // 'my-app:1'
   ```
+
+## app.config.throwUnhandledErrorInProduction <sup class="vt-badge" data-text="3.5+" /> {#app-config-throwunhandlederrorinproduction}
+
+Force unhandled errors to be thrown in production mode.
+
+- **Type:** `boolean`
+
+- **Default:** `false`
+
+- **Details**
+
+  By default, errors thrown inside a Vue application but not explicit handled have different behavior between development and production modes:
+
+  - In development, the error is thrown and can possibly crash the application. This is to make the error more prominent so that it can be noticed and fixed during development.
+
+  - In production, the error will only be logged to the console to minimize the impact to end users. However, this may prevent errors that only happen in production from being caught by error monitoring services.
+
+  By setting `app.config.throwUnhandledErrorInProduction` to `true`, unhandled errors will be thrown even in production mode.
