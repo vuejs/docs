@@ -286,6 +286,12 @@ Renders its slot content to another part of the DOM.
      * Can be changed dynamically.
      */
     disabled?: boolean
+    /**
+     * When `true`, the Teleport will defer until other
+     * parts of the application have been mounted before
+     * resolving its target. (3.5+)
+     */
+    defer?: boolean
   }
   ```
 
@@ -305,6 +311,15 @@ Renders its slot content to another part of the DOM.
   <Teleport to="#popup" :disabled="displayVideoInline">
     <video src="./my-movie.mp4">
   </Teleport>
+  ```
+
+  Defer target resolution <sup class="vt-badge" data-text="3.5+" />:
+
+  ```vue-html
+  <Teleport defer to="#late-div">...</Teleport>
+
+  <!-- somewhere later in the template -->
+  <div id="late-div"></div>
   ```
 
 - **See also** [Guide - Teleport](/guide/built-ins/teleport)
