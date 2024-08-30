@@ -220,3 +220,23 @@ A runtime API used to retrieve the context object passed to `renderToString()` o
   }
   </script>
   ```
+
+## data-allow-mismatch <sup class="vt-badge" data-text="3.5+" /> {#data-allow-mismatch}
+
+A special attribute that can be used to suppress [hydration mismatch](/guide/scaling-up/ssr#hydration-mismatch) warnings.
+
+- **Example**
+
+  ```html
+  <div data-allow-mismatch="text">{{ data.toLocaleString() }}</div>
+  ```
+
+  The value can limit the allowed mismatch to a specific type. Allowed values are:
+
+  - `text`
+  - `children` (only allows mismatch for direct children)
+  - `class`
+  - `style`
+  - `attribute`
+
+  If no value is provided, all types of mismatches will be allowed.
