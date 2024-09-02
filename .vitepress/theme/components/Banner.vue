@@ -25,9 +25,15 @@ function dismiss() {
     <a href="https://conf.vuejs.de/tickets/?voucher=COMMUNITY&utm_source=vuejs&utm_medium=referral&utm_campaign=banner-placement&utm_content=banner"
       target="_blank">
       <picture>
-        <source media="(min-width:1260px)" srcset="/vuejsde-conf/vuejsdeconf_banner_large.png" />
-        <source media="(min-width:970px)" srcset="/vuejsde-conf/vuejsdeconf_banner_medium.png" />
-        <source media="(min-width:576px)" srcset="/vuejsde-conf/vuejsdeconf_banner_small.png" />
+        <source media="(min-width:1260px)"
+          srcset="/vuejsde-conf/vuejsdeconf_banner_large.png, /vuejsde-conf/vuejsdeconf_banner_large_2x.png 2x" />
+        <source media="(min-width:970px)"
+          srcset="/vuejsde-conf/vuejsdeconf_banner_medium.png, /vuejsde-conf/vuejsdeconf_banner_medium_2x.png 2x" />
+        <source media="(min-width:576px)"
+          srcset="/vuejsde-conf/vuejsdeconf_banner_small.png, /vuejsde-conf/vuejsdeconf_banner_small_2x.png 2x" />
+        <source media="(min-width:320px)"
+          srcset="/vuejsde-conf/vuejsdeconf_banner_smallest.png, /vuejsde-conf/vuejsdeconf_banner_smallest_2x.png 2x"
+          alt="" />
         <img src="/vuejsde-conf/vuejsdeconf_banner_smallest.png" alt="" />
       </picture>
     </a>
@@ -58,12 +64,10 @@ html:not(.banner-dismissed) {
   font-weight: 600;
   color: #fff;
   background-color: var(--vt-c-green);
-  background: linear-gradient(
-    90deg,
-    rgba(66, 184, 131, 1) 0%,
-    rgba(39, 179, 137, 1) 19%,
-    rgba(100, 126, 255, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(66, 184, 131, 1) 0%,
+      rgba(39, 179, 137, 1) 19%,
+      rgba(100, 126, 255, 1) 100%);
 }
 
 .banner-dismissed .banner {
