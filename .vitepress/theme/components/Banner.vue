@@ -34,7 +34,7 @@ function dismiss() {
         <source media="(min-width:320px)"
           srcset="/vuejsde-conf/vuejsdeconf_banner_smallest.png, /vuejsde-conf/vuejsdeconf_banner_smallest_2x.png 2x"
           alt="" />
-        <img src="/vuejsde-conf/vuejsdeconf_banner_smallest.png" alt="" />
+        <img src="/vuejsde-conf/vuejsdeconf_banner_smallest_2x.png" alt="" />
       </picture>
     </a>
     <div class="close-btn" @click.stop.prevent="dismiss">
