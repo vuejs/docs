@@ -36,47 +36,47 @@ shuffleMembers(membersPartnerData as Member[])
 <template>
   <div class="TeamPage">
     <TeamHero>
-      <template #title>Meet the Team</template>
+      <template #title>Poznaj zespół</template>
       <template #lead>
-        The development of Vue and its ecosystem is guided by an
-        international team, some of whom have chosen to be
-        <span class="nowrap">featured below.</span>
+        Rozwój Vue i jego ekosystemu jest prowadzony przez 
+        międzynarodowy zespół, z którego część zdecydowała się 
+        <span class="nowrap">przedstawić poniżej.</span>
       </template>
 
       <template #action>
         <VTLink
           href="https://github.com/vuejs/governance/blob/master/Team-Charter.md"
         >
-          Learn more about teams
+          Dowiedz się więcej o zespołach
         </VTLink>
       </template>
     </TeamHero>
 
     <TeamList :members="(membersCoreData as Member[])">
-      <template #title>Core Team Members</template>
+      <template #title>Członkowie zespołu głównego</template>
       <template #lead>
-        Core team members are those who are actively involved in the
-        maintenance of one or more core projects. They have made
-        significant contributions to the Vue ecosystem, with a long term
-        commitment to the success of the project and its users.
+        Członkowie zespołu głównego to osoby aktywnie zaangażowane w 
+        utrzymanie jednego lub więcej projektów kluczowych. Wnieśli oni 
+        znaczący wkład w ekosystem Vue, z długoterminowym 
+        zaangażowaniem w sukces projektu i jego użytkowników.
       </template>
     </TeamList>
 
     <TeamList :members="(membersEmeritiData as Member[])">
-      <template #title>Core Team Emeriti</template>
+      <template #title>Emerytowany zespół główny</template>
       <template #lead>
-        Here we honor some no-longer-active core team members who have made
-        valuable contributions in the past.
+        W tym miejscu oddajemy cześć nieaktywnym już członkom zespołu głównego, którzy wnieśli 
+        cenny wkład w przeszłości.
       </template>
     </TeamList>
 
     <TeamList :members="(membersPartnerData as Member[])">
-      <template #title>Community Partners</template>
+      <template #title>Partnerzy społeczni</template>
       <template #lead>
-        Some members of the Vue community have so enriched it, that they
-        deserve special mention. We've developed a more intimate
-        relationship with these key partners, often coordinating with them
-        on upcoming features and news.
+        Niektórzy członkowie społeczności Vue tak ją wzbogacili, że 
+        zasługują na specjalne wyróżnienie. Rozwinęliśmy bardziej zażyłe
+        relacje z tymi kluczowymi partnerami, często koordynując z nimi 
+        nadchodzące funkcjonalności i nowości.
       </template>
     </TeamList>
   </div>
