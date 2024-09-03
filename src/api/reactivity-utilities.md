@@ -134,11 +134,11 @@ Can also be used to create a ref for a property on a source reactive object. The
 
 ## toValue() {#tovalue}
 
+- Only supported in 3.3+
+
 Normalizes values / refs / getters to values. This is similar to [unref()](#unref), except that it also normalizes getters. If the argument is a getter, it will be invoked and its return value will be returned.
 
 This can be used in [Composables](/guide/reusability/composables.html) to normalize an argument that can be either a value, a ref, or a getter.
-
-- Only supported in 3.3+
 
 - **Type**
 

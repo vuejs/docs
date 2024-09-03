@@ -379,7 +379,9 @@ defineExpose({
 
 When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
 
-## defineOptions() <sup class="vt-badge" data-text="3.3+" /> {#defineoptions}
+## defineOptions() {#defineoptions}
+
+- Only supported in 3.3+
 
 This macro can be used to declare component options directly inside `<script setup>` without having to use a separate `<script>` block:
 
@@ -394,10 +396,11 @@ defineOptions({
 </script>
 ```
 
-- Only supported in 3.3+.
 - This is a macro. The options will be hoisted to module scope and cannot access local variables in `<script setup>` that are not literal constants.
 
 ## defineSlots()<sup class="vt-badge ts"/> {#defineslots}
+
+- Only supported in 3.3+
 
 This macro can be used to provide type hints to IDEs for slot name and props type checking.
 
@@ -412,8 +415,6 @@ const slots = defineSlots<{
 }>()
 </script>
 ```
-
-- Only supported in 3.3+.
 
 ## `useSlots()` & `useAttrs()` {#useslots-useattrs}
 

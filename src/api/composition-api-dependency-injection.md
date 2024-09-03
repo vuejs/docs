@@ -109,9 +109,9 @@ Injects a value provided by an ancestor component or the application (via `app.p
 
 ## hasInjectionContext() {#has-injection-context}
 
-Returns true if [inject()](#inject) can be used without warning about being called in the wrong place (e.g. outside of `setup()`). This method is designed to be used by libraries that want to use `inject()` internally without triggering a warning to the end user.
-
 - Only supported in 3.3+
+
+Returns true if [inject()](#inject) can be used without warning about being called in the wrong place (e.g. outside of `setup()`). This method is designed to be used by libraries that want to use `inject()` internally without triggering a warning to the end user.
 
 - **Type**
 
