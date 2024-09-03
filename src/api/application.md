@@ -655,7 +655,7 @@ Force unhandled errors to be thrown in production mode.
 
 - **Details**
 
-  By default, errors thrown inside a Vue application but not explicit handled have different behavior between development and production modes:
+  By default, errors thrown inside a Vue application but not explicitly handled have different behavior between development and production modes:
 
   - In development, the error is thrown and can possibly crash the application. This is to make the error more prominent so that it can be noticed and fixed during development.
 
