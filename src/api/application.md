@@ -285,9 +285,9 @@ Provide a value that can be injected in all descendant components within the app
 
 ## app.runWithContext() {#app-runwithcontext}
 
-Execute a callback with the current app as injection context.
-
 - Only supported in 3.3+
+
+Execute a callback with the current app as injection context.
 
 - **Type**
 
