@@ -60,7 +60,7 @@ Denotes a [template ref](/guide/essentials/template-refs).
   <script setup>
   import { ref } from 'vue'
 
-  const p = ref()
+  const pRef = useTemplateRef('p')
   </script>
 
   <template>
