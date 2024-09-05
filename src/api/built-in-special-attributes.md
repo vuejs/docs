@@ -58,7 +58,7 @@ Denotes a [template ref](/guide/essentials/template-refs).
 
   ```vue
   <script setup>
-  import { ref } from 'vue'
+  import { useTemplateRef } from 'vue'
 
   const pRef = useTemplateRef('p')
   </script>
