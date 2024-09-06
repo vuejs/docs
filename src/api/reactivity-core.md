@@ -594,3 +594,27 @@ Register a cleanup function to be executed when the current watcher is about to 
     onWatcherCleanup(cancel)
   })
   ```
+
+  We can split the cleanup logic into another file:
+
+  ```ts
+  // util.ts
+  import { onWatcherCleanup } from 'vue'
+
+  export function doAsyncWorkWithAutoCancel(newId) {
+    const { response, cancel } = doAsyncWork(newId)
+    onWatcherCleanup(cancel)
+    return { response }
+  }
+  ```
+
+  And import the function with auto cleanup logic:
+
+  ```ts
+  import { watch } from 'vue'
+  import { doAsyncWorkWithAutoCancel } from '@/util'
+
+  watch(id, (newId) => {
+    const { response } = doAsyncWorkWithAutoCancel(newId)
+  })
+  ```
