@@ -467,7 +467,7 @@ import { useTemplateRef } from 'vue'
 import MyGenericModal from './MyGenericModal.vue'
 import type { ComponentExposed } from 'vue-component-type-helpers'
 
-const modal = useTemplateRef<ComponentExposed<typeof MyModal>>(null)
+const modal = useTemplateRef<ComponentExposed<typeof MyGenericModal>>(null)
 
 const openModal = () => {
   modal.value?.open('newValue')
