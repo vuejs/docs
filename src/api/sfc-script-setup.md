@@ -347,14 +347,15 @@ Like `defineProps` and `defineEmits`, `defineModel` can also receive type argume
 
 ```ts
 const modelValue = defineModel<string>()
-//    ^? Ref<string | undefined>
+// type: Ref<string | undefined>
 
 // default model with options, required removes possible undefined values
 const modelValue = defineModel<string>({ required: true })
-//    ^? Ref<string>
+// type: Ref<string>
 
 const [modelValue, modifiers] = defineModel<string, 'trim' | 'uppercase'>()
-//                 ^? Record<'trim' | 'uppercase', true | undefined>
+// modelValue: Ref<string | undefined>
+// modifiers:  Record<'trim' | 'uppercase', true | undefined>
 ```
 
 ## defineExpose() {#defineexpose}
