@@ -515,7 +515,7 @@ Watches one or more reactive data sources and invokes a callback function when t
   Pausing / resuming the watcher: <sup class="vt-badge" data-text="3.5+" />
 
   ```js
-  const { stop, pause, resume } = watchEffect(() => {})
+  const { stop, pause, resume } = watch(() => {})
 
   // temporarily pause the watcher
   pause()
