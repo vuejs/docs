@@ -35,12 +35,17 @@ This is the underlying helper that powers [`defineModel()`](/api/sfc-script-setu
     props: Record<string, any>,
     key: string,
     options?: DefineModelOptions
-  )
+  ): ModelRef
 
   type DefineModelOptions<T = any> = {
     get?: (v: T) => any
     set?: (v: T) => any
   }
+
+  type ModelRef<T, M extends PropertyKey = string, G = T, S = T> = Ref<G, S> & [
+    ModelRef<T, M, G, S>,
+    Record<M, true | undefined>
+]
   ```
 
 - **Example**
