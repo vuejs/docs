@@ -104,7 +104,7 @@ It is also common to globally register custom directives at the app level:
 ```js
 const app = createApp({})
 
-// make v-focus usable in all components
+// make v-highlight usable in all components
 app.directive('highlight', {
   /* ... */
 })
