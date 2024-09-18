@@ -10,7 +10,6 @@ const hireUrl = 'https://proxify.io/hire-vuejs'
 const vueArticleUrl = 'https://proxify.io/hire-vue-developers'
 const imageStorageUrl = 'https://res.cloudinary.com/proxify-io/image/upload'
 
-
 const partnerConfig = {
   // Partner information
   partnerName: partner?.name,
