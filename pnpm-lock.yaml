@@ -12,8 +12,8 @@ importers:
         specifier: ^4.3.1
         version: 4.4.1
       '@vue/theme':
-        specifier: ^2.2.13
-        version: 2.2.13(@algolia/client-search@4.23.3)(search-insights@2.14.0)(vitepress@1.3.4(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.44)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.5.5(typescript@5.4.5))
+        specifier: ^2.3.0
+        version: 2.3.0(@algolia/client-search@4.23.3)(search-insights@2.14.0)(vitepress@1.3.4(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.44)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.5.5(typescript@5.4.5))
       dynamics.js:
         specifier: ^1.1.5
         version: 1.1.5
@@ -505,8 +505,8 @@ packages:
   '@vue/shared@3.5.5':
     resolution: {integrity: sha512-0KyMXyEgnmFAs6rNUL+6eUHtUCqCaNrVd+AW3MX3LyA0Yry5SA0Km03CDKiOua1x1WWnIr+W9+S0GMFoSDWERQ==}
 
-  '@vue/theme@2.2.13':
-    resolution: {integrity: sha512-X08mQ2ctiF7Wg6rziKoWDr4BZggbjfbBflPenUJkwf/Aj366dnu0KseoE3p/O2FZPtcRZHUf6r/UK1aGL7vRnQ==}
+  '@vue/theme@2.3.0':
+    resolution: {integrity: sha512-eKd4ipY6i6P2XD2iRVgbxs936g7pesEY2AgNX24C/sjzcmCnm48J7uV8xKXI2du2qfA89/r5QQp7bqZVf2Tekw==}
     peerDependencies:
       vitepress: ^1.2.2
 
@@ -1276,7 +1276,7 @@ snapshots:
 
   '@vue/shared@3.5.5': {}
 
-  '@vue/theme@2.2.13(@algolia/client-search@4.23.3)(search-insights@2.14.0)(vitepress@1.3.4(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.44)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.5.5(typescript@5.4.5))':
+  '@vue/theme@2.3.0(@algolia/client-search@4.23.3)(search-insights@2.14.0)(vitepress@1.3.4(@algolia/client-search@4.23.3)(@types/node@20.14.1)(postcss@8.4.44)(search-insights@2.14.0)(terser@5.31.0)(typescript@5.4.5))(vue@3.5.5(typescript@5.4.5))':
     dependencies:
       '@docsearch/css': 3.6.1
       '@docsearch/js': 3.6.1(@algolia/client-search@4.23.3)(search-insights@2.14.0)
