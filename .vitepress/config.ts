@@ -372,6 +372,10 @@ export const sidebar: ThemeConfig['sidebar'] = {
         {
           text: 'Dependency Injection',
           link: '/api/composition-api-dependency-injection'
+        },
+        {
+          text: 'Helpers',
+          link: '/api/composition-api-helpers'
         }
       ]
     },
@@ -421,6 +425,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
     {
       text: 'Advanced APIs',
       items: [
+        { text: 'Custom Elements', link: '/api/custom-elements' },
         { text: 'Render Function', link: '/api/render-function' },
         { text: 'Server-Side Rendering', link: '/api/ssr' },
         { text: 'TypeScript Utility Types', link: '/api/utility-types' },
