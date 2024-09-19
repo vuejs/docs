@@ -259,7 +259,9 @@ Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `
 
 </div>
 
-## Getting the previous value <sup class="vt-badge" data-text="3.4+" /> \*\* {#previous}
+## Getting the previous value {#previous}
+
+- Only supported in 3.4+
 
 In case you need it, you can get the previous value returned by the computed property accessing
 the first argument of the getter:
