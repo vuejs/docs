@@ -211,7 +211,7 @@ Buforuje dynamicznie przełączane komponenty zawinięte wewnątrz.
 
 - **Przykład**
 
-  Basic usage:
+  Podstawowe użycie:
 
   ```vue-html
   <KeepAlive>
@@ -219,7 +219,7 @@ Buforuje dynamicznie przełączane komponenty zawinięte wewnątrz.
   </KeepAlive>
   ```
 
-  When used with `v-if` / `v-else` branches, there must be only one component rendered at a time:
+  W przypadku użycia z gałęziami `v-if` / `v-else`, w danym momencie może być renderowany tylko jeden komponent:
 
   ```vue-html
   <KeepAlive>
@@ -228,7 +228,7 @@ Buforuje dynamicznie przełączane komponenty zawinięte wewnątrz.
   </KeepAlive>
   ```
 
-  Used together with `<Transition>`:
+  Używane razem z `<Transition>`:
 
   ```vue-html
   <Transition>
@@ -238,7 +238,7 @@ Buforuje dynamicznie przełączane komponenty zawinięte wewnątrz.
   </Transition>
   ```
 
-  Using `include` / `exclude`:
+  Używanie `include` / `exclude`:
 
   ```vue-html
   <!-- comma-delimited string -->
@@ -257,7 +257,7 @@ Buforuje dynamicznie przełączane komponenty zawinięte wewnątrz.
   </KeepAlive>
   ```
 
-  Usage with `max`:
+  Użycie z `max`:
 
   ```vue-html
   <KeepAlive :max="10">
@@ -269,21 +269,21 @@ Buforuje dynamicznie przełączane komponenty zawinięte wewnątrz.
 
 ## `<Teleport>` {#teleport}
 
-Renders its slot content to another part of the DOM.
+Renderuje zawartość slotu do innej części DOM.
 
 - **Props**
 
   ```ts
   interface TeleportProps {
     /**
-     * Required. Specify target container.
-     * Can either be a selector or an actual element.
+     * Wymagane. Określa kontener docelowy.
+     * Może być selektorem lub rzeczywistym elementem.
      */
     to: string | HTMLElement
     /**
-     * When `true`, the content will remain in its original
-     * location instead of moved into the target container.
-     * Can be changed dynamically.
+     * Gdy `true`, zawartość pozostanie w oryginalnej
+     * lokalizacji, a nie przeniesiona do kontenera docelowego.
+     * Może być zmieniana dynamicznie.
      */
     disabled?: boolean
   }
@@ -291,7 +291,7 @@ Renders its slot content to another part of the DOM.
 
 - **Przykład**
 
-  Specifying target container:
+  Określenie kontenera docelowego:
 
   ```vue-html
   <Teleport to="#some-id" />
@@ -299,7 +299,7 @@ Renders its slot content to another part of the DOM.
   <Teleport to="[data-teleport]" />
   ```
 
-  Conditionally disabling:
+  Warunkowe wyłączenie:
 
   ```vue-html
   <Teleport to="#popup" :disabled="displayVideoInline">
@@ -311,7 +311,7 @@ Renders its slot content to another part of the DOM.
 
 ## `<Suspense>` <sup class="vt-badge experimental" /> {#suspense}
 
-Used for orchestrating nested async dependencies in a component tree.
+Służy do orkiestracji zagnieżdżonych zależności asynchronicznych w drzewie komponentów.
 
 - **Props**
 
@@ -330,10 +330,10 @@ Used for orchestrating nested async dependencies in a component tree.
 
 - **Szczegóły**
 
-  `<Suspense>` accepts two slots: the `#default` slot and the `#fallback` slot. It will display the content of the fallback slot while rendering the default slot in memory.
+  `<Suspense>` akceptuje dwa sloty: slot `#default` i slot `#fallback`. Wyświetli on zawartość slotu rezerwowego podczas renderowania domyślnego slotu w pamięci.
 
-  If it encounters async dependencies ([Async Components](/guide/components/async) and components with [`async setup()`](/guide/built-ins/suspense#async-setup)) while rendering the default slot, it will wait until all of them are resolved before displaying the default slot.
+  Jeśli napotka zależności asynchroniczne ([Async Components](/guide/components/async) i komponenty z [`async setup()`](/guide/built-ins/suspense#async-setup)) podczas renderowania domyślnego slotu, poczeka aż wszystkie z nich zostaną rozwiązane przed wyświetleniem domyślnego slotu.
 
-  By setting the Suspense as `suspensible`, all the async dependency handling will be handled by the parent Suspense. See [implementation details](https://github.com/vuejs/core/pull/6736)
+  Ustawiając Suspense jako `suspensible`, cała obsługa zależności asynchronicznych będzie obsługiwana przez nadrzędne Suspense. Zobacz [szczegóły implementacji](https://github.com/vuejs/core/pull/6736)
 
 - **Zobacz również** [Guide - Suspense](/guide/built-ins/suspense)
