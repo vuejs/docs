@@ -4,6 +4,7 @@ import PartnerHero from './PartnerHero.vue'
 import PartnerCard from './PartnerCard.vue'
 import PartnerList from './PartnerList.vue'
 import PartnerJoin from './PartnerJoin.vue'
+import PageShowcaseListLayout from '@theme/components/PageShowcaseListLayout.vue'
 import data from '../partners.json'
 import { Partner } from './type'
 
@@ -16,76 +17,26 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="PartnerPage">
-    <PartnerHero />
+  <PageShowcaseListLayout
+    spotlightTitle="Partner Spotlight"
+    featuredTitle="Featured Partners"
+    browseLinkText="Browse All Partners"
+    browseLinkUrl="./all.html"
+  >
+    <template #hero>
+      <PartnerHero />
+    </template>
 
-    <!-- Spotlight -->
-    <div class="spotlight">
-      <div class="spotlight-inner">
-        <h2>Partner Spotlight</h2>
-        <PartnerCard v-if="spotlighted" hero :data="spotlighted" />
-      </div>
-    </div>
+    <template #spotlight>
+      <PartnerCard v-if="spotlighted" hero :data="spotlighted" />
+    </template>
 
-    <div class="featured">
-      <h2>Featured Partners</h2>
+    <template #featured-list>
       <PartnerList :filter="(p) => p.platinum" showLinkToAll />
-      <a class="browse-all" href="./all.html">Browse All Partners</a>
-    </div>
+    </template>
 
-    <PartnerJoin />
-  </div>
+    <template #join>
+      <PartnerJoin />
+    </template>
+  </PageShowcaseListLayout>
 </template>
-
-<style scoped>
-.PartnerPage {
-  padding-bottom: 16px;
-}
-
-.spotlight {
-  background-color: var(--vt-c-bg-soft);
-}
-
-.spotlight-inner {
-  padding: 36px 48px;
-  max-width: 1280px;
-  margin: 0px auto;
-}
-
-h2 {
-  font-size: 1.1em;
-  font-weight: 600;
-  margin-bottom: 1.5em;
-  color: var(--vt-c-text-2);
-}
-
-.featured {
-  padding: 36px 48px;
-  max-width: 960px;
-  margin: 0px auto;
-}
-
-.browse-all {
-  display: block;
-  margin: 1.5em auto;
-  width: 240px;
-  text-align: center;
-  background-color: var(--vt-c-brand);
-  color: var(--vt-c-bg);
-  padding: 12px 24px;
-  font-weight: 600;
-  border-radius: 6px;
-  transition: background-color 0.5s, color 0.5s;
-}
-
-.browse-all:hover {
-  background-color: var(--vt-c-brand-dark);
-}
-
-@media (max-width: 768px) {
-  .spotlight-inner,
-  .featured {
-    padding: 36px 28px;
-  }
-}
-</style>

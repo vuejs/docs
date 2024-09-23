@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@vue/repl": "^4.3.1",
-    "@vue/theme": "^2.2.13",
+    "@vue/theme": "^2.3.0",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.12.5",
     "vitepress": "^1.3.2",

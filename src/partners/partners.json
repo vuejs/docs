@@ -179,5 +179,39 @@
     "platinum": true,
     "contact": "hello@herodevs.com",
     "hiring": "https://www.herodevs.com/job-board"
+  },
+  {
+    "name": "Proxify",
+    "logo": "proxify.svg",
+    "flipLogo": true,
+    "intro": "With Proxify, you can hire expert Vue.js developers, at a fair price and with zero risk, in just a few days. The quality and commitment of an in-house team, with the flexibility of contractors. Augment your existing team or build a new one, without the risks and admin of permanent employment.",
+    "description": [
+      "Proxify is an end-to-end partner that connects businesses with thoroughly vetted developers, matching you with perfect-fit developers in just two days.",
+      "Our network includes over 4,000 developers with expertise in 500+ tech skills. We accept only 2% of applicants to ensure the highest quality standards. Thousands of businesses worldwide trust our rigorous selection process.",
+      "- <b>Time-to-hire</b>: Ideal candidates are presented within just two days.",
+      "- <b>A core team member, not just a freelancer</b>: Proxify developers deliver quality on business-critical code and fit seamlessly with your team’s culture. No different to your in-house staff.",
+      "- <b>Fair pricing</b>: Our model of working with top-tier talent remotely across the world is both cost-effective for our clients, and lucrative for our developers. Everybody wins.",
+      "- <b>Risk-free and adaptable</b>: Enjoy a team that can quickly adjust as your priorities shift, without the risks and limitations of permanent employment."
+    ],
+    "proficiencies": [
+      "Vue",
+      "Ruby on Rails",
+      "Node.js",
+      "React Native",
+      "Flutter"
+    ],
+    "region": [
+      "Europe"
+    ],
+    "location": [
+      "Europe"
+    ],
+    "website": {
+      "text": "proxify.io",
+      "url": "https://proxify.io?utm_source=partnership&utm_medium=vuejs&utm_campaign=partners-proxify.html"
+    },
+    "contactPage": "https://proxify.io/hire-vuejs?utm_source=partnership&utm_medium=vuejs&utm_campaign=partners-proxify.html",
+    "hiring": "https://career.proxify.io/apply?utm_source=partnership&utm_medium=vuejs&utm_campaign=partners-proxify.html",
+    "platinum": true
   }
 ]
