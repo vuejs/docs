@@ -327,22 +327,91 @@ When the header / footer / default is present we want to wrap them to provide ad
 
 ## Dynamic Slot Names {#dynamic-slot-names}
 
-[Dynamic directive arguments](/guide/essentials/template-syntax.md#dynamic-arguments) also work on `v-slot`, allowing the definition of dynamic slot names:
+Dynamic slot names in Vue allow you to create flexible components by generating slot names at runtime. This is particularly useful when your component's content structure depends on dynamic data.
 
-```vue-html
-<base-layout>
-  <template v-slot:[dynamicSlotName]>
-    ...
-  </template>
+### Declaring Dynamic Slots in the Child Component
 
-  <!-- with shorthand -->
-  <template #[dynamicSlotName]>
-    ...
-  </template>
-</base-layout>
+You can declare multiple dynamic slots by iterating over your data. For example, if you have an array of slot names, you can use the `v-for` directive to create a `<slot>` for each name in the array:
+
+```vue
+<!-- ChildComponent.vue -->
+<template>
+  <div>
+    <!-- Loop over slotNames to create dynamic slots -->
+    <div v-for="name in slotNames" :key="name">
+      <slot :name="name">
+        <!-- Fallback content -->
+        Default content for {{ name }}
+      </slot>
+    </div>
+  </div>
+</template>
+
+<script setup>
+const props = defineProps({
+  slotNames: {
+    type: Array,
+    required: true,
+  },
+});
+</script>
 ```
 
-Do note the expression is subject to the [syntax constraints](/guide/essentials/template-syntax.md#dynamic-argument-syntax-constraints) of dynamic directive arguments.
+In this example:
+
+- **`slotNames` Prop**: An array of strings representing the names of the slots.
+- **Dynamic Slots**: The component uses `v-for` to create a `<slot>` for each name in `slotNames`.
+
+### Using Dynamic Slots in the Parent Component
+
+In the parent component, provide content for these dynamic slots using the `v-slot` directive with the slot names in a static or dynamic way:
+
+
+```vue
+<!-- ParentComponent.vue (Static way) -->
+<template>
+  <ChildComponent :slotNames="slotNames">
+    <!-- Provide content for 'header' slot -->
+    <template #header>
+      <h1>Header Content</h1>
+    </template>
+
+    <!-- Provide content for 'footer' slot -->
+    <template #footer>
+      <p>Footer Content</p>
+    </template>
+  </ChildComponent>
+</template>
+
+<script setup>
+import ChildComponent from './ChildComponent.vue';
+
+const slotNames = ['header', 'footer'];
+</script>
+```
+OR
+
+```vue
+<!-- ParentComponent.vue (Dynamic way) -->
+<template>
+  <ChildComponent :slotNames="slotNames">
+    <template v-for="name in slotNames" #[name]>
+      <h1>{{ name }} Content</h1>
+    </template>
+  </ChildComponent>
+</template>
+
+<script setup>
+import ChildComponent from './ChildComponent.vue';
+
+const slotNames = ['header', 'footer'];
+</script>
+```
+
+Here:
+
+- **Passing `slotNames`**: The parent passes an array `['header', 'footer']` to the child component.
+- **Providing Slot Content**: Uses the shorthand `#slotName` to provide content for each dynamic slot.
 
 ## Scoped Slots {#scoped-slots}
 
