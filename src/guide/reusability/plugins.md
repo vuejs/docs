@@ -135,3 +135,7 @@ export default {
 ```
 
 </div>
+
+### Bundle for NPM
+
+If you further want to build and publish your plugin for others to use, see [Vite's section on Library Mode](https://vitejs.dev/guide/build.html#library-mode).
