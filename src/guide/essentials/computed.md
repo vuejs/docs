@@ -280,7 +280,7 @@ export default {
     // When count is >=4, the last value that fulfilled our condition will be returned
     // instead until count is less or equal to 3
     alwaysSmall(previous) {
-      if (this.count >= 3) {
+      if (this.count <= 3) {
         return this.count;
       }
 
@@ -303,12 +303,13 @@ const count = ref(2)
 // When count is >=4, the last value that fulfilled our condition will be returned
 // instead until count is less or equal to 3
 const alwaysSmall = computed((previous) => {
-  if (count.value >= 3) {
+  if (count.value <= 3) {
     return count.value;
   }
 
   return previous;
 })
+</script>
 ```
 </div>
 
