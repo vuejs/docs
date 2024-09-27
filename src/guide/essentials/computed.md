@@ -352,7 +352,7 @@ const count = ref(2)
 
 const alwaysSmall = computed({
   get(previous) {
-    if (count.value >= 3) {
+    if (count.value <= 3) {
       return count.value;
     }
 
