@@ -327,7 +327,7 @@ export default {
   computed: {
     alwaysSmall: {
       get(previous) {
-        if (this.count >= 3) {
+        if (this.count <= 3) {
           return this.count;
         }
 
