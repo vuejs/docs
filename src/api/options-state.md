@@ -433,6 +433,21 @@ Declare the custom events emitted by the component.
   }
   ```
 
+Listeners on events may be captured in components by defining them as properties with the naming scheme of `on{Event}`:
+
+> If an event contains a colon, use the naming scheme `on{Event}:{event}`.
+
+```js
+export default {
+  props: {
+    onCheck: Function,
+    'onClick:export': Function,
+  },
+
+  emits: ['check', 'click:export'],
+}
+```
+
 - **See also**
   - [Guide - Fallthrough Attributes](/guide/components/attrs)
   - [Guide - Typing Component Emits](/guide/typescript/options-api#typing-component-emits) <sup class="vt-badge ts" />
