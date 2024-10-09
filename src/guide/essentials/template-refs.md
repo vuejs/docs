@@ -115,7 +115,7 @@ See also: [Typing Template Refs](/guide/typescript/composition-api#typing-templa
 
 ## Refs inside `v-for` {#refs-inside-v-for}
 
-> Requires v3.2.25 or above
+> Requires v3.5 or above
 
 <div class="composition-api">
 
