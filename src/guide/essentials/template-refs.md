@@ -148,6 +148,8 @@ onMounted(() => console.log(itemRefs.value))
 <details>
 <summary>Usage before 3.5</summary>
 
+In versions before 3.5 where `useTemplateRef()` was not introduced, we need to declare a ref with a name that matches the template ref attribute's value. The ref should also contain an array value:
+
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
