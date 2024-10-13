@@ -18,7 +18,7 @@ footer: false
     </div>
     <p class="description">Learn Vue with video tutorials on <span>VueMastery.com</span></p>
     <div class="logo-wrapper">
-        <img alt="Vue Mastery Logo" width="25px" src="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
+        <img alt="Vue Mastery Logo" width="25px" tsrc="https://storage.googleapis.com/vue-mastery.appspot.com/flamelink/media/vue-mastery-logo.png" />
     </div>
   </a>
 </div>
