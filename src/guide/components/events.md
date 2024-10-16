@@ -26,6 +26,10 @@ if (typeof window !== 'undefined') {
   <VueSchoolLink href="https://vueschool.io/lessons/defining-custom-events-emits" title="Free Vue.js Lesson on Defining Custom Events"/>
 </div>
 
+<div class="composition-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/communication-between-vue-components-with-custom-events" title="Free Vue.js Lesson on Defining Custom Events"/>
+</div>
+
 ## Emitting and Listening to Events {#emitting-and-listening-to-events}
 
 A component can emit custom events directly in template expressions (e.g. in a `v-on` handler) using the built-in `$emit` method:
