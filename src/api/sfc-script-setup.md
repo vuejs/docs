@@ -482,7 +482,6 @@ In addition, the awaited expression will be automatically compiled in a format t
 ## Import Statements {#imports-statements}
 
 Import statements in vue follow [ECMAScript module specification](https://nodejs.org/api/esm.html).
-
 In addition, you can use aliases defined in your build tool configuration:
 
 ```vue
@@ -493,7 +492,6 @@ import { componentB } from '@/Components'
 import { componentC } from '~/Components'
 </script>
 ```
-
 
 ## Generics <sup class="vt-badge ts" /> {#generics}
 
