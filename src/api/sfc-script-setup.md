@@ -479,6 +479,20 @@ In addition, the awaited expression will be automatically compiled in a format t
 `async setup()` must be used in combination with [`Suspense`](/guide/built-ins/suspense.html), which is currently still an experimental feature. We plan to finalize and document it in a future release - but if you are curious now, you can refer to its [tests](https://github.com/vuejs/core/blob/main/packages/runtime-core/__tests__/components/Suspense.spec.ts) to see how it works.
 :::
 
+## Import Statements {#imports-statements}
+
+Import statements in vue follow [ECMAScript module specification](https://nodejs.org/api/esm.html).
+In addition, you can use aliases defined in your build tool configuration:
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { componentA } from './Components'
+import { componentB } from '@/Components'
+import { componentC } from '~/Components'
+</script>
+```
+
 ## Generics <sup class="vt-badge ts" /> {#generics}
 
 Generic type parameters can be declared using the `generic` attribute on the `<script>` tag:

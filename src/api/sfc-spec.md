@@ -136,6 +136,13 @@ Beware that `src` imports follow the same path resolution rules as webpack modul
 </unit-test>
 ```
 
+:::warning Note
+While using aliases in `src`, don't start with `~`, anything after it is interpreted as a module request. This means you can reference assets inside node modules:
+```vue
+<img src="~some-npm-package/foo.png">
+```
+:::
+
 ## Comments {#comments}
 
 Inside each block you shall use the comment syntax of the language being used (HTML, CSS, JavaScript, Pug, etc.). For top-level comments, use HTML comment syntax: `<!-- comment contents here -->`
