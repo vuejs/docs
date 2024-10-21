@@ -662,3 +662,21 @@ Force unhandled errors to be thrown in production mode.
   - In production, the error will only be logged to the console to minimize the impact to end users. However, this may prevent errors that only happen in production from being caught by error monitoring services.
 
   By setting `app.config.throwUnhandledErrorInProduction` to `true`, unhandled errors will be thrown even in production mode.
+
+
+## app.config.warnRecursiveComputed <sup class="vt-badge" data-text="3.5+" /> {#app-config-warnrecursivecomputed}
+
+Warn when a computed is recursively dependent on itself. Only works in development mode.
+
+- **Type:** `boolean`
+
+- **Default:** `false`
+
+- **Details**
+
+  The result of a computed is based on its reactive dependencies. However, in certain cases, the computed getter function may indirectly or directly mutate the state it depends on, causing the computed to recursively depend on itself, which leads to a recursive call.
+
+  By setting `app.config.warnRecursiveComputed` to `true` will warn when a computed is recursively dependent on itself in development mode.
+
+- **See also** [Getters should be side-effect free](/guide/essentials/computed.html#getters-should-be-side-effect-free)
+  
