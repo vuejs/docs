@@ -22,11 +22,9 @@ If using TypeScript, [`defineSlots()`](/api/sfc-script-setup#defineslots) should
   function useSlots(): Record<string, (...args: any[]) => VNode[]>
   ```
 
-## useModel() {#usemodel}
+## useModel() <sup class="vt-badge" data-text="3.4+" /> {#usemodel}
 
 This is the underlying helper that powers [`defineModel()`](/api/sfc-script-setup#definemodel). If using `<script setup>`, `defineModel()` should be preferred instead.
-
-- Only available in 3.4+
 
 - **Type**
 
