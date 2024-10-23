@@ -259,7 +259,7 @@ Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `
 
 </div>
 
-## Getting the previous value {#previous}
+## Getting the Previous Value {#previous}
 
 - Only supported in 3.4+
 
