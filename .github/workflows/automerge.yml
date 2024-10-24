@@ -21,3 +21,17 @@ jobs:
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          <script setup>
+import { ref, provide } from 'vue'
+import { countSymbol } from './injectionSymbols'
+
+// provide static value
+provide('path', '/project/')
+
+// provide reactive value
+const count = ref(0)
+provide('count', count)
+
+// provide with Symbol keys
+provide(countSymbol, count)
+</script>
