@@ -27,3 +27,378 @@
     }
   ]
 }
+<template>
+  <nav class="w-screen border-b py-4">
+    <div class="container mx-auto flex items-center gap-10">
+      <!-- Logo -->
+      <NuxtLink href="/" class="flex items-center">
+        <img src="https://logo.clearbit.com/google.com" class="w-10 h-10 object-contain" />
+      </NuxtLink>
+
+      <!-- Dashboard or Home Link -->
+      <NuxtLink v-if="user" href="/dashboard" class="flex items-center">
+        <PhGauge size="24" />
+        <span class="ml-2">Dashboard</span>
+      </NuxtLink>
+      <NuxtLink v-else href="/home" class="flex items-center">
+        <PhHouseSimple size="24" />
+        <span class="ml-2">Home</span>
+      </NuxtLink>
+
+      <!-- Spacer -->
+      <div class="ml-auto"></div>
+
+      <!-- Add Funds Button (Visible only when user is authenticated) -->
+      <button v-if="user" class="flex items-center">
+        <span class="text-white bg-green-500 px-4 py-2 rounded-lg">Add Funds</span>
+      </button>
+
+      <!-- User Avatar (Visible only when user is authenticated) -->
+      <div v-if="user" class="flex items-center">
+        <Avatar src="https://randomuser.me/api/portraits/men/40.jpg" />
+        <span class="ml-2">Dubem Izuorah</span>
+      </div>
+
+      <!-- Auth Button -->
+      <button class="flex items-center" @click="user = !user">
+        <span>{{ user ? 'Logout' : 'Login' }}</span>
+      </button>
+    </div>
+  </nav>
+  <main class="h-64 bg-gray-100 flex justify-center pt-10 text-xl">App Here</main>
+</template>
+
+<script setup lang="jsx">
+import { ref } from "vue";
+import { NuxtLink, Avatar } from "#components";
+import { PhGauge, PhHouseSimple } from "@phosphor-icons/vue";
+
+// Simulate user authentication status
+const user = ref(true);
+</script>
+<script setup lang="jsx">
+// Import necessary components
+import { ref, computed } from "vue";
+import { NuxtLink, Avatar } from "#components";
+import { PhGauge, PhHouseSimple } from "@phosphor-icons/vue";
+
+// Simulate user authentication status
+const user = ref(true);
+
+// Define menu items
+const items = computed(() => [
+  {
+    key: "logo",
+    image: "https://logo.clearbit.com/google.com",
+    href: "/"
+  },
+  {
+    icon: user.value ? PhGauge : PhHouseSimple,
+    key: "dashboard",
+    title: user.value ? "Dashboard" : "Home",
+    to: user.value ? "/dashboard" : "/home",
+  },
+  {
+    key: "spacer",
+    class: "ml-auto",
+  },
+  {
+    key: "add-funds",
+    render: () => <span class="text-white bg-green-500 px-4 py-2 rounded-lg">Add Funds</span>
+  },
+  {
+    key: "user",
+    render: () => <Avatar src="https://randomuser.me/api/portraits/men/40.jpg" />,
+    title: "Dubem Izuorah",
+    hide: !user.value
+  },
+  {
+    key: "auth",
+    title: user.value ? "Logout" : "Login",
+    onClick: () => user.value = !user.value
+  },
+]);
+
+// Filter out hidden items
+const menuItems = computed(() => items.value.filter(item => !item.hide));
+</script>
+import { createApp, ref } from 'vue'
+
+createApp({
+  setup() {
+    return {
+      count: ref(0)
+    }
+  }
+}).mount('#app')
+<div id="app">
+  <button @click="count++">
+    Count is: {{ count }}
+  </button>
+</div>
+<script setup>
+import { ref } from 'vue'
+const count = ref(0)
+</script>
+
+<template>
+  <button @click="count++">Count is: {{ count }}</button>
+</template>
+
+<style scoped>
+button {
+  font-weight: bold;
+}
+</style>
+<script>
+export default {
+  // Properties returned from data() become reactive state
+  // and will be exposed on `this`.
+  data() {
+    return {
+      count: 0
+    }
+  },
+
+  // Methods are functions that mutate state and trigger updates.
+  // They can be bound as event handlers in templates.
+  methods: {
+    increment() {
+      this.count++
+    }
+  },
+
+  // Lifecycle hooks are called at different stages
+  // of a component's lifecycle.
+  // This function will be called when the component is mounted.
+  mounted() {
+    console.log(`The initial count is ${this.count}.`)
+  }
+}
+</script>
+
+<template>
+  <button @click="increment">Count is: {{ count }}</button>
+</template>
+<script setup>
+import { ref, onMounted } from 'vue'
+
+// reactive state
+const count = ref(0)
+
+// functions that mutate state and trigger updates
+function increment() {
+  count.value++
+}
+
+// lifecycle hooks
+onMounted(() => {
+  console.log(`The initial count is ${count.value}.`)
+})
+</script>
+
+<template>
+  <button @click="increment">Count is: {{ count }}</button>
+</template>
+cd <your-project-name>
+npm install
+npm run dev
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">{{ message }}</div>
+
+<script>
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const message = ref('Hello vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+<div id="app">{{ message }}</div>
+
+<script type="module">
+  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+  createApp({
+    setup() {
+      const message = ref('Hello Vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+import { createApp } from 'vue'
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
+
+<div id="app">{{ message }}</div>
+
+<script type="module">
+  import { createApp, ref } from 'vue'
+
+  createApp({
+    setup() {
+      const message = ref('Hello Vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
+<!-- index.html -->
+<div id="app"></div>
+
+<script type="module">
+  import { createApp } from 'vue'
+  import MyComponent from './my-component.js'
+
+  createApp(MyComponent).mount('#app')
+</script>
+// my-component.js
+import { ref } from 'vue'
+export default {
+  setup() {
+    const count = ref(0)
+    return { count }
+  },
+  template: `<div>Count is: {{ count }}</div>`
+}
+import { createApp } from 'vue'
+
+const app = createApp({
+  /* root component options */
+})
+import { createApp } from 'vue'
+// import the root component App from a single-file component.
+import App from './App.vue'
+
+const app = createApp(App)
+App (root component)
+├─ TodoList
+│  └─ TodoItem
+│     ├─ TodoDeleteButton
+│     └─ TodoEditButton
+└─ TodoFooter
+   ├─ TodoClearButton
+   └─ TodoStatistics
+<div id="app"></div>
+app.mount('#app')
+<div id="app">
+  <button @click="count++">{{ count }}</button>
+</div>
+import { createApp } from 'vue'
+
+const app = createApp({
+  data() {
+    return {
+      count: 0
+    }
+  }
+})
+
+app.mount('#app')
+const app1 = createApp({
+  /* ... */
+})
+app1.mount('#container-1')
+
+const app2 = createApp({
+  /* ... */
+})
+app2.mount('#container-2')
+<script setup lang="jsx">
+// Import necessary components
+import { ref, computed } from "vue";
+import { NuxtLink, Avatar } from "#components";
+import { PhGauge, PhHouseSimple } from "@phosphor-icons/vue";
+
+// Simulate user authentication status
+const user = ref(true);
+
+// Define menu items
+const items = computed(() => [
+  {
+    key: "logo",
+    image: "https://logo.clearbit.com/google.com",
+    href: "/"
+  },
+  {
+    icon: user.value ? PhGauge : PhHouseSimple,
+    key: "dashboard",
+    title: user.value ? "Dashboard" : "Home",
+    to: user.value ? "/dashboard" : "/home",
+  },
+  {
+    key: "spacer",
+    class: "ml-auto",
+  },
+  {
+    key: "add-funds",
+    render: () => <span class="text-white bg-green-500 px-4 py-2 rounded-lg">Add Funds</span>
+  },
+  {
+    key: "user",
+    render: () => <Avatar src="https://randomuser.me/api/portraits/men/40.jpg" />,
+    title: "Dubem Izuorah",
+    hide: !user.value
+  },
+  {
+    key: "auth",
+    title: user.value ? "Logout" : "Login",
+    onClick: () => user.value = !user.value
+  },
+]);
+
+// Filter out hidden items
+const menuItems = computed(() => items.value.filter(item => !item.hide));
+</script>
+<template>
+  <div class="rounded-full w-10 h-10 bg-gray-100 overflow-hidden">
+    <img class="w-full h-full object-cover" :src="src" />
+  </div>
+</template>
+
+<script setup>
+const props = defineProps({
+  src: {
+    type: String,
+    required: true,
+  },
+})
+</script>
+<template>
+  <nav class="w-screen border-b py-4">
+    <div class="container mx-auto flex items-center gap-10">
+      <component
+        v-for="item in menuItems"
+        :key="item.key"
+        :is="item.to ? NuxtLink : 'button'"
+        v-bind="item"
+        @click="item.onClick"
+        class="flex items-center"
+      >
+        <img v-if="item.image" :src="item.image" class="w-10 h-10 object-contain" />
+        <component v-if="item.render" :is="item.render" />
+        <component v-if="item.icon" :is="item.icon" :size="24" />
+        <span v-if="item.title" class="ml-2">{{ item.title }}</span>
+      </component>
+    </div>
+  </nav>
+  <main class="h-64 bg-gray-100 flex justify-center pt-10 text-xl">App Here</main>
+</template>
+
+<script setup lang="jsx">
+// The script remains the same as above
+</script>
