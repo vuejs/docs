@@ -201,7 +201,7 @@ When you use the `class` attribute on a component with a single root element, th
 For example, if we have a component named `MyComponent` with the following template:
 
 ```vue-html
-<!-- child component template -->
+<!-- MyComponent template -->
 <p class="foo bar">Hi!</p>
 ```
 
