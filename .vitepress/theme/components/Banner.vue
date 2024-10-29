@@ -21,31 +21,17 @@ function dismiss() {
 </script>
 
 <template>
-  <div class="banner banner-vuejsconf" v-if="open">
-    <a href="https://conf.vuejs.de/tickets/?voucher=VUEJS_SPECIAL_OFFER&utm_source=vuejs&utm_medium=referral&utm_campaign=banner-placement&utm_content=banner"
-      target="_blank">
-      <picture>
-        <source media="(min-width:1260px)"
-          srcset="/vuejsde-conf/vuejsdeconf_banner_large.png, /vuejsde-conf/vuejsdeconf_banner_large_2x.png 2x" />
-        <source media="(min-width:970px)"
-          srcset="/vuejsde-conf/vuejsdeconf_banner_medium.png, /vuejsde-conf/vuejsdeconf_banner_medium_2x.png 2x" />
-        <source media="(min-width:576px)"
-          srcset="/vuejsde-conf/vuejsdeconf_banner_small.png, /vuejsde-conf/vuejsdeconf_banner_small_2x.png 2x" />
-        <source media="(min-width:320px)"
-          srcset="/vuejsde-conf/vuejsdeconf_banner_smallest.png, /vuejsde-conf/vuejsdeconf_banner_smallest_2x.png 2x"
-          alt="" />
-        <img src="/vuejsde-conf/vuejsdeconf_banner_smallest_2x.png" alt="" />
-      </picture>
-    </a>
-    <div class="close-btn" @click.stop.prevent="dismiss">
+  <div class="banner" v-if="open">
+    <a target="_blank"></a>
+    <button @click="dismiss">
       <VTIconPlus class="close" />
-    </div>
+    </button>
   </div>
 </template>
 
 <style>
 html:not(.banner-dismissed) {
-  --vt-banner-height: 72px;
+  --vt-banner-height: 30px;
 }
 </style>
 
@@ -64,10 +50,12 @@ html:not(.banner-dismissed) {
   font-weight: 600;
   color: #fff;
   background-color: var(--vt-c-green);
-  background: linear-gradient(90deg,
-      rgba(66, 184, 131, 1) 0%,
-      rgba(39, 179, 137, 1) 19%,
-      rgba(100, 126, 255, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(66, 184, 131, 1) 0%,
+    rgba(39, 179, 137, 1) 19%,
+    rgba(100, 126, 255, 1) 100%
+  );
 }
 
 .banner-dismissed .banner {
@@ -88,28 +76,9 @@ button {
 .close {
   width: 20px;
   height: 20px;
-  fill: #000;
+  fill: #fff;
   transform: rotate(45deg);
 }
-
-.banner-vuejsconf {
-  background: linear-gradient(90deg, #fff 50%, #6f97c4 50%);
-}
-
-.banner-vuejsconf a {
-  display: inline-block;
-  margin: 0 auto;
-}
-
-.banner-vuejsconf .close-btn {
-  top: 0px;
-  left: 0px;
-  z-index: 99;
-  position: absolute;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 /*
 @media (max-width: 720px) {
   a > span {

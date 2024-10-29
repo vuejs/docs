@@ -135,6 +135,8 @@ Vue Router has built-in support for [lazily loading components](https://router.v
 
 ## Nested Suspense {#nested-suspense}
 
+- Only supported in 3.3+
+
 When we have multiple async components (common for nested or layout-based routes) like this:
 
 ```vue-html
