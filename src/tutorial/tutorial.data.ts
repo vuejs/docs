@@ -7,7 +7,9 @@ export declare const data: Record<string, ExampleData>
 export default {
   watch: './src/**',
   async load() {
-    const md = await createMarkdownRenderer(process.cwd(), undefined, '/')
+    const md = await createMarkdownRenderer(process.cwd(), {
+        theme: 'github-dark',
+    }, '/')
     const files = readExamples(path.resolve(__dirname, './src'))
     for (const step in files) {
       const stepFiles = files[step]
