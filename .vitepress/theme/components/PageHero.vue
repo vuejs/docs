@@ -3,9 +3,9 @@
     <h1 class="page-hero__title">
       <slot name="title" />
     </h1>
-    <p class="page-hero__lead">
+    <div class="page-hero__lead">
       <slot name="lead" />
-    </p>
+    </div>
   </div>
 </template>
 
