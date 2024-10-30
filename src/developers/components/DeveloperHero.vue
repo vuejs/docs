@@ -61,7 +61,7 @@ const hireUsLink = computed(() => generateUTMUrl(partnerConfig.hireUsButtonUrl, 
 }
 
 .footer-text {
-  color: #BFBFBF;
+  color: var(--vp-c-text-2);
   font-size: 14px;
   font-weight: 700;
 }
