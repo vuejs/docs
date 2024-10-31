@@ -25,12 +25,14 @@ const partnerConfig = {
 
   // Hero Section
   pageHeroBanner: {
-    title: 'Vue Developers',
-    description: 'Vue Developers are certified individual freelancers. Payments, compliance and vetting are administrated by our partner Proxify. Interested to join the list?',
-    applyButton: {
-      url: applyUrl,
-      label: 'Apply here'
-    }
+    title: 'Find top Vue.js developers for your team',
+    description1: 'Access certified Vue.js developers available for your next project.',
+    description2: 'Proxify handles the vetting process to ensure top-tier quality and reliability.',
+    hireButton: {
+      url: hireUrl,
+      label: 'Find Vue.js developers now'
+    },
+    footer: "Get matched with a top Vue.js developer in less than 48 hours",
   },
 
   // Hero Section
