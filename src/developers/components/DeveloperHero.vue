@@ -28,7 +28,7 @@ const hireUsLink = computed(() => generateUTMUrl(partnerConfig.hireUsButtonUrl, 
         target="_blank"
         class="accent-button"
       >
-        {{ partnerConfig.pageHeroBanner.applyButton.label }}
+        {{ partnerConfig.pageHeroBanner.hireButton.label }}
       </a>
 
       <span class="footer-text">{{ partnerConfig.pageHeroBanner.footer }}</span>

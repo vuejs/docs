@@ -28,7 +28,7 @@ const partnerConfig = {
     title: 'Find top Vue.js developers for your team',
     description1: 'Access certified Vue.js developers available for your next project.',
     description2: 'Proxify handles the vetting process to ensure top-tier quality and reliability.',
-    applyButton: {
+    hireButton: {
       url: hireUrl,
       label: 'Find Vue.js developers now'
     },
