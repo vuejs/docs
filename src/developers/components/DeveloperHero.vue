@@ -31,47 +31,22 @@ const hireUsLink = computed(() => generateUTMUrl(partnerConfig.hireUsButtonUrl, 
         {{ partnerConfig.pageHeroBanner.hireButton.label }}
       </a>
 
-      <span class="footer-text">{{ partnerConfig.pageHeroBanner.footer }}</span>
+      <p class="description">{{ partnerConfig.pageHeroBanner.footer }}</p>
     </template>
   </PageHero>
 </template>
 
 <style scoped>
-.page-hero {
-  max-width: 100%;
-}
-
-:deep(.page-hero__title) {
-  font-weight: 400;
-  font-size: 32px;
-  margin-bottom: 0;
-}
-
-:deep(.page-hero__lead) {
-  padding-top: 0;
-}
-
 .accent-button {
   margin: 40px auto 16px;
 }
 
-.description {
-  margin-top: 24px;
-  font-weight: 400;
-}
-
-.footer-text {
-  color: var(--vt-c-text-3);
-  font-size: 14px;
-  font-weight: 700;
+br {
+  display: none;
 }
 
 /* Media Queries */
 @media (min-width: 768px) {
-  .page-hero {
-    padding: 48px 128px;
-  }
-
   .accent-button {
     margin-top: 48px;
   }
@@ -80,11 +55,11 @@ const hireUsLink = computed(() => generateUTMUrl(partnerConfig.hireUsButtonUrl, 
 @media (min-width: 1024px) {
   .page-hero {
     max-width: 846px;
-    padding: 96px 0;
+    padding: 64px 0;
   }
 
-  .description {
-    margin-top: 32px;
+  br {
+    display: block;
   }
 }
 </style>
