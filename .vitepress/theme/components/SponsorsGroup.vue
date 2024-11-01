@@ -95,6 +95,13 @@ function resolveList(data: SponsorData) {
       @click="track(true)"
       >Become a Sponsor</a
     >
+    <a
+      v-if="tier === 'special' && !data[tier]?.length"
+      href="mailto:sponsor@vuejs.org?subject=Vue.js%20special%20sponsor%20inquiry"
+      class="sponsor-item action"
+      @click="track(true)"
+      >Inquire about Special Sponsorship</a
+    >
   </div>
 </template>
 
@@ -129,6 +136,9 @@ function resolveList(data: SponsorData) {
 .sponsor-item.action {
   font-size: 11px;
   color: var(--vt-c-text-3);
+}
+.sponsor-container.page .sponsor-item.action {
+ font-size: 16px;
 }
 .sponsor-item img {
   max-width: calc(var(--max-width) - 30px);
