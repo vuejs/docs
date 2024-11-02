@@ -96,7 +96,7 @@ function resolveList(data: SponsorData) {
       >Become a Sponsor</a
     >
     <a
-      v-if="tier === 'special' && !data[tier]?.length"
+      v-if="tier === 'special' && data && !data[tier]?.length"
       href="mailto:sponsor@vuejs.org?subject=Vue.js%20special%20sponsor%20inquiry"
       class="sponsor-item action"
       @click="track(true)"
