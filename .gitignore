@@ -110,3 +110,6 @@ src/api/index.json
 src/examples/data.json
 src/tutorial/data.json
 draft.md
+
+# folders created by IDE
+.idea

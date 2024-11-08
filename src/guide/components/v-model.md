@@ -68,7 +68,7 @@ const emit = defineEmits(['update:modelValue'])
 
 <template>
   <input
-    :value="modelValue"
+    :value="props.modelValue"
     @input="emit('update:modelValue', $event.target.value)"
   />
 </template>
@@ -445,7 +445,7 @@ function emitValue(e) {
 </script>
 
 <template>
-  <input type="text" :value="modelValue" @input="emitValue" />
+  <input type="text" :value="props.modelValue" @input="emitValue" />
 </template>
 ```
 

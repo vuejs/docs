@@ -12,8 +12,7 @@ While Vue's declarative rendering model abstracts away most of the direct DOM op
 
 <div class="composition-api">
 
-To obtain the reference with Composition API, we can use the [`useTemplateRef()`](/api/composition-api-helpers#usetemplateref) <sup class="vt-badge" data-text=
-"3.5+" /> helper:
+To obtain the reference with Composition API, we can use the [`useTemplateRef()`](/api/composition-api-helpers#usetemplateref) <sup class="vt-badge" data-text="3.5+" /> helper:
 
 ```vue
 <script setup>
@@ -32,7 +31,7 @@ onMounted(() => {
 </template>
 ```
 
-When using TypeScript, Vue's IDE support and `vue-tsc` will automatically infer the type of `inputRef.value` based on what element or component the matching `ref` attribute is used on.
+When using TypeScript, Vue's IDE support and `vue-tsc` will automatically infer the type of `input.value` based on what element or component the matching `ref` attribute is used on.
 
 <details>
 <summary>Usage before 3.5</summary>
@@ -116,7 +115,7 @@ See also: [Typing Template Refs](/guide/typescript/composition-api#typing-templa
 
 ## Refs inside `v-for` {#refs-inside-v-for}
 
-> Requires v3.2.25 or above
+> Requires v3.5 or above
 
 <div class="composition-api">
 
@@ -148,6 +147,8 @@ onMounted(() => console.log(itemRefs.value))
 
 <details>
 <summary>Usage before 3.5</summary>
+
+In versions before 3.5 where `useTemplateRef()` was not introduced, we need to declare a ref with a name that matches the template ref attribute's value. The ref should also contain an array value:
 
 ```vue
 <script setup>

@@ -86,7 +86,9 @@ Configure runtime compiler options for the component's template.
 
 ## slots<sup class="vt-badge ts"/> {#slots}
 
-An option to assist with type inference when using slots programmatically in render functions. Only supported in 3.3+.
+- Only supported in 3.3+
+
+An option to assist with type inference when using slots programmatically in render functions.
 
 - **Details**
 

@@ -80,6 +80,10 @@ Now it looks much better - even animating smoothly when the whole list is shuffl
 
 [Full Example](/examples/#list-transition)
 
+### Custom TransitionGroup classes
+
+You can also specify custom transition classes for the moving element by passing the `moveClass` prop to `<TransitionGroup>`, just like [custom transition classes on `<Transition>`](https://vuejs.org/guide/built-ins/transition.html#custom-transition-classes).
+
 ## Staggering List Transitions {#staggering-list-transitions}
 
 By communicating with JavaScript transitions through data attributes, it's also possible to stagger transitions in a list. First, we render the index of an item as a data attribute on the DOM element:

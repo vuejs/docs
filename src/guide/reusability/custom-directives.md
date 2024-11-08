@@ -1,12 +1,23 @@
 # Custom Directives {#custom-directives}
 
 <script setup>
-const vFocus = {
+const vHighlight = {
   mounted: el => {
-    el.focus()
+    el.classList.add('is-highlight')
   }
 }
 </script>
+
+<style>
+.vt-doc p.is-highlight {
+  margin-bottom: 0;
+}
+
+.is-highlight {
+  background-color: yellow;
+  color: black;
+}
+</style>
 
 ## Introduction {#introduction}
 
@@ -15,6 +26,95 @@ In addition to the default set of directives shipped in core (like `v-model` or 
 We have introduced two forms of code reuse in Vue: [components](/guide/essentials/component-basics) and [composables](./composables). Components are the main building blocks, while composables are focused on reusing stateful logic. Custom directives, on the other hand, are mainly intended for reusing logic that involves low-level DOM access on plain elements.
 
 A custom directive is defined as an object containing lifecycle hooks similar to those of a component. The hooks receive the element the directive is bound to. Here is an example of a directive that focuses an input when the element is inserted into the DOM by Vue:
+
+<div class="composition-api">
+
+```vue
+<script setup>
+// enables v-highlight in templates
+const vHighlight = {
+  mounted: (el) => {
+    el.classList.add('is-highlight')
+  }
+}
+</script>
+
+<template>
+  <p v-highlight>This sentence is important!</p>
+</template>
+```
+
+</div>
+
+<div class="options-api">
+
+```js
+const highlight = {
+  mounted: (el) => el.classList.add('is-highlight')
+}
+
+export default {
+  directives: {
+    // enables v-highlight in template
+    highlight
+  }
+}
+```
+
+```vue-html
+<p v-highlight>This sentence is important!</p>
+```
+
+</div>
+
+<div class="demo">
+  <p v-highlight>This sentence is important!</p>
+</div>
+
+<div class="composition-api">
+
+In `<script setup>`, any camelCase variable that starts with the `v` prefix can be used as a custom directive. In the example above, `vHighlight` can be used in the template as `v-highlight`.
+
+If you are not using `<script setup>`, custom directives can be registered using the `directives` option:
+
+```js
+export default {
+  setup() {
+    /*...*/
+  },
+  directives: {
+    // enables v-highlight in template
+    highlight: {
+      /* ... */
+    }
+  }
+}
+```
+
+</div>
+
+<div class="options-api">
+
+Similar to components, custom directives must be registered so that they can be used in templates. In the example above, we are using local registration via the `directives` option.
+
+</div>
+
+It is also common to globally register custom directives at the app level:
+
+```js
+const app = createApp({})
+
+// make v-highlight usable in all components
+app.directive('highlight', {
+  /* ... */
+})
+```
+
+## When to use custom directives {#when-to-use}
+
+Custom directives should only be used when the desired functionality can only be achieved via direct DOM manipulation.
+
+A common example of this is a `v-focus` custom directive that brings an element into focus.
 
 <div class="composition-api">
 
@@ -54,54 +154,9 @@ export default {
 
 </div>
 
-<div class="demo">
-  <input v-focus placeholder="This should be focused" />
-</div>
+This directive is more useful than the `autofocus` attribute because it works not just on page load - it also works when the element is dynamically inserted by Vue!
 
-Assuming you haven't clicked elsewhere on the page, the input above should be auto-focused. This directive is more useful than the `autofocus` attribute because it works not just on page load - it also works when the element is dynamically inserted by Vue.
-
-<div class="composition-api">
-
-In `<script setup>`, any camelCase variable that starts with the `v` prefix can be used as a custom directive. In the example above, `vFocus` can be used in the template as `v-focus`.
-
-If not using `<script setup>`, custom directives can be registered using the `directives` option:
-
-```js
-export default {
-  setup() {
-    /*...*/
-  },
-  directives: {
-    // enables v-focus in template
-    focus: {
-      /* ... */
-    }
-  }
-}
-```
-
-</div>
-
-<div class="options-api">
-
-Similar to components, custom directives must be registered so that they can be used in templates. In the example above, we are using local registration via the `directives` option.
-
-</div>
-
-It is also common to globally register custom directives at the app level:
-
-```js
-const app = createApp({})
-
-// make v-focus usable in all components
-app.directive('focus', {
-  /* ... */
-})
-```
-
-:::tip
-Custom directives should only be used when the desired functionality can only be achieved via direct DOM manipulation. Prefer declarative templating using built-in directives such as `v-bind` when possible because they are more efficient and server-rendering friendly.
-:::
+Declarative templating with built-in directives such as `v-bind` is recommended when possible because they are more efficient and server-rendering friendly.
 
 ## Directive Hooks {#directive-hooks}
 
@@ -213,7 +268,6 @@ app.directive('demo', (el, binding) => {
 :::warning Not recommended
 Using custom directives on components is not recommended. Unexpected behaviour may occur when a component has multiple root nodes.
 :::
-
 
 When used on components, custom directives will always apply to a component's root node, similar to [Fallthrough Attributes](/guide/components/attrs).
 

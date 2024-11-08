@@ -46,6 +46,9 @@ Make sure you have an up-to-date version of [Node.js](https://nodejs.org/) insta
   <VTCodeGroupTab label="yarn">
 
   ```sh
+  # For Yarn (v1+)
+  $ yarn create vue
+
   # For Yarn Modern (v2+)
   $ yarn create vue@latest
   

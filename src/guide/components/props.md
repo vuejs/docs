@@ -154,7 +154,7 @@ const { foo = 'hello' } = defineProps<{ foo?: string }>()
 
 If you prefer to have more visual distinction between destructured props and normal variables in your IDE, Vue's VSCode extension provides a setting to enable inlay-hints for destructured props.
 
-### Passing Destructured Props into Functions
+### Passing Destructured Props into Functions {#passing-destructured-props-into-functions}
 
 When we pass a destructured prop into a function, e.g.:
 

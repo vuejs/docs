@@ -1,6 +1,7 @@
 ---
 page: true
 footer: false
+title: Vue Partners
 ---
 
 <script setup>
