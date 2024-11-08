@@ -15,7 +15,7 @@ const nav: ThemeConfig['nav'] = [
       { text: 'Tutorial', link: '/tutorial/' },
       { text: 'Examples', link: '/examples/' },
       { text: 'Quick Start', link: '/guide/quick-start' },
-      // { text: 'Style Guide', link: '/style-guide/' },
+      { text: 'Style Guide', link: '/style-guide/' },
       { text: 'Glossary', link: '/glossary/' },
       { text: 'Error Reference', link: '/error-reference/' },
       {
