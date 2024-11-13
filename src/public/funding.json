@@ -1,0 +1,120 @@
+{
+  "version": "v1.0.0",
+
+  "entity": {
+    "type": "organisation",
+    "role": "owner",
+    "name": "Vue Technology LLC",
+    "email": "evan@vuejs.org",
+    "phone": "",
+    "description": "Vue Technology LLC is the legal entity representing Vue's business operations and fund distribution to team members",
+    "webpageUrl": {
+      "url": "https://vuejs.org",
+      "wellKnown": ""
+    }
+  },
+
+  "projects": [
+    {
+      "guid": "vuejs",
+      "name": "Vue.js",
+      "description": "Vue.js is one of the most widely adopted frontend frameworks, with over 5.5 million weekly downloads and 2 million weekly active users. It is also the technology powering Zerodha's frontend.",
+      "webpageUrl": {
+        "url": "https://vuejs.org",
+        "wellKnown": ""
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/vuejs/core",
+        "wellKnown": "https://github.com/vuejs/core/blob/main/.well-known/funding-manifest-urls"
+      },
+      "licenses": ["spdx:MIT"],
+      "tags": ["frontend", "javascript", "web-development", "ui"]
+    }
+  ],
+
+  "funding": {
+    "channels": [
+      {
+        "guid": "github-sponsors",
+        "type": "other",
+        "address": "https://github.com/sponsors/yyx990803",
+        "description": "GitHub supports payment via credit card or invoice-based billing."
+      },
+      {
+        "guid": "open-collective",
+        "type": "other",
+        "address": "https://opencollective.com/vuejs",
+        "description": "OpenCollective supports payment via credit card, Google Pay, or US bank ACH transfer."
+      },
+      {
+        "guid": "bank-of-america",
+        "type": "bank",
+        "address": "",
+        "description": "For donations via bank transfers, please get in touch for bank details."
+      }
+    ],
+
+    "plans": [
+      {
+        "guid": "special",
+        "status": "active",
+        "name": "Global Special Sponsor",
+        "description": "Exclusive above-the-fold logo placement on vuejs.org home page / Most prominent logo placement in on the right sidebar of every content page on vuejs.org (3M+ page views per month / 500k+ unique MAU) / Most prominent logo placement in the README and BACKERS files of the vuejs/core repo.",
+        "amount": 5000,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": [
+          "github-sponsors",
+          "open-collective",
+          "bank-of-america"
+        ]
+      },
+      {
+        "guid": "platinum",
+        "status": "active",
+        "name": "Platinum Sponsor",
+        "description": "Logo on the right sidebar of every content page on vuejs.org (3M+ page views per month / 500k+ unique MAU) / Large logo placement on vuejs.org front page + sponsors page + in the README and BACKERS files of the vuejs/core repo.",
+        "amount": 2000,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": [
+          "github-sponsors",
+          "open-collective",
+          "bank-of-america"
+        ]
+      },
+      {
+        "guid": "gold",
+        "status": "active",
+        "name": "Gold Sponsor",
+        "description": "Medium logo placement on vuejs.org front page + sponsors page + in the README and BACKERS files of the vuejs/core repo.",
+        "amount": 500,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors", "open-collective"]
+      },
+      {
+        "guid": "silver",
+        "status": "active",
+        "name": "Silver Sponsor",
+        "description": "Small logo placement on vuejs.org sponsors page + in the README and BACKERS files of the vuejs/core repo.",
+        "amount": 250,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors", "open-collective"]
+      },
+      {
+        "guid": "bronze",
+        "status": "active",
+        "name": "Bronze Sponsor",
+        "description": "Small logo placement in the README and BACKERS files of the vuejs/core repo.",
+        "amount": 100,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["github-sponsors", "open-collective"]
+      }
+    ],
+
+    "history": []
+  }
+}
