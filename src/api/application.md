@@ -627,7 +627,7 @@ An object for defining merging strategies for custom component options.
 
 ## app.config.idPrefix <sup class="vt-badge" data-text="3.5+" /> {#app-config-idprefix}
 
-Configure a prefix for all IDs generated via [useId()](/api/general#useid) inside this application.
+Configure a prefix for all IDs generated via [useId()](/api/composition-api-helpers.html#useid) inside this application.
 
 - **Type:** `string`
 
