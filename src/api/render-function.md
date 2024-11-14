@@ -93,6 +93,22 @@ Creates virtual DOM nodes (vnodes).
   })
   ```
 
+  ::: tip
+
+  While using Render Functions with [generic components](api/sfc-script-setup.html#generics) ,make sure to specify the types explicitly
+
+  ```js
+
+  const FunctionalComponent = () => h(Comp<string>, {
+  modelValue: foo.value,
+  ['onUpdate:modelValue']: (val) => foo.value = val,
+  });
+
+
+  ```
+
+  :::
+
 - **See also** [Guide - Render Functions - Creating VNodes](/guide/extras/render-function#creating-vnodes)
 
 ## mergeProps() {#mergeprops}
@@ -101,9 +117,9 @@ Merge multiple props objects with special handling for certain props.
 
 - **Type**
 
-  ```ts
-  function mergeProps(...args: object[]): object
-  ```
+```ts
+function mergeProps(...args: object[]): object
+```
 
 - **Details**
 
@@ -305,7 +321,10 @@ For adding built-in [`v-on` modifiers](/guide/essentials/event-handling#event-mo
 - **Type**
 
   ```ts
-  function withModifiers(fn: Function, modifiers: ModifierGuardsKeys[]): Function
+  function withModifiers(
+    fn: Function,
+    modifiers: ModifierGuardsKeys[]
+  ): Function
   ```
 
 - **Example**
