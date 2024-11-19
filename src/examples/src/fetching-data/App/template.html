@@ -7,7 +7,7 @@
     v-model="currentBranch">
   <label :for="branch">{{ branch }}</label>
 </template>
-<p>vuejs/vue@{{ currentBranch }}</p>
+<p>vuejs/core@{{ currentBranch }}</p>
 <ul v-if="commits.length > 0">
   <li v-for="{ html_url, sha, author, commit } in commits" :key="sha">
     <a :href="html_url" target="_blank" class="commit">{{ sha.slice(0, 7) }}</a>

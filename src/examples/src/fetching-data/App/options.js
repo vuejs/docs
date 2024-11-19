@@ -2,7 +2,7 @@ const API_URL = `https://api.github.com/repos/vuejs/core/commits?per_page=3&sha=
 
 export default {
   data: () => ({
-    branches: ['main', 'v2-compat'],
+    branches: ['main', 'minor'],
     currentBranch: 'main',
     commits: []
   }),
