@@ -170,34 +170,6 @@
     "sponsor": true
   },
   {
-    "name": "Rahul Kadyan",
-    "title": "Software Engineer",
-    "company": "Grammarly",
-    "companyLink": "https://grammarly.com/",
-    "projects": [
-      {
-        "label": "vuejs/core",
-        "url": "https://github.com/vuejs/core"
-      },
-      { "label": "VueDX", "url": "https://github.com/vuedx" },
-      {
-        "label": "rollup-plugin-vue",
-        "url": "https://github.com/vuejs/rollup-plugin-vue"
-      }
-    ],
-    "location": "Bangalore, India",
-    "languages": ["Hindi", "English"],
-    "socials": {
-      "github": "znck",
-      "twitter": "znck0"
-    },
-    "website": {
-      "label": "https://znck.me",
-      "url": "https://znck.me"
-    },
-    "sponsor": true
-  },
-  {
     "name": "Linusborg",
     "title": "Hive-Mind Community Wrangler (Probably a Bot)",
     "location": "Mannheim, Germany",
@@ -428,22 +400,6 @@
       "url": "https://antfu.me/"
     },
     "sponsor": true
-  },
-  {
-    "name": "HcySunYang",
-    "title": "Developer",
-    "projects": [
-      {
-        "label": "vuejs/core",
-        "url": "https://github.com/vuejs/core"
-      }
-    ],
-    "location": "Beijing, China",
-    "languages": ["Chinese", "English"],
-    "socials": {
-      "github": "HcySunYang",
-      "twitter": "HcySunYang"
-    }
   },
   {
     "name": "Johnson Chu",

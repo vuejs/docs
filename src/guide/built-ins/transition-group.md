@@ -80,9 +80,9 @@ Now it looks much better - even animating smoothly when the whole list is shuffl
 
 [Full Example](/examples/#list-transition)
 
-### Custom TransitionGroup classes
+### Custom TransitionGroup classes {#custom-transitiongroup-classes}
 
-You can also specify custom transition classes for the moving element by passing the `moveClass` prop to `<TransitionGroup>`, just like [custom transition classes on `<Transition>`](https://vuejs.org/guide/built-ins/transition.html#custom-transition-classes).
+You can also specify custom transition classes for the moving element by passing the `moveClass` prop to `<TransitionGroup>`, just like [custom transition classes on `<Transition>`](/guide/built-ins/transition.html#custom-transition-classes).
 
 ## Staggering List Transitions {#staggering-list-transitions}
 
