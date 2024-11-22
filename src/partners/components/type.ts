@@ -12,7 +12,8 @@ export interface Partner {
     text: string
     url: string
   }
-  contact: string
+  contact?: string
+  contactPage?: string;
   hiring?: string
   platinum?: boolean
 }

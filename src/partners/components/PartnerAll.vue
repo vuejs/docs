@@ -40,12 +40,14 @@ input {
   border-bottom: 1px solid var(--vt-c-divider-light);
   margin-bottom: 2em;
 }
+
 .container {
   max-width: 960px;
   margin: 1em auto 2em;
   padding: 0 28px;
   position: relative;
 }
+
 .icon {
   width: 18px;
   height: 18px;

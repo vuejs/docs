@@ -45,7 +45,7 @@ This is the underlying helper that powers [`defineModel()`](/api/sfc-script-setu
   type ModelRef<T, M extends PropertyKey = string, G = T, S = T> = Ref<G, S> & [
     ModelRef<T, M, G, S>,
     Record<M, true | undefined>
-]
+  ]
   ```
 
 - **Example**

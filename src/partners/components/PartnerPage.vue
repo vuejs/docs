@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import data from '../partners.json'
 import { Partner } from './type'
 import { normalizeName, track } from './utils'
@@ -13,11 +14,11 @@ const p = (data as Partner[]).find(
   (p) => normalizeName(p.name) === props.partner
 )!
 
-const { name, description, hiring, contact, website } = p
+const { name, description, hiring, contact, contactPage, website } = p
 
-function genMailLink(email: string) {
-  return `mailto:${email}?subject=Looking for a Vue.js Partner`
-}
+const contactLink = computed(() => {
+  return contact ? `mailto:${contact}?subject=Looking for a Vue.js Partner` : contactPage
+})
 </script>
 
 <template>
@@ -32,7 +33,7 @@ function genMailLink(email: string) {
 
     <div class="description">
       <h2>About {{ name }}</h2>
-      <p v-for="desc in description" v-html="desc"></p>
+      <p v-for="(desc, index) in description" :key="index" v-html="desc"></p>
     </div>
 
     <div class="actions">
@@ -40,8 +41,9 @@ function genMailLink(email: string) {
         >Visit Website</a
       >
       <a
+        v-if="contact || contactPage"
         class="contact"
-        :href="genMailLink(contact)"
+        :href="contactLink"
         target="_blank"
         @click="track"
         >Contact</a
