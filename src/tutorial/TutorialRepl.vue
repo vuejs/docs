@@ -2,6 +2,7 @@
 import { Repl, useStore, useVueImportMap } from '@vue/repl'
 import CodeMirror from '@vue/repl/codemirror-editor'
 import { inject, watch, Ref, ref, computed, nextTick } from 'vue'
+import { withBase } from 'vitepress'
 import { data } from './tutorial.data'
 import {
   resolveSFCExample,
@@ -76,7 +77,7 @@ function updateExample(scroll = false) {
   let hash = location.hash.slice(1)
   if (!data.hasOwnProperty(hash)) {
     hash = 'step-1'
-    location.replace(`/tutorial/#${hash}`)
+    location.replace(withBase(`/tutorial/#${hash}`))
   }
   currentStep.value = hash
 

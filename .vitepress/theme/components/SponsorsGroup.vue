@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { withBase } from 'vitepress';
 import { SponsorData, data, base, load } from './sponsors'
 
 type Placement = 'aside' | 'page' | 'landing'
@@ -90,7 +91,7 @@ function resolveList(data: SponsorData) {
     </template>
     <a
       v-if="placement !== 'page' && tier !== 'special'"
-      href="/sponsor/"
+      :href="withBase('/sponsor/')"
       class="sponsor-item action"
       @click="track(true)"
       >Become a Sponsor</a

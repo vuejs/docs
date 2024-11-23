@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { withBase } from 'vitepress'
 import data from '../partners.json'
 import { Partner } from './type'
 import { normalizeName, track } from './utils'
@@ -24,7 +25,7 @@ const contactLink = computed(() => {
 <template>
   <div class="partner-page">
     <div class="back">
-      <a href="/partners/all.html"
+      <a :href="withBase('/partners/all.html')"
         ><VTIconChevronLeft class="icon" />Back to all partners</a
       >
     </div>

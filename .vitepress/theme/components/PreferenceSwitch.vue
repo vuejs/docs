@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { VTSwitch, VTIconChevronDown } from '@vue/theme'
-import { useRoute } from 'vitepress'
+import { useRoute, withBase } from 'vitepress'
 import { ref, computed, inject, Ref } from 'vue'
 import {
   preferCompositionKey,
@@ -91,7 +91,7 @@ function useToggleFn(
         <a
           class="switch-link"
           title="About API preference"
-          href="/guide/introduction.html#api-styles"
+          :href="withBase('/guide/introduction.html#api-styles')"
           @click="closeSideBar"
           >?</a
         >
@@ -109,7 +109,7 @@ function useToggleFn(
         <a
           class="switch-link"
           title="About SFC"
-          href="/guide/scaling-up/sfc.html"
+          :href="withBase('/guide/scaling-up/sfc.html')"
           @click="closeSideBar"
           >?</a
         >

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { withBase } from 'vitepress'
 import SiteMap from './SiteMap.vue'
 // import NewsLetter from './NewsLetter.vue'
 import { load, data, base } from './sponsors'
@@ -23,7 +24,7 @@ onMounted(load)
     </p>
     <p class="actions">
       <VueMasteryModal />
-      <a class="get-started" href="/guide/introduction.html">
+      <a class="get-started" :href="withBase('/guide/introduction.html')">
         Get Started
         <svg
           class="icon"
@@ -37,7 +38,7 @@ onMounted(load)
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" :href="withBase('/guide/quick-start.html')">Install</a>
       <a class="security" href="https://v2.vuejs.org/eol/" target="_blank">
         Get Security Updates for Vue 2
         <svg
@@ -77,7 +78,7 @@ onMounted(load)
   </section>
   <section v-else id="special-sponsor">
     <span>
-      <a href="/sponsor/#tier-benefits">
+      <a :href="withBase('/sponsor/#tier-benefits')">
         Special Sponsor slot is now vacant - Inquire now
       </a>
     </span>
