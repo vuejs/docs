@@ -300,7 +300,7 @@ declare module 'vue' {
 }
 ```
 
-## Non-Vue Web Components and TypeScript
+## Non-Vue Web Components and TypeScript {#non-vue-web-components-and-typescript}
 
 Here is the recommended way to enable type checking in SFC templates of Custom
 Elements that are not built with Vue.
