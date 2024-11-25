@@ -472,7 +472,7 @@ defined in a more manual fashion:
 
 ```vue
 <script setup lang="ts">
-// Suppose that `some-lib` is plain JS without type defintions, and TypeScript
+// Suppose that `some-lib` is plain JS without type definitions, and TypeScript
 // cannot infer the types:
 import { SomeElement } from 'some-lib'
 
