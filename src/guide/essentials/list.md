@@ -223,16 +223,6 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 
 ## `v-for` with `v-if` {#v-for-with-v-if}
 
-:::warning Note
-It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence.
-
-There are two common cases where this can be tempting:
-
-- To filter items in a list (e.g. `v-for="user in users" v-if="user.isActive"`). In these cases, replace `users` with a new computed property that returns your filtered list (e.g. `activeUsers`).
-
-- To avoid rendering a list if it should be hidden (e.g. `v-for="user in users" v-if="shouldShowUsers"`). In these cases, move the `v-if` to a container element (e.g. `ul`, `ol`).
-:::
-
 When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:
 
 ```vue-html
@@ -254,6 +244,16 @@ This can be fixed by moving `v-for` to a wrapping `<template>` tag (which is als
   </li>
 </template>
 ```
+
+:::warning Note
+It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence.
+
+There are two common cases where this can be tempting:
+
+- To filter items in a list (e.g. `v-for="user in users" v-if="user.isActive"`). In these cases, replace `users` with a new computed property that returns your filtered list (e.g. `activeUsers`).
+
+- To avoid rendering a list if it should be hidden (e.g. `v-for="user in users" v-if="shouldShowUsers"`). In these cases, move the `v-if` to a container element (e.g. `ul`, `ol`).
+:::
 
 ## Maintaining State with `key` {#maintaining-state-with-key}
 
