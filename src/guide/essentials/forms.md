@@ -39,8 +39,8 @@ The `v-model` directive helps us simplify the above to:
 
 In addition, `v-model` can be used on inputs of different types, `<textarea>`, and `<select>` elements. It automatically expands to different DOM property and event pairs based on the element it is used on:
 
-- `<input>` with text types and `<textarea>` elements use `value` property and `input` event;
-- `<input type="checkbox">` and `<input type="radio">` use `checked` property and `change` event;
+- `<input>` with text types and `<textarea>` elements use `value` property and `input` event.
+- `<input type="checkbox">` and `<input type="radio">` use `checked` property and `change` event.
 - `<select>` uses `value` as a prop and `change` as an event.
 
 ::: tip Note
