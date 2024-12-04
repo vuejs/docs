@@ -298,7 +298,7 @@ function BaseLayout(slots) {
 
 ## Conditional Slots {#conditional-slots}
 
-Sometimes you want to render something based on whether or not a slot is present. 
+Sometimes you want to render something based on whether or not content has been passed to a slot. 
 
 You can use the [$slots](/api/component-instance.html#slots) property in combination with a [v-if](/guide/essentials/conditional.html#v-if) to achieve this.
 
