@@ -123,12 +123,12 @@ Registers a global component if passing both a name string and a component defin
   const app = createApp({})
 
   // register an options object
-  app.component('my-component', {
+  app.component('myComponent', {
     /* ... */
   })
 
   // retrieve a registered component
-  const MyComponent = app.component('my-component')
+  const MyComponent = app.component('myComponent')
   ```
 
 - **See also** [Component Registration](/guide/components/registration)
@@ -156,17 +156,17 @@ Registers a global custom directive if passing both a name string and a directiv
   })
 
   // register (object directive)
-  app.directive('my-directive', {
+  app.directive('myDirective', {
     /* custom directive hooks */
   })
 
   // register (function directive shorthand)
-  app.directive('my-directive', () => {
+  app.directive('myDirective', () => {
     /* ... */
   })
 
   // retrieve a registered directive
-  const myDirective = app.directive('my-directive')
+  const myDirective = app.directive('myDirective')
   ```
 
 - **See also** [Custom Directives](/guide/reusability/custom-directives)
@@ -636,13 +636,13 @@ Configure a prefix for all IDs generated via [useId()](/api/composition-api-help
 - **Example**
 
   ```js
-  app.config.idPrefix = 'my-app'
+  app.config.idPrefix = 'myApp'
   ```
 
   ```js
   // in a component:
-  const id1 = useId() // 'my-app:0'
-  const id2 = useId() // 'my-app:1'
+  const id1 = useId() // 'myApp:0'
+  const id2 = useId() // 'myApp:1'
   ```
 
 ## app.config.throwUnhandledErrorInProduction <sup class="vt-badge" data-text="3.5+" /> {#app-config-throwunhandlederrorinproduction}
