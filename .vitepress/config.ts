@@ -181,15 +181,15 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/essentials/event-handling'
         },
         { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
-        {
-          text: 'Lifecycle Hooks',
-          link: '/guide/essentials/lifecycle'
-        },
         { text: 'Watchers', link: '/guide/essentials/watchers' },
         { text: 'Template Refs', link: '/guide/essentials/template-refs' },
         {
           text: 'Components Basics',
           link: '/guide/essentials/component-basics'
+        },
+        {
+          text: 'Lifecycle Hooks',
+          link: '/guide/essentials/lifecycle'
         }
       ]
     },
