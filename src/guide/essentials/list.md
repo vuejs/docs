@@ -223,10 +223,6 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 
 ## `v-for` with `v-if` {#v-for-with-v-if}
 
-:::warning Note
-It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence. Refer to [style guide](/style-guide/rules-essential#avoid-v-if-with-v-for) for details.
-:::
-
 When they exist on the same node, `v-if` has a higher priority than `v-for`. That means the `v-if` condition will not have access to variables from the scope of the `v-for`:
 
 ```vue-html
@@ -248,6 +244,16 @@ This can be fixed by moving `v-for` to a wrapping `<template>` tag (which is als
   </li>
 </template>
 ```
+
+:::warning Note
+It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence.
+
+There are two common cases where this can be tempting:
+
+- To filter items in a list (e.g. `v-for="user in users" v-if="user.isActive"`). In these cases, replace `users` with a new computed property that returns your filtered list (e.g. `activeUsers`).
+
+- To avoid rendering a list if it should be hidden (e.g. `v-for="user in users" v-if="shouldShowUsers"`). In these cases, move the `v-if` to a container element (e.g. `ul`, `ol`).
+:::
 
 ## Maintaining State with `key` {#maintaining-state-with-key}
 
@@ -275,7 +281,7 @@ When using `<template v-for>`, the `key` should be placed on the `<template>` co
 `key` here is a special attribute being bound with `v-bind`. It should not be confused with the property key variable when [using `v-for` with an object](#v-for-with-an-object).
 :::
 
-[It is recommended](/style-guide/rules-essential#use-keyed-v-for) to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple (i.e. contains no components or stateful DOM elements), or you are intentionally relying on the default behavior for performance gains.
+It is recommended to provide a `key` attribute with `v-for` whenever possible, unless the iterated DOM content is simple (i.e. contains no components or stateful DOM elements), or you are intentionally relying on the default behavior for performance gains.
 
 The `key` binding expects primitive values - i.e. strings and numbers. Do not use objects as `v-for` keys. For detailed usage of the `key` attribute, please see the [`key` API documentation](/api/built-in-special-attributes#key).
 

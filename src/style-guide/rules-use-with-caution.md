@@ -1,5 +1,9 @@
 # Priority D Rules: Use with Caution {#priority-d-rules-use-with-caution}
 
+::: warning Note
+This Vue.js Style Guide is outdated and needs to be reviewed. If you have any questions or suggestions, please [open an issue](https://github.com/vuejs/docs/issues/new).
+:::
+
 Some features of Vue exist to accommodate rare edge cases or smoother migrations from a legacy code base. When overused however, they can make your code more difficult to maintain or even become a source of bugs. These rules shine a light on potentially risky features, describing when and why they should be avoided.
 
 ## Element selectors with `scoped` {#element-selectors-with-scoped}
