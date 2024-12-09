@@ -314,6 +314,8 @@ defineExpose({
 
 When a parent gets an instance of this component via template refs, the retrieved instance will be of the shape `{ a: number, b: number }` (refs are automatically unwrapped just like on normal instances).
 
+Note that defineExpose must be called before any await operation. Otherwise, properties and methods exposed after the await operation will not be accessible. 
+
 See also: [Typing Component Template Refs](/guide/typescript/composition-api#typing-component-template-refs) <sup class="vt-badge ts" />
 
 </div>
