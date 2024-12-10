@@ -2,7 +2,7 @@
 
 ## Różnice między środowiskiem developerskim a produkcyjnym {#development-vs-production}
 
-Podczas rozwoju Vue zapewnia szereg funkcji, które poprawiają doświadczenie programistyczne:
+Podczas pracy Vue zapewnia szereg funkcji, które poprawiają doświadczenie programistyczne:
 
 - Ostrzeżenia dotyczące typowych błędów i pułapek
 - Walidacja rekwizytów/zdarzeń
