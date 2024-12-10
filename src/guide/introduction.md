@@ -207,7 +207,7 @@ export default {
 
 ### Composition API {#composition-api}
 
-Dzięki Composition API definiujemy logikę komponentu za pomocą importowanych funkcji API. W SFC Composition API jest zazwyczaj używane z [`<script setup>`](/api/sfc-script-setup). Atrybut `setup` to wskazówka, która sprawia, że ​​Vue wykonuje transformacje w czasie kompilacji, które pozwalają nam używać Composition API z mniejszą ilością szablonów. Na przykład importy i zmienne najwyższego poziomu / funkcje zadeklarowane w `<script setup>` są bezpośrednio użyteczne w szablonie.
+Dzięki Composition API definiujemy logikę komponentu za pomocą importowanych funkcji API. W SFC Composition API jest zazwyczaj używane z [`<script setup>`](/api/sfc-script-setup). Atrybut `setup` to wskazówka, która sprawia, że ​​Vue wykonuje transformacje w czasie kompilacji, które pozwalają nam używać Composition API z mniejszą ilością kodu. Na przykład importy i zmienne najwyższego poziomu / funkcje zadeklarowane w `<script setup>` są bezpośrednio użyteczne w szablonie.
 
 Oto ten sam komponent, z dokładnie tym samym szablonem, ale wykorzystujący API kompozycji i `<script setup>`:
 
