@@ -63,7 +63,7 @@ Jednym z najskuteczniejszych sposobów na poprawę wydajności ładowania strony
 
 - Jeśli używasz Vue głównie do progresywnego ulepszania i wolisz unikać kroku kompilacji, rozważ użycie [petite-vue](https://github.com/vuejs/petite-vue) (tylko **6 kb**).
 
-### Podział kodu {#code-splitting}
+### Code splitting {#code-splitting}
 
 Podział kodu polega na tym, że narzędzie do kompilacji dzieli pakiet aplikacji na wiele mniejszych fragmentów, które następnie mogą być ładowane na żądanie lub równolegle. Dzięki odpowiedniemu podziałowi kodu funkcje wymagane przy ładowaniu strony mogą być pobierane natychmiast, a dodatkowe fragmenty są ładowane leniwie tylko wtedy, gdy są potrzebne, co poprawia wydajność.
 
