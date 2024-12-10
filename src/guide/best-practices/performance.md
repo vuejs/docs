@@ -88,7 +88,7 @@ import { defineAsyncComponent } from 'vue'
 const Foo = defineAsyncComponent(() => import('./Foo.vue'))
 ```
 
-W przypadku aplikacji korzystających z Vue Router zdecydowanie zaleca się używanie lazy loading dla komponentów tras. Vue Router ma wyraźne wsparcie dla lazy loading, oddzielne od `defineAsyncComponent`. Więcej szczegółów można znaleźć w [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html).
+W przypadku aplikacji korzystających z Vue Router zdecydowanie zaleca się używanie lazy loading dla komponentów ścieżek. Vue Router ma wyraźne wsparcie dla lazy loading, oddzielne od `defineAsyncComponent`. Więcej szczegółów można znaleźć w [Lazy Loading Routes](https://router.vuejs.org/guide/advanced/lazy-loading.html).
 
 ## Aktualizuj optymalizacje {#update-optimizations}
 
