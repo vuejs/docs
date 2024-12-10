@@ -6,7 +6,7 @@ Gotowy do rozpoczęcia, ale nie wiesz, gdzie?
 
 Sprawdź [Przewodnik po planowaniu i zarządzaniu dostępnością internetową](https://www.w3.org/WAI/planning-and-managing/) udostępniony przez [World Wide Web Consortium (W3C)](https://www.w3.org/)
 
-## Pomiń link {#skip-link}
+## Skip link {#skip-link}
 
 Powinieneś dodać link na górze każdej strony, który prowadzi bezpośrednio do głównego obszaru treści, aby użytkownicy mogli pominąć treść, która jest powtarzana na wielu stronach internetowych.
 
