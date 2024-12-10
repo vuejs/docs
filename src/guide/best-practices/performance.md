@@ -16,7 +16,7 @@ Najpierw omówmy dwa główne aspekty wydajności sieci:
 
 Chociaż idealnie byłoby zmaksymalizować oba, różne architektury front-endu mają tendencję do wpływania na to, jak łatwo jest osiągnąć pożądaną wydajność w tych aspektach. Ponadto typ tworzonej aplikacji ma duży wpływ na to, co należy traktować priorytetowo pod względem wydajności. Dlatego pierwszym krokiem do zapewnienia optymalnej wydajności jest wybranie odpowiedniej architektury dla typu tworzonej aplikacji:
 
-- Zapoznaj się z [Sposoby korzystania z Vue](/guide/extras/ways-of-using-vue), aby dowiedzieć się, jak można wykorzystać Vue na różne sposoby.
+- Zapoznaj się ze [Sposobów korzystania z Vue](/guide/extras/ways-of-using-vue), aby dowiedzieć się, jak można wykorzystać Vue na różne sposoby.
 
 - Jason Miller omawia typy aplikacji internetowych i ich odpowiednią idealną implementację/dostarczanie w [Application Holotypes](https://jasonformat.com/application-holotypes/).
 
