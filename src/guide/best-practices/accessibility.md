@@ -40,7 +40,7 @@ Aby ukryć link, jeśli nie jest aktywny, możesz dodać następujący styl:
 }
 ```
 
-Gdy użytkownik zmieni trasę, przywróć fokus do linku pomijającego. Można to osiągnąć, wywołując fokus na szablonie ref linku pomijającego (zakładając użycie `vue-router`):
+Gdy użytkownik zmieni adres, przywróć fokus do linku pomijającego. Można to osiągnąć, wywołując focus na szablonie ref linku pomijającego (zakładając użycie `vue-router`):
 
 <div class="options-api">
 
