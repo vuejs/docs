@@ -174,7 +174,7 @@ Poza zaleceniami podanymi powyżej dla [Potencjalnych zagrożeń](#potential-dan
 
 Następnie wykorzystaj zdobytą wiedzę, aby przejrzeć kod źródłowy swoich zależności pod kątem potencjalnie niebezpiecznych wzorców, jeśli którykolwiek z nich zawiera komponenty stron trzecich lub w inny sposób wpływa na to, co jest renderowane w DOM.
 
-## Koordynacja zaplecza {#backend-coordination}
+## Koordynacja z backendem {#backend-coordination}
 
 Luki w zabezpieczeniach HTTP, takie jak fałszowanie żądań między witrynami (CSRF/XSRF) i dołączanie skryptów między witrynami (XSSI), są rozwiązywane głównie w zapleczu, więc nie są problemem Vue. Niemniej jednak nadal dobrym pomysłem jest komunikacja z zespołem zaplecza, aby dowiedzieć się, jak najlepiej współdziałać z ich API, np. przesyłając tokeny CSRF wraz z formularzami.
 
