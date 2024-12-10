@@ -179,7 +179,7 @@ Jednym z najczęstszych problemów wydajnościowych we wszystkich aplikacjach fr
 
 Nie musimy jednak koniecznie renderować wszystkich tych węzłów z góry. W większości przypadków rozmiar ekranu użytkownika może wyświetlić tylko mały podzbiór naszej dużej listy. Możemy znacznie poprawić wydajność dzięki **wirtualizacji listy**, technice renderowania tylko elementów, które są obecnie w lub blisko obszaru widoku na dużej liście.
 
-Implementacja wirtualizacji listy nie jest łatwa, na szczęście istnieją biblioteki społecznościowe, których możesz bezpośrednio używać:
+Implementacja wirtualizacji listy nie jest łatwa, na szczęście istnieją biblioteki zbudowane przez społeczność, których możesz bezpośrednio używać:
 
 - [vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller)
 - [vue-virtual-scroll-grid](https://github.com/rocwang/vue-virtual-scroll-grid)
