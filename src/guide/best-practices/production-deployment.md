@@ -5,7 +5,7 @@
 Podczas pracy Vue zapewnia szereg funkcji, które poprawiają doświadczenie programistyczne:
 
 - Ostrzeżenia dotyczące typowych błędów i pułapek
-- Walidacja rekwizytów/zdarzeń
+- Walidacja props i emitowanych zdarzeń
 - [Reactivity debugging hooks](/guide/extras/reactivity-in-depth#reactivity-debugging)
 - Integracja z Devtools
 
