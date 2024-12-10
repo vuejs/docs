@@ -106,7 +106,7 @@ Vue to framework i ekosystem, który obejmuje większość typowych funkcji potr
 
 Jeśli te koncepcje wydają Ci się przerażające, nie martw się! Samouczek i przewodnik wymagają jedynie podstawowej znajomości HTML i JavaScript, a powinieneś być w stanie śledzić je bez konieczności bycia ekspertem w żadnej z tych dziedzin.
 
-Jeśli jesteś doświadczonym programistą zainteresowanym tym, jak najlepiej zintegrować Vue ze swoim stosem, lub jesteś ciekaw, co oznaczają te terminy, omawiamy je bardziej szczegółowo w [Sposoby korzystania z Vue](/guide/extras/ways-of-using-vue).
+Jeśli jesteś doświadczonym programistą zainteresowanym tym, jak najlepiej zintegrować Vue ze swoim stosem, lub jesteś ciekaw, co oznaczają te terminy, omawiamy je bardziej szczegółowo w [Sposobach korzystania z Vue](/guide/extras/ways-of-using-vue).
 
 Pomimo elastyczności, podstawowa wiedza na temat działania Vue jest wspólna dla wszystkich tych przypadków użycia. Nawet jeśli jesteś teraz początkującym, wiedza zdobyta po drodze pozostanie przydatna, gdy będziesz się rozwijać, aby w przyszłości realizować bardziej ambitne cele. Jeśli jesteś weteranem, możesz wybrać optymalny sposób wykorzystania Vue w oparciu o problemy, które próbujesz rozwiązać, zachowując jednocześnie tę samą produktywność. Dlatego nazywamy Vue „Progresywnym Frameworkiem”: to framework, który może rozwijać się wraz z Tobą i dostosowywać się do Twoich potrzeb.
 
