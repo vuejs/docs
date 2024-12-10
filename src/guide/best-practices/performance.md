@@ -45,7 +45,7 @@ Jeśli Twój przypadek użycia jest wrażliwy na wydajność ładowania strony, 
 
 Jeśli Twoja główna aplikacja musi być SPA, ale ma strony marketingowe (strona docelowa, o nas, blog), wysyłaj je osobno! Twoje strony marketingowe najlepiej jest wdrażać w statycznym kodzie HTML z minimalną ilością kodu JavaScript, korzystając z SSG.
 
-### Wielkość pakietu i potrząsanie drzewami {#bundle-size-and-tree-shaking}
+### Bundle size i tree-shaking {#bundle-size-and-tree-shaking}
 
 Jednym z najskuteczniejszych sposobów na poprawę wydajności ładowania strony jest wysyłanie mniejszych pakietów JavaScript. Oto kilka sposobów na zmniejszenie rozmiaru pakietu podczas korzystania z Vue:
 
