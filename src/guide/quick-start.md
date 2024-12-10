@@ -10,7 +10,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 ## Wypróbuj Vue Online {#try-vue-online}
 
-- Aby szybko zapoznać się z Vue, możesz wypróbować go bezpośrednio w naszym [Playground](https://play.vuejs.org/#eNo9jcEKwjAMhl/lt5fpQYfXUQfefAMvvRQbddC1pUuHUPrudg4HIcmXjyRZXEM4zYlEJ+T0iEPgXjn6BB8Zhp46WUZWDjCa9f6w9kAkTtH9CRinV4fmRtZ63H20Ztesqiylphqy3R5UYBqD1UyVAPk+9zkvV1CKbCv9poMLiTEfR2/IXpSoXomqZLtti/IFwVtA9A==).
+- Aby szybko zapoznać się z Vue, możesz wypróbować go bezpośrednio w naszym [Interaktywnym demo](https://play.vuejs.org/#eNo9jcEKwjAMhl/lt5fpQYfXUQfefAMvvRQbddC1pUuHUPrudg4HIcmXjyRZXEM4zYlEJ+T0iEPgXjn6BB8Zhp46WUZWDjCa9f6w9kAkTtH9CRinV4fmRtZ63H20Ztesqiylphqy3R5UYBqD1UyVAPk+9zkvV1CKbCv9poMLiTEfR2/IXpSoXomqZLtti/IFwVtA9A==).
 
 - Jeśli wolisz prostą konfigurację HTML bez żadnych kroków kompilacji, możesz użyć tego [JSFiddle](https://jsfiddle.net/yyx990803/2ke1ab0z/) jako twój punkt startowy.
 
