@@ -110,7 +110,7 @@ W takim adresie URL:
 </a>
 ```
 
-Istnieje potencjalny problem bezpieczeństwa, jeśli adres URL nie został „oczyszczony”, aby zapobiec wykonywaniu kodu JavaScript za pomocą `javascript:`. Istnieją biblioteki takie jak [sanitize-url](https://www.npmjs.com/package/@braintree/sanitize-url), które mogą w tym pomóc, ale pamiętaj: jeśli kiedykolwiek wykonujesz oczyszczanie adresu URL w interfejsie użytkownika, masz już problem bezpieczeństwa. **Adresy URL dostarczane przez użytkownika powinny być zawsze oczyszczane przez zaplecze, zanim zostaną zapisane w bazie danych.** Wtedy problem jest pomijany dla _każdego_ klienta łączącego się z Twoim interfejsem API, w tym natywnych aplikacji mobilnych. Pamiętaj również, że nawet w przypadku oczyszczonych adresów URL, Vue nie może pomóc Ci zagwarantować, że prowadzą one do bezpiecznych miejsc docelowych.
+Istnieje potencjalny problem bezpieczeństwa, jeśli adres URL nie został „oczyszczony”, aby zapobiec wykonywaniu kodu JavaScript za pomocą `javascript:`. Istnieją biblioteki takie jak [sanitize-url](https://www.npmjs.com/package/@braintree/sanitize-url), które mogą w tym pomóc, ale pamiętaj: jeśli kiedykolwiek wykonujesz oczyszczanie adresu URL w interfejsie użytkownika, masz już problem bezpieczeństwa. **Adresy URL dostarczane przez użytkownika powinny być zawsze oczyszczane przez backend, zanim zostaną zapisane w bazie danych.** Wtedy problem jest pomijany dla _każdego_ klienta łączącego się z Twoim interfejsem API, w tym natywnych aplikacji mobilnych. Pamiętaj również, że nawet w przypadku oczyszczonych adresów URL, Vue nie może pomóc Ci zagwarantować, że prowadzą one do bezpiecznych miejsc docelowych.
 
 ### Wtrysk stylu {#style-injection}
 
