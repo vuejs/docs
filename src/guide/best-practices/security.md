@@ -176,7 +176,7 @@ Następnie wykorzystaj zdobytą wiedzę, aby przejrzeć kod źródłowy swoich z
 
 ## Koordynacja z backendem {#backend-coordination}
 
-Luki w zabezpieczeniach HTTP, takie jak fałszowanie żądań między witrynami (CSRF/XSRF) i dołączanie skryptów między witrynami (XSSI), są rozwiązywane głównie w zapleczu, więc nie są problemem Vue. Niemniej jednak nadal dobrym pomysłem jest komunikacja z zespołem zaplecza, aby dowiedzieć się, jak najlepiej współdziałać z ich API, np. przesyłając tokeny CSRF wraz z formularzami.
+Luki w zabezpieczeniach HTTP, takie jak fałszowanie żądań między witrynami (CSRF/XSRF) i dołączanie skryptów między witrynami (XSSI), są rozwiązywane głównie w backendzie, więc nie są problemem Vue. Niemniej jednak nadal dobrym pomysłem jest komunikacja z zespołem backendowym, aby dowiedzieć się, jak najlepiej współdziałać z ich API, np. przesyłając tokeny CSRF wraz z formularzami.
 
 ## Renderowanie po stronie serwera (SSR) {#server-side-rendering-ssr}
 
