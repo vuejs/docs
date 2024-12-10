@@ -721,6 +721,34 @@ export default {
 }
 ```
 
+or(with version >= 3.5.0)
+
+```js
+import { h, useTemplateRef } from 'vue'
+
+export default {
+  setup() {
+    const divEl = useTemplateRef('my-div')
+
+    // <div ref="divEl">
+    return () => h('div', { ref: 'my-div' })
+  }
+}
+```
+
+```js
+import { h, ref } from 'vue'
+
+export default {
+  setup() {
+    const divEl = ref()
+
+    // <div ref="divEl">
+    return () => h('div', { ref: divEl })
+  }
+}
+```
+
 </div>
 <div class="options-api">
 
