@@ -125,7 +125,7 @@ Przyjrzyjmy się temu przykładowi:
 </a>
 ```
 
-Załóżmy, że `sanitizedUrl` został wyczyszczony, tak aby był to z pewnością prawdziwy adres URL, a nie JavaScript. Dzięki `userProvidedStyles` złośliwi użytkownicy mogliby nadal udostępniać CSS, aby „kliknąć jacka”, np. stylizując łącze w przezroczyste pole nad przyciskiem „Zaloguj się”. Następnie, jeśli `https://user-controlled-website.com/` jest zbudowany tak, aby przypominał stronę logowania Twojej aplikacji, mogliby po prostu przechwycić prawdziwe dane logowania użytkownika.
+Załóżmy, że `sanitizedUrl` został wyczyszczony, tak aby był to z pewnością prawdziwy adres URL, a nie JavaScript. Dzięki `userProvidedStyles` złośliwi użytkownicy mogliby nadal udostępniać CSS, aby „przechwytywać kliknięcia”, np. stylizując łącze w przezroczyste pole nad przyciskiem „Zaloguj się”. Następnie, jeśli `https://user-controlled-website.com/` jest zbudowany tak, aby przypominał stronę logowania Twojej aplikacji, mogliby po prostu przechwycić prawdziwe dane logowania użytkownika.
 
 Możesz sobie wyobrazić, jak zezwolenie na zawartość dostarczoną przez użytkownika dla elementu `<style>` stworzyłoby jeszcze większą podatność, dając użytkownikowi pełną kontrolę nad tym, jak stylizować całą stronę. Dlatego Vue uniemożliwia renderowanie tagów stylu wewnątrz szablonów, takich jak:
 
