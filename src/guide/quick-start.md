@@ -18,7 +18,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 ## Tworzenie aplikacji Vue {#creating-a-vue-application}
 
-:::tip Prerequisites
+:::tip Wymagania wstępne
 
 - Znajomość wiersza poleceń
 - Instalacja [Node.js](https://nodejs.org/) wersji 18.3 lub wyższej
