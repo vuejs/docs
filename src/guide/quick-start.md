@@ -360,7 +360,7 @@ Możemy nauczyć przeglądarkę, gdzie ma zlokalizować import `vue`, używając
 
 Możesz również dodać wpisy dla innych zależności do mapy importu - ale upewnij się, że wskazują one na wersję modułów ES biblioteki, której zamierzasz użyć.
 
-:::tip Obsługa przeglądarki Import Maps
+:::tip Wsparcie przeglądarek dla Import Maps
 Import Maps to stosunkowo nowa funkcja przeglądarki. Upewnij się, że używasz przeglądarki w jej [zakresie wsparcia](https://caniuse.com/import-maps). W szczególności jest ona obsługiwana tylko w Safari 16.4+.
 :::
 
