@@ -238,7 +238,7 @@ export function register() {
 }
 ```
 
-A consumer can use the elements in a Vue file,
+A consumer can use the elements in a Vue file:
 
 ```vue
 <script setup>
@@ -253,7 +253,7 @@ register()
 </template>
 ```
 
-or in any other framework such as one with JSX, and with custom names:
+Or in any other framework such as one with JSX, and with custom names:
 
 ```jsx
 import { MyFoo, MyBar } from 'path/to/elements.js'
@@ -263,8 +263,8 @@ customElements.define('some-bar', MyBar)
 
 export function MyComponent() {
   return <>
-    <some-foo ...>
-      <some-bar ...></some-bar>
+    <some-foo ... >
+      <some-bar ... ></some-bar>
     </some-foo>
   </>
 }
@@ -293,8 +293,10 @@ customElements.define('some-element', SomeElement)
 // Add the new element type to Vue's GlobalComponents type.
 declare module 'vue' {
   interface GlobalComponents {
-    // Be sure to pass in the Vue component type here (SomeComponent, *not* SomeElement).
-    // Custom Elements require a hyphen in their name, so use the hyphenated element name here.
+    // Be sure to pass in the Vue component type here 
+    // (SomeComponent, *not* SomeElement).
+    // Custom Elements require a hyphen in their name, 
+    // so use the hyphenated element name here.
     'some-element': typeof SomeComponent
   }
 }
@@ -302,15 +304,13 @@ declare module 'vue' {
 
 ## Non-Vue Web Components and TypeScript {#non-vue-web-components-and-typescript}
 
-Here is the recommended way to enable type checking in SFC templates of Custom
-Elements that are not built with Vue.
+Here is the recommended way to enable type checking in SFC templates of Custom Elements that are not built with Vue.
 
 > [!Note]
 > This approach is one possible way to do it, but it may vary depending on the
 > framework being used to create the custom elements.
 
-Suppose we have a custom element with some JS properties and events defined, and
-it is shipped in a library called `some-lib`:
+Suppose we have a custom element with some JS properties and events defined, and it is shipped in a library called `some-lib`:
 
 ```ts
 // file: some-lib/src/SomeElement.ts
@@ -348,11 +348,9 @@ export class AppleFellEvent extends Event {
 }
 ```
 
-The implementation details have been omitted, but the important part is that we
-have type definitions for two things: prop types and event types.
+The implementation details have been omitted, but the important part is that we have type definitions for two things: prop types and event types.
 
-Let's create a type helper for easily registering custom element type
-definitions in Vue:
+Let's create a type helper for easily registering custom element type definitions in Vue:
 
 ```ts
 // file: some-lib/src/DefineCustomElement.ts
@@ -367,7 +365,8 @@ type DefineCustomElement<
   // specifically reads prop definitions from the `$props` type. Note that we
   // combine the element's props with the global HTML props and Vue's special
   // props.
-  /** @deprecated Do not use the $props property on a Custom Element ref, this is for template prop types only. */
+  /** @deprecated Do not use the $props property on a Custom Element ref, 
+    this is for template prop types only. */
   $props: HTMLAttributes &
     Partial<Pick<ElementType, SelectedAttributes>> &
     PublicProps
@@ -375,7 +374,8 @@ type DefineCustomElement<
   // Use $emit to specifically define event types. Vue specifically reads event
   // types from the `$emit` type. Note that `$emit` expects a particular format
   // that we map `Events` to.
-  /** @deprecated Do not use the $emit property on a Custom Element ref, this is for template prop types only. */
+  /** @deprecated Do not use the $emit property on a Custom Element ref, 
+    this is for template prop types only. */
   $emit: VueEmit<Events>
 }
 
@@ -390,13 +390,12 @@ type VueEmit<T extends EventMap> = EmitFn<{
 ```
 
 > [!Note]
-> We marked `$props` and `$emit` as deprecated so that when we get a `ref` to a
-> custom element we will not be tempted to use these properties, as these
+> We marked `$props` and `$emit` as deprecated so that when we get a `ref` to
+> a custom element we will not be tempted to use these properties, as these
 > properties are for type checking purposes only when it comes to custom elements.
 > These properties do not actually exist on the custom element instances.
 
-Using the type helper we can now select the JS properties that should be exposed
-for type checking in Vue templates:
+Using the type helper we can now select the JS properties that should be exposed for type checking in Vue templates:
 
 ```ts
 // file: some-lib/src/SomeElement.vue.ts
@@ -421,8 +420,7 @@ declare module 'vue' {
 }
 ```
 
-Suppose that `some-lib` builds its source TypeScript files into a `dist/` folder. A user of
-`some-lib` can then import `SomeElement` and use it in a Vue SFC like so:
+Suppose that `some-lib` builds its source TypeScript files into a `dist/` folder. A user of `some-lib` can then import `SomeElement` and use it in a Vue SFC like so:
 
 ```vue
 <script setup lang="ts">
@@ -446,7 +444,8 @@ onMounted(() => {
     el.value!.someMethod()
   )
 
-  // Do not use these props, they are `undefined` (IDE will show them crossed out):
+  // Do not use these props, they are `undefined`
+  // IDE will show them crossed out
   el.$props
   el.$emit
 })
@@ -467,8 +466,7 @@ onMounted(() => {
 </template>
 ```
 
-If an element does not have type definitions, the types of the properties and events can be
-defined in a more manual fashion:
+If an element does not have type definitions, the types of the properties and events can be defined in a more manual fashion:
 
 ```vue
 <script setup lang="ts">
@@ -503,11 +501,7 @@ declare module 'vue' {
 </template>
 ```
 
-Custom Element authors should not automatically export framework-specific custom
-element type definitions from their libraries, for example they should not
-export them from an `index.ts` file that also exports the rest of the library,
-otherwise users will have unexpected module augmentation errors. Users should
-import the framework-specific type definition file that they need.
+Custom Element authors should not automatically export framework-specific custom element type definitions from their libraries, for example they should not export them from an `index.ts` file that also exports the rest of the library, otherwise users will have unexpected module augmentation errors. Users should import the framework-specific type definition file that they need.
 
 ## Web Components vs. Vue Components {#web-components-vs-vue-components}
 
