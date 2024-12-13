@@ -131,7 +131,7 @@ A type helper for defining a Vue component with type inference.
 
   ### Function Signature <sup class="vt-badge" data-text="3.3+" /> {#function-signature}
 
-  `defineComponent()` also has an alternative signature that is meant to be used with Composition API and [render functions or JSX](/guide/extras/render-function.html).
+  `defineComponent()` also has an alternative signature that is meant to be used with the Composition API and [render functions or JSX](/guide/extras/render-function.html).
 
   Instead of passing in an options object, a function is expected instead. This function works the same as the Composition API [`setup()`](/api/composition-api-setup.html#composition-api-setup) function: it receives the props and the setup context. The return value should be a render function - both `h()` and JSX are supported:
 
