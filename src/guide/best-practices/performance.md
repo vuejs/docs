@@ -28,6 +28,7 @@ For profiling load performance of production deployments:
 
 - [PageSpeed Insights](https://pagespeed.web.dev/)
 - [WebPageTest](https://www.webpagetest.org/)
+- [DebugBear](https://www.debugbear.com/test/website-speed)
 
 For profiling performance during local development:
 
