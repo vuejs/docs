@@ -1,5 +1,9 @@
 # Watchers {#watchers}
 
+<div class="composition-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/using-watch-with-the-composition-api" title="Free Vue.js Watch Lesson"/>
+</div>
+
 ## Basic Example {#basic-example}
 
 Computed properties allow us to declaratively compute derived values. However, there are cases where we need to perform "side effects" in reaction to state changes - for example, mutating the DOM, or changing another piece of state based on the result of an async operation.
@@ -314,6 +318,10 @@ watch(
 <div class="composition-api">
 
 ## `watchEffect()` \*\* {#watcheffect}
+
+<div class="composition-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/the-composition-api-watcheffect-function" title="Free Vue.js watchEffect Lesson"/>
+</div>
 
 It is common for the watcher callback to use exactly the same reactive state as the source. For example, consider the following code, which uses a watcher to load a remote resource whenever the `todoId` ref changes:
 
