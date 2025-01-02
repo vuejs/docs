@@ -123,7 +123,7 @@ Registers a global component if passing both a name string and a component defin
   const app = createApp({})
 
   // register an options object
-  app.component('myComponent', {
+  app.component('MyComponent', {
     /* ... */
   })
 
