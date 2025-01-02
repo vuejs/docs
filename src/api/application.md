@@ -128,7 +128,7 @@ Registers a global component if passing both a name string and a component defin
   })
 
   // retrieve a registered component
-  const MyComponent = app.component('myComponent')
+  const MyComponent = app.component('MyComponent')
   ```
 
 - **See also** [Component Registration](/guide/components/registration)
