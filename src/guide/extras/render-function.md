@@ -721,7 +721,7 @@ export default {
 }
 ```
 
-or(with version >= 3.5.0)
+or (with version >= 3.5)
 
 ```js
 import { h, useTemplateRef } from 'vue'
