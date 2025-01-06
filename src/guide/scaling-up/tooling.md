@@ -73,7 +73,7 @@ Both online playgrounds mentioned above also support downloading files as a Vite
 
 For information on migrating from Vue CLI to Vite:
 
-- [Vue CLI -> Vite Migration Guide from VueSchool.io](https://vueschool.io/articles/vuejs-tutorials/how-to-migrate-from-vue-cli-to-vite/)
+- [Vue CLI -> Vite Migration Guide from VueSchool.io](https://vueschool.io/articles/vuejs-tutorials/how-to-migrate-from-vue-cli-to-vite/?friend=vuejs)
 - [Tools / Plugins that help with auto migration](https://github.com/vitejs/awesome-vite#vue-cli)
 
 ### Note on In-Browser Template Compilation {#note-on-in-browser-template-compilation}

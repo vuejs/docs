@@ -6,6 +6,10 @@
   <VueSchoolLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Free Vue.js Props Lesson"/>
 </div>
 
+<div class="composition-api">
+  <VueSchoolLink href="https://vueschool.io/lessons/reusable-components-with-props-2" title="Free Vue.js Props Lesson"/>
+</div>
+
 ## Props Declaration {#props-declaration}
 
 Vue components require explicit props declaration so that Vue knows what external props passed to the component should be treated as fallthrough attributes (which will be discussed in [its dedicated section](/guide/components/attrs)).
