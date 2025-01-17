@@ -264,9 +264,9 @@ function useFeature(maybeRefOrGetter) {
 }
 ```
 
-Jeśli obiekt kompozytowy tworzy reaktywne efekty, gdy dane wejściowe są referencją lub getterem, upewnij się, że jawnie obserwujesz referencję/getter za pomocą `watch()` lub wywołujesz `toValue()` wewnątrz `watchEffect()`, aby był on prawidłowo śledzony.
+Jeśli obiekt kompozycyjny tworzy reaktywne efekty, gdy dane wejściowe są referencją lub getterem, upewnij się, że jawnie obserwujesz referencję/getter za pomocą `watch()` lub wywołujesz `toValue()` wewnątrz `watchEffect()`, aby był on prawidłowo śledzony.
 
-Omówiona wcześniej [implementacja useFetch()](#accepting-reactive-state) dostarcza konkretnego przykładu obiektu kompozytowego, który akceptuje referencje, gettery i zwykłe wartości jako argument wejściowy.
+Omówiona wcześniej [implementacja useFetch()](#accepting-reactive-state) dostarcza konkretnego przykładu obiektu kompozycyjnego, który akceptuje referencje, gettery i zwykłe wartości jako argument wejściowy.
 
 ### Wartości zwrotne {#return-values}
 
