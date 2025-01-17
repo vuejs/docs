@@ -20,7 +20,7 @@ While it would be ideal to maximize both, different frontend architectures tend 
 
 - Jason Miller discusses the types of web applications and their respective ideal implementation / delivery in [Application Holotypes](https://jasonformat.com/application-holotypes/).
   
-:::info [Fist Input Delay (FID)](https://web.dev/articles/fid) as been replaced by Interaction to Next Paint](https://web.dev/articles/inp).
+:::info [Fist Input Delay (FID)](https://web.dev/articles/fid) as been replaced by [Interaction to Next Paint](https://web.dev/articles/inp).
 
 Learn more about [How is INP different from First Input Delay (FID)?](https://web.dev/articles/inp#inp-vs-fid)
   :::
