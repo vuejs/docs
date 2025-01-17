@@ -10,7 +10,7 @@ Vue is designed to be performant for most common use cases without much need for
 
 First, let's discuss the two major aspects of web performance:
 
-- **Page Load Performance**: how fast the application shows content and becomes interactive on the initial visit. This is usually measured using web vital metrics like [Largest Contentful Paint (LCP)](https://web.dev/lcp/) and [First Input Delay (FID)](https://web.dev/fid/).
+- **Page Load Performance**: how fast the application shows content and becomes interactive on the initial visit. This is usually measured using web vital metrics like [Largest Contentful Paint (LCP)](https://web.dev/lcp/) and [Interaction to Next Paint](https://web.dev/articles/inp).
 
 - **Update Performance**: how fast the application updates in response to user input. For example, how fast a list updates when the user types in a search box, or how fast the page switches when the user clicks a navigation link in a Single-Page Application (SPA).
 
@@ -19,6 +19,11 @@ While it would be ideal to maximize both, different frontend architectures tend 
 - Consult [Ways of Using Vue](/guide/extras/ways-of-using-vue) to see how you can leverage Vue in different ways.
 
 - Jason Miller discusses the types of web applications and their respective ideal implementation / delivery in [Application Holotypes](https://jasonformat.com/application-holotypes/).
+  
+:::info [Fist Input Delay (FID)](https://web.dev/articles/fid) as been replaced by Interaction to Next Paint](https://web.dev/articles/inp).
+
+Learn more about [How is INP different from First Input Delay (FID)?](https://web.dev/articles/inp#inp-vs-fid)
+  :::
 
 ## Profiling Options {#profiling-options}
 
