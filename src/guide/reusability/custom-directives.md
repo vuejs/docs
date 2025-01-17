@@ -229,4 +229,4 @@ Gdy są używane w komponentach, dyrektywy niestandardowe zawsze będą miały z
 </div>
 ```
 
-Należy pamiętać, że komponenty mogą potencjalnie mieć więcej niż jeden węzeł główny. Po zastosowaniu do komponentu wielordzeniowego dyrektywa zostanie zignorowana i zostanie wygenerowane ostrzeżenie. W przeciwieństwie do atrybutów, dyrektyw nie można przekazać do innego elementu za pomocą `v-bind="$attrs"`.
+Należy pamiętać, że komponenty mogą potencjalnie mieć więcej niż jeden węzeł główny. Po zastosowaniu w komponencie posiadającym więcej niż jeden węzeł główny dyrektywa zostanie zignorowana i zostanie wygenerowane ostrzeżenie. W przeciwieństwie do atrybutów, dyrektyw nie można przekazać do innego elementu za pomocą `v-bind="$attrs"`.
