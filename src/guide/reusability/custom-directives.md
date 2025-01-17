@@ -100,7 +100,7 @@ app.directive('focus', {
 ```
 
 :::tip
-Niestandardowe dyrektywy powinny być używane tylko wtedy, gdy pożądaną funkcjonalność można osiągnąć tylko poprzez bezpośrednią manipulację DOM. Preferuj deklaratywne szablonowanie przy użyciu wbudowanych dyrektyw, takich jak `v-bind`, gdy jest to możliwe, ponieważ są one bardziej wydajne i przyjazne dla renderowania serwera.
+Niestandardowe dyrektywy powinny być używane tylko wtedy, gdy pożądaną funkcjonalność można osiągnąć tylko poprzez bezpośrednią manipulację DOM. Preferuj deklaratywne szablonowanie przy użyciu wbudowanych dyrektyw, takich jak `v-bind`, gdy jest to możliwe, ponieważ są one bardziej wydajne i przyjazne dla renderowania serwerowego.
 :::
 
 ## Cykle życia dyrektyw {#directive-hooks}
