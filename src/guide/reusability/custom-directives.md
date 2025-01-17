@@ -193,7 +193,7 @@ app.directive('color', (el, binding) => {
 })
 ```
 
-## Obiekty literałowe {#object-literals}
+## Obiekty literalne {#object-literals}
 
 Jeśli Twoja dyrektywa wymaga wielu wartości, możesz również przekazać obiekt JavaScript literal. Pamiętaj, że dyrektywy mogą przyjmować dowolne prawidłowe wyrażenie JavaScript.
 
