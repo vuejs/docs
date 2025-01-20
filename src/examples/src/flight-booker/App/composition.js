@@ -17,8 +17,8 @@ export default {
     function book() {
       alert(
         isReturn.value
-          ? `You have booked a return flight leaving on ${departureDate.value} and returning on ${returnDate.value}.`
-          : `You have booked a one-way flight leaving on ${departureDate.value}.`
+          ? `Zarezerwowano lot w obie strony z wylotem ${departureDate.value} i powrotem w ${returnDate.value}.`
+          : `Zarezerwowano lot w jedną stronę z wylotem ${departureDate.value}.`
       )
     }
 

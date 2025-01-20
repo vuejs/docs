@@ -427,63 +427,63 @@ export const sidebar: ThemeConfig['sidebar'] = {
   ],
   '/examples/': [
     {
-      text: 'Basic',
+      text: 'Podstawy',
       items: [
         {
-          text: 'Hello World',
+          text: 'Witaj świecie',
           link: '/examples/#hello-world'
         },
         {
-          text: 'Handling User Input',
+          text: 'Obsługa danych wejściowych',
           link: '/examples/#handling-input'
         },
         {
-          text: 'Attribute Bindings',
+          text: 'Wiązania atrybutów',
           link: '/examples/#attribute-bindings'
         },
         {
-          text: 'Conditionals and Loops',
+          text: 'Warunki i pętle',
           link: '/examples/#conditionals-and-loops'
         },
         {
-          text: 'Form Bindings',
+          text: 'Wiązania formularzy',
           link: '/examples/#form-bindings'
         },
         {
-          text: 'Simple Component',
+          text: 'Prosty komponent',
           link: '/examples/#simple-component'
         }
       ]
     },
     {
-      text: 'Practical',
+      text: 'Praktyczne',
       items: [
         {
-          text: 'Markdown Editor',
+          text: 'Edytor Markdown',
           link: '/examples/#markdown'
         },
         {
-          text: 'Fetching Data',
+          text: 'Pobieranie danych',
           link: '/examples/#fetching-data'
         },
         {
-          text: 'Grid with Sort and Filter',
+          text: 'Tabela z sortowaniem i filtrowaniem',
           link: '/examples/#grid'
         },
         {
-          text: 'Tree View',
+          text: 'Widok drzewa',
           link: '/examples/#tree'
         },
         {
-          text: 'SVG Graph',
+          text: 'Graf SVG',
           link: '/examples/#svg'
         },
         {
-          text: 'Modal with Transitions',
+          text: 'Modal z animacjami',
           link: '/examples/#modal'
         },
         {
-          text: 'List with Transitions',
+          text: 'Lista z animacjami',
           link: '/examples/#list-transition'
         },
         {
@@ -497,15 +497,15 @@ export const sidebar: ThemeConfig['sidebar'] = {
       text: '7 GUIs',
       items: [
         {
-          text: 'Counter',
+          text: 'Licznik',
           link: '/examples/#counter'
         },
         {
-          text: 'Temperature Converter',
+          text: 'Konwerter temperatury',
           link: '/examples/#temperature-converter'
         },
         {
-          text: 'Flight Booker',
+          text: 'Rezerwacja lotów',
           link: '/examples/#flight-booker'
         },
         {
@@ -517,11 +517,11 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/examples/#crud'
         },
         {
-          text: 'Circle Drawer',
+          text: 'Rysowanie okręgów',
           link: '/examples/#circle-drawer'
         },
         {
-          text: 'Cells',
+          text: 'Komórki',
           link: '/examples/#cells'
         }
       ]
