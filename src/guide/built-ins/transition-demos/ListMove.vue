@@ -32,9 +32,9 @@ function shuffle(array) {
 
 <template>
   <div class="demo">
-    <button @click="add">Add</button>
-    <button @click="remove">Remove</button>
-    <button @click="shuffle(items)">Shuffle</button>
+    <button @click="add">Dodaj</button>
+    <button @click="remove">Usuń</button>
+    <button @click="shuffle(items)">Przetasuj</button>
     <TransitionGroup name="list2" tag="ul" style="margin-top: 20px">
       <li class="list-item" v-for="item in items" :key="item">
         {{ item }}
@@ -44,7 +44,7 @@ function shuffle(array) {
 </template>
 
 <style>
-.list2-move, /* apply transition to moving elements */
+.list2-move, /* zastosuj przejście dla poruszających się elementów */
 .list2-enter-active,
 .list2-leave-active {
   transition: all 0.5s ease;
@@ -56,8 +56,8 @@ function shuffle(array) {
   transform: translateX(30px);
 }
 
-/* ensure leaving items are taken out of layout flow so that moving
-   animations can be calculated correctly. */
+/* upewnij się, że wychodzące elementy są usuwane z przepływu układu,
+  aby animacje ruchu mogły być obliczone poprawnie. */
 .list2-leave-active {
   position: absolute !important;
 }

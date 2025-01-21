@@ -5,10 +5,10 @@ const show = ref(true)
 
 <template>
   <div class="demo">
-    <button @click="show = !show" style="margin-bottom: 20px">Toggle</button>
+    <button @click="show = !show" style="margin-bottom: 20px">Przełącz</button>
     <Transition duration="550" name="nested">
       <div v-if="show" class="transition-demo-outer">
-        <div class="transition-demo-inner">Hello</div>
+        <div class="transition-demo-inner">Witaj</div>
       </div>
     </Transition>
   </div>
@@ -31,7 +31,7 @@ const show = ref(true)
 .nested-leave-active {
   transition: all 0.3s ease-in-out;
 }
-/* delay leave of parent element */
+/* opóźnij usunięcie elementu rodzica */
 .nested-leave-active {
   transition-delay: 0.25s;
 }
@@ -42,12 +42,12 @@ const show = ref(true)
   opacity: 0;
 }
 
-/* we can also transition nested elements using nested selectors */
+/* możemy również animować zagnieżdżone elementy używając selektorów zagnieżdżonych */
 .nested-enter-active .transition-demo-inner,
 .nested-leave-active .transition-demo-inner {
   transition: all 0.3s ease-in-out;
 }
-/* delay enter of nested element */
+/* opóźnij wejście zagnieżdżonego elementu */
 .nested-enter-active .transition-demo-inner {
   transition-delay: 0.25s;
 }
@@ -56,9 +56,9 @@ const show = ref(true)
 .nested-leave-to .transition-demo-inner {
   transform: translateX(30px);
   /*
-  	Hack around a Chrome 96 bug in handling nested opacity transitions.
-    This is not needed in other browsers or Chrome 99+ where the bug
-    has been fixed.
+  	Obejście błędu Chrome 96 w obsłudze zagnieżdżonych przejść przezroczystości.
+    Nie jest to wymagane w innych przeglądarkach ani Chrome 99+, gdzie błąd
+    został naprawiony.
   */
   opacity: 0.001;
 }
