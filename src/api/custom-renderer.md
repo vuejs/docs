@@ -22,24 +22,16 @@ Creates a custom renderer. By providing platform-specific node creation and mani
       key: string,
       prevValue: any,
       nextValue: any,
-      // the rest is unused for most custom renderers
-      isSVG?: boolean,
-      prevChildren?: VNode<HostNode, HostElement>[],
+      namespace?: ElementNamespace,
       parentComponent?: ComponentInternalInstance | null,
-      parentSuspense?: SuspenseBoundary | null,
-      unmountChildren?: UnmountChildrenFn
     ): void
-    insert(
-      el: HostNode,
-      parent: HostElement,
-      anchor?: HostNode | null
-    ): void
+    insert(el: HostNode, parent: HostElement, anchor?: HostNode | null): void
     remove(el: HostNode): void
     createElement(
       type: string,
-      isSVG?: boolean,
+      namespace?: ElementNamespace,
       isCustomizedBuiltIn?: string,
-      vnodeProps?: (VNodeProps & { [key: string]: any }) | null
+      vnodeProps?: (VNodeProps & { [key: string]: any }) | null,
     ): HostElement
     createText(text: string): HostNode
     createComment(text: string): HostNode
@@ -47,8 +39,6 @@ Creates a custom renderer. By providing platform-specific node creation and mani
     setElementText(node: HostElement, text: string): void
     parentNode(node: HostNode): HostElement | null
     nextSibling(node: HostNode): HostNode | null
-
-    // optional, DOM-specific
     querySelector?(selector: string): HostElement | null
     setScopeId?(el: HostElement, id: string): void
     cloneNode?(node: HostNode): HostNode
@@ -56,7 +46,9 @@ Creates a custom renderer. By providing platform-specific node creation and mani
       content: string,
       parent: HostElement,
       anchor: HostNode | null,
-      isSVG: boolean
+      namespace: ElementNamespace,
+      start?: HostNode | null,
+      end?: HostNode | null,
     ): [HostNode, HostNode]
   }
   ```
