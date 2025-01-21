@@ -93,7 +93,7 @@ Declare the props of a component.
 
   - **`required`**: Defines if the prop is required. In a non-production environment, a console warning will be thrown if this value is truthy and the prop is not passed.
 
-  - **`validator`**: Custom validator function that takes the prop value and props objects as arguments. In development mode, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails).
+  - **`validator`**: Custom validator function that takes the prop value and props object as arguments. In development mode, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails).
 
 - **Example**
 
