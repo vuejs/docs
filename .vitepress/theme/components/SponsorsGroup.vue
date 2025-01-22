@@ -47,7 +47,7 @@ function track(interest?: boolean) {
 }
 
 function resolveList(data: SponsorData) {
-  let currentTier = data[props.tier] || []
+  let currentTier = data[props.tier]
   // in aside, treat platinum+priority as special
   if (props.placement === 'aside') {
     if (props.tier === 'platinum') {
