@@ -37,13 +37,13 @@ Istnieją bardziej zaawansowane frameworki oparte na Vue, takie jak [Nuxt](https
 
 ## JAMStack / SSG {#jamstack-ssg}
 
-Renderowanie po stronie serwera można wykonać z wyprzedzeniem, jeśli wymagane dane są statyczne. Oznacza to, że całą aplikację można wstępnie wyrenderować do HTML i serwować jako statyczne pliki. Poprawia to wydajność strony i upraszcza proces wdrażania, ponieważ nie trzeba już dynamicznie renerować stron przy każdym żądaniu. Vue nadal może hydrować takie aplikacje, by dostaczać bogatą interaktywność po stronie klienta. Ta technika jest powszechnie nazywana generowanie stron statycznych (Static-Side Generation (SSG)), znana również jako [JAMStack](https://jamstack.org/what-is-jamstack/).
+Renderowanie po stronie serwera można wykonać z wyprzedzeniem, jeśli wymagane dane są statyczne. Oznacza to, że całą aplikację można wstępnie wyrenderować do HTML i serwować jako statyczne pliki. Poprawia to wydajność strony i upraszcza proces wdrażania, ponieważ nie trzeba już dynamicznie renerować stron przy każdym żądaniu. Vue nadal może napełniać danymi takie aplikacje, by dostaczać bogatą interaktywność po stronie klienta. Ta technika jest powszechnie nazywana generowanie stron statycznych (Static-Side Generation (SSG)), znana również jako [JAMStack](https://jamstack.org/what-is-jamstack/).
 
 SSG występuje w dwóch wersjach: jedno- i wielostronicowej. Obydwie wersje wstępnie renderują strony do statycznego HTML, ale różnią się tym, że:
 
-- Po pierwszym załadowaniu strony, jednostronicowy SSG "napełnia" stronę danymi do formy SPA. Wymaga to większego początkowego ładunku JS i kosztu hydracji, ale kolejne nawigacje są szybsze, ponieważ wystarczy częściowo zaktualizować treść strony, zamiast przeładowywać całą stronę.
+- Po pierwszym załadowaniu strony, jednostronicowy SSG "napełnia" stronę danymi do formy SPA. Wymaga to większego początkowego ładunku JS i kosztu napełniania danymi, ale kolejne nawigacje są szybsze, ponieważ wystarczy częściowo zaktualizować treść strony, zamiast przeładowywać całą stronę.
 
-- Wielostronicowe SSG ładują nową stronę przy każdej nawigacji. Zaletą tego rozwiązania jest możliwość ograniczenia wysyłanego JS do minimum - a nawet nie wysyłania JS w ogóle, jeśli strona nie wymaga interakcji! Niektóre frameworki wielostronicowego SSG, takie jak [Astro](https://astro.build/), wspierają również "częściową hydrację" - co pozwala na używanie komponentów Vue do tworzenia interaktywnych "wysp" wewnątrz statycznego HTML.
+- Wielostronicowe SSG ładują nową stronę przy każdej nawigacji. Zaletą tego rozwiązania jest możliwość ograniczenia wysyłanego JS do minimum - a nawet nie wysyłania JS w ogóle, jeśli strona nie wymaga interakcji! Niektóre frameworki wielostronicowego SSG, takie jak [Astro](https://astro.build/), wspierają również "częściową napełnianie danymi" - co pozwala na używanie komponentów Vue do tworzenia interaktywnych "wysp" wewnątrz statycznego HTML.
 
 Jednostronicowe SSG sprawdzają się lepiej jeśli oczekujesz nietrywialnej interaktywności, długich sesji użytkowników lub utrzymywania elementów/stanu pomiędzy nawigacjami. W przeciwnym razie, wielostronicowe SSG będą lepszym wyborem.
 
