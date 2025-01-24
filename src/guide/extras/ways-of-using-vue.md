@@ -57,4 +57,4 @@ Mimo, że Vue zostało zaprojektowane głównie do budowania aplikacji webowych,
 - Budować aplikacje mobile z użyciem [Ionic Vue](https://ionicframework.com/docs/vue/overview)
 - Budować aplikacje desktopowe i mobilne z tej samej bazy kodu przy użyciu [Quasar](https://quasar.dev/) lub [Tauri](https://tauri.app)
 - Budować trójwymiarowe doświadczenia WebGL z [TresJS](https://tresjs.org/)
-- Używać [Custom Renderer API](/api/custom-renderer) Vue do budowy niestandardowych renderów, takich jak te do[the terminal](https://github.com/vue-terminal/vue-termui)!
+- Używać [Custom Renderer API](/api/custom-renderer) Vue do budowy niestandardowych renderów, takich jak te do [terminala](https://github.com/vue-terminal/vue-termui)!
