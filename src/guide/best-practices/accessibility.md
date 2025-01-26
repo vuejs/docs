@@ -13,6 +13,7 @@ You should add a link at the top of each page that goes directly to the main con
 Typically this is done on the top of `App.vue` as it will be the first focusable element on all your pages:
 
 ```vue-html
+<span ref="backToTop" tabindex="-1" />
 <ul class="skip-links">
   <li>
     <a href="#main" ref="skipLink" class="skip-link">Skip to main content</a>
@@ -23,6 +24,9 @@ Typically this is done on the top of `App.vue` as it will be the first focusable
 To hide the link unless it is focused, you can add the following style:
 
 ```css
+.skip-links {
+  list-style: none;
+}
 .skip-link {
   white-space: nowrap;
   margin: 1em auto;
@@ -40,7 +44,7 @@ To hide the link unless it is focused, you can add the following style:
 }
 ```
 
-Once a user changes route, bring focus back to the skip link. This can be achieved by calling focus on the skip link's template ref (assuming usage of `vue-router`):
+Once a user changes route, bring focus back to the very beginning of the page, right before the skip link. This can be achieved by calling focus on the `backToTop` template ref (assuming usage of `vue-router`):
 
 <div class="options-api">
 
@@ -49,7 +53,7 @@ Once a user changes route, bring focus back to the skip link. This can be achiev
 export default {
   watch: {
     $route() {
-      this.$refs.skipLink.focus()
+      this.$refs.backToTop.focus()
     }
   }
 }
@@ -65,12 +69,12 @@ import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const skipLink = ref()
+const backToTop = ref()
 
 watch(
   () => route.path,
   () => {
-    skipLink.value.focus()
+    backToTop.value.focus()
   }
 )
 </script>
