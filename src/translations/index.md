@@ -23,9 +23,8 @@ aside: false
 ## Work in Progress Languages {#work-in-progress-languages}
 
 - [العربية / Arabic](https://ar.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-ar)]
-
 - [Español / Spanish](https://vue3-spanish-docs.netlify.app/) [[source](https://github.com/icarusgk/vuejs-spanish-docs)]
-- [Deutsch / German](https://de-vue-docs.netlify.app/) [[source](https://github.com/vuejs-translations/docs-de)]
+- [Deutsch / German](https://de.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-de)]
 
 ## Starting a new Translation {#starting-a-new-translation}
 
