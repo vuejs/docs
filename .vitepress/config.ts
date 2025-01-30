@@ -439,7 +439,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
         },
         { text: 'Typy użytkowe TypeScript', link: '/api/utility-types' },
         {
-          text: 'Własny funckja renderująca',
+          text: 'Własna funkcja renderująca',
           link: '/api/custom-renderer'
         },
         { text: 'Flagi czasu kompilacji', link: '/api/compile-time-flags' }
