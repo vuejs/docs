@@ -50,4 +50,4 @@ Więcej informacji można znaleźć w [sekcji przewodnika po narzędziach.](/gui
 
 </details>
 
-Gotowy? Kliknij Następny, aby rozpocząć.
+Gotowy? Kliknij "Następny", aby rozpocząć.
