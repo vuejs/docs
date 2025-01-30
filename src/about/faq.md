@@ -8,9 +8,9 @@ Rozwój Vue jest finansowany głównie przez sponsorów i od 2016 roku jesteśmy
 
 ## Jaka jest różnica między Vue 2 i Vue 3? {#what-s-the-difference-between-vue-2-and-vue-3}
 
-Vue 3 to aktualna, najnowsza główna wersja Vue. Zawiera nowe funkcje, których nie ma w Vue 2, takie jak Teleport, Suspense i wiele elementów określanych jako `root` w sekcji `<template>`. Zawiera również przełomowe zmiany, które czynią ją niekompatybilną z Vue 2. Pełne szczegóły są udokumentowane w [przewodniku migracji na Vue 3](https://v3-migration.vuejs.org/).
+Vue 3 to aktualna, najnowsza główna wersja Vue. Zawiera nowe funkcje, których nie ma w Vue 2, takie jak Teleport, Suspense i wiele elementów określanych jako `root` w sekcji `<template>`. Zawiera również przełomowe zmiany, które czynią ją niekompatybilną z Vue 2. Pełne szczegóły są udokumentowane w [przewodniku migracji do Vue 3](https://v3-migration.vuejs.org/).
 
-Pomimo różnic, większość interfejsów API Vue jest wspólna dla obu głównych wersji, więc większość wiedzy zdobytej w Vue 2 będzie nadal działać w Vue 3. Warto zauważyć, że Composition API było pierwotnie funkcją dostępną tylko w Vue-3, ale teraz zostało przeniesione do Vue 2 i jest dostępne w [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
+Pomimo różnic, większość interfejsów API Vue jest wspólna dla obu głównych wersji, więc większość wiedzy zdobytej w Vue 2 będzie nadal działać w Vue 3. Warto zauważyć, że Composition API było pierwotnie funkcją dostępną tylko w Vue 3, ale teraz zostało przeniesione do Vue 2 i jest dostępne w [Vue 2.7](https://github.com/vuejs/vue/blob/main/CHANGELOG.md#270-2022-07-01).
 
 Ogólnie rzecz biorąc, Vue 3 zapewnia mniejsze rozmiary pakietów, lepszą wydajność, lepszą skalowalność i lepszą obsługę TypeScript / IDE. Jeśli rozpoczynasz dziś nowy projekt, Vue 3 jest zalecanym wyborem. Istnieje tylko kilka powodów, dla których warto rozważyć Vue 2:
 
@@ -24,7 +24,7 @@ Vue 2.7, który został dostarczony w lipcu 2022 r., jest ostatnią mniejszą we
 
 Uważamy, że powinno to zapewnić większości ekosystemu wystarczająco dużo czasu na migrację do Vue 3. Rozumiemy jednak również, że mogą istnieć zespoły lub projekty, które nie mogą dokonać aktualizacji w tym terminie, a jednocześnie muszą spełniać wymogi bezpieczeństwa i zgodności. Współpracujemy z ekspertami branżowymi, aby zapewnić rozszerzone wsparcie dla Vue 2 dla zespołów o takich potrzebach - jeśli Twój zespół spodziewa się korzystać z Vue 2 po zakończeniu 2023 roku, zaplanuj to z wyprzedzeniem i dowiedz się więcej o [Vue 2 Extended LTS].(https://v2.vuejs.org/lts/).
 
-## Jakiej licencji używa Vue?? {#what-license-does-vue-use}
+## Jakiej licencji używa Vue? {#what-license-does-vue-use}
 
 Vue to darmowy i otwarty projekt wydany na licencji [MIT].(https://opensource.org/licenses/MIT).
 
@@ -34,7 +34,7 @@ Najnowsza wersja Vue (3.x) obsługuje tylko [przeglądarki z natywną obsługą 
 
 ## Czy Vue jest niezawodne? {#is-vue-reliable}
 
-Vue to dojrzały i sprawdzony w boju framework. Jest to jeden z najczęściej używanych frameworków JavaScript w produkcji, z ponad 1,5 miliona użytkowników na całym świecie i ma blisko 10 milionów pobrań miesięcznie na npm.
+Vue to dojrzały i sprawdzony w boju framework. Jest to jeden z najczęściej używanych frameworków JavaScript na produkcji, z ponad 1,5 miliona użytkowników na całym świecie i ma blisko 10 milionów pobrań miesięcznie na npm.
 
 Vue jest używany na produkcji przez renomowane organizacje o różnym charakterze na całym świecie, w tym Wikimedia Foundation, NASA, Apple, Google, Microsoft, GitLab, Zoom, Tencent, Weibo, Bilibili, Kuaishou i wiele innych.
 
@@ -42,9 +42,9 @@ Vue jest używany na produkcji przez renomowane organizacje o różnym charakter
 
 Vue 3 jest jednym z najbardziej wydajnych frameworków frontendowych głównego nurtu i z łatwością obsługuje większość przypadków użycia aplikacji internetowych, bez konieczności ręcznej optymalizacji.
 
-W testach warunków skrajnych Vue przewyższa React i Angular z przyzwoitym marginesem w [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html). W teście porównawczym Vue idzie również łeb w łeb z niektórymi najszybszymi frameworkami które nie opierają się na użyciu virtual-DOM na poziomie produkcyjnym.
+W testach warunków skrajnych Vue przewyższa React i Angular z przyzwoitym marginesem w [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html). W teście porównawczym Vue idzie również łeb w łeb z niektórymi najszybszymi frameworkami, które nie opierają się na użyciu virtual-DOM na poziomie produkcyjnym.
 
-Należy pamiętać, że syntetyczne testy porównawcze, takie jak powyższe, koncentrują się na surowej wydajności renderowania z dedykowanymi optymalizacjami i mogą nie być w pełni reprezentatywne dla rzeczywistych wyników wydajności. Jeśli bardziej zależy ci na wydajności ładowania strony, możesz przeprowadzić audyt tej witryny za pomocą [WebPageTest](https://www.webpagetest.org/lighthouse) lub [PageSpeed Insights](https://pagespeed.web.dev/). Ta witryna jest obsługiwana przez Vue, ze wstępnym renderowaniem SSG, pełną hydracją strony i nawigacją SPA po stronie klienta. Uzyskała 100 punktów wydajności na emulowanym Moto G4 z 4x spowolnieniem procesora w wolnych sieciach 4G.
+Należy pamiętać, że syntetyczne testy porównawcze, takie jak powyższe, koncentrują się na surowej wydajności renderowania z dedykowanymi optymalizacjami i mogą nie być w pełni reprezentatywne dla rzeczywistych wyników wydajności. Jeśli bardziej zależy ci na wydajności ładowania strony, możesz przeprowadzić audyt tej witryny za pomocą [WebPageTest](https://www.webpagetest.org/lighthouse) lub [PageSpeed Insights](https://pagespeed.web.dev/). Ta witryna jest obsługiwana przez Vue, ze wstępnym renderowaniem SSG, pełną hydracją strony i nawigacją SPA po stronie klienta. Uzyskała 100 punktów wydajności na emulowanym Moto G4 z czterokrotnym spowolnieniem procesora w wolnych sieciach 4G.
 
 Więcej informacji o tym, jak Vue automatycznie optymalizuje wydajność w czasie wykonywania, można znaleźć w sekcji [mechanizm renderowania](/guide/extras/rendering-mechanism), a o tym, jak zoptymalizować aplikację Vue w szczególnie wymagających przypadkach - w [przewodniku po optymalziacji wydajności](/guide/best-practices/performance).
 
@@ -68,7 +68,7 @@ Tak. Pomimo powszechnego błędnego przekonania, że Vue nadaje się tylko do pr
 
 - [Wszechstronne wsparcie narzędziowe](/guide/scaling-up/tooling) zapewnia płynny rozwój w miarę rozrastania się aplikacji.
 
-- Niższa bariera wejścia i doskonała dokumentacja przekładają się na niższe koszty wdrożenia i szkolenia nowych deweloperów.
+- Niższy próg wejścia i doskonała dokumentacja przekładają się na niższe koszty wdrożenia i szkolenia nowych deweloperów.
 
 ## Jak mogę przyczynić się do rozwoju Vue? {#how-do-i-contribute-to-vue}
 
@@ -76,7 +76,7 @@ Dziękujemy za zainteresowanie! Zapoznaj się z naszym [przewodnikiem dla społe
 
 ## Powinienem użyć Options API czy Composition API? {#should-i-use-options-api-or-composition-api}
 
-Jeśli jesteś nowy w Vue, zapewniamy porównanie na wysokim poziomie między dwoma stylami [tutaj](/guide/introduction#which-to-choose).
+Jeśli Vue jest dla ciebie nowością, zapewniamy porównanie na wysokim poziomie między dwoma stylami [tutaj](/guide/introduction#which-to-choose).
 
 Jeśli wcześniej korzystałeś z Options API i obecnie oceniasz Composition API, zapoznaj się z [tym FAQ](/guide/extras/composition-api-faq).
 
@@ -84,7 +84,7 @@ Jeśli wcześniej korzystałeś z Options API i obecnie oceniasz Composition API
 
 Chociaż Vue samo w sobie jest zaimplementowane w TypeScript i zapewnia pierwszorzędną obsługę TypeScript, nie wymusza tego, czy powinieneś używać TypeScript jako użytkownik.
 
-Obsługa języka TypeScript jest ważnym aspektem przy dodawaniu nowych funkcji do Vue. Interfejsy API zaprojektowane z myślą o TypeScript są zazwyczaj łatwiejsze do zrozumienia dla IDE i linterów, nawet jeśli sam nie używasz TypeScript. Wszyscy wygrywają. Interfejsy API Vue są również zaprojektowane tak, aby działały w ten sam sposób zarówno w JavaScript, jak i TypeScript.
+Obsługa języka TypeScript jest ważnym aspektem przy dodawaniu nowych funkcji do Vue. Interfejsy API zaprojektowane z myślą o TypeScript są zazwyczaj łatwiejsze do zrozumienia dla IDE i linterów, nawet jeśli sam nie używasz TypeScript, co jest korzyścią dla wszystkich. Interfejsy API Vue są również zaprojektowane tak, aby działały w ten sam sposób zarówno w JavaScript, jak i TypeScript.
 
 Przyjęcie TypeScript wiąże się z kompromisem między złożonością wdrażania a długoterminowymi korzyściami w zakresie utrzymania. To, czy taki kompromis może być uzasadniony, może się różnić w zależności od doświadczenia zespołu i skali projektu, ale Vue nie jest tak naprawdę czynnikiem wpływającym na podjęcie tej decyzji.
 
