@@ -24,7 +24,7 @@ export default {
   // deklaracja zdarzeń emitujących
   emits: ['response'],
   setup(props, { emit }) {
-    // emitowanie zdarzenie z argumentem
+    // emitowanie z argumentem
     emit('response', 'hello from child')
   }
 }
