@@ -1,32 +1,32 @@
 # vuejs.org
 
-If you would like to contribute to the translation project please refer to the [polish translation guide](./.github/CONTRIBUTING.md).
+Jeśli chcesz przyczynić się do tłumaczenia projektu, zapoznaj się z [polskim przewodnikiem po tłumaczeniu](./.github/CONTRIBUTING.md).
 
 ---
 
-## Contributing
+## Wkład w projekt
 
-This site is built with [VitePress](https://github.com/vuejs/vitepress) and depends on [@vue/theme](https://github.com/vuejs/vue-theme). Site content is written in Markdown format located in `src`. For simple edits, you can directly edit the file on GitHub and generate a Pull Request.
+Ta strona jest zbudowana przy użyciu [VitePress](https://github.com/vuejs/vitepress) i używa [@vue/theme](https://github.com/vuejs/vue-theme). Kontent strony jest zapisany w formacie Markdown znajdującym się w folderze `src`. W przypadku prostych zmian można bezpośrednio edytować plik na GitHubie i wygenerować Pull Request.
 
-For local development, [pnpm](https://pnpm.io/) is preferred as package manager:
+Aby uruchomić projekt lokalnie, zalecamy użycie [pnpm](https://pnpm.io/) jako menadżera pakietów:
 
 ```bash
 pnpm i
 pnpm run dev
 ```
 
-This project requires Node.js to be `v18` or higher. And it is recommended to enable corepack:
+Ten projekt wymaga Node.js w wersji `v18` lub wyższej. Zaleca się również włączenie corepack:
 
 ```bash
 corepack enable
 ```
 
-## Working on the content
+## Praca nad treścią
 
-- See VitePress docs on supported [Markdown Extensions](https://vitepress.dev/guide/markdown) and the ability to [use Vue syntax inside markdown](https://vitepress.dev/guide/using-vue).
+- Sprawdź dokumentację VitePress dotyczącą obsługiwanych [rozszerzeń Markdown](https://vitepress.dev/guide/markdown) i możliwości [używania składni Vue wewnątrz markdown](https://vitepress.dev/guide/using-vue).
 
-- See the [Writing Guide](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md) for our rules and recommendations on writing and maintaining documentation content.
+- Sprawdź [przewodnik pisania](https://github.com/vuejs/docs/blob/main/.github/contributing/writing-guide.md) aby zapoznać się z naszymi zasadami i zaleceniami dotyczącymi pisania i utrzymywania treści dokumentacji.
 
-## Working on the theme
+## Praca nad motywem
 
-If changes need to made for the theme, check out the [instructions for developing the theme alongside the docs](https://github.com/vuejs/vue-theme#developing-with-real-content).
+Jeśli konieczne jest wprowadzenie zmian w motywie, należy zapoznać się z [instrukcjami tworzenia motywu wraz z dokumentacją](https://github.com/vuejs/vue-theme#developing-with-real-content).

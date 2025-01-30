@@ -69,7 +69,7 @@ function useToggleFn(
       @mousedown="removeOutline"
       @blur="restoreOutline"
     >
-      <span>API Preference</span>
+      <span>Preferencje API</span>
       <VTIconChevronDown class="vt-link-icon" :class="{ open: isOpen }" />
     </button>
     <div id="preference-switches" :hidden="!isOpen" :aria-hidden="!isOpen">

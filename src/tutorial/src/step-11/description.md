@@ -1,8 +1,8 @@
-# Components {#components}
+# Komponenty {#components}
 
-So far, we've only been working with a single component. Real Vue applications are typically created with nested components.
+Do tej pory pracowaliśmy tylko z pojedynczym komponentem. Prawdziwe aplikacje Vue są zazwyczaj tworzone z zagnieżdżonymi komponentami.
 
-A parent component can render another component in its template as a child component. To use a child component, we need to first import it:
+Komponent nadrzędny może renderować inny komponent w swoim szablonie jako komponent podrzędny. Aby użyć komponentu podrzędnego, musimy go najpierw zaimportować:
 
 <div class="composition-api">
 <div class="sfc">
@@ -27,14 +27,14 @@ export default {
 }
 ```
 
-We also need to register the component using the `components` option. Here we are using the object property shorthand to register the `ChildComp` component under the `ChildComp` key.
+Musimy również zarejestrować komponent za pomocą opcji `components`. Tutaj używamy tzw "shorthand property notation", aby zarejestrować komponent `ChildComp` pod kluczem `ChildComp`.
 
 </div>
 </div>
 
 <div class="sfc">
 
-Then, we can use the component in the template as:
+Następnie możemy użyć komponentu w szablonie:
 
 ```vue-html
 <ChildComp />
@@ -54,9 +54,9 @@ createApp({
 })
 ```
 
-We also need to register the component using the `components` option. Here we are using the object property shorthand to register the `ChildComp` component under the `ChildComp` key.
+Musimy również zarejestrować komponent za pomocą opcji `components`. Tutaj używamy skrótu właściwości obiektu, aby zarejestrować komponent `ChildComp` pod kluczem `ChildComp`.
 
-Because we are writing the template in the DOM, it will be subject to browser's parsing rules, which is case-insensitive for tag names. Therefore, we need to use the kebab-cased name to reference the child component:
+Ponieważ piszemy szablon w DOM, będzie on podlegał regułom parsowania przeglądarki, które są nieczułe na wielkość liter w nazwach tagów. Dlatego musimy używać nazwy w formacie kebab-case, aby odwołać się do komponentu podrzędnego:
 
 ```vue-html
 <child-comp></child-comp>
@@ -65,4 +65,4 @@ Because we are writing the template in the DOM, it will be subject to browser's 
 </div>
 
 
-Now try it yourself - import the child component and render it in the template.
+Teraz spróbuj sam - zaimportuj komponent podrzędny i wyrenderuj go w szablonie.

@@ -42,7 +42,7 @@ The root DOM node that the component instance is managing.
 
   ```ts
   interface ComponentPublicInstance {
-    $el: Node | undefined
+    $el: any
   }
   ```
 
