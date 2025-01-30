@@ -6,12 +6,12 @@ export default {
   },
   data: () => ({
     searchQuery: '',
-    gridColumns: ['name', 'power'],
+    gridColumns: ['nazwa', 'moc'],
     gridData: [
-      { name: 'Chuck Norris', power: Infinity },
-      { name: 'Bruce Lee', power: 9000 },
-      { name: 'Jackie Chan', power: 7000 },
-      { name: 'Jet Li', power: 8000 }
+      { nazwa: 'Chuck Norris', moc: Infinity },
+      { nazwa: 'Bruce Lee', moc: 9000 },
+      { nazwa: 'Jackie Chan', moc: 7000 },
+      { nazwa: 'Jet Li', moc: 8000 }
     ]
   })
 }

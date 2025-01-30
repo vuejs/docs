@@ -1,14 +1,14 @@
-<h2>Text Input</h2>
+<h2>Pole tekstowe</h2>
 <input v-model="text">
 <p>{{ text }}</p>
 
 <h2>Checkbox</h2>
 <input type="checkbox" id="checkbox" v-model="checked">
-<label for="checkbox">Checked: {{ checked }}</label>
+<label for="checkbox">Zaznaczone: {{ checked }}</label>
 
 <!--
-  multiple checkboxes can bind to the same
-  array v-model value
+  wiele checkboxów może być powiązanych
+  z tą samą tablicą jako wartość v-model
 -->
 <h2>Multi Checkbox</h2>
 <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
@@ -17,24 +17,24 @@
 <label for="john">John</label>
 <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
 <label for="mike">Mike</label>
-<p>Checked names: {{ checkedNames }}</p>
+<p>Zaznaczone imiona: {{ checkedNames }}</p>
 
 <h2>Radio</h2>
-<input type="radio" id="one" value="One" v-model="picked">
-<label for="one">One</label>
+<input type="radio" id="one" value="Jeden" v-model="picked">
+<label for="one">Jeden</label>
 <br>
-<input type="radio" id="two" value="Two" v-model="picked">
-<label for="two">Two</label>
-<p>Picked: {{ picked }}</p>
+<input type="radio" id="two" value="Dwa" v-model="picked">
+<label for="two">Dwa</label>
+<p>Wybrano: {{ picked }}</p>
 
 <h2>Select</h2>
 <select v-model="selected">
-  <option disabled value="">Please select one</option>
+  <option disabled value="">Proszę wybrać jedną opcję</option>
   <option>A</option>
   <option>B</option>
   <option>C</option>
 </select>
-<p>Selected: {{ selected }}</p>
+<p>Wybrano: {{ selected }}</p>
 
 <h2>Multi Select</h2>
 <select v-model="multiSelected" multiple style="width:100px">
@@ -42,4 +42,4 @@
   <option>B</option>
   <option>C</option>
 </select>
-<p>Selected: {{ multiSelected }}</p>
+<p>Wybrano: {{ multiSelected }}</p>
