@@ -24,7 +24,7 @@ import ListStagger from './transition-demos/ListStagger.vue'
 Podczas używania w [szablonach w-DOM](/guide/essentials/component-basics#in-dom-template-parsing-caveats), komponent powinien być przywoływany jako `<transition-group>`.
 :::
 
-## Przejścia Wejścia / Wyjścia {#enter-leave-transitions}
+## Przejścia wejścia / wyjścia {#enter-leave-transitions}
 
 Oto przykład zastosowania przejść wejścia/wyjścia do listy `v-for` przy użyciu `<TransitionGroup>`:
 

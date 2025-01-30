@@ -71,13 +71,13 @@ Domyślnie `<KeepAlive>` będzie buforować każdą instancję komponentu znajdu
 </KeepAlive>
 ```
 
-Dopasowanie jest sprawdzane względem opcji [`name`](/api/options-misc#name) komponentu, więc komponenty które mają być warunkowo buforowane przez `KeepAlive` muszą jawnie zadeklarować opcję `name`.
+Dopasowanie jest sprawdzane względem opcji [`name`](/api/options-misc#name) komponentu, więc komponenty, które mają być warunkowo buforowane przez `KeepAlive` muszą jawnie zadeklarować opcję `name`.
 
 :::tip
 Od wersji 3.2.34, komponent jednoplikowy używający `<script setup>` będzie automatycznie określać swoją opcję `name` na podstawie nazwy pliku, eliminując potrzebę ręcznego deklarowania nazwy.
 :::
 
-## Maksymalna Liczba Buforowanych Instancji {#max-cached-instances}
+## Maksymalna liczba buforowanych instancji {#max-cached-instances}
 
 Możemy ograniczyć maksymalną liczbę instancji komponentów, które mogą być buforowane za pomocą właściwości `max`. Kiedy `max` jest określone, `<KeepAlive>` zachowuje się jak [pamięć podręczna LRU](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>): jeśli liczba buforowanych instancji ma przekroczyć określoną maksymalną wartość, najmniej ostatnio używana buforowana instancja zostanie zniszczona, aby zrobić miejsce dla nowej.
 
@@ -87,7 +87,7 @@ Możemy ograniczyć maksymalną liczbę instancji komponentów, które mogą by�
 </KeepAlive>
 ```
 
-## Cykl Życia Buforowanej Instancji {#lifecycle-of-cached-instance}
+## Cykl życia buforowanej instancji {#lifecycle-of-cached-instance}
 
 Kiedy instancja komponentu jest usuwana z DOM, ale jest częścią drzewa komponentów buforowanego przez `<KeepAlive>`, przechodzi w stan **dezaktywacji** zamiast zostać odmontowana. Kiedy instancja komponentu jest wstawiana do DOM jako część buforowanego drzewa, zostaje **aktywowana**.
 

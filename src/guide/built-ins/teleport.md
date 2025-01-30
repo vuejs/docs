@@ -98,7 +98,7 @@ Podczas używania tego komponentu w początkowej strukturze HTML, pojawia się k
 
 - `z-index` modalu jest ograniczony przez jego elementy nadrzędne. Jeśli istnieje inny element, który nachodzi na `<div class="outer">` i ma wyższy `z-index`, przykryje on nasz modal.
 
-`<Teleport>` zapewnia eleganckie rozwiązanie tych problemów, pozwalając nam wyrwać się z zagnieżdżonej struktury DOM. Zmodyfikujmy `<MyModal>`, aby używał `<Teleport>`:
+`<Teleport>` zapewnia przejrzyste rozwiązanie tych problemów, pozwalając nam wyrwać się z zagnieżdżonej struktury DOM. Zmodyfikujmy `<MyModal>`, aby używał `<Teleport>`:
 
 ```vue-html{3,8}
 <button @click="open = true">Otwórz modal</button>
@@ -173,9 +173,9 @@ Stan `isMobile` może być dynamicznie aktualizowany poprzez wykrywanie zmian w 
 
 ## Wiele Teleportów do tego samego celu {#multiple-teleports-on-the-same-target}
 
-Częstym przypadkiem użycia byłby wielokrotnego użytku komponent `<Modal>`, z możliwością aktywacji wielu instancji w tym samym czasie. W tego typu scenariuszu, wiele komponentów `<Teleport>` może montować swoją zawartość do tego samego elementu docelowego. Kolejność będzie prostym dołączaniem - późniejsze montowania będą umieszczane po wcześniejszych w elemencie docelowym.
+Częstym przypadkiem użycia byłby wielokrotnego użytku komponent `<Modal>`, z możliwością aktywacji wielu instancji w tym samym czasie. W tego typu scenariuszu, wiele komponentów `<Teleport>` może montować swoją zawartość do tego samego elementu docelowego. Kolejność będzie prostym dołączaniem – później zamontowane elementy zostaną umieszczone za wcześniej zamontowanymi w elemencie docelowym.
 
-Przy następującym użyciu:
+Biorąc pod uwagę następujące zastosowanie::
 
 ```vue-html
 <Teleport to="#modals">

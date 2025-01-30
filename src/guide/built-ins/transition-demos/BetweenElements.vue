@@ -8,7 +8,7 @@ const docState = ref('saved')
 
 <template>
   <div class="demo transition-demo">
-    <span style="margin-right: 20px">Kliknij aby przełączać stany:</span>
+    <span style="margin-right: 20px">Kliknij, aby przełączać stany:</span>
     <div class="btn-container">
       <Transition name="slide-up" :mode="mode">
         <button v-if="docState === 'saved'" @click="docState = 'edited'">
