@@ -189,11 +189,16 @@ export const sidebar: ThemeConfig['sidebar'] = {
           text: 'Cykl życia',
           link: '/guide/essentials/lifecycle'
         },
+        { text: 'Form Input Bindings', link: '/guide/essentials/forms' },
         { text: 'Obserwatorzy', link: '/guide/essentials/watchers' },
         { text: 'Template Refs', link: '/guide/essentials/template-refs' },
         {
           text: 'Podstawy komponentów',
           link: '/guide/essentials/component-basics'
+        },
+        {
+          text: 'Lifecycle Hooks',
+          link: '/guide/essentials/lifecycle'
         }
       ]
     },
