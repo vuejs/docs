@@ -40,7 +40,7 @@ onUnmounted(() => window.removeEventListener('mousemove', update))
 <template>Pozycja myszyki to: {{ x }}, {{ y }}</template>
 ```
 
-Ale co, jeśli chcemy ponownie wykorzystać tę samą logikę w wielu komponentach? Możemy wyodrębnić logikę do pliku zewnętrznego, jako funkcję kompozycyjną:
+Ale co w przypadku jeśli chcemy ponownie wykorzystać tę samą logikę w wielu komponentach? Możemy wyodrębnić logikę do pliku zewnętrznego, jako funkcję kompozycyjną:
 
 ```js
 // mouse.js
@@ -48,7 +48,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 // zgodnie z konwencją nazwy funkcje kompozycyjne zaczynają się od „use”
 export function useMouse() {
-  // stan kapsułkowany i zarządzany przez kompozycję
+  // stan enkapsularny i zarządzany przez kompozycję
   const x = ref(0)
   const y = ref(0)
 
@@ -186,7 +186,7 @@ const { data, error } = useFetch('...')
 
 ### Przyjmowanie reaktywnego stanu {#accepting-reactive-state}
 
-`useFetch()` przyjmuje statyczny ciąg URL jako dane wejściowe - więc wykonuje pobieranie tylko raz i jest gotowe. Co jeśli chcemy, aby pobieranie było wykonywane ponownie za każdym razem, gdy URL się zmienia? Aby to osiągnąć, musimy przekazać stan reaktywny do funkcji composable i pozwolić funkcji composable tworzyć obserwatorów, którzy wykonują akcje przy użyciu przekazanego stanu.
+`useFetch()` przyjmuje statyczny ciąg URL jako dane wejściowe - co oznacza, że wykonuje pobieranie tylko raz i jest gotowe. Co jeśli chcemy, aby pobieranie było wykonywane ponownie za każdym razem, gdy URL się zmienia? Aby to osiągnąć, musimy przekazać stan reaktywny do funkcji composable i pozwolić funkcji composable tworzyć obserwatorów, którzy wykonują akcje przy użyciu przekazanego stanu.
 
 Na przykład `useFetch()` powinno być w stanie zaakceptować ref:
 
@@ -251,7 +251,7 @@ Przyjętą konwencją jest nazywanie funkcji kompozycyjnych za pomocą nazw came
 
 ### Argumenty {#input-arguments}
 
-Obiekt composable może akceptować argumenty ref lub getter, nawet jeśli nie polega na nich w kwestii reaktywności. Jeśli piszesz obiekt composable, który może być używany przez innych programistów, dobrym pomysłem jest obsługa przypadku, gdy argumenty wejściowe są ref lub getterami zamiast surowych wartości. Funkcja pomocnicza [`toValue()`](/api/reactivity-utilities#tovalue) przyda się w tym celu:
+Obiekt composable może akceptować argumenty ref lub getter, nawet jeśli nie polega na nich w kwestii reaktywności. Jeśli piszesz obiekt composable, który może być używany przez innych programistów, dobrym pomysłem jest obsługa przypadku, gdy argumenty wejściowe są ref lub getterami zamiast surowych wartości. W tym celu przyda się funkcja pomocnicza [toValue()](/api/reactivity-utilities#tovalue):
 
 ```js
 import { toValue } from 'vue'
@@ -293,9 +293,9 @@ Pozycja myszki to: {{ mouse.x }}, {{ mouse.y }}
 
 ### Skutki uboczne {#side-effects}
 
-Można wykonywać efekty uboczne (np. dodawanie nasłuchiwaczy zdarzeń DOM lub pobieranie danych) w obiektach kompozycyjnych, ale należy zwrócić uwagę na następujące zasady:
+Dopuszczalne jest wykonywanie efektów ubocznych (np. dodawanie nasłuchiwaczy zdarzeń DOM lub pobieranie danych) w obiektach kompozycyjnych, ale należy zwrócić uwagę na następujące zasady:
 
-- Jeśli pracujesz nad aplikacją, która używa [Server-Side Rendering](/guide/scaling-up/ssr) (SSR), upewnij się, że wykonujesz specyficzne dla DOM efekty uboczne w haczykach cyklu życia po zamontowaniu, np. `onMounted()`. Te haki są wywoływane tylko w przeglądarce, więc możesz mieć pewność, że kod w nich zawarty ma dostęp do DOM.
+- Jeśli pracujesz nad aplikacją, która używa [Server-Side Rendering](/guide/scaling-up/ssr) (SSR), upewnij się, że wykonujesz specyficzne dla DOM efekty uboczne w hookach cyklu życia po zamontowaniu, np. `onMounted()`. Te haki są wywoływane tylko w przeglądarce, więc możesz mieć pewność, że kod w nich zawarty ma dostęp do DOM.
 
 - Pamiętaj o usunięciu efektów ubocznych w `onUnmounted()`. Na przykład, jeśli obiekt kompozycyjny ustawia nasłuchiwacza zdarzeń DOM, powinien usunąć tego nasłuchiwacza w `onUnmounted()`, jak widzieliśmy w przykładzie `useMouse()`. Dobrym pomysłem może być użycie obiektu kompozycyjnego, który automatycznie to robi, takiego jak przykład `useEventListener()`.
 
@@ -307,13 +307,13 @@ Te ograniczenia są ważne, ponieważ są to konteksty, w których Vue jest w st
 
 1. Można było do niej rejestrować haki cyklu życia.
 
-2. Można było do niej łączyć obliczone właściwości i obserwatorów, aby można je było usunąć, gdy instancja jest odmontowywana, zapobiegając wyciekom pamięci.
+2. Można było z nią łączyć obliczone właściwości i obserwatorów, aby można je było usunąć, gdy instancja jest odmontowywana, zapobiegając wyciekom pamięci.
 
 :::tip
 `<script setup>` to jedyne miejsce, w którym można wywołać funkcje kompozycyjne **after** za pomocą `await`. Kompilator automatycznie przywraca aktywny kontekst instancji po operacji asynchronicznej.
 :::
 
-## Ekstrakcja funkcji kompozycyjnych w celu organizacji kodu {#extracting-composables-for-code-organization}
+## Wyodrębnianie funkcji kompozycyjnych w celu organizacji kodu {#extracting-composables-for-code-organization}
 
 Funkcje kompozycyjne można wyodrębnić nie tylko do ponownego użycia, ale także do organizacji kodu. Wraz ze wzrostem złożoności komponentów możesz skończyć z komponentami, które są zbyt duże, aby poruszać się po nich i je analizować. Interfejs API kompozycji zapewnia pełną elastyczność w organizacji kodu komponentu w mniejsze funkcje na podstawie kwestii logicznych:
 
@@ -357,15 +357,15 @@ export default {
 
 ### w porównaniu z Mixinami {#vs-mixins}
 
-Użytkownicy przychodzący z Vue 2 mogą być zaznajomieni z opcją [mixins](/api/options-composition#mixins), która pozwala nam również wyodrębnić logikę komponentu do jednostek wielokrotnego użytku. Istnieją trzy główne wady miksinów:
+Użytkownicy przychodzący z Vue 2 mogą być zaznajomieni z opcją [mixins](/api/options-composition#mixins), która pozwala nam również wyodrębnić logikę komponentu do jednostek wielokrotnego użytku. Istnieją trzy główne wady mixinów:
 
-1. **Niejasne źródło właściwości**: podczas korzystania z wielu miksinów staje się niejasne, która właściwość instancji jest wstrzykiwana przez który miksin, co utrudnia śledzenie implementacji i zrozumienie zachowania komponentu. Dlatego też zalecamy korzystanie ze wzorca refs + destructure dla elementów kompozycyjnych: sprawia on, że źródło właściwości jest jasne w komponentach konsumujących.
+1. **Niejasne źródło właściwości**: podczas korzystania z wielu mixinów staje się niejasne, która właściwość instancji jest wstrzykiwana przez który mixin, co utrudnia śledzenie implementacji i zrozumienie zachowania komponentu. Dlatego też zalecamy korzystanie ze wzorca refs + destructure dla elementów kompozycyjnych: sprawia on, że źródło właściwości jest jasne w komponentach konsumujących.
 
-2. **Kolizje przestrzeni nazw**: wiele miksinów od różnych autorów może potencjalnie rejestrować te same klucze właściwości, powodując kolizje przestrzeni nazw. W przypadku elementów kompozycyjnych można zmienić nazwy zdestrukturyzowanych zmiennych, jeśli występują konflikty kluczy z różnych elementów kompozycyjnych.
+2. **Kolizje przestrzeni nazw**: wiele mixinów od różnych autorów może potencjalnie rejestrować te same klucze właściwości, powodując kolizje przestrzeni nazw. W przypadku elementów kompozycyjnych można zmienić nazwy zdestrukturyzowanych zmiennych, jeśli występują konflikty kluczy z różnych elementów kompozycyjnych.
 
-3. **Niejawna komunikacja między miksinami**: wiele miksinów, które muszą ze sobą oddziaływać, musi polegać na współdzielonych kluczach właściwości, co sprawia, że ​​są niejawnie sprzężone. W przypadku obiektów kompozycyjnych wartości zwracane z jednego obiektu kompozycyjnego mogą być przekazywane do innego jako argumenty, tak jak normalne funkcje.
+3. **Niejawna komunikacja między mixinami**: wiele mixinów, które muszą ze sobą oddziaływać, musi polegać na współdzielonych kluczach właściwości, co sprawia, że ​​są niejawnie sprzężone. W przypadku obiektów kompozycyjnych wartości zwracane z jednego obiektu kompozycyjnego mogą być przekazywane do innego jako argumenty, tak jak normalne funkcje.
 
-Z powyższych powodów nie zalecamy już używania miksinów w Vue 3. Funkcja ta jest zachowana tylko ze względu na migrację i znajomość.
+Funkcja ta jest utrzymywana wyłącznie ze względów migracyjnych i ułatwiających zapoznanie się z nią.
 
 ### w porównaniu z komponentami Renderless {#vs-renderless-components}
 

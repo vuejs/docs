@@ -93,19 +93,19 @@ Powszechną praktyką jest również globalne rejestrowanie dyrektyw niestandard
 ```js
 const app = createApp({})
 
-// zrób v-focus użytecznym we wszystkich komponentach
+// spraw, aby v-focus był używalny we wszystkich komponentach or umożliw używanie v-focus we wszystkich komponentach
 app.directive('focus', {
   /* ... */
 })
 ```
 
 :::tip
-Niestandardowe dyrektywy powinny być używane tylko wtedy, gdy pożądaną funkcjonalność można osiągnąć tylko poprzez bezpośrednią manipulację DOM. Preferuj deklaratywne szablonowanie przy użyciu wbudowanych dyrektyw, takich jak `v-bind`, gdy jest to możliwe, ponieważ są one bardziej wydajne i przyjazne dla renderowania serwerowego.
+W miarę możliwości należy preferować deklaratywne tworzenie szablonów przy użyciu wbudowanych dyrektyw, takich jak `v-bind`, ponieważ są one bardziej wydajne i przyjazne dla renderowania po stronie serwera.
 :::
 
 ## Cykle życia dyrektyw {#directive-hooks}
 
-Obiekt definicji dyrektywy może udostępniać kilka funkcji haczykowych (wszystkie opcjonalne):
+Obiekt definicji dyrektywy może zapewniać kilka funkcji hookowych (wszystkie opcjonalne):
 
 ```js
 const myDirective = {
@@ -114,7 +114,7 @@ const myDirective = {
   created(el, binding, vnode) {
     // zobacz poniżej szczegóły dotyczące argumentów
   },
-  // wywoływana tuż przed wstawieniem elementu do DOM.
+  // wywoływana tuż przed umieszczeniem elementu do DOM.
   beforeMount(el, binding, vnode) {},
   // wywoływane, gdy komponent nadrzędny powiązanego elementu
   // i wszystkie jego elementy podrzędne są zamontowane.
@@ -155,7 +155,7 @@ Jako przykład rozważmy następujące użycie dyrektywy:
 <div v-example:foo.bar="baz">
 ```
 
-Argument `binding` będzie obiektem w kształcie:
+Argument `binding` będzie obiektem o kształcie:
 
 ```js
 {
@@ -175,7 +175,7 @@ Podobnie jak wbudowane dyrektywy, argumenty dyrektyw niestandardowych mogą być
 Tutaj argument dyrektywy zostanie reaktywnie zaktualizowany na podstawie właściwości `arg` w stanie naszego komponentu.
 
 :::tip Note
-Oprócz `el`, powinieneś traktować te argumenty jako tylko do odczytu i nigdy ich nie modyfikować. Jeśli musisz udostępniać informacje między hakami, zaleca się, aby zrobić to za pośrednictwem [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) elementu.
+Oprócz `el`, powinieneś traktować te argumenty jako tylko do odczytu i nigdy ich nie modyfikować. Jeśli musisz udostępniać informacje między hakami, zaleca się, aby zrobić to za pośrednictwem elementu [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 :::
 
 ## Skrócone funkcje {#function-shorthand}
@@ -224,8 +224,8 @@ Gdy są używane w komponentach, dyrektywy niestandardowe zawsze będą miały z
 ```vue-html
 <!-- template of MyComponent -->
 
-<div> <!-- dyrektywa v-demo directive będzie tutaj dodana -->
-  <span>My component content</span>
+<div> <!-- dyrektywa v-demo będzie tutaj dodana -->
+  <span>Zawartość mojego komponentu</span>
 </div>
 ```
 

@@ -49,13 +49,13 @@ export default {
 }
 ```
 
-Chcemy utworzyć funkcję tłumaczenia. Ta funkcja otrzyma ciąg `key` rozdzielony kropkami, którego użyjemy do wyszukania przetłumaczonego ciągu w opcjach podanych przez użytkownika. To jest zamierzone użycie w szablonach:
+Chcemy utworzyć funkcję tłumaczenia. Ta funkcja otrzyma ciąg `key` rozdzielony kropkami, którego użyjemy do wyszukania przetłumaczonego ciągu w opcjach podanych przez użytkownika. Oto zamierzone użycie w szablonach:
 
 ```vue-html
 <h1>{{ $translate('greetings.hello') }}</h1>
 ```
 
-Ponieważ ta funkcja powinna być globalnie dostępna we wszystkich szablonach, uczynimy to, dołączając ją do `app.config.globalProperties` w naszej wtyczce:
+Ponieważ ta funkcja powinna być globalnie dostępna we wszystkich szablonach, umoliwimy to, dołączając ją do `app.config.globalProperties` w naszej wtyczce:
 
 ```js{4-11}
 // plugins/i18n.js
