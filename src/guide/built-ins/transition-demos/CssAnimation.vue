@@ -5,10 +5,10 @@ const show = ref(true)
 
 <template>
   <div class="demo">
-    <button @click="show = !show">Toggle</button>
+    <button @click="show = !show">Przełącz</button>
     <Transition name="bounce">
       <p v-if="show" style="margin-top: 20px; text-align: center">
-        Hello here is some bouncy text!
+        Cześć, oto tekst z podskokami!
       </p>
     </Transition>
   </div>

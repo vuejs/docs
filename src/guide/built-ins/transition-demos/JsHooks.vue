@@ -41,7 +41,7 @@ function onLeave(el, done) {
 
 <template>
   <div class="demo">
-    <button @click="show = !show">Toggle</button>
+    <button @click="show = !show">Przełącz</button>
 
     <Transition
       @before-enter="onBeforeEnter"

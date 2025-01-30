@@ -4,7 +4,7 @@ const msg = ref('')
 </script>
 
 <template>
-  <p>Current component: B</p>
-  <span style="margin-right: 20px">Message is: {{ msg }}</span>
+  <p>Aktualny komponent: B</p>
+  <span style="margin-right: 20px">Wiadomość: {{ msg }}</span>
   <input v-model="msg">
 </template>
