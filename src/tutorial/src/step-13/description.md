@@ -1,16 +1,16 @@
 # Emits {#emits}
 
-In addition to receiving props, a child component can also emit events to the parent:
+Oprócz otrzymywania props, komponent podrzędny może również emitować zdarzenia do komponentu nadrzędnego:
 
 <div class="composition-api">
 <div class="sfc">
 
 ```vue
 <script setup>
-// declare emitted events
+// deklaracja zdarzeń emitujących
 const emit = defineEmits(['response'])
 
-// emit with argument
+// emitowanie zdarzenie z argumentem
 emit('response', 'hello from child')
 </script>
 ```
@@ -21,10 +21,10 @@ emit('response', 'hello from child')
 
 ```js
 export default {
-  // declare emitted events
+  // deklaracja zdarzeń emitujących
   emits: ['response'],
   setup(props, { emit }) {
-    // emit with argument
+    // emitowanie z argumentem
     emit('response', 'hello from child')
   }
 }
@@ -38,10 +38,10 @@ export default {
 
 ```js
 export default {
-  // declare emitted events
+  // deklaracja zdarzeń emitujących
   emits: ['response'],
   created() {
-    // emit with argument
+    // emitowanie z argumentem
     this.$emit('response', 'hello from child')
   }
 }
@@ -49,9 +49,9 @@ export default {
 
 </div>
 
-The first argument to <span class="options-api">`this.$emit()`</span><span class="composition-api">`emit()`</span> is the event name. Any additional arguments are passed on to the event listener.
+Pierwszym argumentem dla <span class="options-api">`this.$emit()`</span><span class="composition-api">`emit()`</span> jest nazwa zdarzenia. Wszelkie dodatkowe argumenty są przekazywane do detektora zdarzeń.
 
-The parent can listen to child-emitted events using `v-on` - here the handler receives the extra argument from the child emit call and assigns it to local state:
+Rodzic może nasłuchiwać zdarzeń emitowanych przez dziecko za pomocą `v-on` - tutaj handler otrzymuje dodatkowy argument z wywołania emitowanego przez dziecko i przypisuje go do lokalnego stanu:
 
 <div class="sfc">
 
@@ -68,4 +68,4 @@ The parent can listen to child-emitted events using `v-on` - here the handler re
 
 </div>
 
-Now try it yourself in the editor.
+Teraz spróbuj samemu w edytorze.

@@ -1,20 +1,20 @@
-# Conditional Rendering {#conditional-rendering}
+# Renderowanie warunkowe {#conditional-rendering}
 
-We can use the `v-if` directive to conditionally render an element:
+Możemy użyć dyrektywy `v-if` do warunkowego renderowania elementu:
 
 ```vue-html
 <h1 v-if="awesome">Vue is awesome!</h1>
 ```
 
-This `<h1>` will be rendered only if the value of `awesome` is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy). If `awesome` changes to a [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value, it will be removed from the DOM.
+`<h1>` będzie renderowane tylko jeśli wartość `awesome` jest [truthy].(https://developer.mozilla.org/en-US/docs/Glossary/Truthy). Jeśli `awesome` zmieni się na wartość [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy), zostanie usunięty z drzewa DOM.
 
-We can also use `v-else` and `v-else-if` to denote other branches of the condition:
+Możemy również użyć `v-else` i `v-else-if` do oznaczenia innych części warunku:
 
 ```vue-html
 <h1 v-if="awesome">Vue is awesome!</h1>
 <h1 v-else>Oh no 😢</h1>
 ```
 
-Currently, the demo is showing both `<h1>`s at the same time, and the button does nothing. Try to add `v-if` and `v-else` directives to them, and implement the `toggle()` method so that we can use the button to toggle between them.
+Obecnie demo pokazuje oba `<h1>` w tym samym czasie, a przycisk nic nie robi. Spróbuj dodać do nich dyrektywy `v-if` i `v-else` i zaimplementuj metodę `toggle()`, abyśmy mogli używać przycisku do przełączania się między nimi.
 
-More details on `v-if`: <a target="_blank" href="/guide/essentials/conditional.html">Guide - Conditional Rendering</a>
+Więcej szczegółów na temat `v-if`: <a target="_blank" href="/guide/essentials/conditional.html">Przewodnik - Renderowanie warunkowe</a>
