@@ -34,7 +34,7 @@ const nav: ThemeConfig['nav'] = [
     link: '/api/'
   },
   {
-    text: 'Plac zabaw',
+    text: 'Interaktywne demo',
     link: 'https://play.vuejs.org'
   },
   {
@@ -113,7 +113,7 @@ const nav: ThemeConfig['nav'] = [
     items: [
       { text: 'FAQ', link: '/about/faq' },
       { text: 'Zespół', link: '/about/team' },
-      { text: 'Nowe wydania', link: '/about/releases' },
+      { text: 'Wydania', link: '/about/releases' },
       {
         text: 'Przewodnik dla społeczności',
         link: '/about/community-guide'
@@ -186,7 +186,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/guide/essentials/forms'
         },
         {
-          text: 'Cykle życia',
+          text: 'Cykl życia',
           link: '/guide/essentials/lifecycle'
         },
         { text: 'Obserwatorzy', link: '/guide/essentials/watchers' },
@@ -204,14 +204,14 @@ export const sidebar: ThemeConfig['sidebar'] = {
           text: 'Rejestracja',
           link: '/guide/components/registration'
         },
-        { text: 'Rekwizyty', link: '/guide/components/props' },
+        { text: 'Props', link: '/guide/components/props' },
         { text: 'Zdarzenia', link: '/guide/components/events' },
         {
           text: 'Użycie v-model w komponencie',
           link: '/guide/components/v-model'
         },
         {
-          text: 'Atrybuty Przepadające',
+          text: 'Atrybuty Fallthrough',
           link: '/guide/components/attrs'
         },
         { text: 'Sloty', link: '/guide/components/slots' },
@@ -236,7 +236,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           text: 'Własne dyrektywy',
           link: '/guide/reusability/custom-directives'
         },
-        { text: 'Pluginy', link: '/guide/reusability/plugins' }
+        { text: 'Wtyczki', link: '/guide/reusability/plugins' }
       ]
     },
     {
@@ -253,7 +253,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'Skalowalnie w góre',
+      text: 'Skalowalnie',
       items: [
         {
           text: 'Komponenty jednoplikowe (SFC)',
@@ -377,7 +377,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/api/reactivity-advanced'
         },
         {
-          text: 'Haki cyklu życia',
+          text: 'Hooki cyklu życia',
           link: '/api/composition-api-lifecycle'
         },
         {
