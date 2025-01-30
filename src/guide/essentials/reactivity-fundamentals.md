@@ -467,7 +467,7 @@ Due to these limitations, we recommend using `ref()` as the primary API for decl
 
 ### As Reactive Object Property \*\* {#ref-unwrapping-as-reactive-object-property}
 
-A ref is automatically unwrapped when accessed or mutated as a property of a reactive object. In other words, it behaves like a normal property :
+A ref is automatically unwrapped when accessed or mutated as a property of a reactive object. In other words, it behaves like a normal property:
 
 ```js
 const count = ref(0)
