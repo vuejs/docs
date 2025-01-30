@@ -41,7 +41,7 @@ export default {
   // deklaracja zdarzeń emitujących
   emits: ['response'],
   created() {
-    // emitowanie zdarzenie z argumentem
+    // emitowanie z argumentem
     this.$emit('response', 'hello from child')
   }
 }
