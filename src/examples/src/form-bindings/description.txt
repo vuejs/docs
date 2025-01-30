@@ -1,1 +1,1 @@
-We can create two-way bindings between state and form inputs using the v-model directive.
+Możemy utworzyć dwukierunkowe powiązania między stanem a polami formularza używając dyrektywy v-model.

@@ -456,15 +456,15 @@ export const sidebar: ThemeConfig['sidebar'] = {
       text: 'Podstawy',
       items: [
         {
-          text: 'Hello World',
+          text: 'Witaj świecie',
           link: '/examples/#hello-world'
         },
         {
-          text: 'Obsługa danych wprowadzanych przez użytkownika',
+          text: 'Obsługa danych wejściowych',
           link: '/examples/#handling-input'
         },
         {
-          text: 'Wiązanie atrybutów',
+          text: 'Wiązania atrybutów',
           link: '/examples/#attribute-bindings'
         },
         {
@@ -482,10 +482,10 @@ export const sidebar: ThemeConfig['sidebar'] = {
       ]
     },
     {
-      text: 'Praktyka',
+      text: 'Praktyczne',
       items: [
         {
-          text: 'Edytor markdown',
+          text: 'Edytor Markdown',
           link: '/examples/#markdown'
         },
         {
@@ -493,7 +493,7 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/examples/#fetching-data'
         },
         {
-          text: 'Siatka z sortowaniem i filtrowaniem',
+          text: 'Tabela z sortowaniem i filtrowaniem',
           link: '/examples/#grid'
         },
         {
@@ -505,11 +505,11 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/examples/#svg'
         },
         {
-          text: 'Element dialog z przejściem',
+          text: 'Modal z animacjami',
           link: '/examples/#modal'
         },
         {
-          text: 'Lista z przejściami',
+          text: 'Lista z animacjami',
           link: '/examples/#list-transition'
         },
         {
@@ -543,11 +543,11 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/examples/#crud'
         },
         {
-          text: 'Circle Drawer',
+          text: 'Rysowanie okręgów',
           link: '/examples/#circle-drawer'
         },
         {
-          text: 'Tabela',
+          text: 'Komórki',
           link: '/examples/#cells'
         }
       ]
