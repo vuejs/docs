@@ -2,9 +2,9 @@
 
 ## renderToString() {#rendertostring}
 
-- **Exported from `vue/server-renderer`**
+- **Eksportowano z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function renderToString(
@@ -13,7 +13,7 @@
   ): Promise<string>
   ```
 
-- **Example**
+- **Przykład**
 
   ```js
   import { createSSRApp } from 'vue'
@@ -32,7 +32,7 @@
 
   ### SSR Context {#ssr-context}
 
-  You can pass an optional context object, which can be used to record additional data during the render, for example [accessing content of Teleports](/guide/scaling-up/ssr#teleports):
+  Możesz przekazać opcjonalny obiekt kontekstu, który może zostać użyty do rejestrowania dodatkowych danych podczas renderowania, na przykład [dostęp do zawartości Teleportów](/guide/scaling-up/ssr#teleports):
 
   ```js
   const ctx = {}
@@ -41,17 +41,17 @@
   console.log(ctx.teleports) // { '#teleported': 'teleported content' }
   ```
 
-  Most other SSR APIs on this page also optionally accept a context object. The context object can be accessed in component code via the [useSSRContext](#usessrcontext) helper.
+  Większość innych interfejsów API SSR na tej stronie opcjonalnie akceptuje również obiekt kontekstu. Dostęp do obiektu kontekstu jest możliwy w kodzie komponentu za pomocą pomocnika [useSSRContext](#usessrcontext).
 
-- **See also** [Guide - Server-Side Rendering](/guide/scaling-up/ssr)
+- **Zobacz także** [Przewodnik - Renderowanie po stronie serwera](/guide/scaling-up/ssr)
 
 ## renderToNodeStream() {#rendertonodestream}
 
-Renders input as a [Node.js Readable stream](https://nodejs.org/api/stream.html#stream_class_stream_readable).
+Renderuje dane wejściowe jako [Node.js Readable stream](https://nodejs.org/api/stream.html#stream_class_stream_readable).
 
-- **Exported from `vue/server-renderer`**
+- **Eksportowano z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function renderToNodeStream(
@@ -63,21 +63,21 @@ Renders input as a [Node.js Readable stream](https://nodejs.org/api/stream.html#
 - **Example**
 
   ```js
-  // inside a Node.js http handler
+  // wewnątrz obsługi http Node.js
   renderToNodeStream(app).pipe(res)
   ```
 
   :::tip Note
-  This method is not supported in the ESM build of `vue/server-renderer`, which is decoupled from Node.js environments. Use [`pipeToNodeWritable`](#pipetonodewritable) instead.
+  Ta metoda nie jest obsługiwana w kompilacji ESM `vue/server-renderer`, która jest oddzielona od środowisk Node.js. Zamiast tego użyj [`pipeToNodeWritable`](#pipetonodewritable).
   :::
 
 ## pipeToNodeWritable() {#pipetonodewritable}
 
-Render and pipe to an existing [Node.js Writable stream](https://nodejs.org/api/stream.html#stream_writable_streams) instance.
+Renderuj i przekieruj do istniejącej instancji [strumienia Node.js Writable](https://nodejs.org/api/stream.html#stream_writable_streams).
 
-- **Exported from `vue/server-renderer`**
+- **Eksportowano z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function pipeToNodeWritable(
@@ -87,20 +87,20 @@ Render and pipe to an existing [Node.js Writable stream](https://nodejs.org/api/
   ): void
   ```
 
-- **Example**
+- **Przykład**
 
   ```js
-  // inside a Node.js http handler
+  // wewnątrz obsługi http Node.js
   pipeToNodeWritable(app, {}, res)
   ```
 
 ## renderToWebStream() {#rendertowebstream}
 
-Renders input as a [Web ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
+Renderuje dane wejściowe jako [Web ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
 
-- **Exported from `vue/server-renderer`**
+- **Eksportowano z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function renderToWebStream(
@@ -112,21 +112,21 @@ Renders input as a [Web ReadableStream](https://developer.mozilla.org/en-US/docs
 - **Example**
 
   ```js
-  // inside an environment with ReadableStream support
+  // w środowisku obsługującym ReadableStream
   return new Response(renderToWebStream(app))
   ```
 
-  :::tip Note
-  In environments that do not expose `ReadableStream` constructor in the global scope, [`pipeToWebWritable()`](#pipetowebwritable) should be used instead.
+  :::tip Notatka
+  W środowiskach, które nie udostępniają konstruktora `ReadableStream` w zakresie globalnym, należy zamiast tego użyć [`pipeToWebWritable()`](#pipetowebwritable).
   :::
 
 ## pipeToWebWritable() {#pipetowebwritable}
 
-Render and pipe to an existing [Web WritableStream](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream) instance.
+Renderuj i przekieruj do istniejącej instancji [Web WritableStream](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream).
 
-- **Exported from `vue/server-renderer`**
+- **Eksportowano z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function pipeToWebWritable(
@@ -136,13 +136,13 @@ Render and pipe to an existing [Web WritableStream](https://developer.mozilla.or
   ): void
   ```
 
-- **Example**
+- **Przykład**
 
-  This is typically used in combination with [`TransformStream`](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream):
+  Zwykle jest używany w połączeniu z [`TransformStream`](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream):
 
   ```js
-  // TransformStream is available in environments such as CloudFlare workers.
-  // in Node.js, TransformStream needs to be explicitly imported from 'stream/web'
+  // TransformStream jest dostępny w środowiskach takich jak pracownicy CloudFlare.
+  // w Node.js TransformStream musi być jawnie importowany z 'stream/web'
   const { readable, writable } = new TransformStream()
   pipeToWebWritable(app, {}, writable)
 
@@ -151,11 +151,11 @@ Render and pipe to an existing [Web WritableStream](https://developer.mozilla.or
 
 ## renderToSimpleStream() {#rendertosimplestream}
 
-Renders input in streaming mode using a simple readable interface.
+Renderuje dane wejściowe w trybie strumieniowym za pomocą prostego, czytelnego interfejsu.
 
-- **Exported from `vue/server-renderer`**
+- **Eksportowano z `vue/server-renderer`**
 
-- **Type**
+- **Typ**
 
   ```ts
   function renderToSimpleStream(
@@ -181,14 +181,14 @@ Renders input in streaming mode using a simple readable interface.
     {
       push(chunk) {
         if (chunk === null) {
-          // done
+          // gotowe
           console(`render complete: ${res}`)
         } else {
           res += chunk
         }
       },
       destroy(err) {
-        // error encountered
+        // napotkano błąd
       }
     }
   )
@@ -196,27 +196,27 @@ Renders input in streaming mode using a simple readable interface.
 
 ## useSSRContext() {#usessrcontext}
 
-A runtime API used to retrieve the context object passed to `renderToString()` or other server render APIs.
+Interfejs API środowiska wykonawczego używany do pobierania obiektu kontekstu przekazanego do `renderToString()` lub innych interfejsów API renderowania serwera.
 
-- **Type**
+- **Typ**
 
   ```ts
   function useSSRContext<T = Record<string, any>>(): T | undefined
   ```
 
-- **Example**
+- **Przykład**
 
-  The retrieved context can be used to attach information that is needed for rendering the final HTML (e.g. head metadata).
+  Pobrany kontekst można wykorzystać do dołączenia informacji potrzebnych do renderowania ostatecznego kodu HTML (np. metadane nagłówka).
 
   ```vue
   <script setup>
   import { useSSRContext } from 'vue'
 
-  // make sure to only call it during SSR
+  // pamiętaj, aby wywołać go tylko podczas SSR
   // https://vitejs.dev/guide/ssr.html#conditional-logic
   if (import.meta.env.SSR) {
     const ctx = useSSRContext()
-    // ...attach properties to the context
+    // ...dołącz właściwości do kontekstu
   }
   </script>
   ```
