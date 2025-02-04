@@ -180,7 +180,6 @@ const emit = defineEmits(['change', 'delete'])
 
 Propsy i emity mogą być również zadeklarowane przy użyciu składni czystego typu poprzez przekazanie dosłownego argumentu typu do `defineProps` lub `defineEmits`:
 
-
 ```ts
 const props = defineProps<{
   foo: string
@@ -210,7 +209,6 @@ const emit = defineEmits<{
 - W wersji 3.2 i niższych, parametr typu generycznego dla `defineProps()` był ograniczony do literału typu lub odniesienia do lokalnego interfejsu.
 
   Ograniczenie to zostało rozwiązane w wersji 3.3. Najnowsza wersja Vue obsługuje odwoływanie się do importowanych i ograniczonego zestawu złożonych typów w pozycji parametru typu. Ponieważ jednak konwersja typu do środowiska uruchomieniowego jest nadal oparta na AST, niektóre typy złożone, które wymagają rzeczywistej analizy typu, np. typy warunkowe, nie są obsługiwane. Można używać typów warunkowych dla typu pojedynczego rekwizytu, ale nie dla całego obiektu rekwizytu.
-
 
 ### Domyślne wartości propsów podczas korzystania z deklaracji typu {#default-props-values-when-using-type-declaration}
 

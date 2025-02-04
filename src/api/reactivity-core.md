@@ -428,6 +428,7 @@ Obserwuje jedno lub więcej reaktywnych źródeł danych i wywołuje funkcję zw
   ```
 
   Podczas korzystania ze źródła gettera, watcher uruchamia się tylko wtedy, gdy wartość zwracana gettera uległa zmianie. Jeśli chcesz, aby wywołanie zwrotne było uruchamiane nawet w przypadku głębokich mutacji, musisz jawnie wymusić przejście obserwatora w tryb głęboki za pomocą `{ deep: true }`. W trybie głębokim nowa i stara wartość będą tym samym obiektem, jeśli wywołanie zwrotne zostało wywołane przez głęboką mutację:
+  
   ```js
   const state = reactive({ count: 0 })
   watch(

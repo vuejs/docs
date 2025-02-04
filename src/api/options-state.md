@@ -89,7 +89,6 @@ Deklaruje właściwości komponentu.
 
     Należy również pamiętać, że właściwość z typem `Boolean` wpływa na zachowanie rzutowania wartości zarówno w fazie rozwoju, jak i produkcji. Zobacz [Boolean Casting](/guide/components/props#boolean-casting) po więcej szczegółów.
 
-
   - **`default`**: Określa domyślną wartość dla właściwości, gdy nie została ona przekazana przez rodzica lub ma wartość `undefined`. Domyślne wartości obiektu lub tablicy muszą zostać zwrócone przy użyciu funkcji fabryki. Funkcja fabryki otrzymuje również nieprzetworzony obiekt props jako argument.
 
   - **`required`**: Określa, czy rekwizyt jest wymagany. W środowisku nieprodukcyjnym zostanie wyświetlone ostrzeżenie konsoli, jeśli ta wartość jest prawdziwa, a właściwość nie zostanie przekazana.
