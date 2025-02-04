@@ -42,7 +42,7 @@ Główny węzeł DOM, którym zarządza instancja komponentu.
 
   ```ts
   interface ComponentPublicInstance {
-    $el: Node | undefined
+    $el: any
   }
   ```
 

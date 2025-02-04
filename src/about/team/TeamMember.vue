@@ -38,7 +38,7 @@ function arrayify(value: string | string[]): string[] {
       :href="`https://github.com/sponsors/${member.socials.github}`"
       no-icon
     >
-      <VTIconHeart class="sponsor-icon" /> Sponsor
+      <VTIconHeart class="sponsor-icon" /> Sponsoruj
     </VTLink>
 
     <figure class="avatar">
@@ -72,7 +72,7 @@ function arrayify(value: string | string[]): string[] {
       <div class="profiles">
         <section v-if="member.projects" class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Projects</h2>
+            <h2 class="sr-only">Projekty</h2>
             <VTIconCode class="desc-icon code" />
           </div>
           <ul class="desc-list">
@@ -94,7 +94,7 @@ function arrayify(value: string | string[]): string[] {
 
         <section class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Location</h2>
+            <h2 class="sr-only">Lokalizacja</h2>
             <VTIconMapPin class="desc-icon" />
           </div>
           <ul class="desc-list">
@@ -110,7 +110,7 @@ function arrayify(value: string | string[]): string[] {
 
         <section class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Languages</h2>
+            <h2 class="sr-only">Języki</h2>
             <VTIconGlobe class="desc-icon" />
           </div>
           <ul class="desc-list">
@@ -126,7 +126,7 @@ function arrayify(value: string | string[]): string[] {
 
         <section v-if="member.website" class="desc">
           <div class="desc-title">
-            <h2 class="sr-only">Website</h2>
+            <h2 class="sr-only">Strony</h2>
             <VTIconLink class="desc-icon" />
           </div>
           <p class="desc-text">

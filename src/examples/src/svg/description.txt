@@ -1,1 +1,1 @@
-An SVG graph
+Graf SVG

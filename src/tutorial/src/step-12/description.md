@@ -1,6 +1,6 @@
 # Props {#props}
 
-A child component can accept input from the parent via **props**. First, it needs to declare the props it accepts:
+Komponent podrzędny może akceptować dane wejściowe od komponentu nadrzędnego poprzez **props**. Po pierwsze, komponent podrzędny musi zadeklarować parametry, które akceptuje:
 
 <div class="composition-api">
 <div class="sfc">
@@ -14,25 +14,25 @@ const props = defineProps({
 </script>
 ```
 
-Note `defineProps()` is a compile-time macro and doesn't need to be imported. Once declared, the `msg` prop can be used in the child component's template. It can also be accessed in JavaScript via the returned object of `defineProps()`.
+Uwaga: `defineProps()` jest makrem czasu kompilacji i nie musi być importowane. Po zadeklarowaniu, właściwość `msg` może być użyta w szablonie komponentu potomnego. Można również uzyskać do niej dostęp w JavaScript poprzez obiekt zwrócony z funkcji `defineProps()`.
 
 </div>
 
 <div class="html">
 
 ```js
-// in child component
+// w komponencie potomnym
 export default {
   props: {
     msg: String
   },
   setup(props) {
-    // access props.msg
+    // dostęp do  props.msg
   }
 }
 ```
 
-Once declared, the `msg` prop is exposed on `this` and can be used in the child component's template. The received props are passed to `setup()` as the first argument.
+Po zadeklarowaniu, prop `msg` jest dostępny w `this` i może być użyty w szablonie komponentu potomnego. Otrzymane props są przekazywane do funkcji `setup()` jako pierwszy argument.
 
 </div>
 
@@ -41,7 +41,7 @@ Once declared, the `msg` prop is exposed on `this` and can be used in the child 
 <div class="options-api">
 
 ```js
-// in child component
+// w komponencie potomnym
 export default {
   props: {
     msg: String
@@ -49,11 +49,11 @@ export default {
 }
 ```
 
-Once declared, the `msg` prop is exposed on `this` and can be used in the child component's template.
+Po zadeklarowaniu, props `msg` jest widoczny w `this` i może być użyty w szablonie komponentu potomnego.
 
 </div>
 
-The parent can pass the prop to the child just like attributes. To pass a dynamic value, we can also use the `v-bind` syntax:
+Rodzic może przekazać prop do dziecka, tak jak atrybuty. Aby przekazać wartość dynamiczną, możemy również użyć składni `v-bind`:
 
 <div class="sfc">
 
@@ -70,4 +70,4 @@ The parent can pass the prop to the child just like attributes. To pass a dynami
 
 </div>
 
-Now try it yourself in the editor.
+Teraz spróbuj samemu w edytorze.

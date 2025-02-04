@@ -1,19 +1,19 @@
-# Attribute Bindings {#attribute-bindings}
+# Przypisywanie atrybutów {#attribute-bindings}
 
-In Vue, mustaches are only used for text interpolation. To bind an attribute to a dynamic value, we use the `v-bind` directive:
+W Vue "wąsy" są używane tylko do interpolacji tekstu. Aby powiązać atrybut z wartością dynamiczną, używamy dyrektywy `v-bind`:
 
 ```vue-html
 <div v-bind:id="dynamicId"></div>
 ```
 
-A **directive** is a special attribute that starts with the `v-` prefix. They are part of Vue's template syntax. Similar to text interpolations, directive values are JavaScript expressions that have access to the component's state. The full details of `v-bind` and directive syntax are discussed in <a target="_blank" href="/guide/essentials/template-syntax.html">Guide - Template Syntax</a>.
+**Dyrektywa** to specjalny atrybut zaczynający się od prefiksu `v-`. Są one częścią składni szablonów Vue. Podobnie jak interpolacje tekstowe, wartości dyrektyw są wyrażeniami JavaScript, które mają dostęp do stanu komponentu. Pełne szczegóły dotyczące `v-bind` i składni dyrektyw zostały omówione w <a target="_blank" href="/guide/essentials/template-syntax.html">Przewodnik - Składnia szablonów.</a>.
 
-The part after the colon (`:id`) is the "argument" of the directive. Here, the element's `id` attribute will be synced with the `dynamicId` property from the component's state.
+Część po dwukropku (`:id`) jest „argumentem” dyrektywy. W tym przypadku atrybut `id` elementu zostanie zsynchronizowany z właściwością `dynamicId` ze stanu komponentu.
 
-Because `v-bind` is used so frequently, it has a dedicated shorthand syntax:
+Ponieważ `v-bind` jest używany tak często, ma dedykowaną skróconą składnię:
 
 ```vue-html
 <div :id="dynamicId"></div>
 ```
 
-Now, try to add a dynamic `class` binding to the `<h1>`, using the `titleClass` <span class="options-api">data property</span><span class="composition-api">ref</span> as its value. If it's bound correctly, the text should turn red.
+Teraz spróbuj dodać dynamiczne wiązanie `class` do `<h1>`, używając jako wartości <span class="options-api">właściwości data</span><span class="composition-api">ref</span> `titleClass`. Jeśli powiązanie jest prawidłowe, tekst powinien zmienić kolor na czerwony.

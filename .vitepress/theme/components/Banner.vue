@@ -24,21 +24,21 @@ function dismiss() {
   <div class="banner" v-if="open">
     <p class="vt-banner-text">
       <span class="vt-text-primary">VueConf US</span>
-      <span class="vt-tagline"> - Join the official Vue.js conference</span>
-      | May 15-17, 2024 <span class="vt-place"> - New Orleans, USA</span>
+      <span class="vt-tagline"> - Weź udział w oficjalnej konferencji Vue.js</span>
+      | Maj 15-17, 2024 <span class="vt-place"> - Nowy Orlean, USA</span>
       <a
         target="_blank"
         class="vt-primary-action"
         href="https://vueconf.us?utm_source=vuejs&utm_content=top_banner"
-      >Register <span class="vt-time-now">Now</span></a
+      >Zarejestruj się <span class="vt-time-now">teraz</span></a
       >
     </p>
     <button @click="dismiss">
       <VTIconPlus class="close" />
     </button>
     <p class="vt-banner-text vt-coupon">
-      <span class="vt-text-primary">Use code</span> VUEJSDOCS
-      <span class="vt-text-primary">to get $100 off!</span>
+      <span class="vt-text-primary">Użyj kodu</span> VUEJSDOCS
+      <span class="vt-text-primary">aby otrzymać $100 zniżki!</span>
     </p>
   </div>
 </template>
