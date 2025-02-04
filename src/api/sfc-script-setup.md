@@ -175,7 +175,6 @@ const emit = defineEmits(['change', 'delete'])
 
 - Opcje przekazane do `defineProps` i `defineEmits` zostaną przeniesione poza setup do zakresu modułu. Dlatego też opcje nie mogą odwoływać się do zmiennych lokalnych zadeklarowanych w zakresie setup. Spowoduje to błąd kompilacji. Jednak _mogą_ odwoływać się do zaimportowanych wiązań, ponieważ znajdują się one również w zakresie modułu.
 
-
 ### Type-only props/emit declarations<sup class="vt-badge ts" /> {#type-only-props-emit-declarations}
 
 Propsy i emity mogą być również zadeklarowane przy użyciu składni czystego typu poprzez przekazanie dosłownego argumentu typu do `defineProps` lub `defineEmits`:
