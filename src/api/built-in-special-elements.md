@@ -1,12 +1,12 @@
 # Built-in Special Elements {#built-in-special-elements}
 
-:::info Not Components
-`<component>`, `<slot>` and `<template>` are component-like features and part of the template syntax. They are not true components and are compiled away during template compilation. As such, they are conventionally written with lowercase in templates.
+:::info Nie komponenty
+`<component>`, `<slot>` i `<template>` są funkcjami podobnymi do komponentów i częścią składni szablonów. Nie są one prawdziwymi komponentami i są kompilowane podczas kompilacji szablonu. Jako takie, są one konwencjonalnie pisane małymi literami w szablonach.
 :::
 
 ## `<component>` {#component}
 
-A "meta component" for rendering dynamic components or elements.
+„Meta komponent” do renderowania dynamicznych komponentów lub elementów.
 
 - **Props**
 
@@ -16,17 +16,17 @@ A "meta component" for rendering dynamic components or elements.
   }
   ```
 
-- **Details**
+- **Szczegóły**
 
-  The actual component to render is determined by the `is` prop.
+  Rzeczywisty komponent do renderowania jest określany przez właściwość `is`.
 
-  - When `is` is a string, it could be either an HTML tag name or a component's registered name.
+  - Gdy `is` jest ciągiem znaków, może to być nazwa znacznika HTML lub zarejestrowana nazwa komponentu.
 
-  - Alternatively, `is` can also be directly bound to the definition of a component.
+  - Alternatywnie, `is` może być również bezpośrednio powiązane z definicją komponentu.
 
-- **Example**
+- **Przykład**
 
-  Rendering components by registered name (Options API):
+  Renderowanie komponentów według zarejestrowanej nazwy (Options API):
 
   ```vue
   <script>
@@ -48,7 +48,7 @@ A "meta component" for rendering dynamic components or elements.
   </template>
   ```
 
-  Rendering components by definition (Composition API with `<script setup>`):
+  Renderowanie komponentów poprzez definicje (Composition API z `<script setup>`):
 
   ```vue
   <script setup>
@@ -61,13 +61,13 @@ A "meta component" for rendering dynamic components or elements.
   </template>
   ```
 
-  Rendering HTML elements:
+  Renderowanie elementów HTML:
 
   ```vue-html
   <component :is="href ? 'a' : 'span'"></component>
   ```
 
-  The [built-in components](./built-in-components) can all be passed to `is`, but you must register them if you want to pass them by name. For example:
+  Wszystkie [wbudowane komponenty](./built-in-components) mogą być przekazywane do `is`, ale musisz je zarejestrować, jeśli chcesz przekazać je przez nazwę. Na przykład:
 
   ```vue
   <script>
@@ -88,9 +88,9 @@ A "meta component" for rendering dynamic components or elements.
   </template>
   ```
 
-  Registration is not required if you pass the component itself to `is` rather than its name, e.g. in `<script setup>`.
+  Rejestracja nie jest wymagana, jeśli przekażesz sam komponent do `is` zamiast jego nazwy, np. w `<script setup>`.
 
-  If `v-model` is used on a `<component>` tag, the template compiler will expand it to a `modelValue` prop and `update:modelValue` event listener, much like it would for any other component. However, this won't be compatible with native HTML elements, such as `<input>` or `<select>`. As a result, using `v-model` with a dynamically created native element won't work:
+  Jeśli `v-model` zostanie użyte w znaczniku `<component>`, kompilator szablonu rozszerzy go do właściwości `modelValue` i nasłuchiwacza zdarzeń `update:modelValue`, podobnie jak w przypadku każdego innego komponentu. Nie będzie to jednak zgodne z natywnymi elementami HTML, takimi jak `<input>` lub `<select>`. W rezultacie użycie `v-model` z dynamicznie utworzonym natywnym elementem nie zadziała.
 
   ```vue
   <script setup>
@@ -101,64 +101,64 @@ A "meta component" for rendering dynamic components or elements.
   </script>
 
   <template>
-    <!-- This won't work as 'input' is a native HTML element -->
+    <!-- To nie zadziała, ponieważ „input” jest natywnym elementem HTML -->
     <component :is="tag" v-model="username" />
   </template>
   ```
 
-  In practice, this edge case isn't common as native form fields are typically wrapped in components in real applications. If you do need to use a native element directly then you can split the `v-model` into an attribute and event manually.
+  W praktyce ten skrajny przypadek nie jest powszechny, ponieważ pola formularza natywnego są zazwyczaj opakowane w komponenty w rzeczywistych aplikacjach. Jeśli musisz użyć elementu natywnego bezpośrednio, możesz ręcznie podzielić `v-model` na atrybut i zdarzenie.
 
-- **See also** [Dynamic Components](/guide/essentials/component-basics#dynamic-components)
+- **Zobacz również** [Dynamic Components](/guide/essentials/component-basics#dynamic-components)
 
 ## `<slot>` {#slot}
 
-Denotes slot content outlets in templates.
+Oznacza miejsca umieszczania treści w szablonach.
 
 - **Props**
 
   ```ts
   interface SlotProps {
     /**
-     * Any props passed to <slot> to passed as arguments
-     * for scoped slots
+     * Wszelkie rekwizyty przekazane do <slot> w celu przekazania jako argumenty
+     * dla zakresowych slotów
      */
     [key: string]: any
     /**
-     * Reserved for specifying slot name.
+     * Zarezerwowane do określenia nazwy slotu.
      */
     name?: string
   }
   ```
 
-- **Details**
+- **Szczegóły**
 
-  The `<slot>` element can use the `name` attribute to specify a slot name. When no `name` is specified, it will render the default slot. Additional attributes passed to the slot element will be passed as slot props to the scoped slot defined in the parent.
+  Element `<slot>` może używać atrybutu `name` do określania nazwy slotu. Jeśli nie określono `name`, zostanie wyświetlony domyślny slot. Dodatkowe atrybuty przekazane do elementu slot zostaną przekazane jako właściwości slotu do zakresu slotu zdefiniowanego w elemencie nadrzędnym.
 
-  The element itself will be replaced by its matched slot content.
+  Sam element zostanie zastąpiony dopasowaną zawartością slotu.
 
-  `<slot>` elements in Vue templates are compiled into JavaScript, so they are not to be confused with [native `<slot>` elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
+Elementy `<slot>` w szablonach Vue są kompilowane do JavaScript, więc nie należy ich mylić z [native `<slot>` elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot).
 
-- **See also** [Component - Slots](/guide/components/slots)
+- **Zobacz również** [Component - Slots](/guide/components/slots)
 
 ## `<template>` {#template}
 
-The `<template>` tag is used as a placeholder when we want to use a built-in directive without rendering an element in the DOM.
+Znacznik `<template>` jest używany jako symbol zastępczy, gdy chcemy użyć wbudowanej dyrektywy bez renderowania elementu w DOM.
 
-- **Details**
+- **Szczegóły**
 
-  The special handling for `<template>` is only triggered if it is used with one of these directives:
+  Specjalne traktowanie szablonu `<template>` jest wyzwalane tylko wtedy, gdy jest on używany z jedną z poniższych dyrektyw:
 
-  - `v-if`, `v-else-if`, or `v-else`
+  - `v-if`, `v-else-if`, lub `v-else`
   - `v-for`
   - `v-slot`
 
-  If none of those directives are present then it will be rendered as a [native `<template>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) instead.
+  Jeśli żadna z tych dyrektyw nie jest obecna, wówczas zostanie ona wyrenderowana jako [native `<template>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).
 
-  A `<template>` with a `v-for` can also have a [`key` attribute](/api/built-in-special-attributes#key). All other attributes and directives will be discarded, as they aren't meaningful without a corresponding element.
+  `<template>` z `v-for` może mieć również atrybut [`key`](/api/built-in-special-attributes#key). Wszystkie inne atrybuty i dyrektywy zostaną odrzucone, ponieważ nie mają znaczenia bez odpowiadającego im elementu.
 
-  Single-file components use a [top-level `<template>` tag](/api/sfc-spec#language-blocks) to wrap the entire template. That usage is separate from the use of `<template>` described above. That top-level tag is not part of the template itself and doesn't support template syntax, such as directives.
+  Komponenty jednoplikowe używają [znacznika najwyższego poziomu `<template>`](/api/sfc-spec#language-blocks) do opakowania całego szablonu. To użycie jest oddzielne od użycia `<template>` opisanego powyżej. Ten znacznik najwyższego poziomu nie jest częścią samego szablonu i nie obsługuje składni szablonu, takiej jak dyrektywy.
 
-- **See also**
+- **Zobacz również**
   - [Guide - `v-if` on `<template>`](/guide/essentials/conditional#v-if-on-template)
   - [Guide - `v-for` on `<template>`](/guide/essentials/list#v-for-on-template)
   - [Guide - Named slots](/guide/components/slots#named-slots)

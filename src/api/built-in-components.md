@@ -4,10 +4,10 @@ pageClass: api
 
 # Built-in Components {#built-in-components}
 
-:::info Registration and Usage
-Built-in components can be used directly in templates without needing to be registered. They are also tree-shakeable: they are only included in the build when they are used.
+:::info Rejestracja i użycie
+Wbudowane komponenty mogą być używane bezpośrednio w szablonach bez konieczności ich rejestrowania. Są one również tree-shakeable: są dołączane do kompilacji tylko wtedy, gdy są używane.
 
-When using them in [render functions](/guide/extras/render-function), they need to be imported explicitly. For example:
+Podczas korzystania z nich w [render functions](/guide/extras/render-function), muszą one zostać wyraźnie zaimportowane. Na przykład:
 
 ```js
 import { h, Transition } from 'vue'
@@ -21,50 +21,50 @@ h(Transition, {
 
 ## `<Transition>` {#transition}
 
-Provides animated transition effects to a **single** element or component.
+Zapewnia animowane efekty przejścia dla **pojedynczego** elementu lub komponentu.
 
 - **Props**
 
   ```ts
   interface TransitionProps {
     /**
-     * Used to automatically generate transition CSS class names.
-     * e.g. `name: 'fade'` will auto expand to `.fade-enter`,
-     * `.fade-enter-active`, etc.
+     * Służy do automatycznego generowania nazw klas CSS przejścia.
+     * np. `name: 'fade'` automatycznie rozszerzy się do `.fade-enter`,
+     * `.fade-enter-active`, itd.
      */
     name?: string
     /**
-     * Whether to apply CSS transition classes.
-     * Default: true
+     * Czy stosować klasy przejścia CSS.
+     * Domyślnie: true
      */
     css?: boolean
     /**
-     * Specifies the type of transition events to wait for to
-     * determine transition end timing.
-     * Default behavior is auto detecting the type that has
-     * longer duration.
+     * Określa typ zdarzeń przejścia, na które należy czekać, aby
+     * określić czas zakończenia przejścia.
+     * Domyślnym zachowaniem jest automatyczne wykrywanie typu, który ma
+     * dłuższy czas trwania.
      */
     type?: 'transition' | 'animation'
     /**
-     * Specifies explicit durations of the transition.
-     * Default behavior is wait for the first `transitionend`
-     * or `animationend` event on the root transition element.
+     * Określa jawny czas trwania przejścia.
+     * Domyślnym zachowaniem jest oczekiwanie na pierwsze zdarzenie `transitionend`
+     * lub `animationend` na głównym elemencie przejścia.
      */
     duration?: number | { enter: number; leave: number }
     /**
-     * Controls the timing sequence of leaving/entering transitions.
-     * Default behavior is simultaneous.
+     * Kontroluje sekwencję czasową opuszczania/wchodzenia przejść.
+     * Domyślnym zachowaniem jest jednoczesne.
      */
     mode?: 'in-out' | 'out-in' | 'default'
     /**
-     * Whether to apply transition on initial render.
-     * Default: false
+     * Czy zastosować przejście przy początkowym renderowaniu.
+     * Domyślnie: false
      */
     appear?: boolean
 
     /**
-     * Props for customizing transition classes.
-     * Use kebab-case in templates, e.g. enter-from-class="xxx"
+     * Rekwizyty do dostosowywania klas przejścia.
+     * Używanie kebab-case w szablonach, np. enter-from-class=„xxx”.
      */
     enterFromClass?: string
     enterActiveClass?: string
@@ -78,7 +78,7 @@ Provides animated transition effects to a **single** element or component.
   }
   ```
 
-- **Events**
+- **Zdarzenia**
 
   - `@before-enter`
   - `@before-leave`
@@ -92,9 +92,9 @@ Provides animated transition effects to a **single** element or component.
   - `@leave-cancelled` (`v-show` only)
   - `@appear-cancelled`
 
-- **Example**
+- **Przykład**
 
-  Simple element:
+  Prosty element:
 
   ```vue-html
   <Transition>
@@ -102,7 +102,7 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
 
-  Forcing a transition by changing the `key` attribute:
+  Wymuszenie przejścia poprzez zmianę atrybutu `key`:
 
   ```vue-html
   <Transition>
@@ -110,7 +110,7 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
 
-  Dynamic component, with transition mode + animate on appear:
+  Komponent dynamiczny, z trybem przejścia + animacja po pojawieniu się:
 
   ```vue-html
   <Transition name="fade" mode="out-in" appear>
@@ -118,7 +118,7 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
 
-  Listening to transition events:
+  Słuchanie wydarzeń przejściowych:
 
   ```vue-html
   <Transition @after-enter="onTransitionComplete">
@@ -126,43 +126,43 @@ Provides animated transition effects to a **single** element or component.
   </Transition>
   ```
 
-- **See also** [Guide - Transition](/guide/built-ins/transition)
+- **Zobacz również** [Guide - Transition](/guide/built-ins/transition)
 
 ## `<TransitionGroup>` {#transitiongroup}
 
-Provides transition effects for **multiple** elements or components in a list.
+Zapewnia efekty przejścia dla **wielu** elementów lub komponentów na liście.
 
 - **Props**
 
-  `<TransitionGroup>` accepts the same props as `<Transition>` except `mode`, plus two additional props:
+  `<TransitionGroup>` akceptuje te same rekwizyty co `<Transition>` z wyjątkiem `mode`, plus dwa dodatkowe rekwizyty:
 
   ```ts
   interface TransitionGroupProps extends Omit<TransitionProps, 'mode'> {
     /**
-     * If not defined, renders as a fragment.
+     * Jeśli nie zostanie zdefiniowana, będzie renderowana jako fragment.
      */
     tag?: string
     /**
-     * For customizing the CSS class applied during move transitions.
-     * Use kebab-case in templates, e.g. move-class="xxx"
+     * Aby dostosować klasę CSS stosowaną podczas przejść.
+     * Użyj kebab-case w szablonach, np. move-class=„xxx”.
      */
     moveClass?: string
   }
   ```
 
-- **Events**
+- **Zdarzenia**
 
-  `<TransitionGroup>` emits the same events as `<Transition>`.
+  `<TransitionGroup>` emituje te same zdarzenia co `<Transition>`.
 
-- **Details**
+- **Szczegóły**
 
-  By default, `<TransitionGroup>` doesn't render a wrapper DOM element, but one can be defined via the `tag` prop.
+  Domyślnie, `<TransitionGroup>` nie renderuje elementu DOM, ale można go zdefiniować za pomocą właściwości `tag`.
 
-  Note that every child in a `<transition-group>` must be [**uniquely keyed**](/guide/essentials/list#maintaining-state-with-key) for the animations to work properly.
+  Zauważ, że każde dziecko w `<transition-group>` musi posiadać [**unikalny klucz**](/guide/essentials/list#maintaining-state-with-key) by animacje działały poprawnie.
 
-  `<TransitionGroup>` supports moving transitions via CSS transform. When a child's position on screen has changed after an update, it will get applied a moving CSS class (auto generated from the `name` attribute or configured with the `move-class` prop). If the CSS `transform` property is "transition-able" when the moving class is applied, the element will be smoothly animated to its destination using the [FLIP technique](https://aerotwist.com/blog/flip-your-animations/).
+  `<TransitionGroup>` wspiera przenoszenie przejść poprzez transformację CSS. Gdy pozycja dziecka na ekranie zmieni się po aktualizacji, zostanie do niego zastosowana ruchoma klasa CSS (automatycznie wygenerowana z atrybutu `name` lub skonfigurowana za pomocą właściwości `move-class`). Jeśli właściwość CSS `transform` jest „transition-able”, gdy zastosowana jest ruchoma klasa, element zostanie płynnie animowany do miejsca docelowego przy użyciu techniki [FLIP](https://aerotwist.com/blog/flip-your-animations/).
 
-- **Example**
+- **Przykład**
 
   ```vue-html
   <TransitionGroup tag="ul" name="slide">
@@ -172,28 +172,28 @@ Provides transition effects for **multiple** elements or components in a list.
   </TransitionGroup>
   ```
 
-- **See also** [Guide - TransitionGroup](/guide/built-ins/transition-group)
+- **Zobacz również** [Guide - TransitionGroup](/guide/built-ins/transition-group)
 
 ## `<KeepAlive>` {#keepalive}
 
-Caches dynamically toggled components wrapped inside.
+Buforuje dynamicznie przełączane komponenty zawinięte wewnątrz.
 
 - **Props**
 
   ```ts
   interface KeepAliveProps {
     /**
-     * If specified, only components with names matched by
-     * `include` will be cached.
+     * Jeśli określono, tylko komponenty o nazwach dopasowanych przez
+     * `include` będą buforowane.
      */
     include?: MatchPattern
     /**
-     * Any component with a name matched by `exclude` will
-     * not be cached.
+     * Każdy komponent z nazwą dopasowaną przez `exclude` będzie
+     * nie będzie buforowany.
      */
     exclude?: MatchPattern
     /**
-     * The maximum number of component instances to cache.
+     * Maksymalna liczba instancji komponentów do buforowania.
      */
     max?: number | string
   }
@@ -201,17 +201,17 @@ Caches dynamically toggled components wrapped inside.
   type MatchPattern = string | RegExp | (string | RegExp)[]
   ```
 
-- **Details**
+- **Szczegóły**
 
-  When wrapped around a dynamic component, `<KeepAlive>` caches the inactive component instances without destroying them.
+  Po owinięciu wokół dynamicznego komponentu, `<KeepAlive>` buforuje nieaktywne instancje komponentu bez ich niszczenia.
 
-  There can only be one active component instance as the direct child of `<KeepAlive>` at any time.
+  W dowolnym momencie może istnieć tylko jedna aktywna instancja komponentu jako bezpośrednie dziecko `<KeepAlive>`.
 
-  When a component is toggled inside `<KeepAlive>`, its `activated` and `deactivated` lifecycle hooks will be invoked accordingly, providing an alternative to `mounted` and `unmounted`, which are not called. This applies to the direct child of `<KeepAlive>` as well as to all of its descendants.
+  Gdy komponent jest przełączany wewnątrz `<KeepAlive>`, jego haki `activated` i `deactivated` cyklu życia zostaną odpowiednio wywołane, zapewniając alternatywę dla `mounted` i `unmounted`, które nie są wywoływane. Dotyczy to bezpośredniego dziecka `<KeepAlive>`, jak również wszystkich jego potomków.
 
-- **Example**
+- **Przykład**
 
-  Basic usage:
+  Podstawowe użycie:
 
   ```vue-html
   <KeepAlive>
@@ -219,7 +219,7 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-  When used with `v-if` / `v-else` branches, there must be only one component rendered at a time:
+  W przypadku użycia z gałęziami `v-if` / `v-else`, w danym momencie może być renderowany tylko jeden komponent:
 
   ```vue-html
   <KeepAlive>
@@ -228,7 +228,7 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-  Used together with `<Transition>`:
+  Używane razem z `<Transition>`:
 
   ```vue-html
   <Transition>
@@ -238,7 +238,7 @@ Caches dynamically toggled components wrapped inside.
   </Transition>
   ```
 
-  Using `include` / `exclude`:
+  Używanie `include` / `exclude`:
 
   ```vue-html
   <!-- comma-delimited string -->
@@ -257,7 +257,7 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-  Usage with `max`:
+  Użycie z `max`:
 
   ```vue-html
   <KeepAlive :max="10">
@@ -265,33 +265,33 @@ Caches dynamically toggled components wrapped inside.
   </KeepAlive>
   ```
 
-- **See also** [Guide - KeepAlive](/guide/built-ins/keep-alive)
+- **Zobacz również** [Guide - KeepAlive](/guide/built-ins/keep-alive)
 
 ## `<Teleport>` {#teleport}
 
-Renders its slot content to another part of the DOM.
+Renderuje zawartość slotu do innej części DOM.
 
 - **Props**
 
   ```ts
   interface TeleportProps {
     /**
-     * Required. Specify target container.
-     * Can either be a selector or an actual element.
+     * Wymagane. Określa kontener docelowy.
+     * Może być selektorem lub rzeczywistym elementem.
      */
     to: string | HTMLElement
     /**
-     * When `true`, the content will remain in its original
-     * location instead of moved into the target container.
-     * Can be changed dynamically.
+     * Gdy `true`, zawartość pozostanie w oryginalnej
+     * lokalizacji, a nie przeniesiona do kontenera docelowego.
+     * Może być zmieniana dynamicznie.
      */
     disabled?: boolean
   }
   ```
 
-- **Example**
+- **Przykład**
 
-  Specifying target container:
+  Określenie kontenera docelowego:
 
   ```vue-html
   <Teleport to="#some-id" />
@@ -299,7 +299,7 @@ Renders its slot content to another part of the DOM.
   <Teleport to="[data-teleport]" />
   ```
 
-  Conditionally disabling:
+  Warunkowe wyłączenie:
 
   ```vue-html
   <Teleport to="#popup" :disabled="displayVideoInline">
@@ -307,11 +307,11 @@ Renders its slot content to another part of the DOM.
   </Teleport>
   ```
 
-- **See also** [Guide - Teleport](/guide/built-ins/teleport)
+- **Zobacz również** [Guide - Teleport](/guide/built-ins/teleport)
 
 ## `<Suspense>` <sup class="vt-badge experimental" /> {#suspense}
 
-Used for orchestrating nested async dependencies in a component tree.
+Służy do orkiestracji zagnieżdżonych zależności asynchronicznych w drzewie komponentów.
 
 - **Props**
 
@@ -322,18 +322,18 @@ Used for orchestrating nested async dependencies in a component tree.
   }
   ```
 
-- **Events**
+- **Zdarzenia**
 
   - `@resolve`
   - `@pending`
   - `@fallback`
 
-- **Details**
+- **Szczegóły**
 
-  `<Suspense>` accepts two slots: the `#default` slot and the `#fallback` slot. It will display the content of the fallback slot while rendering the default slot in memory.
+  `<Suspense>` akceptuje dwa sloty: slot `#default` i slot `#fallback`. Wyświetli on zawartość slotu rezerwowego podczas renderowania domyślnego slotu w pamięci.
 
-  If it encounters async dependencies ([Async Components](/guide/components/async) and components with [`async setup()`](/guide/built-ins/suspense#async-setup)) while rendering the default slot, it will wait until all of them are resolved before displaying the default slot.
+  Jeśli napotka zależności asynchroniczne ([Async Components](/guide/components/async) i komponenty z [`async setup()`](/guide/built-ins/suspense#async-setup)) podczas renderowania domyślnego slotu, poczeka aż wszystkie z nich zostaną rozwiązane przed wyświetleniem domyślnego slotu.
 
-  By setting the Suspense as `suspensible`, all the async dependency handling will be handled by the parent Suspense. See [implementation details](https://github.com/vuejs/core/pull/6736)
+  Ustawiając Suspense jako `suspensible`, cała obsługa zależności asynchronicznych będzie obsługiwana przez nadrzędne Suspense. Zobacz [szczegóły implementacji](https://github.com/vuejs/core/pull/6736)
 
-- **See also** [Guide - Suspense](/guide/built-ins/suspense)
+- **Zobacz również** [Guide - Suspense](/guide/built-ins/suspense)
