@@ -122,7 +122,7 @@ Główny artykuł: [Używanie Vue z TypeScriptem](/guide/typescript/overview).
 
 - [Wtyczka Vue - Official](https://github.com/vuejs/language-tools) dostarcza sprawdzanie typów w obrębie SFC przy użyciu bloków `<script lang="ts">`. Tyczy się to również wyrażeń w szablonach i walidacji props między komponentami.
 
-- Użyj [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc) aby przeprowadzić sprawdzenie typów z poziomu wiersza poleceń, albo by wygenerować pliki `d.ts` dla komponentów jednoplikowych.
+- Użyj [`vue-tsc`](https://github.com/vuejs/language-tools/tree/master/packages/tsc) aby przeprowadzić sprawdzenie typów z poziomu linii poleceń, albo by wygenerować pliki `d.ts` dla komponentów jednoplikowych.
 
 ## Testowanie {#testing}
 

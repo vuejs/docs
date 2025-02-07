@@ -753,7 +753,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     editLink: {
       repo: 'vuejs/docs',
-      text: 'Edit this page on GitHub'
+      text: 'Edytuj tę stronę na GitHub'
     },
 
     footer: {
