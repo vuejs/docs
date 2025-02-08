@@ -127,6 +127,17 @@ Can also be used to create a ref for a property on a source reactive object. The
   useSomeFeature(toRef(() => props.foo))
   </script>
   ```
+  When the composable implements accepts a `MaybeRefsOrGetter<T>` through [`toValue`](#tovalue) it is possible to directly use a getter without allocating unnecessary intermediate refs:
+
+  ```vue
+  <script setup>
+  const props = defineProps(/* ... */)
+
+  // more efficient and succinct 
+  useSomeFeature(() => props.foo)
+  </script>
+  ``````
+  
 
   When `toRef` is used with component props, the usual restrictions around mutating the props still apply. Attempting to assign a new value to the ref is equivalent to trying to modify the prop directly and is not allowed. In that scenario you may want to consider using [`computed`](./reactivity-core#computed) with `get` and `set` instead. See the guide to [using `v-model` with components](/guide/components/v-model) for more information.
 
@@ -169,7 +180,12 @@ This can be used in [Composables](/guide/reusability/composables.html) to normal
   useFeature(1)
   useFeature(ref(1))
   useFeature(() => 1)
+
+  // Using props in this composable with a getter function
+  useFeature(() => props.id)
   ```
+
+  
 
 ## toRefs() {#torefs}
 
