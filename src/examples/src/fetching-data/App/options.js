@@ -8,12 +8,12 @@ export default {
   }),
 
   created() {
-    // fetch on init
+    // pobierz przy inicjalizacji
     this.fetchData()
   },
 
   watch: {
-    // re-fetch whenever currentBranch changes
+    // pobierz ponownie gdy currentBranch się zmieni
     currentBranch: 'fetchData'
   },
 
