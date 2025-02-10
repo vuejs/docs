@@ -328,7 +328,7 @@ Again, object style binding is often used in conjunction with computed propertie
 Template:
 
 ```vue-html
-  <h1 style="color: red" :style="'font-size: 1em'">hello</h1>
+<h1 style="color: red" :style="'font-size: 1em'">hello</h1>
 ```
 
 It will render:
