@@ -307,8 +307,8 @@ declare module 'vue' {
 Here is the recommended way to enable type checking in SFC templates of Custom Elements that are not built with Vue.
 
 :::tip Note
-> This approach is one possible way to do it, but it may vary depending on the
-> framework being used to create the custom elements.
+- This approach is one possible way to do it, but it may vary depending on the
+- framework being used to create the custom elements.
 :::
 
 Suppose we have a custom element with some JS properties and events defined, and it is shipped in a library called `some-lib`:
