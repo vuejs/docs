@@ -1,18 +1,14 @@
 {
-  "compilerOptions": {
-    "outDir": "dist",
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "strict": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "@theme/*": [".vitepress/theme/*"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.vite-config.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
     }
-  },
-  "include": ["env.d.ts", "src/**/*", ".vitepress/**/*"]
+  ]
 }
