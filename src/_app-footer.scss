@@ -1,0 +1,21 @@
+.app-footer {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: $spacer * 1.25 0;
+	border-top: 1px solid var(--#{$prefix}border-color);
+	font-weight: $font-weight-bold;
+	color: rgba(var(--#{$prefix}body-color-rgb), .5);
+	
+	@if $enable-rtl {
+		margin-right: $app-sidebar-width + $app-content-padding-x;
+		margin-left: $app-content-padding-x;
+	} @else {
+		margin-left: $app-sidebar-width + $app-content-padding-x;
+		margin-right: $app-content-padding-x;
+	}
+	@include media-breakpoint-down(md) {
+		padding: $spacer 0;
+		margin: 0 $app-content-sm-padding-x;
+	}
+}

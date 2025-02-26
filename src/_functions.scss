@@ -1,0 +1,73 @@
+@use "sass:math";
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+@function rem-default($number) {
+	$number: strip-unit($number);
+	@return (($number * .0625) * 1rem);
+}
+
+@function rem($number) {
+	$number: strip-unit($number);
+	@return (($number * .0625) * 1rem);
+}
+
+@function tint-color($color, $weight) {
+  @return mix(white, $color, $weight);
+}
+
+// Shade a color: mix a color with black
+@function shade-color($color, $weight) {
+  @return mix(black, $color, $weight);
+}
+
+// Shade the color if the weight is positive, else tint it
+@function shift-color($color, $weight) {
+  @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
+}
+
+@function add($value1, $value2, $return-calc: true) {
+  @if $value1 == null {
+    @return $value2;
+  }
+
+  @if $value2 == null {
+    @return $value1;
+  }
+
+  @if type-of($value1) == number and type-of($value2) == number and comparable($value1, $value2) {
+    @return $value1 + $value2;
+  }
+
+  @return if($return-calc == true, calc(#{$value1} + #{$value2}), $value1 + unquote(" + ") + $value2);
+}
+
+
+@function subtract($value1, $value2, $return-calc: true) {
+  @if $value1 == null and $value2 == null {
+    @return null;
+  }
+
+  @if $value1 == null {
+    @return -$value2;
+  }
+
+  @if $value2 == null {
+    @return $value1;
+  }
+
+  @if type-of($value1) == number and type-of($value2) == number and comparable($value1, $value2) {
+    @return $value1 - $value2;
+  }
+
+  @if type-of($value2) != number {
+    $value2: unquote("(") + $value2 + unquote(")");
+  }
+
+  @return if($return-calc == true, calc(#{$value1} - #{$value2}), $value1 + unquote(" - ") + $value2);
+}

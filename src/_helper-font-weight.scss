@@ -1,0 +1,9 @@
+@mixin helper-font-weight($from, $to) {
+	@for $i from $from through $to {
+		$classValue: $i * 100;
+		
+		.fw-#{$classValue} {
+			font-weight: $classValue !important;
+		}
+	}
+}

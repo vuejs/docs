@@ -1,0 +1,234 @@
+/*
+   Dark color mode variables
+	
+   01. Color system 
+   02. Body setting
+   03. Font & headings settings
+   04. Border settings
+   05. Component settings
+   06. App - Header settings
+   07. App - Sidebar settings
+   08. App - Theme panel settings
+   09. Form switch settings
+   10. Form select settings
+   11. Form check settings
+   12. Accordion settings
+   13. Modal settings
+*/
+
+
+// 01. Color system 
+
+$white:        #FFFFFF !default;
+$gray-500:     #617a86 !default;
+$gray-100:     mix(#fff, $gray-500, 60%) !default;
+$gray-200:     mix(#fff, $gray-500, 45%) !default;
+$gray-300:     mix(#fff, $gray-500, 30%) !default;
+$gray-400:     mix(#fff, $gray-500, 15%) !default;
+$gray-500:     #617a86 !default;
+$gray-600:     mix(#000, $gray-500, 15%) !default;
+$gray-700:     mix(#000, $gray-500, 30%) !default;
+$gray-800:     mix(#000, $gray-500, 45%) !default;
+$gray-900:     mix(#000, $gray-500, 60%) !default;
+$yellow-dark:       #f9e80d !default;
+$orange-dark:       #ff9f0c !default;
+$aqua-dark:         #0cfff5 !default;
+$blue-dark:         #4e9cff !default;
+$indigo-dark:       #bba4ff !default;
+$purple-dark:       #de8cff !default;
+$red-dark:          #ff6060 !default;
+$teal-dark:         #3cd2a5 !default;
+$green-dark:        #1ecc33 !default;
+$lime-dark:         #81f32d !default;
+$pink-dark:         #f34fa0 !default;
+$cyan-dark:         #30beff !default;
+$default-dark:      $gray-200 !default;
+$dark-dark:         $gray-800 !default;
+$black-dark:        #000000 !default;
+$light-dark:        $gray-100 !default;
+$primary-dark:      $blue-dark !default;
+$warning-dark:      $orange-dark !default;
+$danger-dark:       $red-dark !default;
+$success-dark:      $teal-dark !default;
+$info-dark:         $cyan-dark !default;
+$secondary-dark:    $gray-400 !default;
+$text-muted-dark:   $gray-400 !default;
+$inverse-dark:      $white !default;
+$theme-dark:        $teal-dark !default;
+$theme-colors-dark: (
+	"default":   $default-dark,
+	"theme":     $theme-dark,
+	"primary":   $primary-dark,
+	"secondary": $secondary-dark,
+	"warning":   $warning-dark,
+	"danger":    $danger-dark,
+	"success":   $success-dark,
+	"inverse":   $inverse-dark,
+	"info":      $info-dark,
+	"dark":      $dark-dark,
+	"black":     $black-dark,
+	"white":     $white,
+	"purple":    $purple-dark,
+	"indigo":    $indigo-dark,
+	"red":       $red-dark,
+	"pink":      $pink-dark,
+	"green":     $green-dark,
+	"yellow":    $yellow-dark,
+	"teal":      $teal-dark,
+	"muted":     $gray-500,
+  "light":     $light-dark,
+  "lime":      $lime-dark,
+	"gray-100":  $gray-100,
+	"gray-200":  $gray-200,
+	"gray-300":  $gray-300,
+	"gray-400":  $gray-400,
+	"gray-500":  $gray-500,
+	"gray-600":  $gray-600,
+	"gray-700":  $gray-700,
+	"gray-800":  $gray-800,
+	"gray-900":  $gray-900
+);
+
+$primary-text-dark:                             $blue-300 !default;
+$secondary-text-dark:                           $gray-300 !default;
+$success-text-dark:                             $green-300 !default;
+$info-text-dark:                                $cyan-300 !default;
+$warning-text-dark:                             $yellow-300 !default;
+$danger-text-dark:                              $red-300 !default;
+$light-text-dark:                               $gray-100 !default;
+$dark-text-dark:                                $gray-300 !default;
+
+$primary-bg-subtle-dark:                        $blue-900 !default;
+$secondary-bg-subtle-dark:                      $gray-900 !default;
+$success-bg-subtle-dark:                        $green-900 !default;
+$info-bg-subtle-dark:                           $cyan-900 !default;
+$warning-bg-subtle-dark:                        $yellow-900 !default;
+$danger-bg-subtle-dark:                         $red-900 !default;
+$light-bg-subtle-dark:                          $gray-800 !default;
+$dark-bg-subtle-dark:                           mix($gray-800, $black) !default;
+
+$primary-border-subtle-dark:                    $blue-700 !default;
+$secondary-border-subtle-dark:                  $gray-700 !default;
+$success-border-subtle-dark:                    $green-700 !default;
+$info-border-subtle-dark:                       $cyan-800 !default;
+$warning-border-subtle-dark:                    $yellow-800 !default;
+$danger-border-subtle-dark:                     $red-700 !default;
+$light-border-subtle-dark:                      $gray-700 !default;
+$dark-border-subtle-dark:                       $gray-800 !default;
+
+
+
+// 02. Body setting
+
+$body-font-weight-dark:                         300 !default;
+$body-letter-spacing-dark:                      rem(.75px) !default;
+$body-bg-dark:                                  #1d2835 !default;
+$body-bg-gradient-dark:                         linear-gradient(180deg, rgba(50,70,80,.9) 0%, rgba(13,16,27,1) 100%) !default;
+$body-bg-cover-dark:                            url('images/cover-dark.jpg') !default;
+$body-bg-image-dark:                            url('images/pattern-dark.png') !default;
+$body-bg-image-size-dark:                       rem(75px) !default;
+$body-color-dark:                               rgba($white, .75) !default;
+$body-emphasis-color-dark:                      $gray-100 !default;
+$body-secondary-color-dark:                     rgba($body-color-dark, .75) !default;
+$body-secondary-bg-dark:                        $gray-800 !default;
+$body-tertiary-color-dark:                      rgba($body-color-dark, .5) !default;
+$body-tertiary-bg-dark:                         rgba($body-color, .1) !default;
+$emphasis-color-dark:                           $white !default;
+
+
+
+// 03. Font & headings settings
+
+$headings-color-dark:                           #fff !default;
+$link-color-dark:                               $blue-300 !default;
+$link-hover-color-dark:                         $blue-200 !default;
+$code-color-dark:                               $pink-300 !default;
+
+
+
+// 04. Border settings
+
+$border-color-dark:                             rgba($white, .25) !default;
+$border-color-translucent-dark:                 rgba($white, .25) !default;
+
+
+
+// 05. Component settings
+
+$component-bg-dark:                             #28292b !default;
+$component-color-dark:                          $body-color-dark !default;
+
+
+
+// 06. App - Header settings
+
+$app-header-bg-dark:                            rgba(29, 40, 53, .95) !default;
+$app-header-brand-img-dark:                     url('images/logo-dark.png') !default;
+$app-header-link-color-dark:                    $white !default;
+$app-header-link-hover-color-dark:              rgba($white, .5) !default;
+$app-header-scroll-box-shadow-dark:             null !default;
+
+
+
+// 07. App - Sidebar settings
+
+$app-sidebar-menu-header-color-dark:            rgba(var(--#{$prefix}inverse-rgb), .3) !default;
+$app-sidebar-menu-link-color-dark:              rgba(var(--#{$prefix}inverse-rgb), .5) !default;
+$app-sidebar-menu-link-hover-color-dark:        $white !default;
+$app-sidebar-menu-link-active-color-dark:       $white !default;
+$app-sidebar-mobile-bg-dark:                    rgba(44, 56, 70, .98) !default;
+
+
+
+// 08. App - Top Nav settings
+
+$app-top-nav-bg-dark:                           rgba(29, 40, 53, .95) !default;
+$app-top-nav-menu-link-color-dark:              rgba(var(--#{$prefix}inverse-rgb), .5) !default;
+$app-top-nav-menu-link-hover-color-dark:        $white !default;
+$app-top-nav-menu-link-active-color-dark:       $white !default;
+$app-top-nav-menu-submenu-bg-dark:              rgba(29, 40, 53, .95) !default;
+
+
+// 08. App - Theme panel settings
+
+$app-theme-panel-bg-dark:                       rgba($gray-700, .95) !default;
+$app-theme-panel-color-dark:                   	$white !default;
+
+
+
+// 09. Form switch settings
+
+$form-switch-color-dark:                        rgba($white, .25) !default;
+$form-switch-bg-image-dark:                     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color-dark}'/></svg>") !default;
+$form-switch-focus-color-dark:                  rgba($white, .25) !default;
+$form-switch-focus-bg-image-dark:               url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color-dark}'/></svg>") !default;
+$form-switch-checked-color-dark:                $black !default;
+$form-switch-checked-bg-image-dark:             url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color-dark}'/></svg>") !default;
+
+
+
+// 10. Form select settings
+
+$form-select-indicator-color-dark:              $body-color-dark !default;
+$form-select-indicator-dark:                    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color-dark}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>") !default;
+
+
+
+// 11. Form check settings
+
+$form-check-input-checked-color-dark:           $black !default;
+$form-check-input-checked-bg-image-dark:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-checked-color-dark}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>") !default;
+$form-check-radio-checked-bg-image-dark:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color-dark}'/></svg>") !default;
+
+
+
+// 12. Accordion settings
+
+$accordion-button-icon-dark:                    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$body-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+$accordion-button-active-icon-dark:             url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$body-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+
+
+
+// 13. Modal settings
+
+$modal-backdrop-bg-dark:                        #1d2835 !default;

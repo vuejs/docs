@@ -1,0 +1,16 @@
+.app-sidebar-mobile-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: $app-sidebar-mobile-backdrop-zindex;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	outline: none;
+	display: none;
+	background: $app-sidebar-mobile-backdrop-bg;
+}

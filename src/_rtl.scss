@@ -1,0 +1,220 @@
+@if $enable-rtl {
+	.alert-dismissible .btn-close {
+		left: 0;
+		right: auto;
+	}
+	.alert-dismissible {
+		padding-right: $spacer;
+    padding-left: $spacer * 3;
+  }
+	.form-floating>label {
+		left: auto;
+		right: 0;
+	}
+	.form-switch {
+		padding-left: 0;
+		padding-right: $form-switch-padding-start;
+
+		.form-check-input {
+			margin-left: 0;
+			margin-right: $form-switch-padding-start * -1;
+		}
+	}
+	.form-check {
+		padding-left: 0;
+		padding-right: $form-check-padding-start;
+
+		.form-check-input {
+			float: right;
+			margin-left: 0;
+			margin-right: $form-check-padding-start * -1;
+		}
+	}
+	.form-control,
+	.input-group-text {
+    border-radius: $border-radius;
+	}
+	.input-group-lg>.btn, 
+	.input-group-lg>.form-control, 
+	.input-group-lg>.form-select, 
+	.input-group-lg>.input-group-text,
+	.btn-group-lg>.btn, 
+	.btn-lg {
+    border-radius: $border-radius-lg;
+	}
+	.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback),
+	.btn-group>.btn-group:not(:first-child)>.btn, 
+	.btn-group>.btn:nth-child(n+3), 
+	.btn-group>:not(.btn-check)+.btn {
+    margin-right: -1px;
+    margin-left: 0;
+    border-radius: $border-radius;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+	.btn-group-toggle > .btn-check:first-child + .btn {
+    border-top-right-radius: $border-radius !important;
+    border-bottom-right-radius: $border-radius !important;
+	}
+	.input-group-lg > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback),
+	.btn-group-lg>.btn-group:not(:first-child)>.btn, 
+	.btn-group-lg>.btn:nth-child(n+3), 
+	.btn-group-lg>:not(.btn-check)+.btn {
+    border-radius: $border-radius-lg;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+	.input-group-sm > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback),
+	.btn-group-sm>.btn-group:not(:first-child)>.btn, 
+	.btn-group-sm>.btn:nth-child(n+3), 
+	.btn-group-sm>:not(.btn-check)+.btn {
+    border-radius: $border-radius-sm;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), 
+	.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
+	.btn-group>.btn-group:not(:last-child)>.btn, 
+	.btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-radius: $border-radius;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+	}
+  .input-group-sm:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), 
+	.input-group-sm:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
+	.btn-group-sm>.btn-group:not(:last-child)>.btn, 
+	.btn-group-sm>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-radius: $border-radius-sm;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+	}
+  .input-group-lg:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), 
+	.input-group-lg:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
+	.btn-group-lg>.btn-group:not(:last-child)>.btn, 
+	.btn-group-lg>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-radius: $border-radius-lg;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+	}
+	.input-group > :not(:last-child):not(:first-child):not(.dropdown-menu):not(.dropdown-toggle):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback),
+	.btn-group>.btn:not(:last-child):not(:first-child):not(.dropdown-toggle) {
+		border-radius: 0;
+	}
+	.btn-group>.btn-group:not(:first-child), .btn-group>.btn:not(:first-child) {
+    margin-left: 0;
+    margin-right: -1px;
+	}
+	.modal-header .btn-close {
+		margin-left: $spacer / -2;
+		margin-right: auto;
+	}
+	.form-select {
+		background-position: left .75rem center;
+		padding-left: $spacer / 1.25;
+		padding-right: $spacer / 2;
+	}
+	.dropdown-menu-end { --#{$prefix}position: start; }
+	.dropdown-menu-start { --#{$prefix}position: end; }
+	.end-0 { left: 0 !important; right: auto !important; }
+	.start-0 { right: 0 !important; left: auto !important; }
+	.float-start { float: right !important; }
+	.float-end { float: left !important; }
+	.text-start { text-align: right !important; }
+	.text-end { text-align: left !important; }
+	.list-group { padding-right: 0; }
+	
+	.me-0 { margin-right: initial !important; margin-left: $spacer * 0 !important; }
+	.me-1 { margin-right: initial !important; margin-left: $spacer * 0.25 !important; }
+	.me-2 { margin-right: initial !important; margin-left: $spacer * 0.5 !important; }
+	.me-3 { margin-right: initial !important; margin-left: $spacer * 1 !important; }
+	.me-4 { margin-right: initial !important; margin-left: $spacer * 1.5 !important; }
+	.me-5 { margin-right: initial !important; margin-left: $spacer * 3 !important; }
+	.me-auto { margin-right: initial !important; margin-left: auto !important;  }
+	
+	.ms-0 { margin-left: initial !important; margin-right: $spacer * 0 !important; }
+	.ms-1 { margin-left: initial !important; margin-right: $spacer * 0.25 !important; }
+	.ms-2 { margin-left: initial !important; margin-right: $spacer * 0.5 !important; }
+	.ms-3 { margin-left: initial !important; margin-right: $spacer * 1 !important; }
+	.ms-4 { margin-left: initial !important; margin-right: $spacer * 1.5 !important; }
+	.ms-5 { margin-left: initial !important; margin-right: $spacer * 3 !important; }
+	.ms-auto { margin-left: initial !important; margin-right: auto !important; }
+	
+	.ps-0 { padding-left: initial !important; padding-right: $spacer * 0 !important; }
+	.ps-1 { padding-left: initial !important; padding-right: $spacer * 0.25 !important; }
+	.ps-2 { padding-left: initial !important; padding-right: $spacer * 0.5 !important; }
+	.ps-3 { padding-left: initial !important; padding-right: $spacer * 1 !important; }
+	.ps-4 { padding-left: initial !important; padding-right: $spacer * 1.5 !important; }
+	.ps-5 { padding-left: initial !important; padding-right: $spacer * 3 !important; }
+	
+	.pe-0 { padding-right: initial !important; padding-left: $spacer * 0 !important; }
+	.pe-1 { padding-right: initial !important; padding-left: $spacer * 0.25 !important; }
+	.pe-2 { padding-right: initial !important; padding-left: $spacer * 0.5 !important; }
+	.pe-3 { padding-right: initial !important; padding-left: $spacer * 1 !important; }
+	.pe-4 { padding-right: initial !important; padding-left: $spacer * 1.5 !important; }
+	.pe-5 { padding-right: initial !important; padding-left: $spacer * 3 !important; }
+	
+	@include media-breakpoint-up(sm) {
+		body {
+			& .card-group {
+				& > .card {
+					border-radius: 0;
+						
+					& + .card {
+						border-left: 1px solid $card-border-color;
+						border-right: 0;
+					}
+					&:last-child {
+						border-top-left-radius: $border-radius;
+						border-bottom-left-radius: $border-radius;
+					}
+					&:first-child {
+						border-top-right-radius: $border-radius;
+						border-bottom-right-radius: $border-radius;
+					}
+				}	
+			}
+		}
+	}
+	
+	@each $breakpoint, $value in $grid-breakpoints {
+		@include media-breakpoint-up($breakpoint) {
+			.ms-#{$breakpoint}-0 { margin-left: initial !important; margin-right: $spacer * 0 !important; }
+			.ms-#{$breakpoint}-1 { margin-left: initial !important; margin-right: $spacer * 0.25 !important; }
+			.ms-#{$breakpoint}-2 { margin-left: initial !important; margin-right: $spacer * 0.5 !important; }
+			.ms-#{$breakpoint}-3 { margin-left: initial !important; margin-right: $spacer * 1 !important; }
+			.ms-#{$breakpoint}-4 { margin-left: initial !important; margin-right: $spacer * 1.5 !important; }
+			.ms-#{$breakpoint}-5 { margin-left: initial !important; margin-right: $spacer * 3 !important; }
+			.ms-#{$breakpoint}-auto { margin-left: initial !important; margin-right: auto !important; }
+			
+			.me-#{$breakpoint}-0 { margin-right: initial !important; margin-left: $spacer * 0 !important; }
+			.me-#{$breakpoint}-1 { margin-right: initial !important; margin-left: $spacer * 0.25 !important; }
+			.me-#{$breakpoint}-2 { margin-right: initial !important; margin-left: $spacer * 0.5 !important; }
+			.me-#{$breakpoint}-3 { margin-right: initial !important; margin-left: $spacer * 1 !important; }
+			.me-#{$breakpoint}-4 { margin-right: initial !important; margin-left: $spacer * 1.5 !important; }
+			.me-#{$breakpoint}-5 { margin-right: initial !important; margin-left: $spacer * 3 !important; }
+			.me-#{$breakpoint}-auto { margin-right: initial !important; margin-left: auto !important; }
+			
+			.ps-#{$breakpoint}-0 { padding-left: initial !important; padding-right: $spacer * 0 !important; }
+			.ps-#{$breakpoint}-1 { padding-left: initial !important; padding-right: $spacer * 0.25 !important; }
+			.ps-#{$breakpoint}-2 { padding-left: initial !important; padding-right: $spacer * 0.5 !important; }
+			.ps-#{$breakpoint}-3 { padding-left: initial !important; padding-right: $spacer * 1 !important; }
+			.ps-#{$breakpoint}-4 { padding-left: initial !important; padding-right: $spacer * 1.5 !important; }
+			.ps-#{$breakpoint}-5 { padding-left: initial !important; padding-right: $spacer * 3 !important; }
+			
+			.pe-#{$breakpoint}-0 { padding-right: initial !important; padding-left: $spacer * 0 !important; }
+			.pe-#{$breakpoint}-1 { padding-right: initial !important; padding-left: $spacer * 0.25 !important; }
+			.pe-#{$breakpoint}-2 { padding-right: initial !important; padding-left: $spacer * 0.5 !important; }
+			.pe-#{$breakpoint}-3 { padding-right: initial !important; padding-left: $spacer * 1 !important; }
+			.pe-#{$breakpoint}-4 { padding-right: initial !important; padding-left: $spacer * 1.5 !important; }
+			.pe-#{$breakpoint}-5 { padding-right: initial !important; padding-left: $spacer * 3 !important; }
+			
+			.float-#{$breakpoint}-start { float: right !important; }
+			.float-#{$breakpoint}-end { float: left !important; }
+			.text-#{$breakpoint}-start { text-align: right !important; }
+			.text-#{$breakpoint}-end { text-align: left !important; }
+			
+			.start-0 { right: 0 !important; left: initial !important; }
+			.end-0 { left: 0 !important; right: initial !important; }
+		}
+	}
+}

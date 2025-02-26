@@ -1,0 +1,19 @@
+@mixin background-gradient($className, $from, $to, $direction: top) {
+	.#{$className} {
+		background: $from;
+	}
+	.#{$className} {
+		background: -moz-linear-gradient($direction, $from, $to) !important;
+		background: -webkit-linear-gradient($direction, $from, $to) !important;
+	    @if $direction == top {
+		    background: linear-gradient(to top, $from, $to) !important;
+	    } @else if $direction == right {
+		    background: linear-gradient(to left, $from, $to) !important;
+	    } @else if $direction == left {
+		    background: linear-gradient(to right, $from, $to) !important;
+	    } @else if $direction == bottom {
+		    background: linear-gradient(to bottom, $from, $to) !important;
+	    }
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$from', endColorstr='$to',GradientType=0 ) !important;
+	}
+}

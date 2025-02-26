@@ -1,0 +1,64 @@
+:root,
+[data-bs-theme="light"] {
+	--#{$prefix}body-bg-gradient: #{$body-bg-gradient};
+	--#{$prefix}body-bg-image: #{$body-bg-image};
+	--#{$prefix}body-bg-image-size: #{$body-bg-image-size};
+	--#{$prefix}body-bg-cover: #{$body-bg-cover};
+	--#{$prefix}body-font-weight: #{$body-font-weight};
+	--#{$prefix}body-letter-spacing: #{$body-letter-spacing};
+  --#{$prefix}component-bg: #{$component-bg};
+  --#{$prefix}component-bg-rgb: #{to-rgb($component-bg)};
+  --#{$prefix}component-color: #{$component-color};
+  --#{$prefix}component-color-rgb: #{to-rgb($component-color)};
+  --#{$prefix}app-header-bg: #{$app-header-bg};
+  --#{$prefix}app-header-brand-img: #{$app-header-brand-img};
+  --#{$prefix}app-header-link-color: #{$app-header-link-color};
+  --#{$prefix}app-header-link-color-rgb: #{to-rgb($app-header-link-color)};
+  --#{$prefix}app-header-link-hover-color: #{$app-header-link-hover-color};
+  --#{$prefix}app-header-scroll-box-shadow: #{$app-header-scroll-box-shadow};
+	--#{$prefix}app-sidebar-menu-header-color: #{$app-sidebar-menu-header-color};
+  --#{$prefix}app-sidebar-menu-link-color: #{$app-sidebar-menu-link-color};
+  --#{$prefix}app-sidebar-menu-link-hover-color: #{$app-sidebar-menu-link-hover-color};
+  --#{$prefix}app-sidebar-menu-link-active-color: #{$app-sidebar-menu-link-active-color};
+  --#{$prefix}app-sidebar-mobile-bg: #{$app-sidebar-mobile-bg};
+  --#{$prefix}app-top-nav-bg: #{$app-top-nav-bg};
+  --#{$prefix}app-top-nav-menu-link-color: #{$app-top-nav-menu-link-color};
+  --#{$prefix}app-top-nav-menu-link-hover-color: #{$app-top-nav-menu-link-hover-color};
+  --#{$prefix}app-top-nav-menu-link-active-color: #{$app-top-nav-menu-link-active-color};
+  --#{$prefix}app-top-nav-menu-submenu-bg: #{$app-top-nav-menu-submenu-bg};
+  --#{$prefix}app-theme-panel-bg: #{$app-theme-panel-bg};
+  --#{$prefix}theme-bg-subtle: #{tint-color($theme, 80%)};
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark, true) {
+		--#{$prefix}body-bg-gradient: #{$body-bg-gradient-dark};
+		--#{$prefix}body-bg-image: #{$body-bg-image-dark};
+		--#{$prefix}body-bg-image-size: #{$body-bg-image-size-dark};
+		--#{$prefix}body-bg-cover: #{$body-bg-cover-dark};
+		--#{$prefix}body-font-weight: #{$body-font-weight-dark};
+		--#{$prefix}body-letter-spacing: #{$body-letter-spacing-dark};
+		--#{$prefix}component-bg: #{$component-bg-dark};
+		--#{$prefix}component-bg-rgb: #{to-rgb($component-bg-dark)};
+		--#{$prefix}component-color: #{$component-color-dark};
+		--#{$prefix}component-color-rgb: #{to-rgb($component-color-dark)};
+		--#{$prefix}app-header-bg: #{$app-header-bg-dark};
+		--#{$prefix}app-header-brand-img: #{$app-header-brand-img-dark};
+		--#{$prefix}app-header-link-color: #{$app-header-link-color-dark};
+		--#{$prefix}app-header-link-color-rgb: #{to-rgb($app-header-link-color-dark)};
+  	--#{$prefix}app-header-link-hover-color: #{$app-header-link-hover-color-dark};
+  	--#{$prefix}app-header-scroll-box-shadow: #{$app-header-scroll-box-shadow-dark};
+		--#{$prefix}app-sidebar-menu-header-color: #{$app-sidebar-menu-header-color-dark};
+		--#{$prefix}app-sidebar-menu-link-color: #{$app-sidebar-menu-link-color-dark};
+		--#{$prefix}app-sidebar-menu-link-hover-color: #{$app-sidebar-menu-link-hover-color-dark};
+		--#{$prefix}app-sidebar-menu-link-active-color: #{$app-sidebar-menu-link-active-color-dark};
+  	--#{$prefix}app-sidebar-mobile-bg: #{$app-sidebar-mobile-bg-dark};
+		--#{$prefix}app-top-nav-bg: #{$app-top-nav-bg-dark};
+		--#{$prefix}app-top-nav-menu-link-color: #{$app-top-nav-menu-link-color-dark};
+		--#{$prefix}app-top-nav-menu-link-hover-color: #{$app-top-nav-menu-link-hover-color-dark};
+		--#{$prefix}app-top-nav-menu-link-active-color: #{$app-top-nav-menu-link-active-color-dark};
+    --#{$prefix}app-top-nav-menu-submenu-bg: #{$app-top-nav-menu-submenu-bg-dark};
+  	--#{$prefix}app-theme-panel-bg: #{$app-theme-panel-bg-dark};
+  	--#{$prefix}theme-bg-subtle: #{shade-color($theme, 80%)};
+  }
+}

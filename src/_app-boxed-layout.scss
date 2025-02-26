@@ -1,0 +1,32 @@
+.app-boxed-layout {
+	@include media-breakpoint-up(lg) {
+		min-height: 100vh;
+	
+		&,
+		& .app-header {
+			max-width: rem(1280px);
+			margin-left: auto;
+			margin-right: auto;
+		}
+		& .app-top-nav {
+			max-width: rem(1280px);
+			margin-left: auto;
+			margin-right: auto;
+			overflow: hidden;
+			
+			& .menu .menu-item .menu-submenu {
+				position: fixed;
+				left: auto;
+				right: auto;
+				top: auto;
+			}
+		}
+		& .app-sidebar {
+			@if $enable-rtl {
+				right: auto;
+			} @else {
+				left: auto;
+			}
+		}
+	}
+}
