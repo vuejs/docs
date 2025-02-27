@@ -33,10 +33,10 @@ export default {
 			<RouterLink to="/" class="navbar-brand d-flex align-items-center position-relative me-auto brand px-0 w-auto">
 				<span class="brand-logo d-flex">
 					<span class="brand-img">
-						<span class="brand-img-text text-theme">H</span>
+						<span class="brand-img-text text-theme">♾️</span>
 					</span>
 					<span class="brand-text">
-						HUD ADMIN 
+						|'"'"'| 0-1 ADMIN 
 						<span style="font-size: 9px; letter-spacing: 1px; font-weight: bold; position: absolute; opacity: .5; top: -8px; margin-left: -15px;">.NET CORE 8.0</span>
 					</span>
 				</span>
@@ -813,7 +813,7 @@ export default {
 									<Icon icon="ic:baseline-star" class="fs-18px" />
 									<Icon icon="ic:baseline-star" class="fs-18px" />
 								</div>
-								HUD Admin Template transformed our workflow. 
+								|'"'"'| 0-1 Admin Template transformed our workflow. 
 								The customization options are unparalleled, and the support team is incredibly responsive.
 							</div>
 							<div class="d-flex align-items-end">
@@ -1016,7 +1016,7 @@ export default {
 			<div class="row gx-lg-5 gx-3 gy-lg-4 gy-3">
 				<div class="col-lg-3 col-md-6">
 					<div class="mb-3">
-						<div class="h2">HUD</div>
+						<div class="h2">|'"'"'| 0-1</div>
 					</div>
 					<p class="mb-4">
 						HUD is your go-to solution for creating stunning, responsive, and high-performance web applications. Designed for developers, designers, and entrepreneurs, it provides the tools and flexibility needed to bring your creative visions to life.
@@ -1083,7 +1083,7 @@ export default {
 			<hr class="text-body text-opacity-50">
 			<div class="row">
 				<div class="col-sm-6 mb-3 mb-lg-0">
-					<div class="footer-copyright-text">&copy; 2024 SeanTheme All Rights Reserved</div>
+					<div class="footer-copyright-text">&copy; 2025 |'"'"'| 0-1 All Rights Reserved</div>
 				</div>
 				<div class="col-sm-6 text-sm-end">
 					<div class="dropdown me-4 d-inline">
