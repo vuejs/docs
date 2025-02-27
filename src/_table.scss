@@ -1,0 +1,42 @@
+.table {
+	&.table-card {
+		& thead,
+		& tbody {
+			& > tr {
+				& td,
+				& th {
+					&:first-child {
+						@if $enable-rtl {
+							padding-right: $card-spacer-x;
+						} @else {
+							padding-left: $card-spacer-x;
+						}
+					}
+					&:last-child {
+						@if $enable-rtl {
+							padding-left: $card-spacer-x;
+						} @else {
+							padding-right: $card-spacer-x;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.table-xs {
+		font-size: rem(12px);
+		
+		& thead,
+		& tbody,
+		& tfoot {
+			& th {
+				padding-top: rem(4px);
+				padding-bottom: rem(4px);
+				padding-left: rem(8px);
+			}
+			& td {
+				padding: rem(5px) rem(8px);
+			}
+		}
+	}
+}

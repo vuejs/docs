@@ -1,0 +1,238 @@
+body {
+	& .dp__menu,
+	& .dp__calendar_wrap,
+	& .dp__main {
+		font-family: $font-family-base;
+		font-size: $font-size-base;
+	}
+	& .dp__menu {
+		border: 1px solid var(--#{$prefix}border-color) !important;
+		border-radius: $dropdown-border-radius;
+		box-shadow: none;
+		
+		& .dp__menu_inner {
+			padding: $spacer * .5;
+		}
+	}
+	& .dp__calendar_header_separator {
+		display: none;
+	}
+	& .dp__arrow_top,
+	& .dp__arrow_bottom {
+		display: none;
+	}
+	& .dp__theme_dark {
+		--dp-background-color: #{$dropdown-bg};
+		--dp-text-color: var(--#{$prefix}body-color);
+		--dp-hover-color: rgba(var(--#{$prefix}theme-rgb), .15);
+		--dp-hover-text-color: var(--#{$prefix}inverse);
+		--dp-hover-icon-color: rgba(var(--#{$prefix}inverse-rgb), .5);
+		--dp-primary-color: var(--#{$prefix}theme);
+		--dp-primary-text-color: var(--#{$prefix}theme-color);
+		--dp-secondary-color: var(--#{$prefix}gray-500);
+		--dp-border-color: var(--#{$prefix}border-color);
+		--dp-menu-border-color: var(--#{$prefix}border-color);
+		--dp-border-color-hover: var(--#{$prefix}border-color);
+		--dp-disabled-color: var(--#{$prefix}gray-500);
+		--dp-scroll-bar-background: rgba(var(--#{$prefix}inverse-rgb), .25);
+		--dp-scroll-bar-color: var(--#{$prefix}gray-500);
+		--dp-success-color: var(--#{$prefix}success);
+		--dp-success-color-disabled: var(--#{$prefix}inverse);
+		--dp-icon-color: rgba(var(--#{$prefix}inverse-rgb), .5);
+		--dp-danger-color: var(--#{$prefix}danger);
+	}
+	& .dp__cell_inner,
+	& .dp__calendar_header_item {
+		padding: $spacer * .25;
+		width: rem(36px);
+		height: auto;
+	}
+	& .dp__month_year_row {
+		padding: $spacer * .125 $spacer * .125 $spacer * .375;
+		height: auto;
+	}
+	& .dp__action_row {
+		padding: $spacer * .625 $spacer * .625 $spacer * .625;
+	}
+	& .dp__overlay {
+		padding: $spacer * .5;
+	}
+	& .dp__btn {
+		border-radius: $border-radius-lg;
+		border-color: transparent !important;
+		
+		&.dp__overlay_action {
+			width: calc(100% - #{$spacer * 1.25});
+			margin-left: $spacer * .125;
+			margin-right: $spacer * .125;
+			background: var(--#{$prefix}component-bg);
+		}
+		
+		&:hover {
+			background: $dropdown-link-hover-bg;
+			color: $dropdown-link-hover-color;
+		}
+	}
+	& .dp--time-overlay-btn {
+		border-radius: $border-radius-lg;
+		border-color: transparent !important;
+		
+		&:hover:enabled {
+			background: $dropdown-link-hover-bg;
+			color: $dropdown-link-hover-color;
+		}
+	}
+	& .dp__calendar_item {
+		padding: 0 $spacer * .125;
+		& .dp__cell_inner {
+			border-radius: $border-radius-lg;
+			border-color: transparent !important;
+			
+			&:hover,
+			&:focus,
+			&.dp__today {
+				background: $dropdown-link-hover-bg;
+				color: $dropdown-link-hover-color;
+			}
+			
+			&.dp__range_between {
+				background: rgba(var(--#{$prefix}theme-rgb), .35);
+				color: var(--#{$prefix}theme-color);
+			}
+			&.dp__active_date,
+			&.dp__range_start,
+			&.dp__range_end {
+				background: var(--#{$prefix}theme);
+				color: var(--#{$prefix}theme-color);
+			}
+		}
+	}
+	& .dp--tp-wrap {
+		padding: 0 $spacer * .625;
+	}
+	& .dp__overlay_container {
+		min-width: rem(283px);
+	}
+	& .dp__overlay_col {
+		padding: 0;
+		width: 33.33%;
+		
+		& .dp__overlay_cell_pad {
+			border-radius: $border-radius-lg;
+			border-color: transparent !important;
+		
+			&:hover {
+				background: $dropdown-link-hover-bg;
+				color: $dropdown-link-hover-color;
+			}
+		
+			&.dp__overlay_cell_active {
+				background: var(--#{$prefix}theme);
+				color: var(--#{$prefix}theme-color);
+			}
+		}
+	}
+	& .dp__calendar_row {
+		margin: $spacer * .25 0;
+	}
+	& .dp__inner_nav {
+		width: rem(34px);
+		height: rem(34px);
+		
+		&:hover {
+			background: none;
+		}
+	}
+	& .dp__action_buttons {
+		display: flex;
+		justify-content: end;
+	}
+	& .dp__action_button {
+		display: inline-block;
+		font-family: $btn-font-family;
+		font-weight: $btn-font-weight;
+		line-height: $btn-line-height;
+		color: var(--#{$prefix}btn-color);
+		text-align: center;
+		text-decoration: if($link-decoration == none, null, none);
+		white-space: $btn-white-space;
+		vertical-align: middle;
+		cursor: if($enable-button-pointers, pointer, null);
+		user-select: none;
+		background-color: transparent;
+		border: $btn-border-width solid var(--#{$prefix}btn-border-color);
+		font-size: $font-size-sm;
+		padding: $input-btn-padding-y-sm * .5 $input-btn-padding-x-sm;
+		height: auto;
+		border-radius: $border-radius;
+		min-width: rem(70px);
+		@include transition($btn-transition);
+		
+		&.dp__action_cancel {
+    	@include button-outline-variant($default);
+		}
+		&.dp__action_select {
+			--#{$prefix}btn-color: var(--#{$prefix}theme);
+			--#{$prefix}btn-border-color: var(--#{$prefix}theme);
+			--#{$prefix}btn-hover-color: var(--#{$prefix}theme-color);
+			--#{$prefix}btn-hover-bg: var(--#{$prefix}theme);
+			--#{$prefix}btn-hover-border-color: var(--#{$prefix}theme);
+			--#{$prefix}btn-focus-shadow-rgb: var(--#{$prefix}theme-rgb);
+			--#{$prefix}btn-active-color: var(--#{$prefix}theme-color);
+			--#{$prefix}btn-active-bg: var(--#{$prefix}theme);
+			--#{$prefix}btn-active-border-color: var(--#{$prefix}theme);
+			--#{$prefix}btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+			--#{$prefix}btn-disabled-color: var(--#{$prefix}theme);
+			--#{$prefix}btn-disabled-bg: transparent;
+			--#{$prefix}btn-disabled-border-color: var(--#{$prefix}theme);
+			--#{$prefix}gradient: none;
+		}
+		&:hover {
+			color: var(--#{$prefix}btn-hover-color);
+			background: var(--#{$prefix}btn-hover-bg);
+			border-color: var(--#{$prefix}btn-border-color);
+		}
+		& + .dp__action_button {
+			@if $enable-rtl {
+				margin-right: $spacer * .5;
+			} @else {
+				margin-left: $spacer * .5;
+			}
+		}
+	}
+	& .dp__input {
+		display: block;
+		width: 100%;
+		font-family: $font-family-base;
+		font-weight: $input-font-weight;
+		line-height: $input-line-height;
+		color: $input-color;
+		background-color: $input-bg;
+		background-clip: padding-box;
+		border: $input-border-width solid $input-border-color;
+		appearance: none;
+		
+		@include font-size($input-font-size);
+		@include border-radius($input-border-radius, 0);
+		@include box-shadow($input-box-shadow);
+		
+		&::placeholder {
+  		font-family: $input-font-family;
+  		color: $input-placeholder-color;
+		}
+		&.dp__input_focus {
+			color: $input-focus-color;
+			background-color: $input-focus-bg;
+			border-color: $input-focus-border-color;
+			outline: 0;
+			@if $enable-shadows {
+				@include box-shadow($input-box-shadow, $input-focus-box-shadow);
+			} @else {
+				box-shadow: $input-focus-box-shadow;
+			}
+		}
+	}
+	& .dp--tp-wrap {
+		max-width: initial;
+	}
+}

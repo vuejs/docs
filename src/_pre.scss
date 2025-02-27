@@ -1,0 +1,11 @@
+pre {
+	display: block;
+	padding: rem(16px);
+	font-size: $font-size-base;
+	color: $gray-700;
+	word-break: break-all;
+	word-wrap: break-word;
+	background-color: $white;
+	border: 1px solid $gray-200;
+	border-radius: $border-radius;
+}

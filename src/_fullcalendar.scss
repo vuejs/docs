@@ -1,0 +1,208 @@
+.fc-event-list {
+	& .fc-event-item {
+		& .fc-event-link {
+			padding: $spacer * .35 $spacer * .7;
+			color: var(--#{$prefix}inverse);
+			position: relative;
+			border: 1px solid var(--#{$prefix}border-color);
+			display: flex;
+			align-items: center;
+			border-radius: $border-radius;
+			
+			&:hover {
+				background: rgba(var(--#{$prefix}inverse-rgb), .1);
+			}
+			&:after {
+				content: '\f0b2';
+				color: rgba(var(--#{$prefix}inverse-rgb), .5);
+				line-height: 1;
+				margin-left: auto;
+				
+				@include fontawesome();
+			}
+		}
+		& + .fc-event-item {
+			margin-top: $spacer * .5;
+		}
+	}
+}
+.fc-event-link {
+	&.fc-dragging,
+	&.fc-event-dragging {
+		padding: $spacer * .35 $spacer * .7;
+		background: rgba(var(--#{$prefix}inverse-rgb), .15);
+		border: 1px solid var(--#{$prefix}border-color);
+		color: var(--#{$prefix}inverse);
+		display: block;
+		display: flex;
+		align-items: center;
+		border-radius: $border-radius;
+		box-shadow: $dropdown-box-shadow;
+	}
+}
+.fc {
+	& .fc-toolbar,
+	& .fc-header-toolbar {
+		margin-bottom: 0 !important;
+		flex-wrap: wrap;
+		align-items: center;
+		
+		& .fc-left,
+		& .fc-toolbar-chunk:nth-child(1) {
+			border-bottom: 1px solid var(--#{$prefix}border-color);
+			padding: $spacer;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+			& .btn-group {
+				@include media-breakpoint-down(sm) {
+			 		width: 100%;
+				}
+			}
+			& .btn {
+				min-width: rem(100px);
+				background: none;
+				padding-top: $spacer * .2;
+				padding-bottom: $spacer * .2;
+				color: var(--#{$prefix}btn-color);
+				
+				@include button-outline-variant($default, $default);
+				@include media-breakpoint-down(lg) {
+					min-width: rem(90px);
+				}
+					
+				&:hover,
+				&:active {
+					color: $black;
+					background: var(--#{$prefix}btn-hover-bg);
+				}
+			}
+		}
+		@if $enable-rtl {
+			& .fc-toolbar-chunk {
+				& .btn-group {
+					& > .btn {
+						border-radius: 0;
+					
+						& + .btn {
+							margin-right: 0;
+							margin-left: -1px;
+						}
+						&:first-child {
+							border-top-left-radius: $border-radius;
+							border-bottom-left-radius: $border-radius;
+						}
+						&:last-child {
+							border-top-right-radius: $border-radius;
+							border-bottom-right-radius: $border-radius;
+						}
+					}
+				}
+			}
+		}
+		& .fc-center,
+		& .fc-toolbar-chunk:nth-child(2) {
+			flex: 1;
+			padding: $spacer;
+		}
+		& .fc-right,
+		& .fc-toolbar-chunk:nth-child(3) {
+			padding: $spacer;
+			
+			& .btn {
+				padding-top: $spacer * .2;
+				padding-bottom: $spacer * .2;
+				background: none;
+				
+				@include button-outline-variant($default, $default);
+					
+				&:hover,
+				&:active {
+					color: $black;
+				}
+			}
+		}
+	}
+	& .fc-view {
+		& .fc-event,
+		& .fc-event-dot {
+			background-color: rgba(var(--#{$prefix}inverse-rgb), .15);
+			border-color: transparent;
+			
+			&.fc-daygrid-dot-event {
+				background-color: rgba(var(--#{$prefix}inverse-rgb), .15);
+				border-color: transparent;
+			}
+		}
+		&.fc-dayGrid-view,
+		&.fc-dayGridMonth-view {
+			& .fc-week-number,
+			& .fc-day-number,
+			& .fc-daygrid-day-number {
+				padding: rem(2px) rem(4px);
+			}
+			& .fc-day-grid-event,
+			& .fc-daygrid-day-events {
+				margin-top: rem(2px);
+			}
+		}
+		&.fc-timeGrid-view {
+			& .fc-time-grid {
+				& .fc-slats,
+				& .fc-bg {
+					& table {
+						border: none;
+						
+						& tbody,
+						& thead {
+							& tr {
+								&:first-child {
+									& td {
+										border-top: none;
+									}
+								}
+							}
+						}
+					}
+				}
+				& .fc-content-skeleton {
+					& table {
+						border: none !important;
+						
+						& td,
+						& th {
+							border: none !important;
+						}
+					}
+				}
+			}
+		}
+		& a {
+			text-decoration: none;
+		}
+		& .fc-daygrid-event,
+		& .fc-timegrid-event-harness-inset .fc-timegrid-event, 
+		& .fc-timegrid-event.fc-event-mirror, 
+		& .fc-timegrid-more-link {
+			box-shadow: none;
+			border-radius: 0;
+		}
+	}
+	& td,
+	& th {
+		border-width: 1px;
+		border-color: $table-border-color;
+	}
+	& .fc-view-harness {
+		height: auto !important;
+	}
+	& .fc-scroller-liquid-absolute {
+		position: relative !important;
+		overflow: initial !important;
+	}
+	& a:not([href]) {
+		color: inherit;
+	}
+}

@@ -1,0 +1,21 @@
+@if $enable-dark-mode {
+  @include color-mode(dark, true) {
+		& .form-switch {
+			& .form-check-input {
+				--#{$prefix}form-switch-bg: #{escape-svg($form-switch-bg-image-dark)};
+
+				&:focus {
+					--#{$prefix}form-switch-bg: #{escape-svg($form-switch-focus-bg-image-dark)};
+				}
+
+				&:checked {
+					@if $enable-gradients {
+						--#{$prefix}form-switch-bg: #{escape-svg($form-switch-checked-bg-image-dark)}, var(--#{$prefix}gradient);
+					} @else {
+						--#{$prefix}form-switch-bg: #{escape-svg($form-switch-checked-bg-image-dark)};
+					}
+				}
+			}
+		}
+	}
+}

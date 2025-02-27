@@ -1,0 +1,129 @@
+body {
+	& .dp__menu,
+	& .dp__calendar_wrap,
+	& .dp__main {
+		font-family: $font-family-base;
+		font-size: $font-size-base;
+	}
+	& .dp__theme_dark {
+		--dp-background-color: #{$dropdown-bg};
+		--dp-text-color: var(--#{$prefix}body-color);
+		--dp-hover-color: rgba(var(--#{$prefix}theme-rgb), .15);
+		--dp-hover-text-color: var(--#{$prefix}inverse);
+		--dp-hover-icon-color: rgba(var(--#{$prefix}inverse-rgb), .5);
+		--dp-primary-color: var(--#{$prefix}theme);
+		--dp-primary-text-color: var(--#{$prefix}theme-color);
+		--dp-secondary-color: var(--#{$prefix}gray-500);
+		--dp-border-color: var(--#{$prefix}border-color);
+		--dp-menu-border-color: var(--#{$prefix}border-color);
+		--dp-border-color-hover: var(--#{$prefix}border-color);
+		--dp-disabled-color: var(--#{$prefix}gray-500);
+		--dp-scroll-bar-background: rgba(var(--#{$prefix}inverse-rgb), .25);
+		--dp-scroll-bar-color: var(--#{$prefix}gray-500);
+		--dp-success-color: var(--#{$prefix}success);
+		--dp-success-color-disabled: var(--#{$prefix}inverse);
+		--dp-icon-color: rgba(var(--#{$prefix}inverse-rgb), .5);
+		--dp-danger-color: var(--#{$prefix}danger);
+	}
+	& .dp__cell_inner,
+	& .dp__calendar_header_item {
+		padding: $spacer * .25;
+		width: rem(46px);
+		height: rem(34px);
+	}
+	& .dp__month_year_row {
+		padding: $spacer * .25;
+		height: rem(46px);
+	}
+	& .dp__calendar_row {
+		padding: 0 $spacer * .25;
+	}
+	& .dp__inner_nav {
+		width: rem(34px);
+		height: rem(34px);
+	}
+	& .dp__action_buttons {
+		display: flex;
+		justify-content: end;
+	}
+	& .dp__action {
+		display: inline-block;
+		font-family: $btn-font-family;
+		font-weight: $btn-font-weight;
+		line-height: $btn-line-height;
+		color: var(--#{$prefix}btn-color);
+		text-align: center;
+		text-decoration: if($link-decoration == none, null, none);
+		white-space: $btn-white-space;
+		vertical-align: middle;
+		cursor: if($enable-button-pointers, pointer, null);
+		user-select: none;
+		background-color: transparent;
+		border: $btn-border-width solid var(--#{$prefix}btn-border-color);
+		font-size: $font-size-sm;
+		@include transition($btn-transition);
+		
+		&.dp__cancel {
+    	@include button-outline-variant($default);
+		}
+		&.dp__select {
+			--#{$prefix}btn-color: var(--#{$prefix}theme);
+			--#{$prefix}btn-border-color: var(--#{$prefix}theme);
+			--#{$prefix}btn-hover-color: var(--#{$prefix}theme-color);
+			--#{$prefix}btn-hover-bg: var(--#{$prefix}theme);
+			--#{$prefix}btn-hover-border-color: var(--#{$prefix}theme);
+			--#{$prefix}btn-focus-shadow-rgb: var(--#{$prefix}theme-rgb);
+			--#{$prefix}btn-active-color: var(--#{$prefix}theme-color);
+			--#{$prefix}btn-active-bg: var(--#{$prefix}theme);
+			--#{$prefix}btn-active-border-color: var(--#{$prefix}theme);
+			--#{$prefix}btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+			--#{$prefix}btn-disabled-color: var(--#{$prefix}theme);
+			--#{$prefix}btn-disabled-bg: transparent;
+			--#{$prefix}btn-disabled-border-color: var(--#{$prefix}theme);
+			--#{$prefix}gradient: none;
+		}
+		&:hover {
+			color: var(--#{$prefix}btn-hover-color);
+			background: var(--#{$prefix}btn-hover-bg);
+		}
+		& + .dp__action {
+			@if $enable-rtl {
+				margin-right: $spacer * .5;
+			} @else {
+				margin-left: $spacer * .5;
+			}
+		}
+	}
+	& .dp__input {
+		display: block;
+		width: 100%;
+		font-family: $font-family-base;
+		font-weight: $input-font-weight;
+		line-height: $input-line-height;
+		color: $input-color;
+		background-color: $input-bg;
+		background-clip: padding-box;
+		border: $input-border-width solid $input-border-color;
+		appearance: none;
+		
+		@include font-size($input-font-size);
+		@include border-radius($input-border-radius, 0);
+		@include box-shadow($input-box-shadow);
+		
+		&::placeholder {
+  		font-family: $input-font-family;
+  		color: $input-placeholder-color;
+		}
+		&.dp__input_focus {
+			color: $input-focus-color;
+			background-color: $input-focus-bg;
+			border-color: $input-focus-border-color;
+			outline: 0;
+			@if $enable-shadows {
+				@include box-shadow($input-box-shadow, $input-focus-box-shadow);
+			} @else {
+				box-shadow: $input-focus-box-shadow;
+			}
+		}
+	}
+}

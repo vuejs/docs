@@ -1,0 +1,38 @@
+.btn-scroll-top {
+	position: fixed;
+	bottom: rem(30px);
+	width: rem(40px);
+	height: rem(40px);
+	background: rgba($gray-800, .75);
+	color: $white;
+	text-align: center;
+	text-decoration: none;
+	z-index: $app-header-zindex;
+	border-radius: 36px;
+	transition: $btn-transition;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	@if $enable-rtl {
+		left: rem(30px);
+	} @else {
+		right: rem(30px);
+	}
+	@include media-breakpoint-down(md) {
+		bottom: rem(20px);
+		z-index: $app-header-zindex;
+		
+		@if $enable-rtl {
+			left: rem(20px);
+		} @else {
+			right: rem(20px);
+		}
+	}
+	
+	&:hover {
+		background: var(--#{$prefix}theme);
+		color: var(--#{$prefix}theme-color);
+		text-decoration: none;
+	}
+}

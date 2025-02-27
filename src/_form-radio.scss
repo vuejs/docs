@@ -1,0 +1,7 @@
+@if $enable-dark-mode {
+  @include color-mode(dark, true) {
+		.form-check-input:checked[type=radio] {
+			--#{$prefix}form-check-bg-image: #{escape-svg($form-check-radio-checked-bg-image-dark)};
+		}
+	}
+}

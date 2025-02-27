@@ -1,0 +1,25 @@
+@keyframes appDropdownShow {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.dropdown-menu {
+	box-shadow: $dropdown-box-shadow;
+	
+	&.show {
+		animation: appDropdownShow 0.25s both cubic-bezier(0.7, 0, 0.3, 1);
+	}
+}
+.dropdown {
+	&.dropdown-mobile-full {
+		@include media-breakpoint-down(sm) {
+			position: initial;
+		
+			& .dropdown-menu {
+				left: $spacer * .25 !important;
+				right: $spacer * .25 !important;
+				width: auto !important;
+			}
+		}
+	}
+}

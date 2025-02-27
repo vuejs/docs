@@ -1,0 +1,4 @@
+body .vue3-progress-bar-container .vue3-progress-bar {
+	height: rem(3px);
+	background: var(--#{$prefix}theme);
+}

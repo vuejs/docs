@@ -1,0 +1,215 @@
+.nav-wizards-container {
+	@include media-breakpoint-down(md) {
+		overflow: scroll;
+		
+		& .nav.nav-wizards-1,
+		& .nav.nav-wizards-2,
+		& .nav.nav-wizards-3 {
+			min-width: rem(600px);
+		}
+	}
+}
+
+.nav {
+	&.nav-wizards-1 {
+		& .nav-item {
+			padding: 0;
+			
+			& .nav-link {
+				position: relative;
+				color: rgba(var(--#{$prefix}inverse-rgb), .75);
+				
+				& .nav-no {
+					width: rem(40px);
+					height: rem(40px);
+					margin: 0 auto;
+					font-weight: $font-weight-bold;
+					background: none;
+					border: 2px solid var(--#{$prefix}border-color);
+					position: relative;
+					z-index: 10;
+					border-radius: 40px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transition: all .2s linear;
+				}
+				& .nav-text {
+					text-align: center;
+					margin-top: rem(5px);
+					font-weight: $font-weight-bold;
+					font-size: $font-size-base - rem(1px);
+				}
+				&.active,
+				&.completed {
+					color: var(--#{$prefix}theme);
+					
+					& .nav-no {
+						border-color: var(--#{$prefix}theme);
+						color: var(--#{$prefix}theme);
+					}
+					&:before,
+					&:after {
+						background: var(--#{$prefix}theme);
+					}
+				}
+				&.active {
+					& .nav-no {
+						box-shadow: 0 0 0 5px rgba(var(--#{$prefix}theme-rgb), .2);
+					}
+				}
+				&.disabled {
+					color: rgba(var(--#{$prefix}inverse-rgb), .25);
+				}
+				&:before {
+					content: '';
+					position: absolute;
+					top: $nav-link-padding-x + rem(10px);
+					height: rem(2px);
+					background: rgba(var(--#{$prefix}inverse-rgb), .3);
+					transition: all .2s linear;
+				}
+				&:before {
+					left: calc(-50% + 20px);
+					right: calc(50% + 20px);
+				}
+			}
+			&:first-child {
+				& .nav-link {
+					&:before {
+						display: none;
+					}
+				}
+			}
+			&:last-child {
+				& .nav-link {
+					&:after {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	&.nav-wizards-2 {
+		& .nav-item {
+			padding: 0 $nav-link-padding-x;
+			
+			& .nav-link {
+				position: relative;
+				color: rgba(var(--#{$prefix}inverse-rgb), .75);
+				background: rgba(var(--#{$prefix}inverse-rgb), .15);
+				border-radius: 60px;
+				
+				& .nav-text {
+					text-align: center;
+					font-weight: $font-weight-bold;
+					font-size: $font-size-base - rem(1px);
+				}
+				&:before {
+					content: '';
+					position: absolute;
+					left: $nav-link-padding-x * -2;
+					right: 100%;
+					height: rem(2px);
+					top: 50%;
+					margin-top: rem(-1px);
+					background-color: rgba(var(--#{$prefix}inverse-rgb), .3);
+					transition: all .2s linear;
+				}
+				&.disabled {
+					color: rgba(var(--#{$prefix}inverse-rgb), .35);
+				}
+				&.active,
+				&.completed {
+					background: var(--#{$prefix}theme);
+					color: var(--#{$prefix}theme-color);
+					
+					&:before {
+						background: var(--#{$prefix}theme);
+					}
+				}
+				&.active {
+					box-shadow: 0 0 0 4px rgba(var(--#{$prefix}theme-rgb), .2);
+				}
+			}
+			&:first-child {
+				& .nav-link {
+					&:before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	&.nav-wizards-3 {
+		& .nav-item {
+			padding: 0;
+			
+			& .nav-link {
+				position: relative;
+				color: rgba(var(--#{$prefix}inverse-rgb), .75);
+				
+				& .nav-dot {
+					width: rem(16px);
+					height: rem(16px);
+					margin: 0 auto;
+					font-weight: $font-weight-bold;
+					background: none;
+					border: 3px solid var(--#{$prefix}border-color);
+					position: relative;
+					z-index: 10;
+					border-radius: 10px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transition: all .2s linear;
+				}
+				& .nav-title {
+					margin-top: rem(10px);
+					font-weight: $font-weight-bold;
+					text-align: center;
+				}
+				& .nav-text {
+					text-align: center;
+					font-size: $font-size-base - rem(1px);
+				}
+				&.active,
+				&.completed {
+					color: var(--#{$prefix}theme);
+					
+					& .nav-dot {
+						border-color: var(--#{$prefix}theme);
+						color: var(--#{$prefix}theme);
+					}
+					&:before {
+						background: var(--#{$prefix}theme);
+					}
+				}
+				&.active {
+					& .nav-dot {
+						box-shadow: 0 0 0 5px rgba(var(--#{$prefix}theme-rgb), .2);
+					}
+				}
+				&.disabled {
+					color: rgba(var(--#{$prefix}inverse-rgb), .25);
+				}
+				&:before {
+					content: '';
+					position: absolute;
+					left: calc(-50% + 8px);
+					top: $nav-link-padding-y + rem(6px);
+					right: calc(50% + 8px);
+					height: rem(3px);
+					background: rgba(var(--#{$prefix}inverse-rgb), .3);
+				}
+			}
+			&:first-child {
+				& .nav-link {
+					&:before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

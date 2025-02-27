@@ -1,0 +1,25 @@
+.breadcrumb {
+	font-weight: bold;
+	
+	& .breadcrumb-item {
+		& a {
+			text-decoration: none;
+			
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		& + .breadcrumb-item {
+			@if ($enable-rtl) {
+				padding-left: 0;
+				padding-right: $spacer * .5;
+				
+				&:before {
+					float: right;
+					padding-right: 0;
+					padding-left: $spacer * .5;
+				}
+			}
+		}
+	}
+}

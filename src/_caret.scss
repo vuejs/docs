@@ -1,0 +1,24 @@
+.caret {
+	&:before {
+		content: "\f22c";
+		display: inline-block;
+    font-family: bootstrap-icons!important;
+    font-style: normal;
+    font-weight: 400!important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: -.125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	}
+}
+.dropup {
+	&.caret,
+	& .caret {
+		content: '';
+		border-top: 0;
+		border-bottom: 4px dashed;
+		border-bottom: 4px solid\9;
+  }
+}

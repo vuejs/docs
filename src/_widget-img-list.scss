@@ -1,0 +1,34 @@
+.widget-img-list {
+	margin: rem(-1px);
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	
+	& .widget-img-list-item {
+		padding: rem(1px);
+		width: 20%;
+		
+		& a {
+			display: block;
+			text-decoration: none;
+			padding-top: 100%;
+			position: relative;
+			overflow: hidden;
+			
+			& img,
+			& .img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				max-width: 100%;
+			}
+			& .img {
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;	
+			}
+		}
+	}
+}

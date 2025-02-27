@@ -1,0 +1,22 @@
+.toasts-container {
+	position: fixed;
+	top: $app-header-height;
+	padding-top: $app-content-padding-y * 0.5;
+	width: rem(350px);
+	
+	@if $enable-rtl {
+		left: 0;
+		padding-left: $app-content-padding-y * 0.5;
+	} @else {
+		right: 0;
+		padding-right: $app-content-padding-y * 0.5;
+	}
+	
+	@include media-breakpoint-down(md) {
+		width: rem(300px);
+	}
+	
+	& .toast {
+		width: 100%;
+	}
+}

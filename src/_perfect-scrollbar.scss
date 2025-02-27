@@ -1,0 +1,32 @@
+.ps {
+	position: relative;
+	
+	& .ps__rail-x,
+	& .ps__rail-y {
+		z-index: 10;
+		
+		&.ps--clicking,
+		&:hover,
+		&:focus {
+			background: none;
+		}
+	}
+	& .ps__thumb-y {
+		border-radius: 0;
+		background: none;
+		
+		&:before {
+			content: '';
+			background: #aaa;
+			position: absolute;
+			top: rem(1px);
+			bottom: rem(1px);
+			right: 0;
+			left: 0;
+		}
+	}
+}
+.app-sidebar .ps__rail-x,
+.app-sidebar .ps__rail-y {
+	display: none;
+}

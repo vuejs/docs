@@ -1,0 +1,39 @@
+body {
+	& .picmo__light,
+	& .picmo__auto {
+		&.picmo__picker {
+			--background-color: #{$dropdown-bg};
+			--secondary-background-color: #{$dropdown-bg};
+			--border-color: var(--#{$prefix}border-color);
+			--emoji-font: #{$font-family-base};
+			--ui-font: #{$font-family-base};
+			--text-color: var(--#{$prefix}body-color);
+			--accent-color: var(--#{$prefix}theme);
+			--category-name-background-color: #{rgba(var(--#{$prefix}inverse-rgb), .15)};
+			--category-name-text-color: var(--#{$prefix}body-color);
+			--search-background-color: var(--#{$prefix}body-bg);
+			--search-focus-background-color: var(--#{$prefix}body-bg);
+			--search-icon-color: var(--#{$prefix}body-color);
+			--category-tab-active-color: var(--#{$prefix}theme);
+			--hover-background-color: #{rgba(var(--#{$prefix}inverse-rgb), .15)};
+			--tag-background-color: var(--#{$prefix}body-bg);
+			--border-radius: #{$dropdown-border-radius};
+			
+			box-shadow: #{$dropdown-box-shadow};
+	
+			& .emojiCategory {
+				& .categoryName {
+					font-size: $font-size-sm;
+					height: auto;
+				}
+			}
+		}
+	}
+	& .picmo__popupContainer {
+		z-index: 9999;
+	
+		& .picmo__closeButton {
+			background: var(--#{$prefix}border-color);
+		}
+	}
+}

@@ -1,0 +1,87 @@
+body {
+	& .vue-tags-input {
+		display: block;
+		width: 100%;
+		font-weight: $input-font-weight;
+		line-height: $input-line-height;
+		color: $input-color;
+		background-color: $input-bg !important;
+		background-clip: padding-box;
+		padding: $input-padding-y $input-padding-x;
+		border: $input-border-width solid $input-border-color;
+		appearance: none;
+		max-width: 100% !important;
+	
+		@include font-size($input-font-size);
+		@include border-radius($input-border-radius, 0);
+		@include box-shadow($input-box-shadow);
+		@include transition($input-transition);
+	
+		&::placeholder {
+			font-family: $input-font-family;
+			color: $input-placeholder-color;
+		}
+		&.ti-focus {
+			color: $input-focus-color;
+			background-color: $input-focus-bg;
+			border-color: $input-focus-border-color;
+			outline: 0;
+			@if $enable-shadows {
+				@include box-shadow($input-box-shadow, $input-focus-box-shadow);
+			} @else {
+				box-shadow: $input-focus-box-shadow;
+			}
+		}
+		& .ti-input {
+			border: none;
+			padding: 0;
+			margin: 0 $input-padding-x * -.25;
+			
+			& .ti-tags {
+				& .ti-tag {
+					padding: rem(1px) rem(8px);
+					margin: 0 $input-padding-x * .25;
+					border-radius: $border-radius;
+					background: var(--#{$prefix}theme);
+					font-weight: $font-weight-semibold;
+					color: var(--#{$prefix}theme-color);
+					font-size: $font-size-base * .9;
+				}
+				& .ti-new-tag-input-wrapper {
+					margin: 0;
+					padding: 0 $input-padding-x * .5;
+					
+					& .ti-new-tag-input {
+						background: $input-bg;
+						line-height: $input-line-height;
+						color: $input-color;
+						font-size: $input-font-size;
+						
+						&::placeholder {
+							font-family: $input-font-family;
+							color: $input-placeholder-color;
+						}
+					}
+				}
+			}
+		}
+		& .ti-autocomplete {
+			background: $dropdown-bg;
+			border: 1px solid $dropdown-border-color !important;
+			padding: $dropdown-padding-y 0;
+			left: 0;
+			right: 0;
+			margin-top: $spacer * .25;
+			
+			& .ti-item {
+				& > div {
+					padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+				}
+				&.ti-selected-item {
+					background: $dropdown-link-hover-bg;
+					color: var(--#{$prefix}body-color);
+				}
+			}
+		}
+	}
+}

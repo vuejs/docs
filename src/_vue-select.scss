@@ -1,0 +1,100 @@
+body {
+	& .v-select {
+		--vs-controls-color: #{ $input-color };
+		--vs-actions-padding: 0;
+		--vs-controls-size: 0.75;
+		--vs-dropdown-bg: #{ $dropdown-bg };
+		--vs-selected-color: #{ $input-color };
+		--vs-selected-border-width: 0;
+		--vs-line-height: #{ $input-line-height };
+		--vs-dropdown-option--active-bg: var(--#{$prefix}theme);
+		--vs-dropdown-option--active-color: var(--#{$prefix}theme-color);
+		
+		& .vs__dropdown-toggle {
+			display: flex;
+			width: 100%;
+			padding: $form-select-padding-y $form-select-padding-x;
+			// stylelint-disable-next-line property-no-vendor-prefix
+			-moz-padding-start: subtract($form-select-padding-x, 3px); // See https://github.com/twbs/bootstrap/issues/32636
+			border: $form-select-border-width solid $form-select-border-color;
+			@include border-radius($form-select-border-radius, 0);
+			@include box-shadow($form-select-box-shadow);
+			@include transition($form-select-transition);
+			appearance: none;
+
+			&:focus {
+				border-color: $form-select-focus-border-color;
+				outline: 0;
+				@if $enable-shadows {
+					@include box-shadow($form-select-box-shadow, $form-select-focus-box-shadow);
+				} @else {
+					// Avoid using mixin so we can pass custom focus shadow properly
+					box-shadow: $form-select-focus-box-shadow;
+				}
+			}
+			& .vs__selected-options {
+				padding: 0;
+			}
+			& .vs__search, 
+			& .vs__search:focus {
+				margin: 0;
+				border: none;
+				font-family: $form-select-font-family;
+				@include font-size($form-select-font-size);
+				font-weight: $form-select-font-weight;
+				line-height: $form-select-line-height;
+				color: $form-select-color;
+			}
+		}
+		& .vs__dropdown-menu {
+			padding: $dropdown-padding-y $dropdown-padding-x;
+			border: 1px solid $dropdown-border-color;
+			box-shadow: $dropdown-box-shadow;
+		}
+		& .vs__selected-options {
+			& .vs__selected {
+				margin: 0;
+				
+				@if $enable-rtl {
+					margin-left: $spacer * .5;
+				} @else {
+					margin-right: $spacer * .5;
+				}
+			}
+		}
+		& .vs__search {
+			padding: 0;
+		}
+		& .vs__clear {
+			margin-top: rem(-4px);
+		}
+		& .vs__dropdown-option {
+			padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+			
+			&:hover,
+			&:focus {
+				background: $dropdown-link-hover-bg;
+				color: $dropdown-link-hover-color;
+			}
+		}
+		
+		&.vs--multiple {
+			& .vs__selected-options {
+				& .vs__selected {
+					--vs-controls-color: var(--#{$prefix}theme-color);
+					
+					background: var(--#{$prefix}theme);
+					color: var(--#{$prefix}theme-color);
+					font-size: $font-size-base * .9;
+					font-weight: 500;
+					padding: 0 $spacer * .5;
+					border-radius: $border-radius-sm;
+					
+					& .vs__deselect {
+						transform: scale(0.8);
+					}
+				}
+			}
+		}
+	}
+}

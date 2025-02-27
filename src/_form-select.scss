@@ -1,0 +1,5 @@
+.form-select:not([multiple]) {
+	& option {
+		color: $black;
+	}
+}

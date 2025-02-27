@@ -1,0 +1,26 @@
+.nav {
+	&.nav-tabs {
+		&.nav-tabs-v2 {
+			& > .nav-item {
+				& > .nav-link {
+					border: none;
+					border-bottom: 3px solid transparent;
+					padding: $nav-link-padding-x 0;
+					color: var(--#{$prefix}inverse);
+					
+					&:hover,
+					&.active {
+						color: $nav-tabs-link-active-color;
+						border-bottom-color: var(--#{$prefix}theme);
+					}
+				}
+				&.show {
+					& > .nav-link {
+						color: $nav-tabs-link-active-color;
+						border-bottom-color: var(--#{$prefix}theme);
+					}
+				}
+			}
+		}
+	}
+}

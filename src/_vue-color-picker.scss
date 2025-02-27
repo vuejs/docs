@@ -1,0 +1,31 @@
+body {
+	& .hu-color-picker {
+		padding: 0;
+		background: none;
+		box-shadow: none;
+		
+		& .color-type {
+			& .name {
+				color: var(--#{$prefix}inverse);
+				background: rgba(var(--#{$prefix}inverse-rgb), .25);
+			}
+			& .value {
+				background: rgba(var(--#{$prefix}inverse-rgb), .125);
+				color: var(--#{$prefix}inverse);
+				
+				@include transition($input-transition);
+				
+				&:focus {
+					border-color: $input-focus-border-color;
+					outline: 0;
+					
+					@if $enable-shadows {
+						@include box-shadow($input-box-shadow, $input-focus-box-shadow);
+					} @else {
+						box-shadow: $input-focus-box-shadow;
+					}
+				}
+			}
+		}
+	}
+}

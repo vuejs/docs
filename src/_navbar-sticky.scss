@@ -1,0 +1,33 @@
+.navbar {
+	&.navbar-sticky {
+		top: $app-header-height + $app-content-padding-y;
+		position: sticky;
+		padding: 0;
+
+		@if $enable-rtl {
+			border-right: 1px solid var(--#{$prefix}border-color);
+			margin-right: $spacer;
+		} @else {
+			border-left: 1px solid var(--#{$prefix}border-color);
+			margin-left: $spacer;
+		}
+		
+		& .nav {
+			width: 100%;
+			flex-direction: column;
+			
+			& .nav-link {
+				color: rgba(var(--#{$prefix}inverse-rgb), .6);
+				padding: $spacer * .25 $spacer * 1.5;
+				
+				&:hover {
+					color: rgba(var(--#{$prefix}inverse-rgb), 1);
+				}
+				&.active {
+					color: var(--#{$prefix}theme);
+					font-weight: $font-weight-semibold;
+				}
+			}
+		}
+	}
+}

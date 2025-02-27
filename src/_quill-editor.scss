@@ -1,0 +1,57 @@
+body {
+	& .ql-toolbar,
+	& .ql-container {
+		border-color: var(--#{$prefix}border-color) !important;
+		
+		& .ql-picker {
+			color: var(--#{$prefix}inverse);
+		}
+		& button,
+		& .ql-picker-label,
+		& .ql-picker-item {
+			&:hover,
+			&:focus {
+				background: rgba(var(--#{$prefix}inverse-rgb), .25) !important;
+				border-radius: $border-radius;
+			}
+			&.ql-active {
+				background: rgba(var(--#{$prefix}theme-rgb), .25) !important;
+				border-radius: $border-radius;
+				color: var(--#{$prefix}theme) !important;
+				border: none !important;
+				
+				& .ql-stroke {
+					stroke: var(--#{$prefix}theme) !important;
+				}
+				& .ql-fill {
+					fill: var(--#{$prefix}theme) !important;
+				}
+			}
+		}
+		& .ql-picker-options .ql-picker-item {
+			border-radius: 0 !important;
+			
+			&:hover,
+			&:focus {
+				background: rgba(var(--#{$prefix}inverse-rgb), .25) !important;
+				color: var(--#{$prefix}inverse);
+			}
+			&.ql-selected {
+				background: rgba(var(--#{$prefix}theme-rgb), .25) !important;
+				color: var(--#{$prefix}theme) !important;
+			}
+		}
+		& .ql-stroke {
+			fill: transparent;
+			stroke: var(--#{$prefix}inverse);
+		}
+	}
+}
+.border-0 .ql-toolbar {
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+}
+.border-0 .ql-container {
+	border: none !important;
+}

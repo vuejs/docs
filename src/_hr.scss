@@ -1,0 +1,18 @@
+hr {
+	&.hr-bg,
+	&.hr-transparent,
+	&.hr-inverse,
+	&.hr-inverse-transparent {
+		border: none;
+		height: 1px;
+	}
+	&.hr-transparent {
+		background-color: rgba($black, .3);
+	}
+	&.hr-inverse {
+		background-color: lighten($black, 10%);
+	}
+	&.hr-inverse-transparent {
+		background-color: rgba($white, .3);
+	}
+}

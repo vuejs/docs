@@ -1,0 +1,33 @@
+.widget-user-list {
+	display: flex;
+	align-items: center;
+	
+	& .widget-user-list-item {
+		& .widget-user-list-link {
+			border: 2px solid var(--#{$prefix}body-bg);
+			overflow: hidden;
+			width: rem(40px);
+			height: rem(40px);
+			text-align: center;
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 40px;
+			
+			& img {
+				display: block;
+				max-width: 100%;
+				max-height: 100%;
+			}
+		}
+		
+		& + .widget-user-list-item {
+			@if $enable-rtl {
+				margin-right: rem(-20px);
+			} @else {
+				margin-left: rem(-20px);
+			}
+		}
+	}
+}
