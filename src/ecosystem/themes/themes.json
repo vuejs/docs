@@ -1,5 +1,26 @@
 [
   {
+    "name": "Nuxt UI",
+    "description": "Nuxt UI is a free and open-source UI library for Vue.js. It is built on top of Tailwind CSS and includes a variety of components and utilities that can be used to quickly build modern, responsive web applications.",
+    "seeMoreUrl": "https://ui.nuxt.com",
+    "products": [
+      {
+        "name": "UI Pro Components",
+        "price": 199,
+        "description": "Premium Vue components, composables, and utils based on Nuxt UI.",
+        "url": "https://ui.nuxt.com/pro",
+        "image": "https://assets.hub.nuxt.com/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL2Rhc2hib2FyZC10ZW1wbGF0ZS5udXh0LmRldiIsImlhdCI6MTczOTQ2MzU2N30._VElt4uvLjvAMdnTLytCInOajMElzWDKbmvOaMZhZUI.jpg?theme=dark"
+      },
+      {
+        "name": "Dashboard",
+        "price": 199,
+        "description": "Vue Dashboard Template made with Nuxt UI Pro.",
+        "url": "https://vue-dashboard-template.nuxt.dev",
+        "image": "https://assets.hub.nuxt.com/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL2Rhc2hib2FyZC10ZW1wbGF0ZS5udXh0LmRldiIsImlhdCI6MTczOTQ2MzU2N30._VElt4uvLjvAMdnTLytCInOajMElzWDKbmvOaMZhZUI.jpg?theme=dark"
+      }
+    ]
+  },
+  {
     "name": "Creative Tim",
     "description": "With the examples below built by our partners from [Creative Tim](https://creative-tim.com?affiliate_id=116187) you can see how a real-world application is built, the technology stack behind it and how most of the concepts you've learned so far apply in a real-world application.",
     "seeMoreUrl": "https://www.creative-tim.com/bootstrap-themes/vuejs-themes?affiliate_id=116187",
