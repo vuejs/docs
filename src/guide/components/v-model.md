@@ -205,7 +205,7 @@ export default {
 
 </div>
 
-## `v-model` arguments {#v-model-arguments}
+## `v-model` Arguments {#v-model-arguments}
 
 `v-model` on a component can also accept an argument:
 
@@ -289,7 +289,7 @@ export default {
 
 </div>
 
-## Multiple `v-model` bindings {#multiple-v-model-bindings}
+## Multiple `v-model` Bindings {#multiple-v-model-bindings}
 
 By leveraging the ability to target a particular prop and event as we learned before with [`v-model` arguments](#v-model-arguments), we can now create multiple `v-model` bindings on a single component instance.
 
@@ -380,7 +380,7 @@ export default {
 
 </div>
 
-## Handling `v-model` modifiers {#handling-v-model-modifiers}
+## Handling `v-model` Modifiers {#handling-v-model-modifiers}
 
 When we were learning about form input bindings, we saw that `v-model` has [built-in modifiers](/guide/essentials/forms#modifiers) - `.trim`, `.number` and `.lazy`. In some cases, you might also want the `v-model` on your custom input component to support custom modifiers.
 
@@ -522,7 +522,7 @@ export default {
 
 </div>
 
-### Modifiers for `v-model` with arguments {#modifiers-for-v-model-with-arguments}
+### Modifiers for `v-model` with Arguments {#modifiers-for-v-model-with-arguments}
 
 <div class="options-api">
 
