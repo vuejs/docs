@@ -31,15 +31,15 @@ function dismiss() {
       <span class="vt-date"> · 19-21 May 2025</span>
       <a target="_blank" class="vt-primary-action"
          href="https://vueconf.us/?utm_source=vuejs&utm_content=top_banner">
-        Register Now
+        Register
       </a>
     </p>
     <button @click="dismiss">
       <VTIconPlus class="close" />
     </button>
     <p class="vt-banner-text vt-coupon">
-      <span class="vt-text-primary">Use code</span> VUEJSDOCS
-      <span class="vt-text-primary">to get $200 off!</span>
+      <span class="vt-text-primary">Use</span> VUEJSDOCS
+      <span class="vt-text-primary"> $200 off</span>
     </p>
   </div>
 </template>
@@ -85,7 +85,7 @@ button {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 20px 10px;
+  padding: 10px 10px;
 }
 
 .close {
@@ -111,7 +111,7 @@ button {
   border-radius: 5px;
   font-size: 14px;
   text-decoration: none;
-  margin: 0 20px;
+  margin: 0 10px;
   font-weight: bold;
 }
 
@@ -125,23 +125,16 @@ button {
     font-size: 14px;
   }
 
-  .vt-tagline {
-    display: none;
-  }
+
 }
 
 @media (max-width: 780px) {
   .vt-tagline {
     display: none;
   }
-
-  .vt-coupon {
-    display: none;
-  }
-
   .vt-primary-action {
     margin: 0 10px;
-    padding: 5px 8px;
+    padding: 5px 5px;
   }
 
   .vt-time-now {
@@ -150,7 +143,14 @@ button {
 }
 
 @media (max-width: 560px) {
+
+  .vt-tagline {
+    display: none;
+  }
   .vt-place {
+    display: none;
+  }
+  .vt-date {
     display: none;
   }
 }
