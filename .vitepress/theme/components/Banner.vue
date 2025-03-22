@@ -143,10 +143,7 @@ button {
 }
 
 @media (max-width: 560px) {
-
-  .vt-tagline {
-    display: none;
-  }
+  
   .vt-place {
     display: none;
   }
