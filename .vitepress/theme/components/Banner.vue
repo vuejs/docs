@@ -22,16 +22,31 @@ function dismiss() {
 
 <template>
   <div class="banner" v-if="open">
-    <a target="_blank"></a>
+    <p class="vt-banner-text">
+      <span class="vt-text-primary">
+        Vueconf.US
+      </span>
+      <span class="vt-tagline"> · The official Vue.js conf</span>
+      <span class="vt-place"> · Tampa, USA</span>
+      <span class="vt-date"> · 19-21 May 2025</span>
+      <a target="_blank" class="vt-primary-action"
+         href="https://vueconf.us/?utm_source=vuejs&utm_content=top_banner">
+        Register
+      </a>
+    </p>
     <button @click="dismiss">
       <VTIconPlus class="close" />
     </button>
+    <p class="vt-banner-text vt-coupon">
+      <span class="vt-text-primary">Use</span> VUEJSDOCS
+      <span class="vt-text-primary"> $200 off</span>
+    </p>
   </div>
 </template>
 
 <style>
 html:not(.banner-dismissed) {
-  --vt-banner-height: 30px;
+  --vt-banner-height: 60px;
 }
 </style>
 
@@ -50,12 +65,12 @@ html:not(.banner-dismissed) {
   font-weight: 600;
   color: #fff;
   background-color: var(--vt-c-green);
-  background: linear-gradient(
-    90deg,
-    rgba(66, 184, 131, 1) 0%,
-    rgba(39, 179, 137, 1) 19%,
-    rgba(100, 126, 255, 1) 100%
-  );
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
 }
 
 .banner-dismissed .banner {
@@ -70,7 +85,7 @@ button {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 5px;
+  padding: 10px 10px;
 }
 
 .close {
@@ -79,10 +94,61 @@ button {
   fill: #fff;
   transform: rotate(45deg);
 }
-/*
-@media (max-width: 720px) {
-  a > span {
+
+.vt-banner-text {
+  color: #fff;
+  font-size: 16px;
+}
+
+.vt-text-primary {
+  color: #75c05e;
+}
+
+.vt-primary-action {
+  background: #75c05e;
+  color: #121c1a;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.vt-primary-action:hover {
+  text-decoration: none;
+  background: #c4d141;
+}
+
+@media (max-width: 1280px) {
+  .banner .vt-banner-text {
+    font-size: 14px;
+  }
+
+
+}
+
+@media (max-width: 780px) {
+  .vt-tagline {
     display: none;
   }
-} */
+  .vt-primary-action {
+    margin: 0 10px;
+    padding: 5px 5px;
+  }
+
+  .vt-time-now {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  
+  .vt-place {
+    display: none;
+  }
+  .vt-date {
+    display: none;
+  }
+}
 </style>
