@@ -330,7 +330,7 @@ In comparison, properties like `height` or `margin` will trigger CSS layout, so 
 
 You can hook into the transition process with JavaScript by listening to events on the `<Transition>` component:
 
-```html
+```vue-html
 <Transition
   @before-enter="onBeforeEnter"
   @enter="onEnter"
