@@ -306,9 +306,10 @@ declare module 'vue' {
 
 Here is the recommended way to enable type checking in SFC templates of Custom Elements that are not built with Vue.
 
-> [!Note]
-> This approach is one possible way to do it, but it may vary depending on the
-> framework being used to create the custom elements.
+:::tip Note
+- This approach is one possible way to do it, but it may vary depending on the
+- framework being used to create the custom elements.
+:::
 
 Suppose we have a custom element with some JS properties and events defined, and it is shipped in a library called `some-lib`:
 
@@ -389,11 +390,12 @@ type VueEmit<T extends EventMap> = EmitFn<{
 }>
 ```
 
-> [!Note]
-> We marked `$props` and `$emit` as deprecated so that when we get a `ref` to
-> a custom element we will not be tempted to use these properties, as these
-> properties are for type checking purposes only when it comes to custom elements.
-> These properties do not actually exist on the custom element instances.
+:::tip Note
+- We marked `$props` and `$emit` as deprecated so that when we get a `ref` to
+- a custom element we will not be tempted to use these properties, as these
+- properties are for type checking purposes only when it comes to custom elements.
+- These properties do not actually exist on the custom element instances.
+:::
 
 Using the type helper we can now select the JS properties that should be exposed for type checking in Vue templates:
 
