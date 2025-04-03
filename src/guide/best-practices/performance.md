@@ -105,13 +105,15 @@ In Vue, a child component only updates when at least one of its received props h
 
 Inside the `<ListItem>` component, it uses its `id` and `activeId` props to determine whether it is the currently active item. While this works, the problem is that whenever `activeId` changes, **every** `<ListItem>` in the list has to update!
 
-Ideally, only the items whose active status changed should update. We can achieve that by moving the active status computation into the parent, and make `<ListItem>` directly accept an `active` prop instead:
+Ideally, only the items whose active status changed should update. We can achieve that by moving the active status computation into the parent, make `<ListItem>` directly accept an `active` prop instead and use `v-memo` to conditionally skip the update by checking that every value in the array was the same as last render:
 
 ```vue-html
 <ListItem
   v-for="item in list"
   :id="item.id"
-  :active="item.id === activeId" />
+  :active="item.id === activeId"
+  v-memo="[item.id === activeId]"
+/>
 ```
 
 Now, for most components the `active` prop will remain the same when `activeId` changes, so they no longer need to update. In general, the idea is keeping the props passed to child components as stable as possible.
