@@ -100,7 +100,9 @@ In Vue, a child component only updates when at least one of its received props h
 <ListItem
   v-for="item in list"
   :id="item.id"
-  :active-id="activeId" />
+  :active-id="activeId"
+  @click="activeId = item.id"
+/>
 ```
 
 Inside the `<ListItem>` component, it uses its `id` and `activeId` props to determine whether it is the currently active item. While this works, the problem is that whenever `activeId` changes, **every** `<ListItem>` in the list has to update!
@@ -113,6 +115,7 @@ Ideally, only the items whose active status changed should update. We can achiev
   :id="item.id"
   :active="item.id === activeId"
   v-memo="[item.id === activeId]"
+  @click="activeId = item.id"
 />
 ```
 
