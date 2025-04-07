@@ -346,3 +346,24 @@ export default {
 In the above example, a parent referencing this component via template ref will only be able to access `publicData` and `publicMethod`.
 
 </div>
+
+<div class="options-api">
+
+## Reactivity of Refs {#reactivity-of-refs}
+
+Note that `this.$refs` is not reactive. For a reactive ref, you can use `useTemplateRef`:
+
+```vue
+<script>
+export default {
+  setup() {
+    useTemplateRef('input')
+  }
+}
+</script>
+
+<template>
+  <input ref="input" />
+</template>
+```
+</div>
