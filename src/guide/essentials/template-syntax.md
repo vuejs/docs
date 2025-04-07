@@ -66,7 +66,8 @@ Attributes that start with `:` may look a bit different from normal HTML, but it
 
 ### Same-name Shorthand {#same-name-shorthand}
 
-- Only supported in 3.4+
+- `v-bind`: Supported since 3.4
+- `v-model`: Supported since 3.6
 
 If the attribute has the same name with the JavaScript value being bound, the syntax can be further shortened to omit the attribute value:
 
@@ -76,9 +77,12 @@ If the attribute has the same name with the JavaScript value being bound, the sy
 
 <!-- this also works -->
 <div v-bind:id></div>
+
+<!-- same as v-model:foo="foo" -->
+<input v-model:foo>
 ```
 
-This is similar to the property shorthand syntax when declaring objects in JavaScript. Note this is a feature that is only available in Vue 3.4 and above.
+This works similarly to JavaScript’s object property shorthand and helps keep templates concise. Note `v-model` without an argument or bound expression (e.g., `<input v-model>`) is still invalid.
 
 ### Boolean Attributes {#boolean-attributes}
 
