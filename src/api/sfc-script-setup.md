@@ -522,6 +522,18 @@ defineProps<{
 </script>
 ```
 
+You can use `@vue-generic` the directive to pass in explicit types, for when the type cannot be inferred:
+
+```vue
+<template>
+  <!-- @vue-generic {import('@/api').Actor} -->
+  <ApiSelect v-model="selectedPeopleIds" endpoint="/api/actors" id-prop="actorId" />
+
+  <!-- @vue-generic {import('@/api').Genre} -->
+  <ApiSelect v-model="selectedGenreIds" endpoint="/api/genres" id-prop="genreId" />
+</template>
+```
+
 In order to use a reference to a generic component in a `ref` you need to use the [`vue-component-type-helpers`](https://www.npmjs.com/package/vue-component-type-helpers) library as `InstanceType` won't work.
 
 ```vue
