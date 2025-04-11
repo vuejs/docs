@@ -698,7 +698,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       {
         link: 'https://ru.vuejs.org',
         text: 'Русский',
-        repo: 'https://github.com/translation-gang/docs-ru'
+        repo: 'https://github.com/vuejs-translations/docs-ru'
       },
       {
         link: 'https://cs.vuejs.org',
