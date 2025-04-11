@@ -85,21 +85,21 @@ onMounted(load)
 
   <section id="highlights" class="vt-box-container">
     <div class="vt-box">
-      <h2><span style="color: var(--vt-c-green)">V</span>ersatile</h2>
+      <h2>Versatile</h2>
       <p>
         A rich, incrementally adoptable ecosystem that scales between a
         library and a full-featured framework.
       </p>
     </div>
     <div class="vt-box">
-      <h2><span style="color: var(--vt-c-green)">U</span>nderstandable </h2>
+      <h2>User-friendly</h2>
       <p>
         Builds on top of standard HTML, CSS and JavaScript with intuitive
         API and world-class documentation.
       </p>
     </div>
     <div class="vt-box">
-      <h2><span style="color: var(--vt-c-green)">E</span>fficient</h2>
+      <h2>Efficient</h2>
       <p>
         Truly reactive, compiler-optimized rendering system that rarely
         requires manual optimization.
@@ -285,6 +285,11 @@ html:not(.dark) .accent,
 #highlights .vt-box {
   background-color: transparent;
 }
+
+#highlights .vt-box h2::first-letter{
+  color: var(--vt-c-green);
+}
+  
 
 #sponsors {
   max-width: 900px;
