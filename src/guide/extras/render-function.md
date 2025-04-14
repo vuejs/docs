@@ -706,7 +706,25 @@ If the directive is registered by name and cannot be imported directly, it can b
 
 <div class="composition-api">
 
-With the Composition API, template refs are created by passing the `ref()` itself as a prop to the vnode:
+With the Composition API, when using [`useTemplateRef()`](/api/composition-api-helpers#usetemplateref) <sup class="vt-badge" data-text="3.5+" />  template refs are created by passing the string value as prop to the vnode:
+
+```js
+import { h, useTemplateRef } from 'vue'
+
+export default {
+  setup() {
+    const divEl = useTemplateRef('my-div')
+
+    // <div ref="my-div">
+    return () => h('div', { ref: 'my-div' })
+  }
+}
+```
+
+<details>
+<summary>Usage before 3.5</summary>
+
+In versions before 3.5 where useTemplateRef() was not introduced, template refs are created by passing the ref() itself as a prop to the vnode:
 
 ```js
 import { h, ref } from 'vue'
@@ -720,7 +738,7 @@ export default {
   }
 }
 ```
-
+</details>
 </div>
 <div class="options-api">
 
