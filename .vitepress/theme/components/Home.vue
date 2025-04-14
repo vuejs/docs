@@ -289,7 +289,6 @@ html:not(.dark) .accent,
 #highlights .vt-box h2::first-letter{
   color: var(--vt-c-green);
 }
-  
 
 #sponsors {
   max-width: 900px;
