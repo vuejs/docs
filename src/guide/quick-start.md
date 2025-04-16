@@ -106,6 +106,10 @@ If you are unsure about an option, simply choose `No` by hitting enter for now. 
   <VTCodeGroupTab label="yarn">
 
   ```sh-vue
+  # Set enableGlobalCache to false and specify the cache folder to "./.yarn/cache" in `.yarnrc.yml` 
+  # before running the following commands if you're using Yarn v4+,
+  # as Vite currently does not support global cache (https://github.com/vitejs/vite/issues/15801).
+
   $ cd {{'<your-project-name>'}}
   $ yarn
   $ yarn dev
