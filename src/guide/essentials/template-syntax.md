@@ -82,7 +82,7 @@ If the attribute has the same name with the JavaScript value being bound, the sy
 <input v-model:foo>
 ```
 
-This works similarly to JavaScript’s object property shorthand and helps keep templates concise. Note `v-model` without an argument or bound expression (e.g., `<input v-model>`) is still invalid.
+This works similarly to JavaScript’s object property shorthand and helps keep templates concise.
 
 ### Boolean Attributes {#boolean-attributes}
 
