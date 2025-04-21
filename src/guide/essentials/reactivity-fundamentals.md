@@ -301,7 +301,7 @@ export default {
 
 <div class="composition-api">
 
-Refs can hold any value type, including deeply nested objects, arrays, or JavaScript built-in data structures like `Map`.
+Refs can hold any value type or reference type, including deeply nested objects, arrays, or JavaScript built-in data structures like `Map`.
 
 A ref will make its value deeply reactive. This means you can expect changes to be detected even when you mutate nested objects or arrays:
 
