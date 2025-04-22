@@ -38,7 +38,7 @@ Shallow version of [`ref()`](./reactivity-core#ref).
 
 ## triggerRef() {#triggerref}
 
-Force trigger effects that depends on a [shallow ref](#shallowref). This is typically used after making deep mutations to the inner value of a shallow ref.
+Force trigger effects that depend on a [shallow ref](#shallowref). This is typically used after making deep mutations to the inner value of a shallow ref.
 
 - **Type**
 
