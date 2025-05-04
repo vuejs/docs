@@ -97,7 +97,7 @@ Use global properties scarcely, since it can quickly become confusing if too man
 
 ### Provide / Inject with Plugins {#provide-inject-with-plugins}
 
-Plugins also allow us to use `provide` to provide a function or attribute to the plugin's users. For example, we can allow the application to have access to the `options` parameter to be able to use the translations object.
+Plugins also allow us to use `provide` to give plugin users access to a function or attribute. For example, we can allow the application to have access to the `options` parameter to be able to use the translations object.
 
 ```js{10}
 // plugins/i18n.js
