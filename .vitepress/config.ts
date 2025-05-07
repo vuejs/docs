@@ -497,10 +497,6 @@ export const sidebar: ThemeConfig['sidebar'] = {
           text: 'List with Transitions',
           link: '/examples/#list-transition'
         },
-        {
-          text: 'TodoMVC',
-          link: '/examples/#todomvc'
-        }
       ]
     },
     {
