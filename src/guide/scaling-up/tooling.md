@@ -100,6 +100,9 @@ If you are looking for a lighter-weight alternative for no-build-step usage, che
 
 - Other IDEs that support the [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) can also leverage Volar's core functionalities via LSP:
 
+  - [Helix](https://helix-editor.com/) supports out-of-the-box, as long as you install [`@vue/language-server`](https://www.npmjs.com/package/@vue/language-server), the Vue language server. To work with Vue + TypeScript, you also
+    need to install TypeScript language server, [`typescript-language-server`](https://www.npmjs.com/package/typescript-language-server) and configure it to use [`@vue/typescript-plugin`](https://www.npmjs.com/package/@vue/typescript-plugin) as a plugin.
+
   - Sublime Text support via [LSP-Volar](https://github.com/sublimelsp/LSP-volar).
 
   - vim / Neovim support via [coc-volar](https://github.com/yaegassy/coc-volar).
