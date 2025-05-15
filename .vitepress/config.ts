@@ -6,6 +6,7 @@ import llmstxt from 'vitepress-plugin-llms'
 import baseConfig from '@vue/theme/config'
 import { headerPlugin } from './headerMdPlugin'
 // import { textAdPlugin } from './textAdMdPlugin'
+import { groupIconMdPlugin,groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 
 const nav: ThemeConfig['nav'] = [
   {
@@ -757,6 +758,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     theme: 'github-dark',
     config(md) {
       md.use(headerPlugin)
+        .use(groupIconMdPlugin)
       // .use(textAdPlugin)
     }
   },
@@ -808,6 +810,12 @@ Vue.js - The Progressive JavaScript Framework
 ## Table of Contents
 
 {toc}`
+      }) as Plugin,
+      groupIconVitePlugin({
+        customIcon: {
+          cypress: 'vscode-icons:file-type-cypress',
+          'testing library': 'logos:testing-library'
+        }
       }) as Plugin
     ]
   }
