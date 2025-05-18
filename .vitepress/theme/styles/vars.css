@@ -1,0 +1,16 @@
+:root {
+  --vp-code-tab-active-bar-color: var(--vt-c-green);
+  --vp-code-tab-active-text-color: var(--vt-c-text-inverse-1);
+  --vp-code-tab-text-color: var(--vt-c-text-inverse-2);
+  --vp-code-tab-hover-text-color: var(--vt-c-text-inverse-1);
+  --vp-code-tab-bg: #292d3ef0;
+  --vp-code-block-bg: #292d3ef0;
+}
+
+.dark {
+  --vp-code-tab-text-color: var(--vt-c-text-2);
+  --vp-code-tab-hover-text-color: var(--vt-c-text-1);
+  --vp-code-tab-active-text-color: var(--vt-c-text-1);
+  --vp-code-tab-bg: var(--vt-c-black-mute);
+  --vp-code-block-bg: var(--vt-c-black-mute);
+}
