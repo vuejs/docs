@@ -1,11 +1,15 @@
 # List Rendering {#list-rendering}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Free Vue.js List Rendering Lesson"/>
+<PromoLink href="https://vueschool.io/lessons/list-rendering-in-vue-3" title="Free Vue.js List Rendering Lesson" type="vueschool">
+  Watch a free video lesson on Vue School
+</PromoLink>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-list-rendering-in-vue" title="Free Vue.js List Rendering Lesson"/>
+<PromoLink href="https://vueschool.io/lessons/vue-fundamentals-capi-list-rendering-in-vue" title="Free Vue.js List Rendering Lesson" type="vueschool">
+  Watch a free video lesson on Vue School
+</PromoLink>
 </div>
 
 ## `v-for` {#v-for}

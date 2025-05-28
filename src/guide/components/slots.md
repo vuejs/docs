@@ -2,7 +2,9 @@
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
-<VueSchoolLink href="https://vueschool.io/lessons/vue-3-component-slots" title="Free Vue.js Slots Lesson"/>
+<PromoLink href="https://vueschool.io/lessons/vue-3-component-slots" title="Free Vue.js Slots Lesson" type="vueschool">
+  Watch a free video lesson on Vue School
+</PromoLink>
 
 ## Slot Content and Outlet {#slot-content-and-outlet}
 

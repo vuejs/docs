@@ -10,7 +10,9 @@ This FAQ assumes prior experience with Vue - in particular, experience with Vue 
 
 ## What is Composition API? {#what-is-composition-api}
 
-<VueSchoolLink href="https://vueschool.io/lessons/introduction-to-the-vue-js-3-composition-api" title="Free Composition API Lesson"/>
+<PromoLink href="https://vueschool.io/lessons/introduction-to-the-vue-js-3-composition-api" title="Free Composition API Lesson" type="vueschool">
+  Watch a free video lesson on Vue School
+</PromoLink>
 
 Composition API is a set of APIs that allows us to author Vue components using imported functions instead of declaring options. It is an umbrella term that covers the following APIs:
 

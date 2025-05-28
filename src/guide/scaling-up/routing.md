@@ -12,9 +12,9 @@ In such SPAs, the "routing" is done on the client side, in the browser. A client
 
 <!-- TODO update links -->
 <div>
-  <VueSchoolLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Free Vue Router Course">
+  <PromoLink href="https://vueschool.io/courses/vue-router-4-for-everyone" title="Free Vue Router Course" type="vueschool">
     Watch a Free Video Course on Vue School
-  </VueSchoolLink>
+  </PromoLink>
 </div>
 
 Vue is well-suited for building SPAs. For most SPAs, it's recommended to use the officially-supported [Vue Router library](https://github.com/vuejs/router). For more details, see Vue Router's [documentation](https://router.vuejs.org/).

@@ -5,11 +5,15 @@ A common need for data binding is manipulating an element's class list and inlin
 ## Binding HTML Classes {#binding-html-classes}
 
 <div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/dynamic-css-classes-with-vue-3" title="Free Vue.js Dynamic CSS Classes Lesson"/>
+<PromoLink href="https://vueschool.io/lessons/dynamic-css-classes-with-vue-3" title="Free Vue.js Dynamic CSS Classes Lesson" type="vueschool">
+  Watch a free video lesson on Vue School
+</PromoLink>
 </div>
 
 <div class="composition-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-fundamentals-capi-dynamic-css-classes-with-vue" title="Free Vue.js Dynamic CSS Classes Lesson"/>
+<PromoLink href="https://vueschool.io/lessons/vue-fundamentals-capi-dynamic-css-classes-with-vue" title="Free Vue.js Dynamic CSS Classes Lesson" type="vueschool">
+  Watch a free video lesson on Vue School
+</PromoLink>
 </div>
 
 ### Binding to Objects {#binding-to-objects}

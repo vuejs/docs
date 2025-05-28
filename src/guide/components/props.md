@@ -2,9 +2,9 @@
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
-<div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Free Vue.js Props Lesson"/>
-</div>
+<PromoLink href="https://vueschool.io/lessons/vue-3-reusable-components-with-props" title="Free Vue.js Props Lesson" type="vueschool">
+  Watch a free video lesson on Vue School
+</PromoLink>
 
 ## Props Declaration {#props-declaration}
 

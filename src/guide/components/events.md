@@ -22,9 +22,9 @@ if (typeof window !== 'undefined') {
 
 > This page assumes you've already read the [Components Basics](/guide/essentials/component-basics). Read that first if you are new to components.
 
-<div class="options-api">
-  <VueSchoolLink href="https://vueschool.io/lessons/defining-custom-events-emits" title="Free Vue.js Lesson on Defining Custom Events"/>
-</div>
+<PromoLink href="https://vueschool.io/lessons/defining-custom-events-emits" title="Free Vue.js Lesson on Defining Custom Events" type="vueschool">
+  Watch a free video lesson on Vue School
+</PromoLink>
 
 ## Emitting and Listening to Events {#emitting-and-listening-to-events}
 
