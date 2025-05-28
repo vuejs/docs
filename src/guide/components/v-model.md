@@ -1,5 +1,9 @@
 # Component v-model {#component-v-model}
 
+<PromoLink href="https://scrimba.com/links/vue-component-v-model" title="Free Vue.js Component v-model Lesson" type="scrimba">
+  Watch a an interactive video lesson on Scrimba
+</PromoLink>
+
 ## Basic Usage {#basic-usage}
 
 `v-model` can be used on a component to implement a two-way binding.

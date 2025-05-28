@@ -16,6 +16,8 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 
 - If you are already familiar with Node.js and the concept of build tools, you can also try a complete build setup right within your browser on [StackBlitz](https://vite.new/vue).
 
+- To get a walkthrough of a recommended setup, watch this interactive [Scrimba](https://scrimba.com/learn-vuejs-c09q9jrprp/~02rd?via=vue) tutorial that shows you how to run, edit, and deploy your first Vue app.
+
 ## Creating a Vue Application {#creating-a-vue-application}
 
 :::tip Prerequisites
