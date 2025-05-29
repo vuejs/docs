@@ -10,6 +10,7 @@ import {
 } from './components/preferences'
 import SponsorsAside from './components/SponsorsAside.vue'
 import VueSchoolLink from './components/VueSchoolLink.vue'
+import ScrimbaLink from './components/ScrimbaLink.vue'
 import Banner from './components/Banner.vue'
 // import TextAd from './components/TextAd.vue'
 
@@ -28,6 +29,7 @@ export default Object.assign({}, VPTheme, {
     app.provide('prefer-sfc', preferSFC)
     app.provide('filter-headers', filterHeadersByPreference)
     app.component('VueSchoolLink', VueSchoolLink)
+    app.component('ScrimbaLink', ScrimbaLink)
     // app.component('TextAd', TextAd)
   }
 })
