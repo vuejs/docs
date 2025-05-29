@@ -172,8 +172,7 @@ This file and its dependencies are shared between the server and the client - we
 
 Our client entry imports the universal code, creates the app, and performs the mount:
 
-```js
-// client.js
+```js [client.js]
 import { createApp } from './app.js'
 
 createApp().mount('#app')
@@ -181,8 +180,8 @@ createApp().mount('#app')
 
 And the server uses the same app creation logic in the request handler:
 
-```js{2,5}
-// server.js (irrelevant code omitted)
+```js{2,5} [server.js]
+// (irrelevant code omitted)
 import { createApp } from './app.js'
 
 server.get('/', (req, res) => {

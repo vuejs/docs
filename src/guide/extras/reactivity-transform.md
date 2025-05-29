@@ -293,8 +293,7 @@ The following only applies up to Vue version 3.3 and below. Support has been rem
 - Applies to SFCs and js(x)/ts(x) files. A fast usage check is performed on files before applying the transform so there should be no performance cost for files not using the macros.
 - Note `reactivityTransform` is now a plugin root-level option instead of nested as `script.refSugar`, since it affects not just SFCs.
 
-```js
-// vite.config.js
+```js [vite.config.js]
 export default {
   plugins: [
     vue({
@@ -309,8 +308,7 @@ export default {
 - Currently only affects SFCs
 - Requires `vue-loader@>=17.0.0`
 
-```js
-// vue.config.js
+```js [vue.config.js]
 module.exports = {
   chainWebpack: (config) => {
     config.module
@@ -331,8 +329,7 @@ module.exports = {
 - Currently only affects SFCs
 - Requires `vue-loader@>=17.0.0`
 
-```js
-// webpack.config.js
+```js [webpack.config.js]
 module.exports = {
   module: {
     rules: [
