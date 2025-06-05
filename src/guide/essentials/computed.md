@@ -263,8 +263,15 @@ Now when you run `fullName.value = 'John Doe'`, the setter will be invoked and `
 
 - Only supported in 3.4+
 
+<p class="options-api">
+In case you need it, you can get the previous value returned by the computed property accessing
+the second argument of the getter:
+</p>
+
+<p class="composition-api">
 In case you need it, you can get the previous value returned by the computed property accessing
 the first argument of the getter:
+</p>
 
 <div class="options-api">
 
@@ -326,7 +333,7 @@ export default {
   },
   computed: {
     alwaysSmall: {
-      get(previous) {
+      get(_, previous) {
         if (this.count <= 3) {
           return this.count
         }
