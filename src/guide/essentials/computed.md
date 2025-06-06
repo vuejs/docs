@@ -279,7 +279,7 @@ export default {
     // This computed will return the value of count when it's less or equal to 3.
     // When count is >=4, the last value that fulfilled our condition will be returned
     // instead until count is less or equal to 3
-    alwaysSmall(_, previous) {
+    alwaysSmall(previous) {
       if (this.count <= 3) {
         return this.count
       }
