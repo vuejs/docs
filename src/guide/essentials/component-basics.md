@@ -1,5 +1,9 @@
 # Components Basics {#components-basics}
 
+<ScrimbaLink href="https://scrimba.com/links/vue-component-basics" title="Free Vue.js Components Basics Lesson" type="scrimba">
+  Watch an interactive video lesson on Scrimba
+</ScrimbaLink>
+
 Components allow us to split the UI into independent and reusable pieces, and think about each piece in isolation. It's common for an app to be organized into a tree of nested components:
 
 ![Component Tree](./images/components.png)

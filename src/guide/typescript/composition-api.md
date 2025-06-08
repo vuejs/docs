@@ -1,5 +1,9 @@
 # TypeScript with Composition API {#typescript-with-composition-api}
 
+<ScrimbaLink href="https://scrimba.com/links/vue-ts-composition-api" title="Free Vue.js TypeScript with Composition API Lesson" type="scrimba">
+  Watch an interactive video lesson on Scrimba
+</ScrimbaLink>
+
 > This page assumes you've already read the overview on [Using Vue with TypeScript](./overview).
 
 ## Typing Component Props {#typing-component-props}
