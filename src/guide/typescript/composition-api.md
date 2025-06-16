@@ -432,7 +432,7 @@ const compRef = useTemplateRef<FooType | BarType>('comp')
 </script>
 
 <template>
-  <component :is="Math.random() > 0.5 ? Foo : Bar" ref="comp" />
+  <component :is="Math.random() > 0.5 ? Foo : Bar" ref="compRef" />
 </template>
 ```
 
