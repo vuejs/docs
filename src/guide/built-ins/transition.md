@@ -469,8 +469,7 @@ Here's a demo using the [GSAP library](https://gsap.com/) to perform the animati
 
 Transitions can be reused through Vue's component system. To create a reusable transition, we can create a component that wraps the `<Transition>` component and passes down the slot content:
 
-```vue{5}
-<!-- MyTransition.vue -->
+```vue{6} [MyTransition.vue]
 <script>
 // JavaScript hooks logic...
 </script>
