@@ -21,7 +21,7 @@ By contrast, stateful logic involves managing state that changes over time. A si
 
 If we were to implement the mouse tracking functionality using the Composition API directly inside a component, it would look like this:
 
-```vue
+```vue [MouseComponent.vue]
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
@@ -42,8 +42,7 @@ onUnmounted(() => window.removeEventListener('mousemove', update))
 
 But what if we want to reuse the same logic in multiple components? We can extract the logic into an external file, as a composable function:
 
-```js
-// mouse.js
+```js [mouse.js]
 import { ref, onMounted, onUnmounted } from 'vue'
 
 // by convention, composable function names start with "use"
@@ -70,7 +69,7 @@ export function useMouse() {
 
 And this is how it can be used in components:
 
-```vue
+```vue [MouseComponent.vue]
 <script setup>
 import { useMouse } from './mouse.js'
 
@@ -92,8 +91,7 @@ The cooler part about composables though, is that you can also nest them: one co
 
 For example, we can extract the logic of adding and removing a DOM event listener into its own composable:
 
-```js
-// event.js
+```js [event.js]
 import { onMounted, onUnmounted } from 'vue'
 
 export function useEventListener(target, event, callback) {
@@ -106,8 +104,7 @@ export function useEventListener(target, event, callback) {
 
 And now our `useMouse()` composable can be simplified to:
 
-```js{3,9-12}
-// mouse.js
+```js{2,8-11} [mouse.js]
 import { ref } from 'vue'
 import { useEventListener } from './event'
 
@@ -157,8 +154,7 @@ fetch('...')
 
 It would be tedious to have to repeat this pattern in every component that needs to fetch data. Let's extract it into a composable:
 
-```js
-// fetch.js
+```js [fetch.js]
 import { ref } from 'vue'
 
 export function useFetch(url) {
@@ -208,8 +204,7 @@ const { data, error } = useFetch(() => `/posts/${props.id}`)
 
 We can refactor our existing implementation with the [`watchEffect()`](/api/reactivity-core.html#watcheffect) and [`toValue()`](/api/reactivity-utilities.html#tovalue) APIs:
 
-```js{8,13}
-// fetch.js
+```js{7,12} [fetch.js]
 import { ref, watchEffect, toValue } from 'vue'
 
 export function useFetch(url) {

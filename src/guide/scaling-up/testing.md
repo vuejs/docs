@@ -74,7 +74,7 @@ Because it's very self-contained, it'll be easy to invoke the increment function
 
 If any of these assertions fail, it's clear that the issue is contained within the `increment` function.
 
-```js{4-16} [helpers.spec.js]
+```js{3-15} [helpers.spec.js]
 import { increment } from './helpers'
 
 describe('increment', () => {
@@ -431,7 +431,7 @@ export function withSetup(composable) {
 }
 ```
 
-```js
+```js [foo.test.js]
 import { withSetup } from './test-utils'
 import { useFoo } from './foo'
 
