@@ -1,7 +1,6 @@
 ---
 footer: false
 ---
-
 <script setup>
 import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 </script>
