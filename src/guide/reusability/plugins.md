@@ -56,8 +56,7 @@ We want to create a translation function. This function will receive a dot-delim
 
 Since this function should be globally available in all templates, we will make it so by attaching it to `app.config.globalProperties` in our plugin:
 
-```js{4-11}
-// plugins/i18n.js
+```js{3-10} [plugins/i18n.js]
 export default {
   install: (app, options) => {
     // inject a globally available $translate() method
@@ -98,7 +97,7 @@ Use global properties scarcely, since it can quickly become confusing if too man
 
 Plugins also allow us to use `provide` to give plugin users access to a function or attribute. For example, we can allow the application to have access to the `options` parameter to be able to use the translations object.
 
-```js{10} [plugins/i18n.js]
+```js{3} [plugins/i18n.js]
 export default {
   install: (app, options) => {
     app.provide('i18n', options)
@@ -110,7 +109,7 @@ Plugin users will now be able to inject the plugin options into their components
 
 <div class="composition-api">
 
-```vue
+```vue{4}
 <script setup>
 import { inject } from 'vue'
 
@@ -123,7 +122,7 @@ console.log(i18n.greetings.hello)
 </div>
 <div class="options-api">
 
-```js
+```js{2}
 export default {
   inject: ['i18n'],
   created() {
