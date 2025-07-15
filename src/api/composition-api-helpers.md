@@ -42,11 +42,10 @@ This is the underlying helper that powers [`defineModel()`](/api/sfc-script-setu
     set?: (v: T) => any
   }
 
-  type ModelRef<T, M extends PropertyKey = string, G = T, S = T> = Ref<
-    G,
-    S
-  > &
-    [ModelRef<T, M, G, S>, Record<M, true | undefined>]
+  type ModelRef<T, M extends PropertyKey = string, G = T, S = T> = Ref<G, S> & [
+    ModelRef<T, M, G, S>,
+    Record<M, true | undefined>
+  ]
   ```
 
 - **Example**
@@ -136,15 +135,4 @@ Used to generate unique-per-application IDs for accessibility attributes or form
 
   :::warning Caution
   `useId()` should be not be called inside a `computed()` property as it may cause instance conflicts. Instead, declare the ID outside of `computed()` and reference it within the computed function.
-
-  ```vue
-  <script setup>
-  import { computed, useId } from 'vue'
-
-  const id = useId()
-
-  const ariaDescribedBy = computed(() => `${id}-description`)
-  </script>
-  ```
-
   :::
