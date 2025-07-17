@@ -20,9 +20,10 @@ function dismiss() {
 }
 </script>
 
+
 <template>
   <div class="banner" v-if="open">
-    <svg style="margin-right: 0.25rem" width="30" height="30" viewBox="0 0 30 30" fill="none"
+    <svg style="margin-right: 0.5rem" width="20" height="20" viewBox="0 0 30 30" fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <g>
         <path
@@ -66,7 +67,7 @@ function dismiss() {
 
 <style>
 html:not(.banner-dismissed) {
-  --vt-banner-height: 60px;
+  --vt-banner-height: 30px;
 }
 </style>
 
@@ -81,8 +82,7 @@ html:not(.banner-dismissed) {
   height: var(--vt-banner-height);
   line-height: var(--vt-banner-height);
   text-align: center;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
   color: white;
   background: #262626;
   display: flex;
@@ -155,7 +155,7 @@ button {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 20px 10px;
+  padding: 5px 5px;
 }
 
 .close {
@@ -167,7 +167,7 @@ button {
 
 .vt-banner-text {
   color: #fff;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .vt-main {
@@ -179,12 +179,11 @@ button {
 .vt-primary-action {
   background: radial-gradient(141.42% 141.42% at 100% 0%, #ffffff80, #fff0), radial-gradient(140.35% 140.35% at 100% 94.74%, #bd34fe, #bd34fe00), radial-gradient(89.94% 89.94% at 18.42% 15.79%, #41d1ff, #41d1ff00);
   color: #fff;
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 10px;
   text-decoration: none;
-  margin: 0 20px;
-  font-weight: bold;
+  margin: 0 10px;
   transition: all .2s ease-in-out;
 
   &:hover {
@@ -214,7 +213,7 @@ button {
 
   .vt-primary-action {
     margin: 0 10px;
-    padding: 5px 8px;
+    padding: 4px 8px;
   }
 
   .vt-time-now {
