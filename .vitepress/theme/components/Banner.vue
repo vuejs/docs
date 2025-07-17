@@ -151,10 +151,6 @@ html:not(.banner-dismissed) {
   display: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 button {
   position: absolute;
   right: 0;
@@ -189,14 +185,13 @@ button {
   text-decoration: none;
   margin: 0 20px;
   font-weight: bold;
-  transition: all;
-  transition-duration: 200ms;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 1px #fffc inset;
+  }
 }
 
-.vt-primary-action:hover {
-  text-decoration: none;
-  transform: translate3d(0, -2px, 0);
-}
 
 @media (max-width: 1280px) {
   .banner .vt-banner-text {
