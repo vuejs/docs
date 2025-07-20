@@ -2,12 +2,12 @@
 footer: false
 ---
 
-# Introduction {#introduction}
+# Pendahuluan {#introduction}
 
-:::info You are reading the documentation for Vue 3!
+:::info Anda sedang membaca dokumentasi untuk Vue 3!
 
-- Vue 2 support has ended on **Dec 31, 2023**. Learn more about [Vue 2 EOL](https://v2.vuejs.org/eol/).
-- Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
+- Dukungan Vue 2 telah berakhir pada **Des 31, 2023**. Pelajari lebih lanjut tentang [Vue 2 EOL](https://v2.vuejs.org/eol/).
+- Upgrade dari Vue 2? Silahkan cek [Panduan Migrasi](https://v3-migration.vuejs.org/).
   :::
 
 <style src="@theme/styles/vue-mastery.css"></style>
