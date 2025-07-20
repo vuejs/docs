@@ -13,9 +13,8 @@ onMounted(load)
   <section id="hero">
     <img id="uwu" alt="Vue.js Kawaii Logo by @icarusgkx" />
     <h1 class="tagline">
-      The
-      <span class="accent">Progressive</span>
-      <br />JavaScript Framework
+      Kerangka Kerja 
+      <br />JavaScript <span class="accent">Progresif</span>
     </h1>
     <p class="description">
       An approachable, performant and versatile framework for building web
@@ -24,7 +23,7 @@ onMounted(load)
     <p class="actions">
       <VueMasteryModal />
       <a class="get-started" href="/guide/introduction.html">
-        Get Started
+        Memulai
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -37,9 +36,9 @@ onMounted(load)
           />
         </svg>
       </a>
-      <a class="setup" href="/guide/quick-start.html">Install</a>
+      <a class="setup" href="/guide/quick-start.html">Instal</a>
       <a class="security" href="https://v2.vuejs.org/eol/" target="_blank">
-        Get Security Updates for Vue 2
+        Dapatkan pembaruan keamanan untuk Vue 2
         <svg
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +77,8 @@ onMounted(load)
   <section v-else id="special-spsr">
     <span>
       <a href="/sponsor/#tier-benefits">
-        Special Sponsor slot is now vacant - Inquire now
+        <!-- Special Sponsor slot is now vacant - Inquire now -->
+        Slot khusus sponsor sekarang kosong - Tanyakan sekarang
       </a>
     </span>
   </section>
@@ -87,30 +87,40 @@ onMounted(load)
     <div class="vt-box">
       <h2>Approachable</h2>
       <p>
-        Builds on top of standard HTML, CSS and JavaScript with intuitive
-        API and world-class documentation.
+        <!-- Builds on top of standard HTML, CSS and JavaScript with intuitive
+        API and world-class documentation. -->
+        Dibangun diatas standar HTML, CSS, dan JavaScript dengan 
+        API intuitif dan dokumentasi kelas dunia.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Performant</h2>
+      <!-- <h2>Performant</h2> -->
+      <h2>Performa tinggi</h2>
       <p>
-        Truly reactive, compiler-optimized rendering system that rarely
-        requires manual optimization.
+        <!-- Truly reactive, compiler-optimized rendering system that rarely
+        requires manual optimization. -->
+        Sistem rendering yang benar-benar reaktif, dioptimalkan untuk kompiler, 
+        dan jarang memerlukan optimasi manual.
       </p>
     </div>
     <div class="vt-box">
-      <h2>Versatile</h2>
+      <!-- <h2>Versatile</h2> -->
+      <h2>Serbaguna</h2>
       <p>
-        A rich, incrementally adoptable ecosystem that scales between a
-        library and a full-featured framework.
+        <!-- A rich, incrementally adoptable ecosystem that scales between a
+        library and a full-featured framework. -->
+        Sangat kaya, ekosistem dapat diadopsi bertahap yang berskala
+        antara pustaka dan kerangka kerja berfitur lengkap.
       </p>
     </div>
   </section>
 
   <section id="spsrs">
-    <h2>Platinum Sponsors</h2>
+    <!-- <h2>Platinum Sponsors</h2> -->
+    <h2>Sponsor Platinum</h2>
     <SponsorsGroup tier="platinum" placement="landing" />
-    <h2>Gold Sponsors</h2>
+    <!-- <h2>Gold Sponsors</h2> -->
+    <h2>Sponsor Emas</h2>
     <SponsorsGroup tier="gold" placement="landing" />
   </section>
 
