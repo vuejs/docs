@@ -11,6 +11,8 @@ const checkedNames = ref([])
 const picked = ref('')
 const selected = ref('')
 const multiSelected = ref([])
+const detailsOpen = ref(false)
+const dialogOpen = ref(false)
 </script>
 
 # Form Input Bindings {#form-input-bindings}
@@ -266,8 +268,6 @@ Single select:
 
 [Try it in the Playground](https://play.vuejs.org/#eNp1j1ELgyAUhf/KxZe2h633cEHbHxjstReXdxCYSt5iEP333XIJPQSinuN3jjqJyvvrOKAohAxN33oqa4tf73oCjR81GIKptgBakTqd4x6gRxp6uymAgAYbQl1AlkVvXhaeeMg8NbMg7LxRhKwAZPDKlvBK8WlKXTDPnFzOI7naMF46p9HcarFxtVgBRpyn1lnQbVBvwwWjMgMyycTToAr47wZnUeaR3mfL6sC/H/iPnc/vXS9gIfP0UTH/ACgWeYE=)
 
-</div>
-
 :::tip Note
 If the initial value of your `v-model` expression does not match any of the options, the `<select>` element will render in an "unselected" state. On iOS this will cause the user not being able to select the first item because iOS does not fire a change event in this case. It is therefore recommended to provide a disabled option with an empty value, as demonstrated in the example above.
 :::
@@ -357,6 +357,76 @@ export default {
 <div class="options-api">
 
 [Try it in the Playground](https://play.vuejs.org/#eNp1kMFqxCAQhl9l8JIWtsk92IVtH6CH9lZ7COssDbgqZpJdCHn3nWiUXBZE/Mdvxv93Fifv62lE0Qo5nEPv6ags3r0LBBov3WgIZmUBdEfdy2s6AwSkMdisAAY0eCbULVSn6pCrzlPv7NDCb64AzEB4J+a+LFYHmDozYuyCpfTtqJ+b21Efz6j/gPtpn8xl7C8douaNl2xKUhaEV286QlYAMgWB6e3qNJp3JXIyJSLASErFyMUFBjbZ2xxXCWijkXJZR1kmsPF5g+s1ACybWdmkarLSpKejS0VS99Pxu3wzT8jOuF026+2arKQRywOBGJfE)
+
+</div>
+
+### Details {#details}
+
+```vue-html
+<div>Open: {{ open }}</div>
+
+<details v-model="open">
+  <summary>This is summary</summary>
+  <p>And this is more detailed explanation.</p>
+</details>
+```
+
+<div class="demo">
+  <div>Open: {{ detailsOpen }}</div>
+
+  <details v-model="detailsOpen">
+    <summary>This is summary</summary>
+    <p>And this is more detailed explanation.</p>
+  </details>
+</div>
+
+<div class="composition-api">
+
+[Try it in the Playground](https://play.vuejs.org/#eNo9j8EKwjAMhl8l9KIetHepA5/Ai8deypZhYU1Lmw1l7N1NXRFy+ZPv/5Os6p7SZZlRXZUpffaJoSDPqbPkQ4qZYYWMI2ww5hjgIOjBkqU+UmGICQluFTiObip4smT0HiMBIhhDmhyjKAAz+KV7iOUK67p7t83o2q1wBZCdnwos5xAHnG5WVcqqn13mZQ7B5U/3fPkCUk3LzjZoXOruNAA3KsSMsEfjAPiWi8ixj3Qxuj4qBt02izL6f7Tavi1xZNY=)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://play.vuejs.org/#eNo9T8uuAjEI/RXS1b0L7d7USfwCNy5nQyzGJn2lZSaayfy7dKaaEODA4QCLuuR8nCdSJ2XqvbjMwxjplVNhsPTAyTMsYwSwyPj3v+cAhXgq8YsAUqZ4ggf6SntpbUGcmNE/YQFMIXtkEgRgrJuH6za7LJsIrKvRrdrIjUCMzleYDyFZ8udRNdaotnHp1ykELO/h9nQVxDqWnb3ReXm4RAvcWSEVkveaNFmQdz1GZJfi0ei8X6b7ZkFG/45W6wc1S2it)
+
+</div>
+
+### Dialog {#dialog}
+
+```vue-html
+<button @click="open = !open">
+  Open: {{ open }}
+</button>
+
+<dialog v-model="open">
+  <form type="dialog">
+    <p>Dialog content</p>
+    <button type="submit">OK</button>
+  </form>
+</dialog>
+```
+
+<div class="demo">
+  <button @click="dialogOpen = !dialogOpen">
+    Open: {{ dialogOpen }}
+  </button>
+
+  <dialog v-model="dialogOpen">
+    <form type="dialog">
+      <p>Dialog content</p>
+      <button type="submit">OK</button>
+    </form>
+  </dialog>
+</div>
+
+<div class="composition-api">
+
+[Try it in the Playground](https://play.vuejs.org/#eNpNj81qwzAQhF9lq0vaQ6t7UEILveWQF9DFcdZBRD+LtA4E43fP2hImJzHMzKedSf0R/TxGVHtlSp8dMRTkkY42ukApM0yQcYAZhpwC7CS6s9HGPsXCkAgjHJbA59D5gl82Gl0xAhDBGMh3jKIAzGVkThF+e+/6+8GqVv9YXqvWDMBZxB6mqcLneW3qWl2hIq+u8+kGj++QrugbaSOYIeUA/CQUp0Y3T1w6/te6bGCMbPSytpntxFYu4yU4lvL59HbCGtTLJ3WWrn+IMHobrOYXGf10wg==)
+
+</div>
+<div class="options-api">
+
+[Try it in the Playground](https://play.vuejs.org/#eNpNT0FuwyAQ/MqUU3touUckaqXeesgHfCH2urKKAeElamX5712D40RCLMPszOzO6iPGt2smdVBmatMQ+dR4+o0hMTrqbXaMufFAZ9k+v9Q3kIhz8jcEhEj+gN66ierXsha55Bi9GwtgGqOzTIIAc8nMweO9dUP7c2zU6oMjntbaqNIDnIv5PJcULMXa6CotpgK7wbrwjevrGDpym9PuYPqQRvBfJGFq684JG0+fVd4Gz+TZ6HgntxE38ZQv48AiPn89jFAa9RpS19I1Q4DR+8Jq+QcISniZ)
 
 </div>
 
