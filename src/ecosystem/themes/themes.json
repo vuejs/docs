@@ -309,14 +309,14 @@
         "name": "Free Datta Able Vue Admin Template",
         "price": 0,
         "description": "Free & Open Source VueJs Bootstrap Admin Template",
-        "url": "https://codedthemes.com/item/datta-able-free-vue-admin-template/",
+        "url": "https://codedthemes.com/item/datta-able-free-vue-admin-template/?ref=evan.vuejs",
         "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Datta+able-free-vue.png"
       },
       {
         "name": "Datta Able Vue + Bootstrap Admin Template",
         "price": 59,
         "description": "Premium VueJs + Bootstrap + Vite + Typescript Admin Template",
-        "url": "https://codedthemes.com/item/datta-able-vue-admin-template/",
+        "url": "https://codedthemes.com/item/datta-able-vue-admin-template/?ref=evan.vuejs",
         "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Datta+able-pro-vue.png"
       }
     ]
