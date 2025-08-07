@@ -6,7 +6,7 @@ We believe there is no "one size fits all" story for the web. This is why Vue is
 
 Vue can be used as a standalone script file - no build step required! If you have a backend framework already rendering most of the HTML, or your frontend logic isn't complex enough to justify a build step, this is the easiest way to integrate Vue into your stack. You can think of Vue as a more declarative replacement of jQuery in such cases.
 
-We previously provided an alternative distribution called [petite-vue](https://github.com/vuejs/petite-vue) that was specifically optimized for progressively enhancing existing HTML. However, petite-vue is no longer actively maintained, with the last version published at Vue 3.2.27. It is now provdied for reference and legacy support only. We do not reccomend building with petite-vue.
+We previously provided an alternative distribution called [petite-vue](https://github.com/vuejs/petite-vue) that was specifically optimized for progressively enhancing existing HTML. However, petite-vue is no longer actively maintained, with the last version published at Vue 3.2.27. 
 
 ## Embedded Web Components {#embedded-web-components}
 
