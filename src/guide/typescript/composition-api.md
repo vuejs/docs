@@ -484,9 +484,6 @@ Note that with `@vue/language-tools` 2.1+, static template refs' types can be au
 In order to get type hints and type checking for global custom directives declared with `app.directive()`, you can extend `ComponentCustomProperties`
 
 ```ts [src/directives/highlight.ts]
-// This can be directly added to any of your `.ts` files
-// It can also be added to a `.d.ts` file. Make sure it's included in
-// project's tsconfig.json "files"
 import type { Directive } from 'vue'
 
 export type HighlightDirective = Directive<HTMLElement, string>
