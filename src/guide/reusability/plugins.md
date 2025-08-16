@@ -136,3 +136,53 @@ export default {
 ### Bundle for NPM
 
 If you further want to build and publish your plugin for others to use, see [Vite's section on Library Mode](https://vitejs.dev/guide/build.html#library-mode).
+
+## Typing Plugins {#typing-plugins}
+
+Vue provides built-in type support for plugins. There are two types of plugins: object plugins and function plugins. The type of the plugin will be automatically inferred by `app.use()`:
+
+```ts
+import { type App, createApp } from 'vue'
+
+const app = createApp({})
+
+const objectPlugin = {
+  install(app: App, options1: { foo: number }, options2: { bar: number }) {
+    // ...
+  }
+}
+app.use(objectPlugin, { foo: 1 }, { bar: 2 })
+app.use(objectPlugin, { foo: 1 }) // => TS Error: Expected 2 arguments, but got 1.
+
+const functionPlugin = (app: App, options1: { foo: number }) => {
+  // ...
+}
+app.use(functionPlugin, { foo: 1 })
+```
+
+Vue provides a `Plugin` utility type to represent both plugin types. You can use it to define your plugin with proper type checking:
+
+```ts
+import { type Plugin, createApp } from 'vue'
+
+const app = createApp({})
+
+// Define plugin with array type parameters
+const objectPlugin: Plugin<
+  [options1: { foo: number }, options2?: { bar: number }]
+> = {
+  install(app, options1, options2) {
+    // ...
+  }
+}
+app.use(objectPlugin, { foo: 1 })
+
+// Optional parameters
+const functionPlugin: Plugin<[options?: { foo: number }]> = (
+  app,
+  options
+) => {
+  // ...
+}
+app.use(functionPlugin)
+```
