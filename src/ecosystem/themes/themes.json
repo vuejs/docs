@@ -279,14 +279,14 @@
       },
       {
         "name": "Berry Vue3 Admin Dashboard",
-        "price": 49,
+        "price": 59,
         "description": "Discover our visually captivating Vue 3 Dashboard Theme!",
         "url": "https://codedthemes.com/item/berry-vue-admin-dashboard/?ref=evan.vuejs",
         "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Berry-pro-vue.png"
       },
       {
         "name": "Mantis Vue3 Admin Dashboard",
-        "price": 49,
+        "price": 59,
         "description": "Simple yet rebust to start any development with latest VueJs and Vuetify",
         "url": "https://codedthemes.com/item/mantis-vue-admin-template/?ref=evan.vuejs",
         "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Mantis-pro-vue.png"
@@ -306,11 +306,18 @@
         "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Able+pro-free-vue.png"
       },
       {
-        "name": "Able Pro Vue3 + Vuetify Dashboard",
-        "price": 11,
-        "description": "Vue3 + Vite + Vuetify + Typescript",
-        "url": "https://codedthemes.com/item/able-pro-vuejs-admin-dashboard/?ref=evan.vuejs",
-        "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Able+pro-pro-vue.png"
+        "name": "Free Datta Able Vue Admin Template",
+        "price": 0,
+        "description": "Free & Open Source VueJs Bootstrap Admin Template",
+        "url": "https://codedthemes.com/item/datta-able-free-vue-admin-template/?ref=evan.vuejs",
+        "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Datta+able-free-vue.png"
+      },
+      {
+        "name": "Datta Able Vue + Bootstrap Admin Template",
+        "price": 59,
+        "description": "Premium VueJs + Bootstrap + Vite + Typescript Admin Template",
+        "url": "https://codedthemes.com/item/datta-able-vue-admin-template/?ref=evan.vuejs",
+        "image": "https://org-public-assets.s3.us-west-2.amazonaws.com/Banners/Datta+able-pro-vue.png"
       }
     ]
   },
