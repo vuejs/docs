@@ -50,6 +50,7 @@ const nav: ThemeConfig['nav'] = [
           { text: 'Developers', link: '/developers/' },
           { text: 'Themes', link: '/ecosystem/themes' },
           { text: 'UI Components', link: 'https://ui-libs.vercel.app/' },
+          { text: 'Plugins Collection', link: 'https://www.vue-plugins.org/' },
           {
             text: 'Certification',
             link: 'https://certificates.dev/vuejs/?ref=vuejs-nav'
