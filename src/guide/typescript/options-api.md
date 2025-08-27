@@ -291,3 +291,7 @@ The placement of this augmentation is subject to the [same restrictions](#type-a
 See also:
 
 - [TypeScript unit tests for component type extensions](https://github.com/vuejs/core/blob/main/packages-private/dts-test/componentTypeExtensions.test-d.tsx)
+
+## Typing Global Custom Directives {#typing-global-custom-directives}
+
+See: [Typing Custom Global Directives](/guide/typescript/composition-api#typing-global-custom-directives) <sup class="vt-badge ts" />
