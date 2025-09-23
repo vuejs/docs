@@ -5,13 +5,6 @@
     "seeMoreUrl": "https://ui.nuxt.com",
     "products": [
       {
-        "name": "Nuxt UI components",
-        "price": 0,
-        "description": "Comprehensive UI library featuring advanced components, composables, and utilities for Vue.js applications.",
-        "url": "https://ui.nuxt.com",
-        "image": "https://res.cloudinary.com/nuxt/image/upload/v1742036103/nuxt-ui/nuxt-ui-pro-og-image_vzvwge.png"
-      },
-      {
         "name": "Dashboard",
         "price": 0,
         "description": "Professional Vue Dashboard Template showcasing Nuxt UI capabilities.",
