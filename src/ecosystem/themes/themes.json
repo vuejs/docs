@@ -1,7 +1,7 @@
 [
   {
     "name": "Nuxt UI",
-    "description": "[Nuxt UI](https://ui.nuxt.com) is a powerful, free and open-source UI library for Vue.js. Built on top of Tailwind CSS, it provides an extensive collection of beautifully designed and accessible components, and essential utilities to build modern, responsive web applications with ease.",
+    "description": "[Nuxt UI](https://ui.nuxt.com/) is an intuitive, open-source UI library for Vue and Nuxt applications. Built with Tailwind CSS and Reka UI, it provides 100+ beautifully crafted, accessible components with a flexible CSS-first design system.",
     "seeMoreUrl": "https://ui.nuxt.com",
     "products": [
       {
