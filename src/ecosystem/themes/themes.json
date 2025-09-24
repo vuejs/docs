@@ -1,20 +1,13 @@
 [
   {
     "name": "Nuxt UI",
-    "description": "[Nuxt UI](https://ui.nuxt.com) is a free and open-source UI library for Vue.js. It is built on top of Tailwind CSS and includes a variety of components and utilities that can be used to quickly build modern, responsive web applications.",
-    "seeMoreUrl": "https://ui.nuxt.com/pro",
+    "description": "[Nuxt UI](https://ui.nuxt.com/) is an intuitive, open-source UI library for Vue and Nuxt applications. Built with Tailwind CSS and Reka UI, it provides 100+ beautifully crafted, accessible components with a flexible CSS-first design system.",
+    "seeMoreUrl": "https://ui.nuxt.com",
     "products": [
       {
-        "name": "UI Pro Components",
-        "price": 199,
-        "description": "Premium Vue components, composables, and utils based on Nuxt UI.",
-        "url": "https://ui.nuxt.com/pro",
-        "image": "https://res.cloudinary.com/nuxt/image/upload/v1742036103/nuxt-ui/nuxt-ui-pro-og-image_vzvwge.png"
-      },
-      {
         "name": "Dashboard",
-        "price": 199,
-        "description": "Vue Dashboard Template made with Nuxt UI Pro.",
+        "price": 0,
+        "description": "Professional Vue Dashboard Template showcasing Nuxt UI capabilities.",
         "url": "https://vue-dashboard-template.nuxt.dev",
         "image": "https://res.cloudinary.com/nuxt/image/upload/v1742036101/nuxt-ui/nuxt-ui-dashboard-social-card_kpeysq.png"
       }
