@@ -467,7 +467,7 @@ defineProps({
   // Object with a default value
   propF: {
     type: Object,
-    // Object or array defaults must be returned from
+    // Object or array defaults can be returned from
     // a factory function. The function receives the raw
     // props received by the component as the argument.
     default(rawProps) {
