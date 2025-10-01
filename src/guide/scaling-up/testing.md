@@ -252,7 +252,7 @@ End-to-end tests do not import any of your Vue application's code but instead re
 
 End-to-end tests validate many of the layers in your application. They can either target your locally built application or even a live Staging environment. Testing against your Staging environment not only includes your frontend code and static server but all associated backend services and infrastructure.
 
-> The more your tests resemble how your software is used, the more confidence they can give you. - [Kent C. Dodds](https://twitter.com/kentcdodds/status/977018512689455106) - Author of the Testing Library
+> The more your tests resemble how your software is used, the more confidence they can give you. - [Kent C. Dodds](https://x.com/kentcdodds/status/977018512689455106) - Author of the Testing Library
 
 By testing how user actions impact your application, E2E tests are often the key to higher confidence in whether an application is functioning properly or not.
 
