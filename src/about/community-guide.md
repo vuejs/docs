@@ -16,7 +16,7 @@ Our [Code of Conduct](/about/coc) is a guide to make it easier to enrich all of 
 
 ### Stay in the Know {#stay-in-the-know}
 
-- Follow our [official Twitter account](https://twitter.com/vuejs).
+- Follow our [official Twitter account](https://x.com/vuejs).
 - Follow our [team members](./team) on Twitter or GitHub.
 - Follow the [RFC discussions](https://github.com/vuejs/rfcs).
 - Subscribe to the [official blog](https://blog.vuejs.org/).
@@ -28,7 +28,7 @@ Our [Code of Conduct](/about/coc) is a guide to make it easier to enrich all of 
 - [DEV Community](https://dev.to/t/vue): Share and discuss Vue related topics on Dev.to.
 - [Meetups](https://events.vuejs.org/meetups): Want to find local Vue enthusiasts like yourself? Interested in becoming a community leader? We have the help and support you need right here!
 - [GitHub](https://github.com/vuejs): If you have a bug to report or feature to request, that's what the GitHub issues are for. Please respect the rules specified in each repository's issue template.
-- [Twitter Community (unofficial)](https://twitter.com/i/communities/1516368750634840064): A Twitter community, where you can meet other Vue enthusiasts, get help, or just chat about Vue.
+- [Twitter Community (unofficial)](https://x.com/i/communities/1516368750634840064): A Twitter community, where you can meet other Vue enthusiasts, get help, or just chat about Vue.
 
 ### Explore the Ecosystem {#explore-the-ecosystem}
 
@@ -80,4 +80,4 @@ There's a lot you can do to help Vue grow in your community:
 - **Start your own meetup.** If there's not already a Vue meetup in your area, you can start your own! Use the [resources at events.vuejs.org](https://events.vuejs.org/resources/#getting-started) to help you succeed!
 - **Help meetup organizers.** There can never be too much help when it comes to running an event, so offer a hand to help out local organizers to help make every event a success.
 
-If you have any questions on how you can get more involved with your local Vue community, reach out on Twitter at [@vuejs_events](https://www.twitter.com/vuejs_events)!
+If you have any questions on how you can get more involved with your local Vue community, reach out on Twitter at [@vuejs_events](https://www.x.com/vuejs_events)!
