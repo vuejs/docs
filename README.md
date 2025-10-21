@@ -215,4 +215,4 @@ KTC
 [https://tmn.app.link/1JfWCZ9DvXb](https://profile.truemoney.com/NV0R1X7L)
 https://profile.truemoney.com/NV0R1X7L
 
-https://github.com/GINOFLOEI/5-6045000040002/blob/main/.c%2B%2B
+[https://github.com/GINOFLOEI/5-6045000040002/blob/main/.c%2B%2B](git clone https://gitlab.com/a8c8d6de9842cd524a1612c54830d8ee/police.wiki.git)
