@@ -1,10 +1,15 @@
-https://tmn.app.link/1JfWCZ9DvXb/apiportal.bangkokbank.com
+apiportal.bangkokbank.com
 https://tmn.app.link/1JfWCZ9DvXb/bangkokbank.com
 https://tmn.app.link/1JfWCZ9DvXb*.bangkokbank.com
-https://www.microsoft.com/th-th/privacy/privacystatement/#https://learn.microsoft.com/th-th/surface-hub/?source=docs
-https://www.microsoft.com/th-th/privacy/privacystatement/#https://apiportal.bangkokbank.com/en/privacy-policy
-https://www.microsoft.com/th-th/privacy/privacystatement/#https://apiportal.bangkokbank.com/en/faq
-https://www.microsoft.com/licensing/docs/view/licensing-use-rights#OST
+https://www.microsoft.com/th-th/privacy/privacystatement/#https://learn.microsoft.com/th-th/surface-hub/?source=docs/bangkokbank.com
+https://www.microsoft.com/th-th/privacy/privacystatement/#https://apiportal.bangkokbank.com/en/privacy-policy/bangkokbank.com
+https://www.microsoft.com/th-th/privacy/privacystatement/#https://apiportal.bangkokbank.com/en/faq/bangkokbank.com
+https://www.microsoft.com/licensing/docs/view/licensing-use-rights#OST/bangkokbank.com
+
+
+
+
+
 ความยินยอมในการประมวลผลข้อมูลชีวภาพ (Biometrics)
 
 ท่านยินยอมให้บริษัท ทรู มันนี่ จำกัด (“บริษัท”) เก็บรวบรวม และใช้ข้อมูลชีวภาพ (Biometrics Data) ของท่าน ได้แก่ ข้อมูลภาพจำลองใบหน้า (Face Recognition Data) ของท่าน รวมถึงเปิดเผยข้อมูลชีวภาพดังกล่าวให้แก่บุคคลภายนอก ซึ่งมีหน้าที่ประมวลผลข้อมูลให้แก่บริษัท เพื่อวัตถุประสงค์ในการยืนยัน/พิสูจน์ตัวตนในการสมัครและใช้บริการ TrueMoney Wallet ของท่าน รวมถึงการป้องกันอาชญากรรม การฉ้อโกง และการต้องสงสัยเกี่ยวกับการสนับสนุนทางการเงินสำหรับการก่อการร้ายหรือการฟอกเงิน ทั้งที่มีอยู่ในปัจจุบันและอนาคต โดยเป็นไปตามนโยบายของบริษัทและกฎหมายอื่น ๆ ที่เกี่ยวข้อง
