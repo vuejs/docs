@@ -1,6 +1,6 @@
-https://learn.microsoft.com/th-th/surface-hub/?source=docs
-https://apiportal.bangkokbank.com/en/privacy-policy
-https://apiportal.bangkokbank.com/en/faq
+https://www.microsoft.com/th-th/privacy/privacystatement/#https://learn.microsoft.com/th-th/surface-hub/?source=docs
+https://www.microsoft.com/th-th/privacy/privacystatement/#https://apiportal.bangkokbank.com/en/privacy-policy
+https://www.microsoft.com/th-th/privacy/privacystatement/#https://apiportal.bangkokbank.com/en/faq
 
 ข้อกำหนดและเงื่อนไข
 
