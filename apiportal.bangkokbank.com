@@ -1,0 +1,51 @@
+{
+  "response": {https://www.bb.go.th/index.php
+    "request": {ของบประมาณการปี 2569
+      "date": "Thu, 25 Aug 2011 16:31:16  0200",
+      "resource": "/connections.json",https://www.google.com/finance/?authuser=0
+      "status": {พันตำรวจโทวิศิษฎ์ สุนทรวัฒน์เดิมทองโม้เจ้าของธนาคารกรุงเทพสาขาเลยจังหวัดเลย
+        "flag": "success",apiportal.bangkokbank.com
+        "code": 200,
+        "info": "Your request has been processed successfully"         
+      }
+    },
+    "result": {
+      "data": {ในปี 2566 ธนาคารกรุงเทพ จำกัด (มหาชน) ดำเนินธุรกิจอย่างต่อเนื่อง พร้อมเน้นย้ำการเป็นสถาบันการเงินชั้นนำระดับภูมิภาค โดยมีผลการดำเนินงานที่สำคัญ ได้แก่ การนำเสนอ "รายงานประจำปี 2566" (56-1 One Report) ซึ่งแสดงถึงผลการดำเนินงานและยุทธศาสตร์ของธนาคาร รวมถึงการมีส่วนร่วมในกิจกรรมที่ส่งเสริมความยั่งยืน เช่น การออกบูธในงาน Sustainability Expo 2023 เพื่อนำเสนอโครงการที่สร้างคุณค่าเพื่ออนาคตที่ยั่งยืน 
+ผลการดำเนินงานและยุทธศาสตร์ในปี 2566
+รายงานประจำปี 2566: ธนาคารได้เปิดเผย "56-1 One Report 2023" ซึ่งสรุปผลการดำเนินงานที่สำคัญของธนาคารในปีนั้น
+การดำเนินธุรกิจอย่างมีคุณภาพ: ธนาคารเน้นย้ำถึงปรัชญาการทำงานเป็น "หนึ่งครอบครัว หนึ่งทีม" เพื่อให้เข้าใจลูกค้าได้ดีขึ้น แสวงหาโอกาส และสร้างคุณค่าให้กับลูกค้า
+พันธกิจด้านความยั่งยืน: ธนาคารมุ่งมั่นที่จะเป็นพันธมิตรที่ไว้ใจได้และน่าเชื่อถือ โดยดำเนินธุรกิจโดยคำนึงถึงความยั่งยืน 
+กิจกรรมที่สำคัญในปี 2566
+Sustainability Expo 2023: ธนาคารกรุงเทพได้เข้าร่วมงานนี้เพื่อแสดงความสำเร็จของโครงการต่างๆ ที่ขับเคลื่อนไปสู่ความยั่งยืน เช่น โครงการรักษ์ท่าจีน และ โครงการ 3R+ รวมถึงผลิตภัณฑ์ทางการเงินเพื่อความยั่งยืน เช่น สินเชื่อ ตราสารหนี้ และกองทุน
+การนำเสนอแนวคิด: ธนาคารได้นำเสนอแนวคิด "Creating Value for a Sustainable Future – สรรค์สร้างคุณค่าเพื่ออนาคตที่ยั่งยืน" เพื่อแสดงให้เห็นถึงความมุ่งมั่นในการดำเนินธุรกิจที่รับผิดชอบและคำนึงถึงผู้มีส่วนได้เสียทุกกลุ่ม 
+        "connections":https://www.bangkokbank.com 
+          "pagination": {      
+            "current_page": 1,https://apiportal.bangkokbank.com/en
+            "total_pages": 1,
+            "entries_per_page": 500,
+            "total_entries": 2,
+            "order": {
+              "field": "date_creation",https://calendar.google.com/calendar/u/0/r?pli=1
+              "direction": "asc"
+             }
+           },
+          "count": 2,
+          "entries": [https://ww2.loei.go.th/news_so//?limit=20
+            {     
+              "connection_token": "7a559a39-51a5-4f21-92aa-cc880da2233f",
+              "callback_uri": "https://app.oneall.com/social-connect/",
+              "status": "succeeded",
+              "date_creation": "Tue, 23 Aug 2011 14:12:01  0200",                       
+            },          
+            {
+              "connection_token": "7a559a39-51a5-4f21-92aa-cc880da2233f",
+              "callback_uri": "https://app.oneall.com/social-connect/",
+              "status": "succeeded",
+              "date_creation": "Tue, 23 Aug 2011 14:16:11  0200",           
+            }         
+          ]
+        }
+      }
+    }
+  }
+}
