@@ -1,3 +1,4 @@
+https://yjteam.co.kr/terms/dailynote.html
 apiportal.bangkokbank.com
 https://tmn.app.link/1JfWCZ9DvXb/bangkokbank.com
 https://tmn.app.link/1JfWCZ9DvXb*.bangkokbank.com
