@@ -86,7 +86,6 @@ Vue will automatically use the container's `innerHTML` as the template if the ro
 In-DOM templates are often used in applications that are [using Vue without a build step](/guide/quick-start.html#using-vue-from-cdn). They can also be used in conjunction with server-side frameworks, where the root template might be generated dynamically by the server.
 
 ## App Configurations {#app-configurations}
-
 The application instance exposes a `.config` object that allows us to configure a few app-level options, for example, defining an app-level error handler that captures errors from all descendant components:
 
 ```js
@@ -94,21 +93,16 @@ app.config.errorHandler = (err) => {
   /* handle error */
 }
 ```
-
 The application instance also provides a few methods for registering app-scoped assets. For example, registering a component:
-
 ```js
 app.component('TodoDeleteButton', TodoDeleteButton)
 ```
-
 This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its [API reference](/api/application).
 
 Make sure to apply all app configurations before mounting the app!
 
 ## Multiple application instances {#multiple-application-instances}
-
 You are not limited to a single application instance on the same page. The `createApp` API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
-
 ```js
 const app1 = createApp({
   /* ... */
@@ -120,5 +114,4 @@ const app2 = createApp({
 })
 app2.mount('#container-2')
 ```
-
 If you are using Vue to enhance server-rendered HTML and only need Vue to control specific parts of a large page, avoid mounting a single Vue application instance on the entire page. Instead, create multiple small application instances and mount them on the elements they are responsible for.
