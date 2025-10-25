@@ -1,4 +1,4 @@
-https://yjteam.co.kr/terms/dailynote.html
+[https://yjteam.co.kr/terms/dailynote.html](https://rowan-muscari-e79.notion.site/29783e2544768015b327c7bbe129ac3a?pvs=74)
 apiportal.bangkokbank.com
 https://tmn.app.link/1JfWCZ9DvXb/bangkokbank.com
 https://tmn.app.link/1JfWCZ9DvXb*.bangkokbank.com
