@@ -7,7 +7,7 @@ https://www.microsoft.com/th-th/privacy/privacystatement/#https://apiportal.bang
 https://www.microsoft.com/licensing/docs/view/licensing-use-rights#OST/bangkokbank.com
 
 
-
+https://github.com/GINOFLOEI/740674ce2123a969/pull/1#issuecomment-3446635860
 
 
 ความยินยอมในการประมวลผลข้อมูลชีวภาพ (Biometrics)
