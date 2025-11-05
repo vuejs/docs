@@ -243,6 +243,7 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
   type OnCleanup = (cleanupFn: () => void) => void
 
   interface WatchEffectOptions {
+    signal?: AbortSignal
     flush?: 'pre' | 'post' | 'sync' // default: 'pre'
     onTrack?: (event: DebuggerEvent) => void
     onTrigger?: (event: DebuggerEvent) => void
@@ -326,6 +327,18 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
     onWatcherCleanup(cancel)
     data.value = await response
   })
+  ```
+
+  Stopping the watchers with `AbortController`: <sup class="vt-badge" data-text="3.6+" />
+
+  ```js
+  const controller = new AbortController()
+
+  watchEffect(() => {}, { signal: controller.signal })
+  watchEffect(() => {}, { signal: controller.signal })
+
+  // when the watchers are no longer needed:
+  controller.abort()
   ```
 
   Options:
