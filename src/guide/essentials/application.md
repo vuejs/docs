@@ -1,6 +1,6 @@
 # Creating a Vue Application {#creating-a-vue-application}
 
-## The application instance {#the-application-instance}
+## The Application Instance {#the-application-instance}
 
 Every Vue application starts by creating a new **application instance** with the [`createApp`](/api/application#createapp) function:
 
@@ -105,7 +105,7 @@ This makes the `TodoDeleteButton` available for use anywhere in our app. We will
 
 Make sure to apply all app configurations before mounting the app!
 
-## Multiple application instances {#multiple-application-instances}
+## Multiple Application Instances {#multiple-application-instances}
 
 You are not limited to a single application instance on the same page. The `createApp` API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
 
