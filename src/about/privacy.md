@@ -24,7 +24,7 @@ We may collect anonymized data via 3rd party services integrated in our websites
 
   - Fathom Analytics' Privacy Policy: https://usefathom.com/legal/privacy
 
-- **Usage data of the search functionality.** Our search functionality is powered by [Algolia DocSearch](https://docsearch.algolia.com/), which does not perform any type of user tracking or fingerprinting, and does not use cookies. Algolia services are GPDR compliant, CCPA compliant, and TRUSTe Certified.
+- **Usage data of the search functionality.** Our search functionality is powered by [Algolia DocSearch](https://docsearch.algolia.com/), which does not perform any type of user tracking or fingerprinting, and does not use cookies. Algolia services are GDPR compliant, CCPA compliant, and TRUSTe Certified.
 
   - Algolia's privacy policy: https://www.algolia.com/policies/privacy/
   - Algolia's security and privacy compliance: https://www.algolia.com/distributed-secure/security-compliance/

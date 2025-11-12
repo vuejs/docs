@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { ExampleData } from './utils'
+import type { ExampleData } from './utils'
 
 export declare const data: Record<string, ExampleData>
 

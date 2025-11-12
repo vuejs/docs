@@ -153,7 +153,7 @@ function arrayify(value: string | string[]): string[] {
           <li v-if="member.socials.twitter" class="social-item">
             <VTLink
               class="social-link"
-              :href="`https://twitter.com/${member.socials.twitter}`"
+              :href="`https://x.com/${member.socials.twitter}`"
               :no-icon="true"
             >
               <VTIconX class="social-icon" />

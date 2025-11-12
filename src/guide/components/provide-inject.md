@@ -323,7 +323,7 @@ The `computed()` function is typically used in Composition API components, but c
 
 ## Working with Symbol Keys {#working-with-symbol-keys}
 
-So far, we have been using string injection keys in the examples. If you are working in a large application with many dependency providers, or you are authoring components that are going to be used by other developers, it is best to use Symbol injection keys to avoid potential collisions.
+So far, we have been using string injection keys in the examples. If you are working in a large application with many dependency providers, or you are authoring components that are going to be used by other developers, it is best to use [Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) injection keys to avoid potential collisions.
 
 It's recommended to export the Symbols in a dedicated file:
 

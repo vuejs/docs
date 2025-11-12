@@ -117,13 +117,17 @@
   {
     "name": "Redberry",
     "logo": "redberry.png",
-    "intro": "We are a 100+ award-winning, Laravel & Vue partner software design, development, and growth marketing agency from Tbilisi. In 8 years, we have taken 300+ products from zero to hero using Vue, Laravel, React and React Native for clients ranging from startups and government institutions to international agencies and enterprises.",
+    "intro": "We are the 100+ award-winning Vue and Laravel development agency you couldn't afford at home. But we are based in Georgia, the country. So you can.",
     "description": [
-      "Redberry was born in 2014 as a four friends’ venture to bring digital transformation to the brick-to-mortar business in Georgia. Today, we are more than 150 and represent the biggest Georgian agency. We are multifaceted in every way - technology, services, people. We accompany our clients along the entire product journey - from product design to development to its growth. We boast a 100+ international award-winning team of legendary UX/UI designers, software developers, DevOps engineers, project managers, scrum masters, digital strategists, copywriters, content creators, and growth hackers. So call us your swiss-army-knife digital partner if you like; we do.",
-      "While we are a top-tier agency, one of the most beautiful things about us is our location, both literally and metaphorically. We are based in Georgia (country, not the state), where IT outsourcing is almost tax-free. As a result, our EU and US-based partner startups, agencies, and companies enjoy a longer runway and more significant project margins. Luckily, we have a substantial capacity and easy access to the rapidly growing local tech talent, so we are our clients’ reliable and scalable partner.",
-      "Besides being an official Laravel and now Vue Partner software house, we are a Google and Facebook partner creative growth agency, making us an ideal, full-service partner for 80+ companies of all sizes to grow their business progressively. It has also earned us the Best Agency of the Year titles twice in 3 years, 2019 and 2021. Our client’s business is our business, so we remain results-oriented at all times, on and off work hours, weekdays and weekends, to ensure we deliver the solutions that drive your business results. That mindset has shaped our list of clients with industry leaders and runner-ups in finance, insurance, real estate, auto, education, healthcare, etc.",
-      "As for the methodology, running our startup studio has imprinted agile into our DNA. We have built a dozen MVPs and continued developing them over time according to the ever-changing business requirements, honing our ability to optimize for low initial time-to-market and high development velocity on any project we take on. We also internalized and standardized setting up and maintaining adequate codebase test coverage and regularly using CI/CD pipelines, making our lives and codes that much more manageable.",
-      "If you would like to collaborate on extending your product team, you can contact us through our website."
+      "We’re Redberry — an official Vue Partner agency, based in Tbilisi, Georgia. We’re a 200-person team that’s shipped 300+ products across the EU, UK, US, and the Middle East. Founded in 2014 by four friends to build reliable, scalable software, we still live that mission—now at scale, with Vue at the heart of our front end.",
+      "We choose the best option for your product: Nuxt when search visibility and first-load speed matter most, and Inertia + Vue when you want to move quickly on a Laravel backend. Either way, you get a fast, SEO-friendly interface that feels instant. We also set up a reusable design system so new features ship in days, stay on-brand, and remain easy to maintain. If your users need live data or work with spotty connectivity, we design for real-time updates and offline use.",
+      "Every engagement starts with clarity—goals, users, constraints. In Discovery & Planning, we align on architecture, roadmap, backlog, and risks. Then we run dual-track delivery (design and engineering in parallel) so learning feeds building without slowing momentum.",
+      "Our engineering playbook de-risks delivery. Each task starts on a feature branch off main, and we keep main in a releasable state. Changes move through a structured pipeline—Local → Development → Staging → Prerelease → Production—with automated CI/CD, review gates, and client validation in prerelease, so you see progress early and handoffs are clean. We bake in quality from day one: strict code standards, automated tests, measurable performance and accessibility targets, and clear API contracts. After launch, we monitor and trace real usage, fix issues before customers notice, and use data to guide what we improve next.",
+      "How we work:",
+      "Staff Augmentation — embed our Vue engineers into your team.",
+      "Managed Projects — we own delivery end-to-end (discovery → build → launch → evolve).",
+      "Stuck product? We specialize in rescue projects—stabilizing codebases and accelerating delivery. First we audit, then prioritize and fix.",
+      "We typically pair Vue with a robust Laravel backend (we’re one of only 8 diamond-tier Laravel Partners worldwide), and being based in Georgia (the country) lets us deliver top-tier engineering with unbeatable value for price."
     ],
     "region": ["Europe"],
     "proficiencies": [
@@ -135,7 +139,7 @@
     ],
     "website": {
       "text": "redberry.international",
-      "url": "https://redberry.international/"
+      "url": "https://redberry.international?utm_source=vuepartners&utm_campaign=partners_page"
     },
     "contact": "nini.doggo@redberry.ge"
   },
@@ -200,12 +204,8 @@
       "React Native",
       "Flutter"
     ],
-    "region": [
-      "Europe"
-    ],
-    "location": [
-      "Europe"
-    ],
+    "region": ["Europe"],
+    "location": ["Europe"],
     "website": {
       "text": "proxify.io",
       "url": "https://proxify.io?utm_source=partnership&utm_medium=vuejs&utm_campaign=partners-proxify.html"

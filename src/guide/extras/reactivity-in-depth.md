@@ -402,7 +402,7 @@ export function useMachine(options) {
 
 Quite a few other frameworks have introduced reactivity primitives similar to refs from Vue's Composition API, under the term "signals":
 
-- [Solid Signals](https://www.solidjs.com/docs/latest/api#createsignal)
+- [Solid Signals](https://docs.solidjs.com/concepts/signals)
 - [Angular Signals](https://angular.dev/guide/signals)
 - [Preact Signals](https://preactjs.com/guide/v10/signals/)
 - [Qwik Signals](https://qwik.builder.io/docs/components/state/#usesignal)
