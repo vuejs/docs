@@ -99,6 +99,7 @@ dist/
 .vitepress/dist
 .vitepress/cache
 .vitepress/.temp
+src/public/og
 
 # Serverless directories
 .serverless/

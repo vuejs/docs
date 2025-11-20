@@ -14,6 +14,8 @@ import {
   groupIconMdPlugin,
   groupIconVitePlugin
 } from 'vitepress-plugin-group-icons'
+import { addOgImage } from 'vitepress-plugin-og'
+import { withCtx } from 'vue'
 
 const nav: ThemeConfig['nav'] = [
   {
@@ -610,15 +612,7 @@ export default defineConfigWithTheme<ThemeConfig>({
         content: 'Vue.js - The Progressive JavaScript Framework'
       }
     ],
-    [
-      'meta',
-      {
-        property: 'og:image',
-        content: 'https://vuejs.org/images/logo.png'
-      }
-    ],
     ['meta', { name: 'twitter:site', content: '@vuejs' }],
-    ['meta', { name: 'twitter:card', content: 'summary' }],
     [
       'link',
       {
@@ -757,6 +751,12 @@ export default defineConfigWithTheme<ThemeConfig>({
       },
       copyright: `Copyright © 2014-${new Date().getFullYear()} Evan You`
     }
+  },
+
+  async transformPageData(pageData, ctx) {
+      await addOgImage(pageData, ctx, {
+        domain: 'https://vuejs.org',
+      })
   },
 
   markdown: {

@@ -1,4 +1,5 @@
 ---
+title: Partners
 page: true
 footer: false
 ---
