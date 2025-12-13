@@ -329,7 +329,7 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
   })
   ```
 
-  Stopping the watchers with `AbortController`: <sup class="vt-badge" data-text="3.6+" />
+  Stopping the watchers with [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController): <sup class="vt-badge" data-text="3.6+" />
 
   ```js
   const controller = new AbortController()
