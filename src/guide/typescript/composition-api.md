@@ -252,10 +252,10 @@ const year = ref<string | number>('2020')
 year.value = 2020 // ok!
 ```
 
-If you specify a generic type argument but omit the initial value, the resulting type will be a union type that includes `undefined`:
+If you specify a generic type argument but omit the initial value, the resulting type will be the specified type (not a union with `undefined`):
 
 ```ts
-// inferred type: Ref<number | undefined>
+// inferred type: Ref<number>
 const n = ref<number>()
 ```
 
