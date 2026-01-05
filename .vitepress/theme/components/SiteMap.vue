@@ -62,6 +62,7 @@ const items = nav
 
 #sitemap .vt-link {
   font-size: 0.9em;
-  color: var(--vt-c-text-2);
+  /* increased contrast for better legibility (WCAG 1.4.3) */
+  color: var(--vt-c-text-1);
 }
 </style>
