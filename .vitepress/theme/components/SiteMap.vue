@@ -64,5 +64,6 @@ const items = nav
   font-size: 0.9em;
   /* increased contrast for better legibility (WCAG 1.4.3) */
   color: var(--vt-c-text-1);
+  opacity: 0.75;
 }
 </style>
