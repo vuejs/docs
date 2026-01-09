@@ -1,0 +1,135 @@
+/* Smooth transitions for Algolia DocSearch modal */
+/* Similar to vue-bits style with smooth fade and scale animations */
+
+/* Container overlay fade-in */
+.DocSearch-Container {
+  animation: docsearch-fade-in 0.2s ease-out;
+}
+
+/* Modal scale and fade animation - smooth entrance */
+.DocSearch-Modal {
+  animation: docsearch-modal-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center center;
+}
+
+/* Backdrop fade-in */
+.DocSearch-Container::before {
+  animation: docsearch-backdrop-fade-in 0.2s ease-out;
+}
+
+/* Keyframe animations */
+@keyframes docsearch-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes docsearch-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes docsearch-backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth exit animations (when closing) */
+.DocSearch-Container.DocSearch-Container--Stalled .DocSearch-Modal,
+.DocSearch-Container[aria-hidden="true"] .DocSearch-Modal {
+  animation: docsearch-modal-out 0.2s ease-in forwards;
+}
+
+@keyframes docsearch-modal-out {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96) translateY(-8px);
+  }
+}
+
+/* Ensure smooth transitions for search input focus */
+.DocSearch-Input {
+  transition: all 0.2s ease-out;
+}
+
+.DocSearch-Input:focus {
+  transition: all 0.2s ease-out;
+}
+
+/* Smooth transitions for search results */
+.DocSearch-Hits {
+  animation: docsearch-hits-in 0.3s ease-out 0.1s both;
+}
+
+@keyframes docsearch-hits-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Individual hit item stagger animation for smooth list appearance */
+.DocSearch-Hit {
+  animation: docsearch-hit-in 0.2s ease-out both;
+}
+
+.DocSearch-Hit:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.DocSearch-Hit:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.DocSearch-Hit:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.DocSearch-Hit:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.DocSearch-Hit:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.DocSearch-Hit:nth-child(n+6) {
+  animation-delay: 0.3s;
+}
+
+@keyframes docsearch-hit-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Smooth transition for footer */
+.DocSearch-Footer {
+  animation: docsearch-fade-in 0.3s ease-out 0.2s both;
+}
