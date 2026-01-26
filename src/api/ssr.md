@@ -213,7 +213,7 @@ A runtime API used to retrieve the context object passed to `renderToString()` o
   import { useSSRContext } from 'vue'
 
   // make sure to only call it during SSR
-  // https://vitejs.dev/guide/ssr.html#conditional-logic
+  // https://vite.dev/guide/ssr.html#conditional-logic
   if (import.meta.env.SSR) {
     const ctx = useSSRContext()
     // ...attach properties to the context
