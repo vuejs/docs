@@ -32,8 +32,8 @@ If using a custom setup, make sure that:
 
 Additional references:
 
-- [Vite production build guide](https://vitejs.dev/guide/build.html)
-- [Vite deployment guide](https://vitejs.dev/guide/static-deploy.html)
+- [Vite production build guide](https://vite.dev/guide/build.html)
+- [Vite deployment guide](https://vite.dev/guide/static-deploy.html)
 - [Vue CLI deployment guide](https://cli.vuejs.org/guide/deployment.html)
 
 ## Tracking Runtime Errors {#tracking-runtime-errors}

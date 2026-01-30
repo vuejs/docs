@@ -26,7 +26,7 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 - Install [Node.js](https://nodejs.org/) version `^20.19.0 || >=22.12.0`
   :::
 
-In this section we will introduce how to scaffold a Vue [Single Page Application](/guide/extras/ways-of-using-vue#single-page-application-spa) on your local machine. The created project will be using a build setup based on [Vite](https://vitejs.dev) and allow us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
+In this section we will introduce how to scaffold a Vue [Single Page Application](/guide/extras/ways-of-using-vue#single-page-application-spa) on your local machine. The created project will be using a build setup based on [Vite](https://vite.dev/) and allow us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
 
 Make sure you have an up-to-date version of [Node.js](https://nodejs.org/) installed and your current working directory is the one where you intend to create a project. Run the following command in your command line (without the `$` sign):
 
@@ -107,7 +107,7 @@ You should now have your first Vue project running! Note that the example compon
 
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Vue - Official extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling#ide-support).
 - More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling).
-- To learn more about the underlying build tool Vite, check out the [Vite docs](https://vite.dev).
+- To learn more about the underlying build tool Vite, check out the [Vite docs](https://vite.dev/).
 - If you choose to use TypeScript, check out the [TypeScript Usage Guide](typescript/overview).
 
 When you are ready to ship your app to production, run the following:
