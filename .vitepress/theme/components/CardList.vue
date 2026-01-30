@@ -4,7 +4,7 @@ import { computed, onMounted, ref, shallowRef } from 'vue'
 const props = withDefaults(
   defineProps<{
     items: Array<any>
-    filter?: (item: any) => boolean
+    filter?: (item: any) => boolean | undefined
     cardComponent: any
     showLinkToAll?: boolean
     shuffleItems?: boolean
