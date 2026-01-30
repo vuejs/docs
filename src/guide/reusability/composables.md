@@ -302,7 +302,7 @@ These restrictions are important because these are the contexts where Vue is abl
 
 1. Lifecycle hooks can be registered to it.
 
-2. Computed properties and watchers can be linked to it, so that they can be disposed when the instance is unmounted to prevent memory leaks.
+2. Watchers can be linked to it, so that they can be disposed when the instance is unmounted to prevent memory leaks.
 
 :::tip
 `<script setup>` is the only place where you can call composables **after** using `await`. The compiler automatically restores the active instance context for you after the async operation.
