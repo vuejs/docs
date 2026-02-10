@@ -481,7 +481,7 @@ Note that with `@vue/language-tools` 2.1+, static template refs' types can be au
 
 ## Typing Global Custom Directives {#typing-global-custom-directives}
 
-In order to get type hints and type checking for global custom directives declared with `app.directive()`, you can extend `ComponentCustomProperties`
+In order to get type hints and type checking for global custom directives declared with `app.directive()`, you can extend `GlobalDirectives`
 
 ```ts [src/directives/highlight.ts]
 import type { Directive } from 'vue'
@@ -489,7 +489,7 @@ import type { Directive } from 'vue'
 export type HighlightDirective = Directive<HTMLElement, string>
 
 declare module 'vue' {
-  export interface ComponentCustomProperties {
+  export interface GlobalDirectives {
     // prefix with v (v-highlight)
     vHighlight: HighlightDirective
   }
