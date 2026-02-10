@@ -216,6 +216,33 @@ function render() {
 }
 ```
 
+### Using Vnodes in `<template>`
+
+```vue
+<script setup>
+import { h } from 'vue'
+
+const vnode = h('button', ['Hello'])
+</script>
+
+<template>
+  <!-- Via <component /> -->
+  <component :is="vnode">Hi</component>
+
+  <!-- Or directly as element -->
+  <vnode />
+  <vnode>Hi</vnode>
+</template>
+```
+
+A vnode object has been declared in `setup()`, you can use it like a normal component for rendering.
+
+:::warning
+A vnode represents an already created render output, not a component definition. Using a vnode in `<template>` does not create a new component instance, and the vnode will be rendered as-is.
+
+This pattern should be used with care and is not a replacement for normal components.
+:::
+
 ## JSX / TSX {#jsx-tsx}
 
 [JSX](https://facebook.github.io/jsx/) is an XML-like extension to JavaScript that allows us to write code like this:
