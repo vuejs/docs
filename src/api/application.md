@@ -400,6 +400,11 @@ Assign a global handler for uncaught errors propagating from within the applicat
   }
   ```
 
+- **Default**
+
+  The default error handler will re-throw errors during development and log errors during production.
+  You can configure this using the [throwUnhandledErrorInProduction](#app-config-throwunhandlederrorinproduction) property.
+
 ## app.config.warnHandler {#app-config-warnhandler}
 
 Assign a custom handler for runtime warnings from Vue.
