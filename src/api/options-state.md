@@ -275,6 +275,7 @@ Declare watch callbacks to be invoked on data change.
 
   type ObjectWatchOptionItem = {
     handler: WatchCallback | string
+    signal?: AbortSignal
     immediate?: boolean // default: false
     deep?: boolean // default: false
     flush?: 'pre' | 'post' | 'sync' // default: 'pre'
@@ -293,6 +294,7 @@ Declare watch callbacks to be invoked on data change.
 
   The value can also be a string of a method name (declared via `methods`), or an object that contains additional options. When using the object syntax, the callback should be declared under the `handler` field. Additional options include:
 
+  - **`signal`**: stop the watcher when the given [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) is aborted.
   - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
   - **`deep`**: force deep traversal of the source if it is an object or an array, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
