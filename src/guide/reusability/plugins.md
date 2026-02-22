@@ -133,6 +133,6 @@ export default {
 
 </div>
 
-### Bundle for NPM
+### Bundle for NPM {#bundle-for-npm}
 
 If you further want to build and publish your plugin for others to use, see [Vite's section on Library Mode](https://vite.dev/guide/build.html#library-mode).
