@@ -8,7 +8,7 @@ import SpreadSheet from './demos/SpreadSheet.vue'
 
 # Reactivity in Depth {#reactivity-in-depth}
 
-One of Vue’s most distinctive features is the unobtrusive reactivity system. Component state consists of reactive JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common gotchas. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
+One of Vue’s most distinctive features is the unobtrusive reactivity system. Component state consists of reactive JavaScript objects. When you modify them, the view updates. It makes state management simple and intuitive, but it’s also important to understand how it works to avoid some common pitfalls. In this section, we are going to dig into some of the lower-level details of Vue’s reactivity system.
 
 ## What is Reactivity? {#what-is-reactivity}
 
@@ -202,7 +202,7 @@ In fact, this is pretty close to how a Vue component keeps the state and the DOM
 
 <div class="options-api">
 
-The `ref()`, `computed()` and `watchEffect()` APIs are all part of the Composition API. If you have only been using Options API with Vue so far, you'll notice that Composition API is closer to how Vue's reactivity system works under the hood. In fact, in Vue 3 the Options API is implemented on top of the Composition API. All property access on the component instance (`this`) triggers getter / setters for reactivity tracking, and options like `watch` and `computed` invoke their Composition API equivalents internally.
+The `ref()`, `computed()` and `watchEffect()` APIs are all part of the Composition API. If you have only been using Options API with Vue so far, you'll notice that Composition API is closer to how Vue's reactivity system works internally. In fact, in Vue 3 the Options API is implemented on top of the Composition API. All property access on the component instance (`this`) triggers getter / setters for reactivity tracking, and options like `watch` and `computed` invoke their Composition API equivalents internally.
 
 </div>
 
@@ -278,7 +278,9 @@ type DebuggerEvent = {
 
 ### Computed Debugging {#computed-debugging}
 
-<!-- TODO options API equivalent -->
+<div class="options-api">
+Computed debugging options are only available when using the Composition API.
+</div>
 
 We can debug computed properties by passing `computed()` a second options object with `onTrack` and `onTrigger` callbacks:
 
@@ -312,9 +314,29 @@ count.value++
 
 ### Watcher Debugging {#watcher-debugging}
 
-<!-- TODO options API equivalent -->
-
 Similar to `computed()`, watchers also support the `onTrack` and `onTrigger` options:
+
+<div class="options-api">
+
+```js
+export default {
+  watch: {
+    source: {
+      handler(val) {
+        // ...
+      },
+      onTrack(e) {
+        debugger
+      },
+      onTrigger(e) {
+        debugger
+      }
+    }
+  }
+}
+```
+
+</div>
 
 ```js
 watch(source, callback, {
