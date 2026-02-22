@@ -486,7 +486,7 @@ export default {
 
 </div>
 
-This works in versions before 3.5. In addition, `onCleanup` passed via function argument is bound to the watcher instance so it is not subject to the synchronous constraint of `onWatcherCleanup`.
+`onCleanup` passed via function argument is bound to the watcher instance so it is not subject to the synchronous constraint of `onWatcherCleanup`.
 
 ## Callback Flush Timing {#callback-flush-timing}
 
