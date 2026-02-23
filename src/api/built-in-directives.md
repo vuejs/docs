@@ -358,11 +358,32 @@ Create a two-way binding on a form input element or a component.
   - `<textarea>`
   - components
 
+- **Shorthand:**
+  - Omitting value (when argument and bound variable have the same name, requires 3.6+)
+
 - **Modifiers**
 
   - [`.lazy`](/guide/essentials/forms#lazy) - listen to `change` events instead of `input`
   - [`.number`](/guide/essentials/forms#number) - cast valid input string to numbers
   - [`.trim`](/guide/essentials/forms#trim) - trim input
+
+- **Example**
+
+  ```vue-html
+  <!-- form elements -->
+  <input v-model="text" />
+  <select v-model="option" />
+  <textarea v-model="message" />
+
+  <!-- component bindings -->
+  <MyComponent v-model="value" />
+  <MyComponent v-model:checked="checked" />
+
+  <!-- same-name shorthand (3.6+) -->
+  <MyComponent v-model:checked />
+  ```
+
+  The shorthand only works when the bound variable has the same name as the argument. It cannot be used without an argument or when no binding expression is provided (e.g., `<input v-model>` will still result in an error).
 
 - **See also**
 
