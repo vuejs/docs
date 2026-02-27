@@ -28,8 +28,6 @@
   {
     "name": "Ben Hong",
     "title": "Staff Developer Experience Engineer",
-    "company": "Netlify",
-    "companyLink": "https://www.netlify.com/",
     "projects": [
       {
         "label": "vuejs/docs",
@@ -37,7 +35,7 @@
       }
     ],
     "location": "Washington, DC, USA",
-    "languages": ["Chinese", "English"],
+    "languages": ["English", "Chinese"],
     "website": {
       "label": "bencodezen.io",
       "url": "https://www.bencodezen.io"
