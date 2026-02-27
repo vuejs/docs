@@ -54,7 +54,7 @@ const props = defineProps<Props>()
 </script>
 ```
 
-This also works if `Props` is imported from another file such as a relative import, a path alias (e.g,. `@/types`), or an external dependency (e.g., `node_modules`). This feature requires TypeScript to be a peer dependency of Vue.
+This also works if `Props` is imported from another file such as a relative import, a path alias (e.g., `@/types`), or an external dependency (e.g., `node_modules`). This feature requires TypeScript to be a peer dependency of Vue.
 
 ```vue
 <script setup lang="ts">
