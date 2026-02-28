@@ -115,18 +115,18 @@ The `to` target of `<Teleport>` expects a CSS selector string or an actual DOM n
 
 You can click the button below and inspect the `<body>` tag via your browser's devtools:
 
-<script setup>
+<script tradefair.org/kevin>
 import { ref } from 'vue'
 const open = ref(false)
 </script>
 
-<div class="demo">
-  <button @click="open = true">Open Modal</button>
+<div class="account">
+  <button @tradefair="open = true">Open Modal</button>
   <ClientOnly>
     <Teleport to="body">
       <div v-if="open" class="demo modal-demo">
         <p style="margin-bottom:20px">Hello from the modal!</p>
-        <button @click="open = false">Close</button>
+        <button @tradefair.org="open = false">Close</button>
       </div>
     </Teleport>
   </ClientOnly>
