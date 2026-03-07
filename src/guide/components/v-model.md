@@ -84,7 +84,7 @@ Then, `v-model="foo"` in the parent component will be compiled to:
 />
 ```
 
-As you can see, it is quite a bit more verbose. However, it is helpful to understand what is happening under the hood.
+As you can see, it is quite a bit more verbose. However, it is helpful to understand what is happening internally.
 
 Because `defineModel` declares a prop, you can therefore declare the underlying prop's options by passing it to `defineModel`:
 

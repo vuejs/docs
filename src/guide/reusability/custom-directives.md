@@ -233,7 +233,7 @@ Similar to built-in directives, custom directive arguments can be dynamic. For e
 
 Here the directive argument will be reactively updated based on `arg` property in our component state.
 
-:::tip Note
+:::tip
 Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 :::
 

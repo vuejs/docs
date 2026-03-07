@@ -118,7 +118,8 @@ data() {
   return {
     objectOfAttrs: {
       id: 'container',
-      class: 'wrapper'
+      class: 'wrapper',
+      style: 'background-color:green'
     }
   }
 }
@@ -286,6 +287,6 @@ You'll see other examples of modifiers later, [for `v-on`](./event-handling#even
 
 And finally, here's the full directive syntax visualized:
 
-![directive syntax graph](./images/directive.png)
+![Diagram visualizing the full directive syntax, including directive name, argument, modifiers, and value](./images/directive.png)
 
 <!-- https://www.figma.com/file/BGWUknIrtY9HOmbmad0vFr/Directive -->
