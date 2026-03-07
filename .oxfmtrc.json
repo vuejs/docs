@@ -5,5 +5,5 @@
   "trailingComma": "none",
   "printWidth": 75,
   "sortPackageJson": false,
-  "ignorePatterns": ["*.vue"]
+  "ignorePatterns": ["*.vue", "src/public/rom3.min.js"]
 }
