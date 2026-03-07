@@ -23,8 +23,8 @@ As you can see, `defineAsyncComponent` accepts a loader function that returns a 
 ```js
 import { defineAsyncComponent } from 'vue'
 
-const AsyncComp = defineAsyncComponent(() =>
-  import('./components/MyComponent.vue')
+const AsyncComp = defineAsyncComponent(
+  () => import('./components/MyComponent.vue')
 )
 ```
 
@@ -33,9 +33,10 @@ The resulting `AsyncComp` is a wrapper component that only calls the loader func
 As with normal components, async components can be [registered globally](/guide/components/registration#global-registration) using `app.component()`:
 
 ```js
-app.component('MyComponent', defineAsyncComponent(() =>
-  import('./components/MyComponent.vue')
-))
+app.component(
+  'MyComponent',
+  defineAsyncComponent(() => import('./components/MyComponent.vue'))
+)
 ```
 
 <div class="options-api">
@@ -48,8 +49,8 @@ import { defineAsyncComponent } from 'vue'
 
 export default {
   components: {
-    AdminPage: defineAsyncComponent(() =>
-      import('./components/AdminPageComponent.vue')
+    AdminPage: defineAsyncComponent(
+      () => import('./components/AdminPageComponent.vue')
     )
   }
 }
@@ -70,8 +71,8 @@ They can also be defined directly inside their parent component:
 <script setup>
 import { defineAsyncComponent } from 'vue'
 
-const AdminPage = defineAsyncComponent(() =>
-  import('./components/AdminPageComponent.vue')
+const AdminPage = defineAsyncComponent(
+  () => import('./components/AdminPageComponent.vue')
 )
 </script>
 
@@ -191,7 +192,7 @@ const myStrategy: HydrationStrategy = (hydrate, forEachElement) => {
   // forEachElement is a helper to iterate through all the root elements
   // in the component's non-hydrated DOM, since the root can be a fragment
   // instead of a single element
-  forEachElement(el => {
+  forEachElement((el) => {
     // ...
   })
   // call `hydrate` when ready

@@ -21,11 +21,9 @@ We do **not** collect or store any type of personal data, whether through our we
 We may collect anonymized data via 3rd party services integrated in our websites:
 
 - **Visitor data to our websites.** Our website analytics is powered by [Fathom Analytics](https://usefathom.com/), which doesn't use cookies and complies with the GDPR, ePrivacy (including PECR), COPPA and CCPA. Using this privacy-friendly website analytics software, your IP address is only briefly processed, and we (running this website) have no way of identifying you. As per the CCPA, your personal information is de-identified. You can read more about this on Fathom Analytics' website.
-
   - Fathom Analytics' Privacy Policy: https://usefathom.com/legal/privacy
 
 - **Usage data of the search functionality.** Our search functionality is powered by [Algolia DocSearch](https://docsearch.algolia.com/), which does not perform any type of user tracking or fingerprinting, and does not use cookies. Algolia services are GDPR compliant, CCPA compliant, and TRUSTe Certified.
-
   - Algolia's privacy policy: https://www.algolia.com/policies/privacy/
   - Algolia's security and privacy compliance: https://www.algolia.com/distributed-secure/security-compliance/
 

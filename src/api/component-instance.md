@@ -49,7 +49,6 @@ The root DOM node that the component instance is managing.
 - **Details**
 
   `$el` will be `undefined` until the component is [mounted](./options-lifecycle#mounted).
-
   - For components with a single root element, `$el` will point to that element.
   - For components with text root, `$el` will point to the text node.
   - For components with multiple root nodes, `$el` will be the placeholder DOM node that Vue uses to keep track of the component's position in the DOM (a text node, or a comment node in SSR hydration mode).
@@ -73,7 +72,6 @@ The resolved component options used for instantiating the current component inst
 - **Details**
 
   The `$options` object exposes the resolved options for the current component and is the merge result of these possible sources:
-
   - Global mixins
   - Component `extends` base
   - Component mixins
@@ -152,7 +150,6 @@ An object of DOM elements and component instances, registered via [template refs
   ```
 
 - **See also**
-
   - [Template refs](/guide/essentials/template-refs)
   - [Special Attributes - ref](./built-in-special-attributes.md#ref)
 
@@ -175,7 +172,6 @@ An object that contains the component's fallthrough attributes.
   By default, everything in `$attrs` will be automatically inherited on the component's root element if there is only a single root element. This behavior is disabled if the component has multiple root nodes, and can be explicitly disabled with the [`inheritAttrs`](./options-misc#inheritattrs) option.
 
 - **See also**
-
   - [Fallthrough Attributes](/guide/components/attrs)
 
 ## $watch() {#watch}
@@ -215,7 +211,6 @@ Imperative API for creating watchers.
   The first argument is the watch source. It can be a component property name string, a simple dot-delimited path string, or a [getter function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#description).
 
   The second argument is the callback function. The callback receives the new value and the old value of the watched source.
-
   - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
   - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
@@ -287,7 +282,6 @@ Trigger a custom event on the current instance. Any additional arguments will be
   ```
 
 - **See also**
-
   - [Component - Events](/guide/components/events)
   - [`emits` option](./options-state#emits)
 
@@ -315,7 +309,9 @@ Instance-bound version of the global [`nextTick()`](./general#nexttick).
 
   ```ts
   interface ComponentPublicInstance {
-    $nextTick(callback?: (this: ComponentPublicInstance) => void): Promise<void>
+    $nextTick(
+      callback?: (this: ComponentPublicInstance) => void
+    ): Promise<void>
   }
   ```
 

@@ -19,7 +19,6 @@ A "meta component" for rendering dynamic components or elements.
 - **Details**
 
   The actual component to render is determined by the `is` prop.
-
   - When `is` is a string, it could be either an HTML tag name or a component's registered name.
 
   - Alternatively, `is` can also be directly bound to the definition of a component.
@@ -147,7 +146,6 @@ The `<template>` tag is used as a placeholder when we want to use a built-in dir
 - **Details**
 
   The special handling for `<template>` is only triggered if it is used with one of these directives:
-
   - `v-if`, `v-else-if`, or `v-else`
   - `v-for`
   - `v-slot`

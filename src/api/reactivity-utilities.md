@@ -54,8 +54,8 @@ Can also be used to create a ref for a property on a source reactive object. The
   ): T extends () => infer R
     ? Readonly<Ref<R>>
     : T extends Ref
-    ? T
-    : Ref<UnwrapRef<T>>
+      ? T
+      : Ref<UnwrapRef<T>>
 
   // object property signature
   function toRef<T extends object, K extends keyof T>(
@@ -160,9 +160,12 @@ This can be used in [Composables](/guide/reusability/composables.html) to normal
   import type { MaybeRefOrGetter } from 'vue'
 
   function useFeature(id: MaybeRefOrGetter<number>) {
-    watch(() => toValue(id), id => {
-      // react to id changes
-    })
+    watch(
+      () => toValue(id),
+      (id) => {
+        // react to id changes
+      }
+    )
   }
 
   // this composable supports any of the following:

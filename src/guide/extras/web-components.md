@@ -117,7 +117,6 @@ document.body.appendChild(
 - A Vue custom element will mount an internal Vue component instance inside its shadow root when the element's [`connectedCallback`](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#using_the_lifecycle_callbacks) is called for the first time.
 
 - When the element's `disconnectedCallback` is invoked, Vue will check whether the element is detached from the document after a microtask tick.
-
   - If the element is still in the document, it's a move and the component instance will be preserved;
 
   - If the element is detached from the document, it's a removal and the component instance will be unmounted.
@@ -125,7 +124,6 @@ document.body.appendChild(
 #### Props {#props}
 
 - All props declared using the `props` option will be defined on the custom element as properties. Vue will automatically handle the reflection between attributes / properties where appropriate.
-
   - Attributes are always reflected to corresponding properties.
 
   - Properties with primitive values (`string`, `boolean` or `number`) are reflected as attributes.
@@ -218,7 +216,6 @@ If the custom elements will be used in an application that is also using Vue, yo
 It is recommended to export the individual element constructors to give your users the flexibility to import them on-demand and register them with desired tag names. You can also export a convenience function to automatically register all elements. Here's an example entry point of a Vue custom element library:
 
 ```js [elements.js]
-
 import { defineCustomElement } from 'vue'
 import Foo from './MyFoo.ce.vue'
 import Bar from './MyBar.ce.vue'
@@ -290,9 +287,9 @@ customElements.define('some-element', SomeElement)
 // Add the new element type to Vue's GlobalComponents type.
 declare module 'vue' {
   interface GlobalComponents {
-    // Be sure to pass in the Vue component type here 
+    // Be sure to pass in the Vue component type here
     // (SomeComponent, *not* SomeElement).
-    // Custom Elements require a hyphen in their name, 
+    // Custom Elements require a hyphen in their name,
     // so use the hyphenated element name here.
     'some-element': typeof SomeComponent
   }

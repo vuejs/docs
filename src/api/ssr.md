@@ -232,7 +232,6 @@ A special attribute that can be used to suppress [hydration mismatch](/guide/sca
   ```
 
   The value can limit the allowed mismatch to a specific type. Allowed values are:
-
   - `text`
   - `children` (only allows mismatch for direct children)
   - `class`

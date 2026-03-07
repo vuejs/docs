@@ -79,7 +79,6 @@ Provides animated transition effects to a **single** element or component.
   ```
 
 - **Events**
-
   - `@before-enter`
   - `@before-leave`
   - `@enter`
@@ -338,7 +337,6 @@ Used for orchestrating nested async dependencies in a component tree.
   ```
 
 - **Events**
-
   - `@resolve`
   - `@pending`
   - `@fallback`

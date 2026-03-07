@@ -410,7 +410,6 @@ Watches one or more reactive data sources and invokes a callback function when t
   `watch()` is lazy by default - i.e. the callback is only called when the watched source has changed.
 
   The first argument is the watcher's **source**. The source can be one of the following:
-
   - A getter function that returns a value
   - A ref
   - A reactive object
@@ -421,7 +420,6 @@ Watches one or more reactive data sources and invokes a callback function when t
   When watching multiple sources, the callback receives two arrays containing new / old values corresponding to the source array.
 
   The third optional argument is an options object that supports the following options:
-
   - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
   - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. In 3.5+, this can also be a number indicating the max traversal depth. See [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
@@ -429,7 +427,6 @@ Watches one or more reactive data sources and invokes a callback function when t
   - **`once`**: (3.4+) run the callback only once. The watcher is automatically stopped after the first callback run.
 
   Compared to [`watchEffect()`](#watcheffect), `watch()` allows us to:
-
   - Perform the side effect lazily;
   - Be more specific about what state should trigger the watcher to re-run;
   - Access both the previous and current value of the watched state.
@@ -550,7 +547,6 @@ Watches one or more reactive data sources and invokes a callback function when t
   ```
 
 - **See also**
-
   - [Guide - Watchers](/guide/essentials/watchers)
   - [Guide - Watcher Debugging](/guide/extras/reactivity-in-depth#watcher-debugging)
 
