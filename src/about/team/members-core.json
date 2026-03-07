@@ -78,12 +78,17 @@
   },
   {
     "name": "Haoqun Jiang",
-    "title": "Developer",
-    "company": "Vue.js",
+    "title": "Principal",
+    "company": "Global Brain",
+    "companyLink": "https://globalbrains.com/",
     "projects": [
       {
         "label": "create-vue",
         "url": "https://github.com/vuejs/create-vue"
+      },
+      {
+        "label": "ecosystem-ci",
+        "url": "https://github.com/vuejs/ecosystem-ci"
       },
       {
         "label": "vite",
@@ -92,19 +97,19 @@
       {
         "label": "vue-cli",
         "url": "https://github.com/vuejs/vue-cli"
-      },
-      {
-        "label": "vue-loader",
-        "url": "https://github.com/vuejs/vue-loader"
       }
     ],
-    "location": "Hangzhou, China",
+    "location": "Tokyo, Japan",
     "languages": ["Chinese", "English"],
     "socials": {
-      "github": "sodatea",
+      "github": "haoqunjiang",
       "twitter": "haoqunjiang"
     },
-    "sponsor": true
+    "sponsor": true,
+    "website": {
+      "label": "haoqun.dev",
+      "url": "https://haoqun.dev/"
+    }
   },
   {
     "name": "Jinjiang",
