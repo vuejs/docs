@@ -484,7 +484,7 @@
     "sponsor": true
   },
   {
-    "name": "edison",
+    "name": "Edison",
     "title": "Developer",
     "company": "Vue.js",
     "projects": [
@@ -493,7 +493,7 @@
         "url": "https://github.com/vuejs/core"
       }
     ],
-    "location": "NanJing, China",
+    "location": "Nanjing, China",
     "languages": ["Chinese", "English"],
     "socials": {
       "github": "edison1105",
