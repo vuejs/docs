@@ -484,6 +484,24 @@
     "sponsor": true
   },
   {
+    "name": "Edison",
+    "title": "Developer",
+    "company": "Vue.js",
+    "projects": [
+      {
+        "label": "vuejs/core",
+        "url": "https://github.com/vuejs/core"
+      }
+    ],
+    "location": "Nanjing, China",
+    "languages": ["Chinese", "English"],
+    "socials": {
+      "github": "edison1105",
+      "twitter": "edison11051"
+    },
+    "sponsor": true
+  },
+  {
     "name": "ubugeeei",
     "title": "Software Engineer",
     "company": "Mates Inc.",
@@ -523,7 +541,6 @@
     "socials": {
       "github": "ubugeeei",
       "twitter": "ubugeeei"
-    },
-    "sponsor": true
+    }
   }
 ]
