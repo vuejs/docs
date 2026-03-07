@@ -4,7 +4,9 @@
   padding: 1.6em 1.6em 0.1px;
   position: relative;
   border: 1px solid transparent;
-  transition: background-color 0.25s ease, border-color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .vt-doc .style-example h3 {

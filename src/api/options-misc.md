@@ -15,7 +15,6 @@ Explicitly declare a display name for the component.
 - **Details**
 
   The name of a component is used for the following:
-
   - Recursive self-reference in the component's own template
   - Display in Vue DevTools' component inspection tree
   - Display in warning component traces
@@ -102,7 +101,6 @@ Controls whether the default component attribute fallthrough behavior should be 
   </div>
 
 - **See also**
-
   - [Fallthrough Attributes](/guide/components/attrs)
   <div class="composition-api">
 

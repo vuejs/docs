@@ -184,7 +184,7 @@ The `emits` option and `defineEmits()` macro also support an object syntax. If u
 ```vue
 <script setup lang="ts">
 const emit = defineEmits({
-  submit(payload: { email: string, password: string }) {
+  submit(payload: { email: string; password: string }) {
     // return `true` or `false` to indicate
     // validation pass / fail
   }

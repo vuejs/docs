@@ -51,8 +51,7 @@ const currentView = computed(() => {
 </script>
 
 <template>
-  <a href="#/">Home</a> |
-  <a href="#/about">About</a> |
+  <a href="#/">Home</a> | <a href="#/about">About</a> |
   <a href="#/non-existent-path">Broken Link</a>
   <component :is="currentView" />
 </template>
@@ -88,15 +87,14 @@ export default {
   },
   mounted() {
     window.addEventListener('hashchange', () => {
-		  this.currentPath = window.location.hash
-		})
+      this.currentPath = window.location.hash
+    })
   }
 }
 </script>
 
 <template>
-  <a href="#/">Home</a> |
-  <a href="#/about">About</a> |
+  <a href="#/">Home</a> | <a href="#/about">About</a> |
   <a href="#/non-existent-path">Broken Link</a>
   <component :is="currentView" />
 </template>

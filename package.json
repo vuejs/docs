@@ -23,6 +23,7 @@
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^24.0.0",
     "oxc-minify": "^0.111.0",
+    "oxfmt": "^0.36.0",
     "typescript": "^5.9.3",
     "vitepress-plugin-group-icons": "^1.7.1",
     "vitepress-plugin-llms": "^0.0.8",

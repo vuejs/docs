@@ -42,10 +42,11 @@ This is the underlying helper that powers [`defineModel()`](/api/sfc-script-setu
     set?: (v: T) => any
   }
 
-  type ModelRef<T, M extends PropertyKey = string, G = T, S = T> = Ref<G, S> & [
-    ModelRef<T, M, G, S>,
-    Record<M, true | undefined>
-  ]
+  type ModelRef<T, M extends PropertyKey = string, G = T, S = T> = Ref<
+    G,
+    S
+  > &
+    [ModelRef<T, M, G, S>, Record<M, true | undefined>]
   ```
 
 - **Example**

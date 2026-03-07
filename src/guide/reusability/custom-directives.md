@@ -197,7 +197,6 @@ Directive hooks are passed these arguments:
 - `el`: the element the directive is bound to. This can be used to directly manipulate the DOM.
 
 - `binding`: an object containing the following properties.
-
   - `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
   - `oldValue`: The previous value, only available in `beforeUpdate` and `updated`. It is available whether or not the value has changed.
   - `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.

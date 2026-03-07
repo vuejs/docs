@@ -23,15 +23,19 @@ Creates a custom renderer. By providing platform-specific node creation and mani
       prevValue: any,
       nextValue: any,
       namespace?: ElementNamespace,
-      parentComponent?: ComponentInternalInstance | null,
+      parentComponent?: ComponentInternalInstance | null
     ): void
-    insert(el: HostNode, parent: HostElement, anchor?: HostNode | null): void
+    insert(
+      el: HostNode,
+      parent: HostElement,
+      anchor?: HostNode | null
+    ): void
     remove(el: HostNode): void
     createElement(
       type: string,
       namespace?: ElementNamespace,
       isCustomizedBuiltIn?: string,
-      vnodeProps?: (VNodeProps & { [key: string]: any }) | null,
+      vnodeProps?: (VNodeProps & { [key: string]: any }) | null
     ): HostElement
     createText(text: string): HostNode
     createComment(text: string): HostNode
@@ -48,7 +52,7 @@ Creates a custom renderer. By providing platform-specific node creation and mani
       anchor: HostNode | null,
       namespace: ElementNamespace,
       start?: HostNode | null,
-      end?: HostNode | null,
+      end?: HostNode | null
     ): [HostNode, HostNode]
   }
   ```

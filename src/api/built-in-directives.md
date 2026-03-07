@@ -81,7 +81,6 @@ Denote the "else block" for `v-if` or a `v-if` / `v-else-if` chain.
 - **Does not expect expression**
 
 - **Details**
-
   - Restriction: previous sibling element must have `v-if` or `v-else-if`.
 
   - Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
@@ -106,7 +105,6 @@ Denote the "else if block" for `v-if`. Can be chained.
 - **Expects:** `any`
 
 - **Details**
-
   - Restriction: previous sibling element must have `v-if` or `v-else-if`.
 
   - Can be used on `<template>` to denote a conditional block containing only text or multiple elements.
@@ -178,7 +176,6 @@ Attach an event listener to the element.
 - **Argument:** `event` (optional if using Object syntax)
 
 - **Modifiers**
-
   - `.stop` - call `event.stopPropagation()`.
   - `.prevent` - call `event.preventDefault()`.
   - `.capture` - add event listener in capture mode.
@@ -266,7 +263,6 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 - **Argument:** `attrOrProp (optional)`
 
 - **Modifiers**
-
   - `.camel` - transform the kebab-case attribute name into camelCase.
   - `.prop` - force a binding to be set as a DOM property (3.2+).
   - `.attr` - force a binding to be set as a DOM attribute (3.2+).
@@ -352,20 +348,17 @@ Create a two-way binding on a form input element or a component.
 - **Expects:** varies based on value of form inputs element or output of components
 
 - **Limited to:**
-
   - `<input>`
   - `<select>`
   - `<textarea>`
   - components
 
 - **Modifiers**
-
   - [`.lazy`](/guide/essentials/forms#lazy) - listen to `change` events instead of `input`
   - [`.number`](/guide/essentials/forms#number) - cast valid input string to numbers
   - [`.trim`](/guide/essentials/forms#trim) - trim input
 
 - **See also**
-
   - [Form Input Bindings](/guide/essentials/forms)
   - [Component Events - Usage with `v-model`](/guide/components/v-model)
 
@@ -380,7 +373,6 @@ Denote named slots or scoped slots that expect to receive props.
 - **Argument:** slot name (optional, defaults to `default`)
 
 - **Limited to:**
-
   - `<template>`
   - [components](/guide/components/slots#scoped-slots) (for a lone default slot with props)
 

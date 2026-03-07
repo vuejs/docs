@@ -17,41 +17,33 @@ Where multiple, equally good options exist, an arbitrary choice can be made to e
 This is the default order we recommend for component options. They're split into categories, so you'll know where to add new properties from plugins.
 
 1. **Global Awareness** (requires knowledge beyond the component)
-
    - `name`
 
 2. **Template Compiler Options** (changes the way templates are compiled)
-
    - `compilerOptions`
 
 3. **Template Dependencies** (assets used in the template)
-
    - `components`
    - `directives`
 
 4. **Composition** (merges properties into the options)
-
    - `extends`
    - `mixins`
    - `provide`/`inject`
 
 5. **Interface** (the interface to the component)
-
    - `inheritAttrs`
    - `props`
    - `emits`
 
 6. **Composition API** (the entry point for using the Composition API)
-
    - `setup`
 
 7. **Local State** (local reactive properties)
-
    - `data`
    - `computed`
 
 8. **Events** (callbacks triggered by reactive events)
-
    - `watch`
    - Lifecycle Events (in the order they are called)
      - `beforeCreate`
@@ -69,7 +61,6 @@ This is the default order we recommend for component options. They're split into
      - `renderTriggered`
 
 9. **Non-Reactive Properties** (instance properties independent of the reactivity system)
-
    - `methods`
 
 10. **Rendering** (the declarative description of the component output)
@@ -82,15 +73,12 @@ This is the default order we recommend for component options. They're split into
 This is the default order we recommend for component options. They're split into categories, so you'll know where to add custom attributes and directives.
 
 1. **Definition** (provides the component options)
-
    - `is`
 
 2. **List Rendering** (creates multiple variations of the same element)
-
    - `v-for`
 
 3. **Conditionals** (whether the element is rendered/shown)
-
    - `v-if`
    - `v-else-if`
    - `v-else`
@@ -98,27 +86,22 @@ This is the default order we recommend for component options. They're split into
    - `v-cloak`
 
 4. **Render Modifiers** (changes the way the element renders)
-
    - `v-pre`
    - `v-once`
 
 5. **Global Awareness** (requires knowledge beyond the component)
-
    - `id`
 
 6. **Unique Attributes** (attributes that require unique values)
-
    - `ref`
    - `key`
 
 7. **Two-Way Binding** (combining binding and events)
-
    - `v-model`
 
 8. **Other Attributes** (all unspecified bound & unbound attributes)
 
 9. **Events** (component event listeners)
-
    - `v-on`
 
 10. **Content** (overrides the content of the element)
@@ -301,7 +284,7 @@ const inputClasses = computed(() => {
 
 or
 
-```vue-html  [ComponentA.vue]
+```vue-html [ComponentA.vue]
 <template>...</template>
 <script>/* ... */</script>
 <style>/* ... */</style>

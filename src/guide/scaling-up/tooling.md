@@ -34,15 +34,15 @@ $ npm create vue@latest
 ```sh [pnpm]
 $ pnpm create vue@latest
 ```
-  
+
 ```sh [yarn]
 # For Yarn Modern (v2+)
 $ yarn create vue@latest
-  
+
 # For Yarn ^v4.11
 $ yarn dlx create-vue@latest
 ```
-  
+
 ```sh [bun]
 $ bun create vue@latest
 ```
@@ -88,7 +88,6 @@ If you are looking for a lighter-weight alternative for no-build-step usage, che
 - [WebStorm](https://www.jetbrains.com/webstorm/) also provides great built-in support for Vue SFCs.
 
 - Other IDEs that support the [Language Service Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) can also leverage Volar's core functionalities via LSP:
-
   - Sublime Text support via [LSP-Volar](https://github.com/sublimelsp/LSP-volar).
 
   - vim / Neovim support via [coc-volar](https://github.com/yaegassy/coc-volar).

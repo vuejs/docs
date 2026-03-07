@@ -1,4 +1,5 @@
-.cell, .cell input {
+.cell,
+.cell input {
   height: 1.5em;
   line-height: 1.5;
   font-size: 15px;

@@ -221,7 +221,7 @@ export default {
       // setter
       set(newValue) {
         // Note: we are using destructuring assignment syntax here.
-        [this.firstName, this.lastName] = newValue.split(' ')
+        ;[this.firstName, this.lastName] = newValue.split(' ')
       }
     }
   }
@@ -249,7 +249,7 @@ const fullName = computed({
   // setter
   set(newValue) {
     // Note: we are using destructuring assignment syntax here.
-    [firstName.value, lastName.value] = newValue.split(' ')
+    ;[firstName.value, lastName.value] = newValue.split(' ')
   }
 })
 </script>
@@ -296,6 +296,7 @@ export default {
   }
 }
 ```
+
 </div>
 
 <div class="composition-api">
@@ -318,6 +319,7 @@ const alwaysSmall = computed((previous) => {
 })
 </script>
 ```
+
 </div>
 
 In case you're using a writable computed:
@@ -338,7 +340,7 @@ export default {
           return this.count
         }
 
-        return previous;
+        return previous
       },
       set(newValue) {
         this.count = newValue * 2
@@ -373,7 +375,6 @@ const alwaysSmall = computed({
 ```
 
 </div>
-
 
 ## Best Practices {#best-practices}
 

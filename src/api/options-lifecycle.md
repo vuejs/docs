@@ -73,7 +73,6 @@ Called after the component has been mounted.
 - **Details**
 
   A component is considered mounted after:
-
   - All of its synchronous child components have been mounted (does not include async components or components inside `<Suspense>` trees).
 
   - Its own DOM tree has been created and inserted into the parent container. Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
@@ -157,7 +156,6 @@ Called after the component has been unmounted.
 - **Details**
 
   A component is considered unmounted after:
-
   - All of its child components have been unmounted.
 
   - All of its associated reactive effects (render effect and computed / watchers created during `setup()`) have been stopped.
@@ -186,7 +184,6 @@ Called when an error propagating from a descendant component has been captured.
 - **Details**
 
   Errors can be captured from the following sources:
-
   - Component renders
   - Event handlers
   - Lifecycle hooks
@@ -206,7 +203,6 @@ Called when an error propagating from a descendant component has been captured.
   The hook can return `false` to stop the error from propagating further. See error propagation details below.
 
   **Error Propagation Rules**
-
   - By default, all errors are still sent to the application-level [`app.config.errorHandler`](/api/application#app-config-errorhandler) if it is defined, so that these errors can still be reported to an analytics service in a single place.
 
   - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error, in the order of bottom to top. This is similar to the bubbling mechanism of native DOM events.
@@ -216,7 +212,6 @@ Called when an error propagating from a descendant component has been captured.
   - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or `app.config.errorHandler` from being invoked for this error.
 
   **Error Capturing Caveats**
-  
   - In components with async `setup()` function (with top-level `await`) Vue **will always** try to render component template, even if `setup()` throwed error. This will likely cause more errors because during render component's template might try to access non-existing properties of failed `setup()` context. When capturing errors in such components, be ready to handle errors from both failed async `setup()` (they will always come first) and failed render process.
 
   - <sup class="vt-badge" data-text="SSR only"></sup> Replacing errored child component in parent component deep inside `<Suspense>` will cause hydration mismatches in SSR. Instead, try to separate logic that can possibly throw from child `setup()` into separate function and execute it in the parent component's `setup()`, where you can safely `try/catch` the execution process and make replacement if needed before rendering the actual child component.
