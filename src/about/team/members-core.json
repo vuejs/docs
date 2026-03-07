@@ -482,5 +482,23 @@
       "twitter": "sanxiaozhizi"
     },
     "sponsor": true
+  },
+  {
+    "name": "edison",
+    "title": "Developer",
+    "company": "Vue.js",
+    "projects": [
+      {
+        "label": "vuejs/core",
+        "url": "https://github.com/vuejs/core"
+      }
+    ],
+    "location": "NanJing, China",
+    "languages": ["Chinese", "English"],
+    "socials": {
+      "github": "edison1105",
+      "twitter": "edison11051"
+    },
+    "sponsor": true
   }
 ]
