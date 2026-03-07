@@ -32,6 +32,10 @@
   "pnpm": {
     "overrides": {
       "vitepress>vite": "npm:vite@8.0.0-beta.11"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "vue-demi"
+    ]
   }
 }
