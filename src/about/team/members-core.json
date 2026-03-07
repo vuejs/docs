@@ -500,5 +500,47 @@
       "twitter": "edison11051"
     },
     "sponsor": true
+  },
+  {
+    "name": "ubugeeei",
+    "title": "Software Engineer",
+    "company": "Mates Inc.",
+    "companyLink": "https://github.com/mates-system",
+    "projects": [
+      {
+        "label": "vuejs/vue-vapor",
+        "url": "https://github.com/vuejs/vue-vapor"
+      },
+      {
+        "label": "Vize",
+        "url": "https://github.com/ubugeeei/vize"
+      },
+      {
+        "label": "chibivue",
+        "url": "https://github.com/chibivue-land"
+      },
+      {
+        "label": "Ox Content",
+        "url": "https://github.com/ubugeeei/ox-content"
+      },
+      {
+        "label": "Vue Fes Japan",
+        "url": "https://vuefes.jp"
+      },
+      {
+        "label": "Vue.js Japan User Group",
+        "url": "https://github.com/vuejs-jp"
+      }
+    ],
+    "location": "Tokyo, Japan",
+    "languages": ["Japanese"],
+    "website": {
+      "label": "wtrclred.io",
+      "url": "https://wtrclred.io"
+    },
+    "socials": {
+      "github": "ubugeeei",
+      "twitter": "ubugeeei"
+    }
   }
 ]
