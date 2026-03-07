@@ -78,7 +78,6 @@ Declare properties to inject into the current component by locating them from an
 - **Details**
 
   The `inject` option should be either:
-
   - An array of strings, or
   - An object where the keys are the local binding name and the value is either:
     - The key (string or Symbol) to search for in available injections, or
@@ -257,10 +256,11 @@ A "base class" component to extend from.
     extends: Base,
     setup(props, ctx) {
       return {
-        ...Base.setup(props, ctx),
+        ...Base.setup(props, ctx)
         // local bindings
       }
     }
   }
   ```
+
   :::

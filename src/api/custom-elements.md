@@ -31,7 +31,6 @@ This method accepts the same argument as [`defineComponent`](#definecomponent), 
 - **Details**
 
   In addition to normal component options, `defineCustomElement()` also supports a number of options that are custom-elements-specific:
-
   - **`styles`**: an array of inlined CSS strings for providing CSS that should be injected into the element's shadow root.
 
   - **`configureApp`** <sup class="vt-badge" data-text="3.5+"/>: a function that can be used to configure the Vue app instance for the custom element.
@@ -68,7 +67,6 @@ This method accepts the same argument as [`defineComponent`](#definecomponent), 
   ```
 
 - **See also**
-
   - [Guide - Building Custom Elements with Vue](/guide/extras/web-components#building-custom-elements-with-vue)
 
   - Also note that `defineCustomElement()` requires [special config](/guide/extras/web-components#sfc-as-custom-element) when used with Single-File Components.

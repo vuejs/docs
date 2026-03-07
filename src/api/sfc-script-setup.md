@@ -200,7 +200,6 @@ const emit = defineEmits<{
 - `defineProps` or `defineEmits` can only use either runtime declaration OR type declaration. Using both at the same time will result in a compile error.
 
 - When using type declaration, the equivalent runtime declaration is automatically generated from static analysis to remove the need for double declaration and still ensure correct runtime behavior.
-
   - In dev mode, the compiler will try to infer corresponding runtime validation from the types. For example here `foo: String` is inferred from the `foo: string` type. Imported types are also resolved, provided TypeScript is installed as a peer dependency.
 
   - In prod mode, the compiler will generate the array format declaration to reduce bundle size (the props here will be compiled into `['foo', 'bar']`)
@@ -531,7 +530,11 @@ You can use `@vue-generic` the directive to pass in explicit types, for when the
 ```vue
 <template>
   <!-- @vue-generic {import('@/api').Actor} -->
-  <ApiSelect v-model="peopleIds" endpoint="/api/actors" id-prop="actorId" />
+  <ApiSelect
+    v-model="peopleIds"
+    endpoint="/api/actors"
+    id-prop="actorId"
+  />
 
   <!-- @vue-generic {import('@/api').Genre} -->
   <ApiSelect v-model="genreIds" endpoint="/api/genres" id-prop="genreId" />

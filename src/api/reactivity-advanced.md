@@ -264,7 +264,6 @@ Marks an object so that it will never be converted to a proxy. Returns the objec
 
   :::warning Use with Caution
   `markRaw()` and shallow APIs such as `shallowReactive()` allow you to selectively opt-out of the default deep reactive/readonly conversion and embed raw, non-proxied objects in your state graph. They can be used for various reasons:
-
   - Some values simply should not be made reactive, for example a complex 3rd party class instance, or a Vue component object.
 
   - Skipping proxy conversion can provide performance improvements when rendering large lists with immutable data sources.

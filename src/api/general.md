@@ -130,7 +130,6 @@ A type helper for defining a Vue component with type inference.
   ```
 
   ### Function Signature {#function-signature}
-
   - Only supported in 3.3+
 
   `defineComponent()` also has an alternative signature that is meant to be used with the Composition API and [render functions or JSX](/guide/extras/render-function.html).

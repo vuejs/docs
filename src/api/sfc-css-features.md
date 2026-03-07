@@ -205,7 +205,7 @@ The syntax works with [`<script setup>`](./sfc-script-setup), and supports JavaS
 <script setup>
 import { ref } from 'vue'
 const theme = ref({
-    color: 'red',
+  color: 'red'
 })
 </script>
 

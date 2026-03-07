@@ -21,7 +21,6 @@ The `key` special attribute is primarily used as a hint for Vue's virtual DOM al
   ```
 
   It can also be used to force replacement of an element/component instead of reusing it. This can be useful when you want to:
-
   - Properly trigger lifecycle hooks of a component
   - Trigger transitions
 
@@ -92,7 +91,6 @@ Used for binding [dynamic components](/guide/essentials/component-basics#dynamic
 - **Expects:** `string | Component`
 
 - **Usage on native elements**
- 
   - Only supported in 3.1+
 
   When the `is` attribute is used on a native HTML element, it will be interpreted as a [Customized built-in element](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example), which is a native web platform feature.
@@ -106,6 +104,5 @@ Used for binding [dynamic components](/guide/essentials/component-basics#dynamic
   ```
 
 - **See also**
-
   - [Built-in Special Element - `<component>`](/api/built-in-special-elements#component)
   - [Dynamic Components](/guide/essentials/component-basics#dynamic-components)

@@ -64,5 +64,4 @@ Because we are writing the template in the DOM, it will be subject to browser's 
 
 </div>
 
-
 Now try it yourself - import the child component and render it in the template.

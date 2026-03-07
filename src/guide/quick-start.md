@@ -46,7 +46,7 @@ $ yarn create vue
 
 # For Yarn Modern (v2+)
 $ yarn create vue@latest
-  
+
 # For Yarn ^v4.11
 $ yarn dlx create-vue@latest
 ```
@@ -54,6 +54,7 @@ $ yarn dlx create-vue@latest
 ```sh [bun]
 $ bun create vue@latest
 ```
+
 :::
 
 This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool. You will be presented with prompts for several optional features such as TypeScript and testing support:
@@ -102,7 +103,6 @@ $ bun run dev
 
 :::
 
-
 You should now have your first Vue project running! Note that the example components in the generated project are written using the [Composition API](/guide/introduction#composition-api) and `<script setup>`, rather than the [Options API](/guide/introduction#options-api). Here are some additional tips:
 
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Vue - Official extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling#ide-support).
@@ -131,7 +131,6 @@ $ bun run build
 ```
 
 :::
-
 
 This will create a production-ready build of your app in the project's `./dist` directory. Check out the [Production Deployment Guide](/guide/best-practices/production-deployment) to learn more about shipping your app to production.
 

@@ -108,7 +108,6 @@ Merge multiple props objects with special handling for certain props.
 - **Details**
 
   `mergeProps()` supports merging multiple props objects with special handling for the following props:
-
   - `class`
   - `style`
   - `onXxx` event listeners - multiple listeners with the same name will be merged into an array.
@@ -305,7 +304,10 @@ For adding built-in [`v-on` modifiers](/guide/essentials/event-handling#event-mo
 - **Type**
 
   ```ts
-  function withModifiers(fn: Function, modifiers: ModifierGuardsKeys[]): Function
+  function withModifiers(
+    fn: Function,
+    modifiers: ModifierGuardsKeys[]
+  ): Function
   ```
 
 - **Example**

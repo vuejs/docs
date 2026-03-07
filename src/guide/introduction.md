@@ -251,7 +251,6 @@ If you are new to Vue, here's our general recommendation:
 - For learning purposes, go with the style that looks easier to understand to you. Again, most of the core concepts are shared between the two styles. You can always pick up the other style later.
 
 - For production use:
-
   - Go with Options API if you are not using build tools, or plan to use Vue primarily in low-complexity scenarios, e.g. progressive enhancement.
 
   - Go with Composition API + Single-File Components if you plan to build full applications with Vue.

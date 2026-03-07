@@ -79,12 +79,10 @@ Declare the props of a component.
 - **Details**
 
   In Vue, all component props need to be explicitly declared. Component props can be declared in two forms:
-
   - Simple form using an array of strings
   - Full form using an object where each property key is the name of the prop, and the value is the prop's type (a constructor function) or advanced options.
 
   With object-based syntax, each prop can further define the following options:
-
   - **`type`**: Can be one of the following native constructors: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, any custom constructor function or an array of those. In development mode, Vue will check if a prop's value matches the declared type, and will throw a warning if it doesn't. See [Prop Validation](/guide/components/props#prop-validation) for more details.
 
     Also note that a prop with `Boolean` type affects its value casting behavior in both development and production. See [Boolean Casting](/guide/components/props#boolean-casting) for more details.
@@ -292,7 +290,6 @@ Declare watch callbacks to be invoked on data change.
   In addition to a root-level property, the key can also be a simple dot-delimited path, e.g. `a.b.c`. Note that this usage does **not** support complex expressions - only dot-delimited paths are supported. If you need to watch complex data sources, use the imperative [`$watch()`](/api/component-instance#watch) API instead.
 
   The value can also be a string of a method name (declared via `methods`), or an object that contains additional options. When using the object syntax, the callback should be declared under the `handler` field. Additional options include:
-
   - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
   - **`deep`**: force deep traversal of the source if it is an object or an array, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
@@ -391,7 +388,6 @@ Declare the custom events emitted by the component.
 - **Details**
 
   Emitted events can be declared in two forms:
-
   - Simple form using an array of strings
   - Full form using an object where each property key is the name of the event, and the value is either `null` or a validator function.
 

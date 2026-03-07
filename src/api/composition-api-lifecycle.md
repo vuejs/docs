@@ -11,13 +11,15 @@ Registers a callback to be called after the component has been mounted.
 - **Type**
 
   ```ts
-  function onMounted(callback: () => void, target?: ComponentInternalInstance | null): void
+  function onMounted(
+    callback: () => void,
+    target?: ComponentInternalInstance | null
+  ): void
   ```
 
 - **Details**
 
   A component is considered mounted after:
-
   - All of its synchronous child components have been mounted (does not include async components or components inside `<Suspense>` trees).
 
   - Its own DOM tree has been created and inserted into the parent container. Note it only guarantees that the component's DOM tree is in-document if the application's root container is also in-document.
@@ -53,7 +55,10 @@ Registers a callback to be called after the component has updated its DOM tree d
 - **Type**
 
   ```ts
-  function onUpdated(callback: () => void, target?: ComponentInternalInstance | null): void
+  function onUpdated(
+    callback: () => void,
+    target?: ComponentInternalInstance | null
+  ): void
   ```
 
 - **Details**
@@ -96,13 +101,15 @@ Registers a callback to be called after the component has been unmounted.
 - **Type**
 
   ```ts
-  function onUnmounted(callback: () => void, target?: ComponentInternalInstance | null): void
+  function onUnmounted(
+    callback: () => void,
+    target?: ComponentInternalInstance | null
+  ): void
   ```
 
 - **Details**
 
   A component is considered unmounted after:
-
   - All of its child components have been unmounted.
 
   - All of its associated reactive effects (render effect and computed / watchers created during `setup()`) have been stopped.
@@ -135,7 +142,10 @@ Registers a hook to be called right before the component is to be mounted.
 - **Type**
 
   ```ts
-  function onBeforeMount(callback: () => void, target?: ComponentInternalInstance | null): void
+  function onBeforeMount(
+    callback: () => void,
+    target?: ComponentInternalInstance | null
+  ): void
   ```
 
 - **Details**
@@ -151,7 +161,10 @@ Registers a hook to be called right before the component is about to update its 
 - **Type**
 
   ```ts
-  function onBeforeUpdate(callback: () => void, target?: ComponentInternalInstance | null): void
+  function onBeforeUpdate(
+    callback: () => void,
+    target?: ComponentInternalInstance | null
+  ): void
   ```
 
 - **Details**
@@ -167,7 +180,10 @@ Registers a hook to be called right before a component instance is to be unmount
 - **Type**
 
   ```ts
-  function onBeforeUnmount(callback: () => void, target?: ComponentInternalInstance | null): void
+  function onBeforeUnmount(
+    callback: () => void,
+    target?: ComponentInternalInstance | null
+  ): void
   ```
 
 - **Details**
@@ -195,7 +211,6 @@ Registers a hook to be called when an error propagating from a descendant compon
 - **Details**
 
   Errors can be captured from the following sources:
-
   - Component renders
   - Event handlers
   - Lifecycle hooks
@@ -215,7 +230,6 @@ Registers a hook to be called when an error propagating from a descendant compon
   The hook can return `false` to stop the error from propagating further. See error propagation details below.
 
   **Error Propagation Rules**
-
   - By default, all errors are still sent to the application-level [`app.config.errorHandler`](/api/application#app-config-errorhandler) if it is defined, so that these errors can still be reported to an analytics service in a single place.
 
   - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error, in the order of bottom to top. This is similar to the bubbling mechanism of native DOM events.
@@ -282,7 +296,10 @@ Registers a callback to be called after the component instance is inserted into 
 - **Type**
 
   ```ts
-  function onActivated(callback: () => void, target?: ComponentInternalInstance | null): void
+  function onActivated(
+    callback: () => void,
+    target?: ComponentInternalInstance | null
+  ): void
   ```
 
 - **See also** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
@@ -296,7 +313,10 @@ Registers a callback to be called after the component instance is removed from t
 - **Type**
 
   ```ts
-  function onDeactivated(callback: () => void, target?: ComponentInternalInstance | null): void
+  function onDeactivated(
+    callback: () => void,
+    target?: ComponentInternalInstance | null
+  ): void
   ```
 
 - **See also** [Guide - Lifecycle of Cached Instance](/guide/built-ins/keep-alive#lifecycle-of-cached-instance)
