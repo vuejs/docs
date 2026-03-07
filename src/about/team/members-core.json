@@ -48,9 +48,9 @@
   },
   {
     "name": "Eduardo",
-    "title": "Developer & Consultant",
+    "title": "Software Engineer",
     "company": "Freelance",
-    "location": "Paris, France",
+    "location": "Berlin, Germany",
     "languages": ["Spanish", "French", "English"],
     "socials": {
       "github": "posva",
@@ -78,12 +78,17 @@
   },
   {
     "name": "Haoqun Jiang",
-    "title": "Developer",
-    "company": "Vue.js",
+    "title": "Principal",
+    "company": "Global Brain",
+    "companyLink": "https://globalbrains.com/",
     "projects": [
       {
         "label": "create-vue",
         "url": "https://github.com/vuejs/create-vue"
+      },
+      {
+        "label": "ecosystem-ci",
+        "url": "https://github.com/vuejs/ecosystem-ci"
       },
       {
         "label": "vite",
@@ -92,19 +97,19 @@
       {
         "label": "vue-cli",
         "url": "https://github.com/vuejs/vue-cli"
-      },
-      {
-        "label": "vue-loader",
-        "url": "https://github.com/vuejs/vue-loader"
       }
     ],
-    "location": "Hangzhou, China",
+    "location": "Tokyo, Japan",
     "languages": ["Chinese", "English"],
     "socials": {
-      "github": "sodatea",
+      "github": "haoqunjiang",
       "twitter": "haoqunjiang"
     },
-    "sponsor": true
+    "sponsor": true,
+    "website": {
+      "label": "haoqun.dev",
+      "url": "https://haoqun.dev/"
+    }
   },
   {
     "name": "Jinjiang",
@@ -503,7 +508,7 @@
   },
   {
     "name": "ubugeeei",
-    "title": "Software Engineer",
+    "title": "Chief Engineer",
     "company": "Mates Inc.",
     "companyLink": "https://github.com/mates-system",
     "projects": [
@@ -541,6 +546,31 @@
     "socials": {
       "github": "ubugeeei",
       "twitter": "ubugeeei"
+    },
+    "sponsor": true
+  },
+  {
+    "name": "Vincent Ngai • SerKo",
+    "title": "Full Stack Developer",
+    "projects": [
+      {
+        "label": "vuejs/language-tools",
+        "url": "https://github.com/vuejs/language-tools"
+      },
+      {
+        "label": "Vue AI",
+        "url": "https://github.com/vuejs-ai"
+      }
+    ],
+    "location": ["Hong Kong", "Taiwan"],
+    "languages": ["Chinese", "English"],
+    "website": {
+      "label": "serko.dev",
+      "url": "https://serko.dev"
+    },
+    "socials": {
+      "github": "serkodev",
+      "twitter": "serkodev"
     }
   }
 ]
