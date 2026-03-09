@@ -113,6 +113,10 @@ When using this component inside the initial HTML structure, there are a number 
 
 The `to` target of `<Teleport>` expects a CSS selector string or an actual DOM node. Here, we are essentially telling Vue to "**teleport** this template fragment **to** the **`body`** tag".
 
+:::warning SSR
+When using Teleports with SSR, avoid targeting `body`. See [Handling Teleports in SSR](/guide/scaling-up/ssr#teleports) for details.
+:::
+
 You can click the button below and inspect the `<body>` tag via your browser's devtools:
 
 <script setup>
