@@ -74,7 +74,7 @@ By default, `<KeepAlive>` will cache any component instance inside. We can custo
 The match is checked against the component's [`name`](/api/options-misc#name) option, so components that need to be conditionally cached by `KeepAlive` must explicitly declare a `name` option.
 
 :::tip
-Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name.
+Since version 3.2.34, a single-file component using `<script setup>` will automatically infer its `name` option based on the filename, removing the need to manually declare the name.  If you need access to this property, please use [__name](https://github.com/vuejs/core/issues/10348#issuecomment-1951604644).
 :::
 
 ## Max Cached Instances {#max-cached-instances}
