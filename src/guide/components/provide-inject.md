@@ -6,7 +6,7 @@
 
 Usually, when we need to pass data from the parent to a child component, we use [props](/guide/components/props). However, imagine the case where we have a large component tree, and a deeply nested component needs something from a distant ancestor component. With only props, we would have to pass the same prop across the entire parent chain:
 
-![prop drilling diagram](./images/prop-drilling.png)
+![Diagram showing props being passed through multiple levels of components just to reach a deeply nested child](./images/prop-drilling.png)
 
 <!-- https://www.figma.com/file/yNDTtReM2xVgjcGVRzChss/prop-drilling -->
 
@@ -14,7 +14,7 @@ Notice although the `<Footer>` component may not care about these props at all, 
 
 We can solve props drilling with `provide` and `inject`. A parent component can serve as a **dependency provider** for all its descendants. Any component in the descendant tree, regardless of how deep it is, can **inject** dependencies provided by components up in its parent chain.
 
-![Provide/inject scheme](./images/provide-inject.png)
+![Diagram showing the provide/inject mechanism where a parent component provides a dependency that can be directly injected by a deeply nested child, bypassing intermediate components](./images/provide-inject.png)
 
 <!-- https://www.figma.com/file/PbTJ9oXis5KUawEOWdy2cE/provide-inject -->
 

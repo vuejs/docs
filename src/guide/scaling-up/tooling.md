@@ -186,4 +186,13 @@ The official loader that provides Vue SFC support in webpack. If you are using V
 - [Vue on Codepen](https://codepen.io/pen/editor/vue)
 - [Vue on WebComponents.dev](https://webcomponents.dev/create/cevue)
 
-<!-- TODO ## Backend Framework Integrations -->
+## Backend Framework Integrations {#backend-framework-integrations}
+
+If you are using Vue with a backend framework (e.g. Laravel, Rails, Django, or Go), Vite provides several integrations for popular backend frameworks to help you manage your assets efficiently.
+
+- **Laravel**: Official [Laravel Vite integration](https://laravel.com/docs/vite).
+- **Rails**: [Vite Ruby](https://vite-ruby.netlify.app/).
+- **Django**: [django-vite](https://github.com/MrBin99/django-vite).
+- **Go**: [vite-go](https://github.com/hvuhsg/vite-go).
+
+Alternatively, you can manually configure Vite to work with your backend by following the [Vite Backend Integration Guide](https://vite.dev/guide/backend-integration.html).

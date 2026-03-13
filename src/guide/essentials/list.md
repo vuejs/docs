@@ -245,7 +245,7 @@ This can be fixed by moving `v-for` to a wrapping `<template>` tag (which is als
 </template>
 ```
 
-:::warning Note
+:::warning
 It's **not** recommended to use `v-if` and `v-for` on the same element due to implicit precedence.
 
 There are two common cases where this can be tempting:
@@ -277,7 +277,7 @@ When using `<template v-for>`, the `key` should be placed on the `<template>` co
 </template>
 ```
 
-:::tip Note
+:::tip
 `key` here is a special attribute being bound with `v-bind`. It should not be confused with the property key variable when [using `v-for` with an object](#v-for-with-an-object).
 :::
 
