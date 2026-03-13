@@ -277,28 +277,20 @@
   },
   {
     "name": "Phan An",
-    "title": "Engineering Team Lead",
-    "company": "InterNations",
-    "companyLink": "https://www.internations.org/",
+    "title": "Engineering Manager",
+    "company": "Qwello",
+    "companyLink": "https://qwello.eu",
     "projects": [
       {
         "label": "vuejs.org",
         "url": "https://www.vuejs.org"
-      },
-      {
-        "label": "vuequery",
-        "url": "https://github.com/phanan/vuequery"
-      },
-      {
-        "label": "vue-google-signin-button",
-        "url": "https://github.com/vue-google-signin-button"
       }
     ],
     "location": "Munich, Germany",
-    "languages": ["Vietnamese", "English"],
+    "languages": ["Vietnamese", "English", "German"],
     "socials": { "github": "phanan", "twitter": "notphanan" },
     "website": {
-      "label": "https://phanan.net/",
+      "label": "phanan.net",
       "url": "https://phanan.net/"
     },
     "sponsor": true
