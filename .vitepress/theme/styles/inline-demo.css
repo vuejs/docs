@@ -1,5 +1,4 @@
-.vt-doc a[href^="https://play.vuejs.org"]:before
-{
+.vt-doc a[href^='https://play.vuejs.org']:before {
   content: '▶';
   width: 20px;
   height: 20px;

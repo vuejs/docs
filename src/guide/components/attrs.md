@@ -79,7 +79,7 @@ If you do **not** want a component to automatically inherit attributes, you can 
 
 <div class="composition-api">
 
- Since 3.3 you can also use [`defineOptions`](/api/sfc-script-setup#defineoptions) directly in `<script setup>`:
+Since 3.3 you can also use [`defineOptions`](/api/sfc-script-setup#defineoptions) directly in `<script setup>`:
 
 ```vue
 <script setup>

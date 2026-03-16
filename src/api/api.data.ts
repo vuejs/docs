@@ -112,7 +112,7 @@ const headersCache = new Map<
 export default {
   // Declare files that should trigger Hot Module Replacement (HMR)
   watch: './*.md',
-  
+
   // Load API data and process sidebar items
   load(): APIGroup[] {
     // Generate the API group data by processing the sidebar configuration
@@ -121,7 +121,7 @@ export default {
       anchor: slugify(group.text), // Generate anchor for the group title
       items: group.items.map((item) => ({
         ...item, // Spread the original item properties
-        headers: parsePageHeaders(item.link), // Parse the headers from the item's markdown link
+        headers: parsePageHeaders(item.link) // Parse the headers from the item's markdown link
       }))
     }))
   }

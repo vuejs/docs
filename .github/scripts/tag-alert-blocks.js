@@ -24,10 +24,10 @@ async function isUsingAlertBlock(base = 'origin/master') {
       result
         .trim()
         .split(/\r?\n/)
-        .map(file =>
+        .map((file) =>
           run(`git diff ${base} -- ${file}`)
-            .then(diff => ALERT_BLOCK.test(diff))
-            .then(usesAlertBlock => (usesAlertBlock ? file : ''))
+            .then((diff) => ALERT_BLOCK.test(diff))
+            .then((usesAlertBlock) => (usesAlertBlock ? file : ''))
         )
     )
   ).filter(Boolean)

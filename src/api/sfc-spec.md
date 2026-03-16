@@ -138,9 +138,11 @@ Beware that `src` imports follow the same path resolution rules as webpack modul
 
 :::warning Note
 While using aliases in `src`, don't start with `~`, anything after it is interpreted as a module request. This means you can reference assets inside node modules:
+
 ```vue
-<img src="~some-npm-package/foo.png">
+<img src="~some-npm-package/foo.png" />
 ```
+
 :::
 
 ## Comments {#comments}

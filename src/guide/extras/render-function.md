@@ -116,11 +116,7 @@ import { h } from 'vue'
 export default {
   setup() {
     // use an array to return multiple root nodes
-    return () => [
-      h('div'),
-      h('div'),
-      h('div')
-    ]
+    return () => [h('div'), h('div'), h('div')]
   }
 }
 ```
@@ -167,11 +163,7 @@ import { h } from 'vue'
 export default {
   render() {
     // use an array to return multiple root nodes
-    return [
-      h('div'),
-      h('div'),
-      h('div')
-    ]
+    return [h('div'), h('div'), h('div')]
   }
 }
 ```
@@ -284,7 +276,7 @@ Starting in Vue 3.4, Vue no longer implicitly registers the global `JSX` namespa
 
 You can also opt-in per file by adding a `/* @jsxImportSource vue */` comment at the top of the file.
 
-If there is code that depends on the presence of the global `JSX` namespace,  you can retain the exact pre-3.4 global behavior by explicitly importing or referencing `vue/jsx` in your project, which registers the global `JSX` namespace.
+If there is code that depends on the presence of the global `JSX` namespace, you can retain the exact pre-3.4 global behavior by explicitly importing or referencing `vue/jsx` in your project, which registers the global `JSX` namespace.
 
 ## Render Function Recipes {#render-function-recipes}
 
@@ -612,9 +604,10 @@ To render a scoped slot in the parent component, a slot is passed to the child. 
 // parent component
 export default {
   setup() {
-    return () => h(MyComp, null, {
-      default: ({ text }) => h('p', text)
-    })
+    return () =>
+      h(MyComp, null, {
+        default: ({ text }) => h('p', text)
+      })
   }
 }
 ```
@@ -634,9 +627,11 @@ export default {
 JSX equivalent:
 
 ```jsx
-<MyComponent>{{
-  default: ({ text }) => <p>{ text }</p>  
-}}</MyComponent>
+<MyComponent>
+  {{
+    default: ({ text }) => <p>{text}</p>
+  }}
+</MyComponent>
 ```
 
 ### Built-in Components {#built-in-components}
@@ -649,8 +644,8 @@ JSX equivalent:
 import { h, KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 export default {
-  setup () {
-    return () => h(Transition, { mode: 'out-in' }, /* ... */)
+  setup() {
+    return () => h(Transition, { mode: 'out-in' } /* ... */)
   }
 }
 ```
@@ -662,8 +657,8 @@ export default {
 import { h, KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 export default {
-  render () {
-    return h(Transition, { mode: 'out-in' }, /* ... */)
+  render() {
+    return h(Transition, { mode: 'out-in' } /* ... */)
   }
 }
 ```
@@ -700,7 +695,8 @@ export default {
   render() {
     return h(SomeComponent, {
       modelValue: this.modelValue,
-      'onUpdate:modelValue': (value) => this.$emit('update:modelValue', value)
+      'onUpdate:modelValue': (value) =>
+        this.$emit('update:modelValue', value)
     })
   }
 }
@@ -717,8 +713,12 @@ import { h, withDirectives } from 'vue'
 
 // a custom directive
 const pin = {
-  mounted() { /* ... */ },
-  updated() { /* ... */ }
+  mounted() {
+    /* ... */
+  },
+  updated() {
+    /* ... */
+  }
 }
 
 // <div v-pin:top.animate="200"></div>
@@ -733,7 +733,7 @@ If the directive is registered by name and cannot be imported directly, it can b
 
 <div class="composition-api">
 
-With the Composition API, when using [`useTemplateRef()`](/api/composition-api-helpers#usetemplateref) <sup class="vt-badge" data-text="3.5+" />  template refs are created by passing the string value as prop to the vnode:
+With the Composition API, when using [`useTemplateRef()`](/api/composition-api-helpers#usetemplateref) <sup class="vt-badge" data-text="3.5+" /> template refs are created by passing the string value as prop to the vnode:
 
 ```js
 import { h, useTemplateRef } from 'vue'
@@ -765,6 +765,7 @@ export default {
   }
 }
 ```
+
 </details>
 </div>
 <div class="options-api">
@@ -852,7 +853,7 @@ function FComponent(
 ) {
   return (
     <button onClick={() => context.emit('sendMessage', props.message)}>
-        {props.message} {' '}
+      {props.message}{' '}
     </button>
   )
 }

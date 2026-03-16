@@ -379,7 +379,6 @@ Assign a global handler for uncaught errors propagating from within the applicat
   The error handler receives three arguments: the error, the component instance that triggered the error, and an information string specifying the error source type.
 
   It can capture errors from the following sources:
-
   - Component renders
   - Event handlers
   - Lifecycle hooks
@@ -493,7 +492,6 @@ Adjusts template whitespace handling behavior.
 - **Details**
 
   Vue removes / condenses whitespace characters in templates to produce more efficient compiled output. The default strategy is "condense", with the following behavior:
-
   1. Leading / ending whitespace characters inside an element are condensed into a single space.
   2. Whitespace characters between elements that contain newlines are removed.
   3. Consecutive whitespace characters in text nodes are condensed into a single space.
@@ -661,7 +659,6 @@ Force unhandled errors to be thrown in production mode.
 - **Details**
 
   By default, errors thrown inside a Vue application but not explicitly handled have different behavior between development and production modes:
-
   - In development, the error is thrown and can possibly crash the application. This is to make the error more prominent so that it can be noticed and fixed during development.
 
   - In production, the error will only be logged to the console to minimize the impact to end users. However, this may prevent errors that only happen in production from being caught by error monitoring services.

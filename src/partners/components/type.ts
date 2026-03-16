@@ -13,7 +13,7 @@ export interface Partner {
     url: string
   }
   contact?: string
-  contactPage?: string;
+  contactPage?: string
   hiring?: string
   platinum?: boolean
 }
