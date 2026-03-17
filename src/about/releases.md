@@ -56,9 +56,9 @@ This is only a concern for library authors, because in applications, the compile
 
 ## Pre Releases {#pre-releases}
 
-Minor and major releases generally go through alpha, beta, and release candidate (RC) phases. The number of pre-releases across these phases varies based on the scope of the release.
+Minor and major releases typically go through a series of pre-release phases: **alpha**, **beta**, and **release candidate (RC)**. The number and type of pre-releases depend on the scope of changes. For example, a minor release with limited updates may only have a beta phase, while a major release will usually include all three phases to allow for thorough testing and community feedback.
 
-You can install the latest pre-release versions from npm via `npx install-vue@alpha`, `npx install-vue@beta`, or `npx install-vue@rc`.
+You can install the latest pre-releases from npm via `npx install-vue@alpha`, `npx install-vue@beta`, or `npx install-vue@rc`.
 
 To test unreleased changes between tagged pre-releases, every commit to [vuejs/core](https://github.com/vuejs/core) is published as a temporary continuous-release preview via [pkg.pr.new](https://github.com/stackblitz-labs/pkg.pr.new). You can install the latest commit on the main branch using [install-vue](https://github.com/haoqunjiang/install-vue) via `npx install-vue@edge`.
 
