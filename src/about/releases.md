@@ -56,9 +56,9 @@ This is only a concern for library authors, because in applications, the compile
 
 ## Pre Releases {#pre-releases}
 
-Minor releases typically go through a non-fixed number of beta releases. Major releases will go through an alpha phase and a beta phase.
+Minor and major releases typically go through alpha and beta phases, with a variable number of releases in each phase. Depending on the scope of the release, they may also include release candidates before the stable release.
 
-Additionally, we publish canary releases every week from the `main` and `minor` branches on GitHub. They are published as different packages to avoid bloating the npm metadata of the stable channel. You can install them via `npx install-vue@canary` or `npx install-vue@canary-minor`, respectively.
+You can install the latest prerelease tags from npm via `npx install-vue@alpha`, `npx install-vue@beta`, and `npx install-vue@rc`. For testing unreleased changes between tagged prereleases, every commit to `vuejs/core` is also published as a temporary pkg.pr.new continuous-release preview, and `install-vue` exposes the latest commit on `main` via `npx install-vue@edge`.
 
 Pre-releases are meant for integration / stability testing, and for early adopters to provide feedback for unstable features. Do not use pre-releases in production. All pre-releases are considered unstable and may ship breaking changes in between, so always pin to exact versions when using pre-releases.
 
