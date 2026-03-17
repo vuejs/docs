@@ -56,9 +56,11 @@ This is only a concern for library authors, because in applications, the compile
 
 ## Pre Releases {#pre-releases}
 
-Minor and major releases typically go through alpha and beta phases, with a variable number of releases in each phase. Depending on the scope of the release, they may also include release candidates before the stable release.
+Minor and major releases generally go through alpha, beta, and release candidate (RC) phases. The number of pre-releases across these phases varies based on the scope of the release.
 
-You can install the latest prerelease tags from npm via `npx install-vue@alpha`, `npx install-vue@beta`, and `npx install-vue@rc`. For testing unreleased changes between tagged prereleases, every commit to `vuejs/core` is also published as a temporary pkg.pr.new continuous-release preview, and `install-vue` exposes the latest commit on `main` via `npx install-vue@edge`.
+You can install the latest pre-release versions from npm via `npx install-vue@alpha`, `npx install-vue@beta`, or `npx install-vue@rc`.
+
+To test unreleased changes between tagged pre-releases, every commit to [vuejs/core](https://github.com/vuejs/core) is published as a temporary continuous-release preview via [pkg.pr.new](https://github.com/stackblitz-labs/pkg.pr.new). You can install the latest commit on the main branch using [install-vue](https://github.com/haoqunjiang/install-vue) via `npx install-vue@edge`.
 
 Pre-releases are meant for integration / stability testing, and for early adopters to provide feedback for unstable features. Do not use pre-releases in production. All pre-releases are considered unstable and may ship breaking changes in between, so always pin to exact versions when using pre-releases.
 
