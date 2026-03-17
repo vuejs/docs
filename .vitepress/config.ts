@@ -18,7 +18,7 @@ import {
 const nav: ThemeConfig['nav'] = [
   {
     text: 'Docs',
-    activeMatch: `^/(guide|style-guide|cookbook|examples|api)/`,
+    activeMatch: `^/(guide|tutorial|examples|api|glossary|error-reference)/`,
     items: [
       { text: 'Quick Start', link: '/guide/quick-start' },
       { text: 'Guide', link: '/guide/introduction' },
