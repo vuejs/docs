@@ -113,10 +113,6 @@ When using this component inside the initial HTML structure, there are a number 
 
 The `to` target of `<Teleport>` expects a CSS selector string or an actual DOM node. Here, we are essentially telling Vue to "**teleport** this template fragment **to** the **`body`** tag".
 
-:::warning SSR
-When using Teleports with SSR, avoid targeting `body`. See [Handling Teleports in SSR](/guide/scaling-up/ssr#teleports) for details.
-:::
-
 You can click the button below and inspect the `<body>` tag via your browser's devtools:
 
 <script setup>
@@ -154,7 +150,7 @@ const open = ref(false)
 You can combine `<Teleport>` with [`<Transition>`](./transition) to create animated modals - see [Example here](/examples/#modal).
 
 :::tip
-The teleport `to` target must be already in the DOM when the `<Teleport>` component is mounted. Ideally, this should be an element outside the entire Vue application. If targeting another element rendered by Vue, you need to make sure that element is mounted before the `<Teleport>`.
+The teleport `to` target must be already in the DOM when the `<Teleport>` component is mounted. Ideally, this should be an element outside the entire Vue application. If targeting another element rendered by Vue, you need to make sure that element is mounted before the `<Teleport>`. If you are using SSR, see [Handling Teleports in SSR](/guide/scaling-up/ssr#teleports).
 :::
 
 ## Using with Components {#using-with-components}
