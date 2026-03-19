@@ -112,10 +112,8 @@ Explicit [event declarations](/guide/components/events) document how a component
 <h3>Bad</h3>
 
 ```js
-const emit = defineEmits()
-
 function submit() {
-  emit('submit', { email: form.email })
+  $emit('submit', { email: form.email })
 }
 ```
 
@@ -126,7 +124,7 @@ function submit() {
 
 ```js
 const emit = defineEmits({
-  submit: ({ email }) => typeof email === 'string'
+  submit: (payload) => typeof payload?.email === 'string'
 })
 
 function submit() {
