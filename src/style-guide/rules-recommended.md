@@ -1,7 +1,7 @@
-# Priority C Rules: Recommended {#priority-c-rules-recommended}
+# Priority C Rules: Recommended (Legacy Reference) {#priority-c-rules-recommended}
 
-::: warning Note
-This Vue.js Style Guide is outdated and needs to be reviewed. If you have any questions or suggestions, please [open an issue](https://github.com/vuejs/docs/issues/new).
+::: warning Legacy Reference
+This page is retained for historical reference while the style guide is being revamped. It is not part of the current essential-only scope, and its recommendations should not be treated as reaffirmed guidance.
 :::
 
 Where multiple, equally good options exist, an arbitrary choice can be made to ensure consistency. In these rules, we describe each acceptable option and suggest a default choice. That means you can feel free to make a different choice in your own codebase, as long as you're consistent and have a good reason. Please do have a good reason though! By adapting to the community standard, you will:
