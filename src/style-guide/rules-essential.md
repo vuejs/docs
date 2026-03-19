@@ -1,5 +1,7 @@
 # Priority A Rules: Essential {#priority-a-rules-essential}
 
+These rules define the most important boundaries in Vue components: what a component exposes, how data flows through it, how its styles are contained, and how derived state is kept separate from side effects. Follow them by default to keep components easier to understand, maintain, and evolve.
+
 ## Use detailed prop definitions {#use-detailed-prop-definitions}
 
 Treat props as part of a component's public contract, and define them as explicitly as practical.
