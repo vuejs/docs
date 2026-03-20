@@ -6,7 +6,7 @@
 
 Components allow us to split the UI into independent and reusable pieces, and think about each piece in isolation. It's common for an app to be organized into a tree of nested components:
 
-![Component Tree](./images/components.png)
+![Diagram showing a component tree structure with a root component branching into multiple child and nested sub-child components](./images/components.png)
 
 <!-- https://www.figma.com/file/qa7WHDQRWuEZNRs7iZRZSI/components -->
 
