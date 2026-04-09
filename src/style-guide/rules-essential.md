@@ -155,14 +155,8 @@ export default {
 <h3>Bad</h3>
 
 ```vue
-<script setup>
-const form = {
-  email: ''
-}
-</script>
-
 <template>
-  <button @click="$emit('submit', { email: form.email })">Submit</button>
+  <button @click="$emit('submit')">Submit</button>
 </template>
 ```
 
@@ -173,17 +167,11 @@ const form = {
 
 ```vue
 <script setup>
-const form = {
-  email: ''
-}
-
-defineEmits({
-  submit: (payload) => typeof payload?.email === 'string'
-})
+defineEmits(['submit'])
 </script>
 
 <template>
-  <button @click="$emit('submit', { email: form.email })">Submit</button>
+  <button @click="$emit('submit')">Submit</button>
 </template>
 ```
 
@@ -197,7 +185,7 @@ const emit = defineEmits<{
   // Type-based declaration
   (e: 'submit', payload: { email: string }): void
   // Vue 3.3+: alternative, more succinct syntax
-  submit: [payload: { email: string }]
+  // submit: [payload: { email: string }]
 }>()
 </script>
 
