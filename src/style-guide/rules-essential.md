@@ -10,6 +10,8 @@ In committed code, props should be treated as a key part of the component's cont
 Detailed [prop definitions](/guide/components/props#prop-validation) make a component's API easier to understand, easier to use correctly, and easier to change safely.
 :::
 
+<span class="composition-api">In TypeScript, a type-based `defineProps()` declaration can also be used when the prop contract is fully described by its types.</span>
+
 <div class="options-api">
 
 <div class="style-example style-example-bad">
@@ -95,10 +97,6 @@ const props = defineProps({
 
 </div>
 
-**Notes**
-
-- In TypeScript, a type-based `defineProps()` declaration is equally acceptable if it expresses the contract clearly.
-
 ## Declare emitted events {#declare-emitted-events}
 
 Treat emitted events as part of a component's public contract, and declare them explicitly.
@@ -107,27 +105,65 @@ Treat emitted events as part of a component's public contract, and declare them 
 Explicit [event declarations](/guide/components/events) document how a component communicates outward and make parent-child interactions easier to follow.
 :::
 
-In standard `setup()` usage, declare events with the [`emits`](/guide/components/events#declaring-emitted-events) option. In [`<script setup>`](/api/sfc-script-setup#defineprops-defineemits), declare them with `defineEmits()`.
+In Options API, declare events with the [`emits`](/guide/components/events#declaring-emitted-events) option. In [`<script setup>`](/api/sfc-script-setup#defineprops-defineemits), declare them with `defineEmits()`.
 
 Use the object syntax when event payloads need validation, and an array of event names when they do not.
 
-In TypeScript, prefer a typed `defineEmits()` declaration so the event contract is checked by the type system as well as documented in the component. In Vue 3.3+, the named tuple syntax is usually the more succinct form.
+<span class="composition-api">In TypeScript, a typed `defineEmits()` declaration can also be used so the event contract is checked by the type system as well as documented in the component. Vue 3.3+ also supports a named tuple syntax for the same declaration.</span>
+
+<div class="options-api">
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```js
+export default {
+  methods: {
+    submit(email) {
+      this.$emit('submit', { email })
+    }
+  }
+}
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```js
+export default {
+  emits: {
+    submit: (payload) => typeof payload?.email === 'string'
+  },
+
+  methods: {
+    submit(email) {
+      this.$emit('submit', { email })
+    }
+  }
+}
+```
+
+</div>
+
+</div>
+
+<div class="composition-api">
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
 ```vue
-<script>
-export default {
-  setup(props, { emit }) {
-    function submit(email) {
-      emit('submit', { email })
-    }
-
-    return { submit }
-  }
+<script setup>
+const form = {
+  email: ''
 }
 </script>
+
+<template>
+  <button @click="$emit('submit', { email: form.email })">Submit</button>
+</template>
 ```
 
 </div>
@@ -136,49 +172,41 @@ export default {
 <h3>Good</h3>
 
 ```vue
-<script>
-export default {
-  emits: {
-    submit: (payload) => typeof payload?.email === 'string'
-  },
-
-  setup(props, { emit }) {
-    function submit(email) {
-      emit('submit', { email })
-    }
-
-    return { submit }
-  }
-}
-</script>
-```
-
-```vue
 <script setup>
-const emit = defineEmits({
+const form = {
+  email: ''
+}
+
+defineEmits({
   submit: (payload) => typeof payload?.email === 'string'
 })
-
-function submit(email) {
-  emit('submit', { email })
-}
 </script>
+
+<template>
+  <button @click="$emit('submit', { email: form.email })">Submit</button>
+</template>
 ```
 
 ```vue
 <script setup lang="ts">
+const form = {
+  email: ''
+}
+
 const emit = defineEmits<{
   // Type-based declaration
   (e: 'submit', payload: { email: string }): void
   // Vue 3.3+: alternative, more succinct syntax
   submit: [payload: { email: string }]
 }>()
-
-function submit(email: string) {
-  emit('submit', { email })
-}
 </script>
+
+<template>
+  <button @click="emit('submit', { email: form.email })">Submit</button>
+</template>
 ```
+
+</div>
 
 </div>
 
@@ -190,6 +218,56 @@ Pass data down with props, and communicate requested changes back up with emitte
 Vue components are easier to understand and maintain when state ownership is clear. Prop mutation and other implicit parent-child coupling make updates harder to reason about and components harder to reuse.
 :::
 
+This includes `v-model`, which still follows the same prop-and-event communication pattern with shorthand syntax.
+
+If a child needs editable local state, derive or initialize it from the prop instead of mutating the prop itself.
+
+<div class="options-api">
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```js
+export default {
+  props: {
+    open: Boolean
+  },
+
+  methods: {
+    requestClose() {
+      this.open = false
+    }
+  }
+}
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```js
+export default {
+  props: {
+    open: Boolean
+  },
+
+  emits: ['update:open'],
+
+  methods: {
+    requestClose() {
+      this.$emit('update:open', false)
+    }
+  }
+}
+```
+
+</div>
+
+</div>
+
+<div class="composition-api">
+
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
@@ -198,7 +276,7 @@ const props = defineProps({
   open: Boolean
 })
 
-function close() {
+function requestClose() {
   props.open = false
 }
 ```
@@ -215,17 +293,14 @@ const props = defineProps({
 
 const emit = defineEmits(['update:open'])
 
-function close() {
+function requestClose() {
   emit('update:open', false)
 }
 ```
 
 </div>
 
-**Notes**
-
-- `v-model` still follows this rule. It is prop-and-event communication with shorthand syntax.
-- If a child needs editable local state, derive or initialize local state from the prop instead of mutating the prop itself.
+</div>
 
 ## Use component-scoped styling {#use-component-scoped-styling}
 
@@ -257,7 +332,7 @@ Component-scoped styling reduces accidental coupling, makes style ownership clea
 
 ```vue-html
 <template>
-  <button class="button-close">×</button>
+  <button class="button button-close">×</button>
 </template>
 
 <!-- Using the `scoped` attribute -->
@@ -300,19 +375,64 @@ Component-scoped styling reduces accidental coupling, makes style ownership clea
 
 ## Use computed for derived state {#use-computed-for-derived-state}
 
-Use [computed](/guide/essentials/computed) for synchronous derived state, and use [watch](/guide/essentials/watchers), `watchEffect()`, or lifecycle hooks for side effects.
+Use [computed](/guide/essentials/computed) for synchronous derived state instead of storing and synchronizing it manually, and use [watch](/guide/essentials/watchers), `watchEffect()`, or lifecycle hooks for side effects.
 
 ::: details Why this matters
 Computed state should describe what values mean, not perform work. Keeping derivation pure and synchronous makes reactive code easier to reason about and keeps side effects in the places Vue expects them.
 :::
+
+<div class="options-api">
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```js
+export default {
+  computed: {
+    fullName() {
+      const value = `${this.user.firstName} ${this.user.lastName}`
+      analytics.track('full-name-changed', value)
+      return value
+    }
+  }
+}
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```js
+export default {
+  computed: {
+    fullName() {
+      return `${this.user.firstName} ${this.user.lastName}`
+    }
+  },
+
+  watch: {
+    fullName(value) {
+      analytics.track('full-name-changed', value)
+    }
+  }
+}
+```
+
+</div>
+
+</div>
+
+<div class="composition-api">
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
 ```js
 const fullName = computed(() => {
-  analytics.track('full-name-read')
-  return `${user.value.firstName} ${user.value.lastName}`
+  const value = `${user.value.firstName} ${user.value.lastName}`
+  analytics.track('full-name-changed', value)
+  return value
 })
 ```
 
@@ -333,7 +453,4 @@ watch(fullName, (value) => {
 
 </div>
 
-**Notes**
-
-- Async reactions, network requests, DOM reads and writes, timers, and subscriptions belong in watchers, `watchEffect()`, or lifecycle hooks.
-- If a value can be expressed from existing reactive state, prefer `computed` over storing and synchronizing another piece of state.
+</div>
