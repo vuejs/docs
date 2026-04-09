@@ -107,13 +107,27 @@ Treat emitted events as part of a component's public contract, and declare them 
 Explicit [event declarations](/guide/components/events) document how a component communicates outward and make parent-child interactions easier to follow.
 :::
 
+In standard `setup()` usage, declare events with the [`emits`](/guide/components/events#declaring-emitted-events) option. In [`<script setup>`](/api/sfc-script-setup#defineprops-defineemits), declare them with `defineEmits()`.
+
+Use the object syntax when event payloads need validation, and an array of event names when they do not.
+
+In TypeScript, prefer a typed `defineEmits()` declaration so the event contract is checked by the type system as well as documented in the component. In Vue 3.3+, the named tuple syntax is usually the more succinct form.
+
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
-```js
-function submit() {
-  $emit('submit', { email: form.email })
+```vue
+<script>
+export default {
+  setup(props, { emit }) {
+    function submit(email) {
+      emit('submit', { email })
+    }
+
+    return { submit }
+  }
 }
+</script>
 ```
 
 </div>
@@ -121,36 +135,52 @@ function submit() {
 <div class="style-example style-example-good">
 <h3>Good</h3>
 
-```js
+```vue
+<script>
+export default {
+  emits: {
+    submit: (payload) => typeof payload?.email === 'string'
+  },
+
+  setup(props, { emit }) {
+    function submit(email) {
+      emit('submit', { email })
+    }
+
+    return { submit }
+  }
+}
+</script>
+```
+
+```vue
+<script setup>
 const emit = defineEmits({
   submit: (payload) => typeof payload?.email === 'string'
 })
 
-function submit() {
-  emit('submit', { email: form.email })
+function submit(email) {
+  emit('submit', { email })
 }
+</script>
 ```
 
-```ts
+```vue
+<script setup lang="ts">
 const emit = defineEmits<{
-  // type-based definition
+  // Type-based declaration
   (e: 'submit', payload: { email: string }): void
-  // 3.3+: alternative, more succinct syntax
-  submit: [payload, { email: string}]
+  // Vue 3.3+: alternative, more succinct syntax
+  submit: [payload: { email: string }]
 }>()
 
-function submit() {
-  emit('submit', { email: form.email })
+function submit(email: string) {
+  emit('submit', { email })
 }
+</script>
 ```
 
 </div>
-
-**Notes**
-
-- An array of event names is acceptable when payload validation would add no real value.
-- In TypeScript, prefer a typed `defineEmits()` declaration so the event contract is checked by the type system as well as documented in the component.
-- If runtime payload validation is also useful, use the object syntax.
 
 ## Keep parent-child data flow explicit {#keep-parent-child-data-flow-explicit}
 
