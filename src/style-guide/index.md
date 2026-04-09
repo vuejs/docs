@@ -12,7 +12,9 @@ This is the official style guide for Vue-specific code. It is meant to help team
 
 This guide focuses on a small set of human-facing Vue rules. It is not intended to mirror every rule that lint tooling may enforce. Tools such as [eslint-plugin-vue](https://eslint.vuejs.org/), formatters, and other static analysis can still cover broader mechanical correctness and consistency checks.
 
-For the most part, we avoid suggestions about JavaScript or HTML in general. We do not try to settle choices like semicolons, trailing commas, or quote style unless they become specifically important in the context of Vue.
+For the most part, we avoid suggestions about JavaScript or HTML in general. We will not set explicit guidelines around formatting decisions like semicolons, quote styles, etc. These are decisions that are personal to each team and we recommend setting your own conventions with tools like [Prettier](https://prettier.io/) or [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html).
+
+Our goal is to provide guidance around patterns that are important within the context of Vue.
 
 ## How to use this guide {#how-to-use-this-guide}
 

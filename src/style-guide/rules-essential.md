@@ -4,7 +4,7 @@ These rules define the most important boundaries in Vue components: what a compo
 
 ## Use detailed prop definitions {#use-detailed-prop-definitions}
 
-Treat props as part of a component's public contract, and define them as explicitly as practical.
+In committed code, props should be treated as a key part of the component's contract and be defined in as much detail as possible.
 
 ::: details Why this matters
 Detailed [prop definitions](/guide/components/props#prop-validation) make a component's API easier to understand, easier to use correctly, and easier to change safely.
@@ -98,7 +98,6 @@ const props = defineProps({
 **Notes**
 
 - In TypeScript, a type-based `defineProps()` declaration is equally acceptable if it expresses the contract clearly.
-- Array syntax may be acceptable while prototyping, but committed components should define a real contract.
 
 ## Declare emitted events {#declare-emitted-events}
 
@@ -134,7 +133,10 @@ function submit() {
 
 ```ts
 const emit = defineEmits<{
+  // type-based definition
   (e: 'submit', payload: { email: string }): void
+  // 3.3+: alternative, more succinct syntax
+  submit: [payload, { email: string}]
 }>()
 
 function submit() {
