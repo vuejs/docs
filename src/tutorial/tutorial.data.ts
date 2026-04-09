@@ -15,7 +15,7 @@ export default {
       const stepFiles = files[step]
       const desc = stepFiles['description.md'] as string
       if (desc) {
-        stepFiles['description.md'] = md.render(desc)
+        stepFiles['description.md'] = await md.renderAsync(desc)
       }
     }
     return files
