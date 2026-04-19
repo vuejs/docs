@@ -47,7 +47,7 @@ onMounted(async () => {
         <div class="vj-company-logo">
           <img
             :src="job.organization.avatar"
-            :alt="`Logo for ${job.organization.name}`"
+            :alt="`${job.organization.name} logosu`"
           />
         </div>
         <div
@@ -61,17 +61,17 @@ onMounted(async () => {
           <div class="vj-job-title">{{ job.title }}</div>
           <div class="vj-job-info">
             {{ job.organization.name }} <span>· </span>
-            <span>{{ job.remote ? 'Remote' : job.locations[0] }}</span>
+            <span>{{ job.remote ? 'Uzaktan' : job.locations[0] }}</span>
           </div>
         </div>
       </a>
     </div>
     <div class="vj-link">
-      Jobs by
+      İş ilanları:
       <a
         href="https://vuejobs.com/?utm_source=vuejs&utm_medium=referral&utm_campaign=jobs_widget&utm_content=bottom_link"
         target="_blank"
-        title="Hire Vue.js developers"
+        title="Vue.js geliştiricileri işe alın"
         >vuejobs.com</a
       >
     </div>
