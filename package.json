@@ -32,7 +32,10 @@
   "packageManager": "pnpm@10.33.0",
   "pnpm": {
     "overrides": {
-      "vitepress>vite": "npm:vite@8.0.7"
+      "vitepress>vite": "npm:vite@8.0.7",
+      "@vueuse/core": "14.2.1",
+      "@vueuse/shared": "14.2.1",
+      "@vueuse/metadata": "14.2.1"
     },
     "onlyBuiltDependencies": [
       "esbuild",
