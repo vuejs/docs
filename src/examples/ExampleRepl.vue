@@ -9,12 +9,7 @@ import {
   onHashChange
 } from './utils'
 
-const { vueVersion, defaultVersion, importMap } = useVueImportMap({
-  runtimeDev: () =>
-    `https://unpkg.com/vue@${
-      vueVersion.value || defaultVersion
-    }/dist/vue.esm-browser.js`
-})
+const { vueVersion, importMap } = useVueImportMap()
 const store = useStore({
   vueVersion,
   builtinImportMap: importMap
