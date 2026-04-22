@@ -790,8 +790,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       }
     },
     build: {
-      chunkSizeWarningLimit: Infinity,
-      minify: false
+      chunkSizeWarningLimit: Infinity
     },
     json: {
       stringify: true
