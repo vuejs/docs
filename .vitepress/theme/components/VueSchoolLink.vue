@@ -10,13 +10,11 @@
     </a>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    href: { type: String, required: true },
-    title: { type: String, required: true }
-  }
-}
+<script setup>
+defineProps({
+  href: { type: String, required: true },
+  title: { type: String, required: true }
+})
 </script>
 <style scoped>
 .vueschool {
