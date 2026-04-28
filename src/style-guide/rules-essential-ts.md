@@ -1,25 +1,21 @@
-# Priority A Rules: Essential {#priority-a-rules-essential}
+# Priority A Rules: Essential (TypeScript) {#priority-a-rules-essential}
 
-These rules define the most important boundaries in Vue components: what a component exposes, how data flows through it, how its styles are contained, and how derived state is kept separate from side effects. Follow them by default to keep components easier to understand, maintain, and evolve.
+These rules define the most important boundaries in Vue components that use TypeScript: what a component exposes, how data flows through it, how its styles are contained, and how derived state is kept separate from side effects. Follow them by default to keep components easier to understand, maintain, and evolve.
 
-## Use detailed prop definitions {#use-detailed-prop-definitions}
+## Props Declaration {#use-detailed-prop-definitions}
 
 In committed code, props should be treated as a key part of the component's contract and be defined in as much detail as possible.
 
 ::: details Why this matters
-Detailed [prop definitions](/guide/components/props#prop-validation) make a component's API easier to understand, easier to use correctly, and easier to change safely.
+Typed [prop definitions](/guide/typescript/composition-api#typing-component-props) make a component's API easier to understand, help editors and `vue-tsc` catch incorrect usage, and make refactors safer.
 :::
 
-<span class="composition-api">In TypeScript, a type-based `defineProps()` declaration can also be used when the prop contract is fully described by its types.</span>
-
-<div class="options-api">
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
-```js
-// This is only OK when prototyping
-props: ['status']
+```ts
+defineProps(['status'])
 ```
 
 </div>
@@ -27,69 +23,61 @@ props: ['status']
 <div class="style-example style-example-good">
 <h3>Good</h3>
 
-```js
-props: {
-  status: String
-}
-```
-
-```js
-// Even better!
-props: {
-  status: {
-    type: String,
-    required: true,
-
-    validator: value => {
-      return [
-        'syncing',
-        'synced',
-        'version-conflict',
-        'error'
-      ].includes(value)
-    }
-  }
-}
+```ts
+defineProps<{
+  status: string
+}>()
 ```
 
 </div>
 
-</div>
+### Access props variables
 
-<div class="composition-api">
+In Vue 3.5+, you can destructure typed props directly from `defineProps()`.
 
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
+```ts
+// Vue 3.5+
+const { status } = defineProps<{
+  status: string
+}>()
 
-```js
-// This is only OK when prototyping
-const props = defineProps(['status'])
-```
-
-</div>
-
-<div class="style-example style-example-good">
-<h3>Good</h3>
-
-```js
-const props = defineProps({
-  status: String
+watchEffect(() => {
+  console.log(foo)
 })
 ```
 
-```js
-// Even better!
-const props = defineProps({
-  status: {
-    type: String,
-    required: true,
+In Vue 3.4 and earlier, assign the result of `defineProps()` to a variable and access props through that variable.
 
-    validator: (value) => {
-      return ['syncing', 'synced', 'version-conflict', 'error'].includes(
-        value
-      )
-    }
-  }
+```ts
+// Vue 3.4 and earlier
+const props = defineProps<{
+  status: string
+}>()
+
+watchEffect(() => {
+  console.log(props.status)
+})
+```
+
+### Declare prop defaults
+
+In Vue 3.5+, you can use JavaScript's native default value syntax to declare default values for the props.
+
+```ts
+// Vue 3.5+
+const { status = 'syncing' } = defineProps<{
+  status?: string
+}>()
+```
+
+In Vue 3.4 and earlier, use `withDefaults()` to declare default values for props.
+
+```ts
+// Vue 3.4 and earlier
+const props = withDefaults(defineProps<{
+  status?: string
+}>(), {
+  status: 'syncing'
 })
 ```
 
