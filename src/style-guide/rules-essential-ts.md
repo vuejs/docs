@@ -81,63 +81,15 @@ const props = withDefaults(defineProps<{
 })
 ```
 
-</div>
+## Emits Declaration {#declare-emitted-events}
 
-</div>
-
-## Declare emitted events {#declare-emitted-events}
-
-Treat emitted events as part of a component's public contract, and declare them explicitly.
+Treat emitted events as part of a component's public contract, and declare event names and payloads explicitly.
 
 ::: details Why this matters
-Explicit [event declarations](/guide/components/events) document how a component communicates outward and make parent-child interactions easier to follow.
+Typed [event declarations](/guide/typescript/composition-api#typing-component-emits) document how a component communicates outward and let TypeScript catch wrong event names or payload shapes before runtime.
 :::
 
-In Options API, declare events with the [`emits`](/guide/components/events#declaring-emitted-events) option. In [`<script setup>`](/api/sfc-script-setup#defineprops-defineemits), declare them with `defineEmits()`.
-
-Use the object syntax when event payloads need validation, and an array of event names when they do not.
-
-<span class="composition-api">In TypeScript, a typed `defineEmits()` declaration can also be used so the event contract is checked by the type system as well as documented in the component. Vue 3.3+ also supports a named tuple syntax for the same declaration.</span>
-
-<div class="options-api">
-
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-
-```js
-export default {
-  methods: {
-    submit(email) {
-      this.$emit('submit', { email })
-    }
-  }
-}
-```
-
-</div>
-
-<div class="style-example style-example-good">
-<h3>Good</h3>
-
-```js
-export default {
-  emits: {
-    submit: (payload) => typeof payload?.email === 'string'
-  },
-
-  methods: {
-    submit(email) {
-      this.$emit('submit', { email })
-    }
-  }
-}
-```
-
-</div>
-
-</div>
-
-<div class="composition-api">
+Use `defineEmits()` with named tuple syntax when events have payloads. Use a payload object when an event carries more than one value or may grow over time.
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
@@ -153,32 +105,37 @@ export default {
 <div class="style-example style-example-good">
 <h3>Good</h3>
 
-```vue
-<script setup>
-defineEmits(['submit'])
-</script>
+<br />
 
-<template>
-  <button @click="$emit('submit')">Submit</button>
-</template>
-```
+In Vue 3.3+, you can use named tuple syntax for a more succinct declaration:
 
 ```vue
 <script setup lang="ts">
-const form = {
-  email: ''
-}
-
 const emit = defineEmits<{
-  // Type-based declaration
-  (e: 'submit', payload: { email: string }): void
-  // Vue 3.3+: alternative, more succinct syntax
-  // submit: [payload: { email: string }]
+  submit: [payload: { email: string }]
+  close: []
 }>()
 </script>
 
 <template>
-  <button @click="emit('submit', { email: form.email })">Submit</button>
+  <button @click="emit('submit', { email: 'john@example.com' })">Submit</button>
+  <button @click="emit('close')">Close</button>
+</template>
+```
+
+In Vue 3.2 and earlier, use the function syntax to declare the payload shape:
+
+```vue
+<script setup lang="ts">
+const emit = defineEmits<{
+  (event: 'submit', payload: { email: string }): void
+  (event: 'close'): void
+}>()
+</script>
+
+<template>
+  <button @click="emit('submit', { email: 'john@example.com' })">Submit</button>
+  <button @click="emit('close')">Close</button>
 </template>
 ```
 
