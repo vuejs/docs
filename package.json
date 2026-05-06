@@ -9,12 +9,12 @@
     "type": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@vue/repl": "^4.7.1",
+    "@vue/repl": "^4.7.2",
     "@vue/theme": "^2.4.0",
     "dynamics.js": "^1.1.5",
     "gsap": "^3.14.2",
-    "vitepress": "^2.0.0-alpha.17",
-    "vue": "^3.5.32"
+    "vitepress": "https://pkg.pr.new/vitepress@7b5a7f8",
+    "vue": "https://pkg.pr.new/vue@5832cb1"
   },
   "devDependencies": {
     "@types/body-scroll-lock": "^3.1.2",

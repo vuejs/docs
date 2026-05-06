@@ -16,12 +16,7 @@ import {
   VTLink
 } from '@vue/theme'
 
-const { vueVersion, defaultVersion, importMap } = useVueImportMap({
-  runtimeDev: () =>
-    `https://unpkg.com/vue@${
-      vueVersion.value || defaultVersion
-    }/dist/vue.esm-browser.js`
-})
+const { importMap } = useVueImportMap()
 const store = useStore({
   builtinImportMap: importMap
 })

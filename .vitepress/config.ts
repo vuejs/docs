@@ -761,6 +761,15 @@ export default defineConfigWithTheme<ThemeConfig>({
     }
   },
 
+  vue: {
+    // enable vapor interop for @vue/repl
+    vaporInterop: true,
+    features: {
+      // enable vapor mode
+      vapor: true
+    }
+  },
+
   vite: {
     define: {
       __VUE_OPTIONS_API__: false

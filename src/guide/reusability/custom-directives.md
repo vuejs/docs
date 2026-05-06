@@ -1,11 +1,11 @@
 # Custom Directives {#custom-directives}
 
 <script setup>
-const vHighlight = {
-  mounted: el => {
+  const applyHighlight = el => {
     el.classList.add('is-highlight')
   }
-}
+  // vapor custom directives have a different interface
+  const vHighlight = __VAPOR__ ? applyHighlight : { mounted: applyHighlight }
 </script>
 
 <style>

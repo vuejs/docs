@@ -122,7 +122,7 @@ function dismiss() {
       </template>
       <p class="actions">
         <a href="/guide/introduction#api-styles">Learn more</a>
-        <button @click="dismiss">Got it</button>
+        <button v-on="{ click: dismiss }">Got it</button>
       </p>
       <div class="arrow-top"></div>
       <div class="arrow-top inner"></div>
