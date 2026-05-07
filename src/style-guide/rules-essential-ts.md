@@ -221,6 +221,82 @@ const isOpen = ref(false)
 
 </div>
 
+## Single-File Component
+
+Using SFCs with consistent structure and performant styling keeps components easier to maintain and avoids unnecessary render overhead.
+
+### Access DOM or component instances {$#access-dom-or-component-instances}
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```vue
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const el = ref()
+
+onMounted(() => {
+  el.value = window.document.getElementById('my-input')
+  el.value.focus()
+})
+</script>
+
+<template>
+  <input id="my-input" />
+</template>
+```
+
+</div>
+
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+<br />
+
+In Vue 3.5+, use [`useTemplateRef()`](https://vuejs.org/api/composition-api-helpers.html#usetemplateref) to access DOM or component instances.
+
+```vue
+<script setup lang="ts">
+import { useTemplateRef, onMounted } from 'vue'
+
+const el = useTemplateRef<HTMLInputElement>('my-input')
+
+onMounted(() => {
+  if (el.value) {
+    el.value.focus()
+  }
+})
+</script>
+
+<template>
+  <input ref="my-input" />
+</template>
+```
+
+In Vue 3.4 and earlier, use `ref` and template refs to access DOM or component instances.
+
+```vue
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
+const el = ref<HTMLInputElement | null>(null)
+
+onMounted(() => {
+  if (el.value) {
+    el.value.focus()
+  }
+})
+</script>
+
+<template>
+  <input ref="el" />
+</template>
+```
+
+</div>
+
 ## Use component-scoped styling {#use-component-scoped-styling}
 
 Keep component styles within the component boundary unless a style is intentionally global.
