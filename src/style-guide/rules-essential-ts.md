@@ -141,11 +141,9 @@ const emit = defineEmits<{
 
 </div>
 
-</div>
-
 ## Keep parent-child data flow explicit {#keep-parent-child-data-flow-explicit}
 
-Pass data down with props, and communicate requested changes back up with emitted events.
+Pass data down with props, and communicate requested changes back up with emitted events or typed `defineModel()`.
 
 ::: details Why this matters
 Vue components are easier to understand and maintain when state ownership is clear. Prop mutation and other implicit parent-child coupling make updates harder to reason about and components harder to reuse.
@@ -155,63 +153,19 @@ This includes `v-model`, which still follows the same prop-and-event communicati
 
 If a child needs editable local state, derive or initialize it from the prop instead of mutating the prop itself.
 
-<div class="options-api">
-
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
-```js
-export default {
-  props: {
-    open: Boolean
-  },
-
-  methods: {
-    requestClose() {
-      this.open = false
-    }
-  }
-}
-```
-
-</div>
-
-<div class="style-example style-example-good">
-<h3>Good</h3>
-
-```js
-export default {
-  props: {
-    open: Boolean
-  },
-
-  emits: ['update:open'],
-
-  methods: {
-    requestClose() {
-      this.$emit('update:open', false)
-    }
-  }
-}
-```
-
-</div>
-
-</div>
-
-<div class="composition-api">
-
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-
-```js
-const props = defineProps({
-  open: Boolean
-})
+```vue
+<script setup lang="ts">
+const props = defineProps<{
+  open: boolean
+}>()
 
 function requestClose() {
   props.open = false
 }
+</script>
 ```
 
 </div>
@@ -219,19 +173,51 @@ function requestClose() {
 <div class="style-example style-example-good">
 <h3>Good</h3>
 
-```js
-const props = defineProps({
-  open: Boolean
-})
+<br />
 
-const emit = defineEmits(['update:open'])
+In Vue 3.4+, use `defineModel()` for two-way bindings.
+
+```vue [Child.vue]
+<script setup lang="ts">
+const open = defineModel<boolean>()
 
 function requestClose() {
-  emit('update:open', false)
+  open.value = false
 }
+</script>
 ```
 
-</div>
+In Vue 3.3 and earlier, use `defineEmits()` to request changes from the parent.
+
+```vue [Child.vue]
+<script setup lang="ts">
+defineProps<{
+  modelValue: boolean
+}>()
+
+const emit = defineEmits<{
+  'update:modelValue': [value: boolean]
+}>()
+
+function requestClose() {
+  emit('update:modelValue', false)
+}
+</script>
+```
+
+<hr />
+
+Usage in parent component:
+
+```vue [Parent.vue]
+<script setup lang="ts">
+const isOpen = ref(false)
+</script>
+
+<template>
+  <Child v-model="isOpen" />
+</template>
+```
 
 </div>
 
