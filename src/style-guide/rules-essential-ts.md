@@ -1,8 +1,18 @@
+---
+outline: deep
+---
+
 # Priority A Rules: Essential (TypeScript) {#priority-a-rules-essential}
 
 These rules define the most important boundaries in Vue components that use TypeScript: what a component exposes, how data flows through it, how its styles are contained, and how derived state is kept separate from side effects. Follow them by default to keep components easier to understand, maintain, and evolve.
 
-## Props Declaration {#use-detailed-prop-definitions}
+## Component Data Flow
+
+Vue components stay reliable when data flow is explicit: props go down, events go up, `v-model` handles two-way bindings, and provide/inject supports cross-tree dependencies. Blurring these boundaries leads to stale state, hidden coupling, and hard-to-debug UI.
+
+The main principle of data flow in Vue.js is **Props Down / Events Up**. This is the most maintainable default, and one-way flow scales well.
+
+### Props Declaration {#use-detailed-prop-definitions}
 
 In committed code, props should be treated as a key part of the component's contract and be defined in as much detail as possible.
 
@@ -31,7 +41,7 @@ defineProps<{
 
 </div>
 
-### Access props variables
+#### Access props variables
 
 In Vue 3.5+, you can destructure typed props directly from `defineProps()`.
 
@@ -59,7 +69,7 @@ watchEffect(() => {
 })
 ```
 
-### Declare prop defaults
+#### Declare prop defaults
 
 In Vue 3.5+, you can use JavaScript's native default value syntax to declare default values for the props.
 
@@ -81,7 +91,7 @@ const props = withDefaults(defineProps<{
 })
 ```
 
-## Emits Declaration {#declare-emitted-events}
+### Emits Declaration {#declare-emitted-events}
 
 Treat emitted events as part of a component's public contract, and declare event names and payloads explicitly.
 
@@ -141,7 +151,7 @@ const emit = defineEmits<{
 
 </div>
 
-## Keep parent-child data flow explicit {#keep-parent-child-data-flow-explicit}
+### Implement two-way binding {#keep-parent-child-data-flow-explicit}
 
 Pass data down with props, and communicate requested changes back up with emitted events or typed `defineModel()`.
 
@@ -297,7 +307,7 @@ onMounted(() => {
 
 </div>
 
-## Use component-scoped styling {#use-component-scoped-styling}
+### Use component-scoped styling {#use-component-scoped-styling}
 
 Keep component styles within the component boundary unless a style is intentionally global.
 
@@ -308,7 +318,7 @@ Component-scoped styling reduces accidental coupling, makes style ownership clea
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
-```vue-html
+```vue
 <template>
   <button class="btn btn-close">×</button>
 </template>
@@ -325,7 +335,7 @@ Component-scoped styling reduces accidental coupling, makes style ownership clea
 <div class="style-example style-example-good">
 <h3>Good</h3>
 
-```vue-html
+```vue
 <template>
   <button class="button button-close">×</button>
 </template>
@@ -343,7 +353,7 @@ Component-scoped styling reduces accidental coupling, makes style ownership clea
 </style>
 ```
 
-```vue-html
+```vue
 <template>
   <button :class="[$style.button, $style.buttonClose]">×</button>
 </template>
