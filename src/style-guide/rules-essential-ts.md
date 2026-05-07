@@ -294,60 +294,18 @@ Component-scoped styling reduces accidental coupling, makes style ownership clea
 
 ## Use computed for derived state {#use-computed-for-derived-state}
 
-Use [computed](/guide/essentials/computed) for synchronous derived state instead of storing and synchronizing it manually, and use [watch](/guide/essentials/watchers), `watchEffect()`, or lifecycle hooks for side effects.
+Use [computed](/guide/essentials/computed) for synchronous derived state instead of storing and synchronizing it manually. Keep [computed](/guide/essentials/computed) getters pure (no side effects) and put side effects in [watchers](/guide/essentials/watchers).
 
 ::: details Why this matters
 Computed state should describe what values mean, not perform work. Keeping derivation pure and synchronous makes reactive code easier to reason about and keeps side effects in the places Vue expects them.
 :::
 
-<div class="options-api">
+Let computed refs infer their types when the implementation is obvious. Add an explicit return type when the computed value is part of a component contract, when it guards against accidental widening, or when inference becomes circular.
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>
 
-```js
-export default {
-  computed: {
-    fullName() {
-      const value = `${this.user.firstName} ${this.user.lastName}`
-      analytics.track('full-name-changed', value)
-      return value
-    }
-  }
-}
-```
-
-</div>
-
-<div class="style-example style-example-good">
-<h3>Good</h3>
-
-```js
-export default {
-  computed: {
-    fullName() {
-      return `${this.user.firstName} ${this.user.lastName}`
-    }
-  },
-
-  watch: {
-    fullName(value) {
-      analytics.track('full-name-changed', value)
-    }
-  }
-}
-```
-
-</div>
-
-</div>
-
-<div class="composition-api">
-
-<div class="style-example style-example-bad">
-<h3>Bad</h3>
-
-```js
+```ts
 const fullName = computed(() => {
   const value = `${user.value.firstName} ${user.value.lastName}`
   analytics.track('full-name-changed', value)
@@ -360,7 +318,7 @@ const fullName = computed(() => {
 <div class="style-example style-example-good">
 <h3>Good</h3>
 
-```js
+```ts
 const fullName = computed(() => {
   return `${user.value.firstName} ${user.value.lastName}`
 })
@@ -369,7 +327,5 @@ watch(fullName, (value) => {
   analytics.track('full-name-changed', value)
 })
 ```
-
-</div>
 
 </div>
