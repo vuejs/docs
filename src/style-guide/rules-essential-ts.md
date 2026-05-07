@@ -46,7 +46,6 @@ defineProps<{
 In Vue 3.5+, you can destructure typed props directly from `defineProps()`.
 
 ```ts
-// Vue 3.5+
 const { status } = defineProps<{
   status: string
 }>()
@@ -59,7 +58,6 @@ watchEffect(() => {
 In Vue 3.4 and earlier, assign the result of `defineProps()` to a variable and access props through that variable.
 
 ```ts
-// Vue 3.4 and earlier
 const props = defineProps<{
   status: string
 }>()
@@ -74,7 +72,6 @@ watchEffect(() => {
 In Vue 3.5+, you can use JavaScript's native default value syntax to declare default values for the props.
 
 ```ts
-// Vue 3.5+
 const { status = 'syncing' } = defineProps<{
   status?: string
 }>()
@@ -83,7 +80,6 @@ const { status = 'syncing' } = defineProps<{
 In Vue 3.4 and earlier, use `withDefaults()` to declare default values for props.
 
 ```ts
-// Vue 3.4 and earlier
 const props = withDefaults(defineProps<{
   status?: string
 }>(), {
@@ -378,9 +374,153 @@ Component-scoped styling reduces accidental coupling, makes style ownership clea
 - The [`scoped` attribute](/api/sfc-css-features#scoped-css) is not the only option. CSS modules, native [CSS `@scope`](https://developer.mozilla.org/en-US/docs/Web/CSS/@scope), and disciplined class-based conventions such as [BEM](http://getbem.com/) can all work.
 - App-level and layout-level styles may be global when they are intentionally shared.
 
-## Use computed for derived state {#use-computed-for-derived-state}
+## Reactivity
 
-Use [computed](/guide/essentials/computed) for synchronous derived state instead of storing and synchronizing it manually. Keep [computed](/guide/essentials/computed) getters pure (no side effects) and put side effects in [watchers](/guide/essentials/watchers).
+### Avoid destructuring from `reactive()` directly
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```vue
+<script setup lang="ts">
+import { onMounted, reactive } from 'vue'
+
+const state = reactive({ count: 0 })
+
+onMounted(() => {
+  state.count = 1
+})
+
+// disconnected from reactivity
+const { count } = state
+</script>
+
+<template>
+  <!-- it's not updating to 1 on mount -->
+  <div>{{ count }}</div>
+</template>
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+<br />
+
+Read and write to properties on the original `reactive()` object to stay within the reactivity system.
+
+```vue
+<script setup lang="ts">
+import { onMounted, reactive } from 'vue'
+
+const state = reactive({ count: 0 })
+
+onMounted(() => {
+  state.count = 1
+})
+</script>
+
+<template>
+  <div>{{ state.count }}</div>
+</template>
+```
+
+You can use `toRef` or `toRefs()` for a more destructure-like syntax that stays reactive.
+
+```vue
+<script setup lang="ts">
+import { onMounted, reactive, toRef } from 'vue'
+
+const state = reactive({ count: 0 })
+
+// a two-way ref that syncs with the original property
+const count = toRef(state, 'count')
+
+onMounted(() => {
+  count.value = 1
+})
+</script>
+
+<template>
+  <div>{{ count }}</div>
+</template>
+```
+
+```ts
+// or create readonly ref from reactive with a getter
+const count = toRef(() => state.count)
+```
+
+Use `toRefs()` if you need to destructure multiple properties.
+
+```vue
+<script setup lang="ts">
+import { onMounted, reactive, toRefs } from 'vue'
+
+const state = reactive({ count: 0 })
+
+const { count } = toRefs(state)
+
+onMounted(() => {
+  count.value = 2
+})
+</script>
+
+<template>
+  <div>{{ count }}</div>
+</template>
+```
+
+</div>
+
+### Watching reactive state
+
+When watching reactive state, use a getter function or ref instead of watching the property of reactive object directly.
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```ts
+import { watch, reactive } from 'vue'
+
+const props = defineProps<{
+  title: string
+}>()
+
+const state = reactive({ count: 0 })
+
+// it won't trigger when props.title or state.count changes
+watch(props.title, () => {})
+watch(state.count, () => {})
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```ts
+import { watch, reactive } from 'vue'
+
+const props = defineProps<{
+  title: string
+}>()
+
+const state = reactive({ count: 0 })
+
+// watch reactive state with getter
+watch(() => props.title, () => {})
+watch(() => state.count, () => {})
+```
+
+</div>
+
+### Use computed for derived state {#use-computed-for-derived-state}
+
+Use [computed](/guide/essentials/computed) for synchronous derived state instead of storing and synchronizing it manually.
+
+Keep [computed](/guide/essentials/computed) getters pure (no side effects) and put side effects in [watchers](/guide/essentials/watchers).
 
 ::: details Why this matters
 Computed state should describe what values mean, not perform work. Keeping derivation pure and synchronous makes reactive code easier to reason about and keeps side effects in the places Vue expects them.
@@ -412,6 +552,63 @@ const fullName = computed(() => {
 watch(fullName, (value) => {
   analytics.track('full-name-changed', value)
 })
+```
+
+</div>
+
+### Prefer computed over watcher-assigned derived refs
+
+When a ref's value is derived from other reactive state, use a computed ref instead of a manually assigned ref in a watcher.
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```ts
+const items = ref([{ price: 10 }, { price: 20 }])
+const total = ref(0)
+
+watch(items, () => {
+  total.value = items.value.reduce((sum, item) => sum + item.price, 0)
+})
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```ts
+const items = ref([{ price: 10 }, { price: 20 }])
+const total = computed(() =>
+  items.value.reduce((sum, item) => sum + item.price, 0)
+)
+```
+
+</div>
+
+### Use eager watchers instead of duplicate initial calls
+
+Use watchers with the `immediate: true` option instead of manually duplicating an initial call to a function that also needs to run on reactive updates.
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```ts
+const userId = ref(1)
+
+onMounted(() => loadUser(userId.value))
+watch(userId, (id) => loadUser(id))
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```ts
+const userId = ref(1)
+
+watch(userId, (id) => loadUser(id), { immediate: true })
 ```
 
 </div>
