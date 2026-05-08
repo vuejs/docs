@@ -267,7 +267,7 @@ In Vue 3.5+, use [`useTemplateRef()`](https://vuejs.org/api/composition-api-help
 <script setup lang="ts">
 import { useTemplateRef, onMounted } from 'vue'
 
-const el = useTemplateRef<HTMLInputElement>('my-input')
+const el = useTemplateRef('my-input')
 
 onMounted(() => {
   if (el.value) {
