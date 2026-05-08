@@ -124,8 +124,8 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <button @click="emit('submit', { email: 'john@example.com' })">Submit</button>
-  <button @click="emit('close')">Close</button>
+  <button type="button" @click="emit('submit', { email: 'john@example.com' })">Submit</button>
+  <button type="button" @click="emit('close')">Close</button>
 </template>
 ```
 
@@ -140,8 +140,8 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <button @click="emit('submit', { email: 'john@example.com' })">Submit</button>
-  <button @click="emit('close')">Close</button>
+  <button type="button" @click="emit('submit', { email: 'john@example.com' })">Submit</button>
+  <button type="button" @click="emit('close')">Close</button>
 </template>
 ```
 
@@ -316,7 +316,7 @@ Component-scoped styling reduces accidental coupling, makes style ownership clea
 
 ```vue
 <template>
-  <button class="btn btn-close">×</button>
+  <button type="button" class="btn btn-close">×</button>
 </template>
 
 <style>
@@ -333,7 +333,7 @@ Component-scoped styling reduces accidental coupling, makes style ownership clea
 
 ```vue
 <template>
-  <button class="button button-close">×</button>
+  <button type="button" class="button button-close">×</button>
 </template>
 
 <!-- Using the `scoped` attribute -->
@@ -351,7 +351,7 @@ Component-scoped styling reduces accidental coupling, makes style ownership clea
 
 ```vue
 <template>
-  <button :class="[$style.button, $style.buttonClose]">×</button>
+  <button type="button" :class="[$style.button, $style.buttonClose]">×</button>
 </template>
 
 <!-- Using CSS modules -->
