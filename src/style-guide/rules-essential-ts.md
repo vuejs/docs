@@ -43,7 +43,11 @@ defineProps<{
 
 #### Access props variables
 
-In Vue 3.5+, you can destructure typed props directly from `defineProps()`.
+In Vue 3.5+, you can destructure typed props directly from `defineProps()` and keeps them reactive.
+
+> Under the hood, Vue's compiler automatically prepends `props.` when code in the same `script setup` block accesses variables destructured from `defineProps()`, see [Reactive Props Destructure](https://vuejs.org/guide/components/props.html#reactive-props-destructure) for details.  
+
+> In Vue's VS Code extension, you can enable `vue.inlayHints.destructuredProps` option to show inlay-hints for destructured props.
 
 ```ts
 const { status } = defineProps<{
@@ -51,7 +55,7 @@ const { status } = defineProps<{
 }>()
 
 watchEffect(() => {
-  console.log(foo)
+  console.log(status)
 })
 ```
 
