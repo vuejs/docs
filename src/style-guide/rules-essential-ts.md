@@ -217,11 +217,11 @@ Usage in parent component:
 
 ```vue [Parent.vue]
 <script setup lang="ts">
-const isOpen = ref(false)
+const isOpened = ref(false)
 </script>
 
 <template>
-  <Child v-model="isOpen" />
+  <Child v-model="isOpened" />
 </template>
 ```
 
