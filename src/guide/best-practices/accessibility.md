@@ -229,6 +229,42 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 
 ![Chrome Developer Tools showing input accessible name from aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
 
+:::tip IDs in reusable components
+If this pattern is used inside a component that may be rendered more than once on a page, avoid hard-coded IDs since `id` attributes must be unique in the entire document. Use [`useId()`](/api/composition-api-helpers.html#useid) to generate stable, unique IDs for accessibility attributes:
+
+```vue
+<script setup>
+import { ref, useId } from 'vue'
+
+const billingId = useId()
+const nameId = useId()
+const name = ref('')
+</script>
+
+<template>
+  <form
+    class="demo"
+    action="/dataCollectionLocation"
+    method="post"
+    autocomplete="on"
+  >
+    <h1 :id="billingId">Billing</h1>
+    <div class="form-item">
+      <label :for="nameId">Name: </label>
+      <input
+        type="text"
+        name="name"
+        :id="nameId"
+        v-model="name"
+        :aria-labelledby="`${billingId} ${nameId}`"
+      />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</template>
+```
+:::
+
 #### `aria-describedby` {#aria-describedby}
 
 [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) is used the same way as `aria-labelledby` except provides a description with additional information that the user might need. This can be used to describe the criteria for any input:
