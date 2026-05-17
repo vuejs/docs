@@ -448,6 +448,37 @@ export default {
 
 Note that `onWatcherCleanup` is only supported in Vue 3.5+ and must be called during the synchronous execution of a `watchEffect` effect function or `watch` callback function: you cannot call it after an `await` statement in an async function.
 
+When using an async watcher callback, register cleanup before the first `await`:
+
+```js {4-7}
+watch(id, async (newId) => {
+  const controller = new AbortController()
+
+  onWatcherCleanup(() => {
+    // abort stale request
+    controller.abort()
+  })
+
+  await fetch(`/api/${newId}`, {
+    signal: controller.signal
+  })
+  // callback logic
+})
+```
+
+The following usage will not work because `onWatcherCleanup()` is called after an `await`:
+
+```js {5-8}
+watch(id, async (newId) => {
+  await fetch(`/api/${newId}`)
+  // callback logic
+
+  onWatcherCleanup(() => {
+    // too late: this will not be registered
+  })
+})
+```
+
 Alternatively, an `onCleanup` function is also passed to watcher callbacks as the 3rd argument<span class="composition-api">, and to the `watchEffect` effect function as the first argument</span>:
 
 <div class="composition-api">
