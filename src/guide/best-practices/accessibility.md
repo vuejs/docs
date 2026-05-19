@@ -229,6 +229,38 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 
 ![Chrome Developer Tools showing input accessible name from aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
 
+:::tip Using `aria-labelledby` in reusable components
+When using `aria-labelledby` inside a Vue component that may be rendered multiple times on the same page, static `id` values will conflict. Use Vue's [`useId`](/api/composition-api-helpers.html#useid) helper to generate unique IDs that are stable across server and client rendering:
+
+```vue
+<script setup>
+import { useId } from 'vue'
+
+const billingId = useId()
+const nameId = useId()
+</script>
+
+<template>
+  <form class="demo" action="/dataCollectionLocation" method="post" autocomplete="on">
+    <h1 :id="billingId">Billing</h1>
+    <div class="form-item">
+      <label :for="nameId">Name: </label>
+      <input
+        type="text"
+        name="name"
+        :id="nameId"
+        v-model="name"
+        :aria-labelledby="`${billingId} ${nameId}`"
+      />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</template>
+```
+
+This ensures each component instance gets unique IDs, preventing collisions when the same component is used multiple times on a page.
+:::
+
 #### `aria-describedby` {#aria-describedby}
 
 [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) is used the same way as `aria-labelledby` except provides a description with additional information that the user might need. This can be used to describe the criteria for any input:
