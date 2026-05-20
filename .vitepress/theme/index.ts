@@ -11,7 +11,7 @@ import {
 import SponsorsAside from './components/SponsorsAside.vue'
 import VueSchoolLink from './components/VueSchoolLink.vue'
 import ScrimbaLink from './components/ScrimbaLink.vue'
-import Banner from './components/Banner.vue'
+// import Banner from './components/Banner.vue'
 // import TextAd from './components/TextAd.vue'
 
 import 'vitepress/dist/client/theme-default/styles/components/vp-code-group.css'
@@ -21,7 +21,7 @@ export default Object.assign({}, VPTheme, {
   Layout: () => {
     // @ts-ignore
     return h(VPTheme.Layout, null, {
-      banner: () => h(Banner),
+      // banner: () => h(Banner),
       'sidebar-top': () => h(PreferenceSwitch),
       'sidebar-bottom': () => h(SecurityUpdateBtn),
       'aside-mid': () => h(SponsorsAside)
