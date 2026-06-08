@@ -23,7 +23,6 @@ export default {
   margin: 28px 0;
   background-color: var(--vt-c-bg-soft);
   padding: 1em 1.25em;
-  border-radius: 2px;
   position: relative;
   display: flex;
   border-radius: 8px;
