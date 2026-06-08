@@ -564,5 +564,32 @@
       "github": "serkodev",
       "twitter": "serkodev"
     }
-  }
+  },
+  {
+    "name": "Arlo",
+    "title": "Developer",
+    "projects": [
+      {
+        "label": "vuejs/devtools",
+        "url": "https://github.com/vuejs/devtools"
+      },
+      {
+        "label": "VueUse",
+        "url": "https://github.com/vueuse/vueuse"
+      }
+    ],
+    "location": "Shenzhen, China",
+    "languages": [
+      "Chinese",
+      "English"
+    ],
+    "website": {
+      "label": "arlo7.me",
+      "url": "https://arlo7.me"
+    },
+    "socials": {
+      "github": "webfansplz",
+      "twitter": "webfansplz"
+    }
+  },
 ]
