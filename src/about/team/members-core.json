@@ -579,10 +579,7 @@
       }
     ],
     "location": "Shenzhen, China",
-    "languages": [
-      "Chinese",
-      "English"
-    ],
+    "languages": ["Chinese", "English"],
     "website": {
       "label": "arlo7.me",
       "url": "https://arlo7.me"
