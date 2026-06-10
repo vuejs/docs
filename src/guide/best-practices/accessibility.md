@@ -214,17 +214,51 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 >
   <h1 id="billing">Billing</h1>
   <div class="form-item">
-    <label for="name">Name: </label>
+    <label id="name-label" for="name">Name: </label>
     <input
       type="text"
       name="name"
       id="name"
       v-model="name"
-      aria-labelledby="billing name"
+      aria-labelledby="billing name-label"
     />
   </div>
   <button type="submit">Submit</button>
 </form>
+```
+
+When this pattern is used in a reusable component, avoid hard-coded `id` values because they must be unique in the whole document. Use [`useId()`](/api/composition-api-helpers#useid) to generate stable IDs for each component instance:
+
+```vue
+<script setup>
+import { ref, useId } from 'vue'
+
+const billingId = useId()
+const nameId = useId()
+const name = ref('')
+</script>
+
+<template>
+  <form
+    class="demo"
+    action="/dataCollectionLocation"
+    method="post"
+    autocomplete="on"
+  >
+    <h1 :id="billingId">Billing</h1>
+    <div class="form-item">
+      <label :id="`${nameId}-label`" :for="nameId">Name: </label>
+      <input
+        type="text"
+        name="name"
+        :id="nameId"
+        v-model="name"
+        :aria-labelledby="`${billingId} ${nameId}-label`"
+      />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</template>
 ```
 
 ![Chrome Developer Tools showing input accessible name from aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
@@ -270,13 +304,13 @@ const nameId = useId()
 >
   <h1 id="billing">Billing</h1>
   <div class="form-item">
-    <label for="name">Full Name: </label>
+    <label id="full-name-label" for="name">Full Name: </label>
     <input
       type="text"
       name="name"
       id="name"
       v-model="name"
-      aria-labelledby="billing name"
+      aria-labelledby="billing full-name-label"
       aria-describedby="nameDescription"
     />
     <p id="nameDescription">Please provide first and last name.</p>
