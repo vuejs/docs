@@ -338,6 +338,30 @@ Will be equivalent to:
 <BlogPost :id="post.id" :title="post.title" />
 ```
 
+### Merge Behavior When Combining Bindings {#merge-behavior-when-combining-bindings}
+
+When `v-bind` is used alongside explicit bindings on the same component, Vue internally calls `mergeProps()` to combine them. The merging strategy depends on the key type:
+
+- **Regular props** — the last value wins:
+
+```vue-html
+<!-- title === 'bar' -->
+<BlogPost title="foo" v-bind="{ title: 'bar' }" />
+```
+
+- **Event listeners** — when passing listeners in a `v-bind` object, [use the `onEventName` key convention](/guide/extras/render-function#v-on). All handlers for the same event will be called (see [`v-on` Listener Inheritance](/guide/components/attrs#v-on-listener-inheritance)):
+
+```vue-html
+<!-- logs 1 and 2 -->
+<BlogPost @click="console.log(1)" v-bind="{ onClick: () => console.log(2) }" />
+```
+
+- **`class` and `style`** follow a similar merge strategy (see [`class` and `style` Merging](/guide/components/attrs#class-and-style-merging)).
+
+:::tip
+The full merging rules are described in the [`mergeProps()`](/api/render-function#mergeprops) API reference.
+:::
+
 ## One-Way Data Flow {#one-way-data-flow}
 
 All props form a **one-way-down binding** between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
