@@ -349,14 +349,14 @@ When `v-bind` is used alongside explicit bindings on the same component, Vue int
 <BlogPost title="foo" v-bind="{ title: 'bar' }" />
 ```
 
-- **Event listeners** — when passing listeners in a `v-bind` object, [use the `onEventName` key convention](/guide/extras/render-function#v-on). All handlers for the same event will be called (see [v-on Listener Inheritance](/guide/components/attrs#v-on-listener-inheritance)):
+- **Event listeners** — when passing listeners in a `v-bind` object, [use the `onEventName` key convention](/guide/extras/render-function#v-on). All handlers for the same event will be called (see [`v-on` Listener Inheritance](/guide/components/attrs#v-on-listener-inheritance)):
 
 ```vue-html
 <!-- logs 1 and 2 -->
 <BlogPost @click="console.log(1)" v-bind="{ onClick: () => console.log(2) }" />
 ```
 
-- **`class` and `style`** follow a similar merge strategy (see [Class and Style Merging](/guide/components/attrs#class-and-style-merging)).
+- **`class` and `style`** follow a similar merge strategy (see [`class` and `style` Merging](/guide/components/attrs#class-and-style-merging)).
 
 :::tip
 The full merging rules are described in the [`mergeProps()`](/api/render-function#mergeprops) API reference.
