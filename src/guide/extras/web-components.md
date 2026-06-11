@@ -348,7 +348,7 @@ The implementation details have been omitted, but the important part is that we 
 Let's create a type helper for easily registering custom element type definitions in Vue:
 
 ```ts [some-lib/src/DefineCustomElement.ts]
-// We can re-use this type helper per each element we need to define.
+// We can reuse this type helper for each element we need to define.
 type DefineCustomElement<
   ElementType extends HTMLElement,
   Events extends EventMap = {},

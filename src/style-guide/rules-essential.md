@@ -1,6 +1,36 @@
 # Priority A Rules: Essential {#priority-a-rules-essential}
 
-These rules define the most important boundaries in Vue components: what a component exposes, how data flows through it, how its styles are contained, and how derived state is kept separate from side effects. Follow them by default to keep components easier to understand, maintain, and evolve.
+These rules help prevent errors, so learn and abide by them at all costs. Exceptions may exist, but should be very rare and only be made by those with expert knowledge of both JavaScript and Vue.
+
+## Use multi-word component names {#use-multi-word-component-names}
+
+User component names should always be multi-word, except for root `App` components. This [prevents conflicts](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) with existing and future HTML elements, since all HTML elements are a single word.
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```vue-html
+<!-- in pre-compiled templates -->
+<Item />
+
+<!-- in in-DOM templates -->
+<item></item>
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```vue-html
+<!-- in pre-compiled templates -->
+<TodoItem />
+
+<!-- in in-DOM templates -->
+<todo-item></todo-item>
+```
+
+</div>
 
 ## Use detailed prop definitions {#use-detailed-prop-definitions}
 
@@ -287,7 +317,7 @@ function requestClose() {
 ```
 
 </div>
-
+  
 </div>
 
 ## Use component-scoped styling {#use-component-scoped-styling}

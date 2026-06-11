@@ -4,11 +4,7 @@ outline: deep
 
 # Style Guide {#style-guide}
 
-::: warning Status
-This section is under active revision. Priority A: Essential is currently the maintained section of the guide. Priority B, C, and D are retained as legacy reference content.
-:::
-
-This is the official style guide for Vue-specific code. It is meant to help teams make sound architectural, semantic, and maintainability decisions in modern Vue applications. However, no style guide is ideal for every team or project, so mindful deviations are still encouraged when they are deliberate and well understood.
+This is the official style guide for Vue-specific code. If you use Vue in a project, it's a great reference to avoid errors, bikeshedding, and anti-patterns. However, we don't believe that any style guide is ideal for all teams or projects, so mindful deviations are encouraged based on past experience, the surrounding tech stack, and personal values.
 
 This guide focuses on a small set of human-facing Vue rules. It is not intended to mirror every rule that lint tooling may enforce. Tools such as [eslint-plugin-vue](https://eslint.vuejs.org/), formatters, and other static analysis can still cover broader mechanical correctness and consistency checks.
 

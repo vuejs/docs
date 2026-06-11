@@ -1,9 +1,5 @@
 # Priority C Rules: Recommended (Legacy Reference) {#priority-c-rules-recommended}
 
-::: warning Legacy Reference
-This page is retained for historical reference while the style guide is being revamped. It is not part of the current essential-only scope, and its recommendations should not be treated as reaffirmed guidance.
-:::
-
 Where multiple, equally good options exist, an arbitrary choice can be made to ensure consistency. In these rules, we describe each acceptable option and suggest a default choice. That means you can feel free to make a different choice in your own codebase, as long as you're consistent and have a good reason. Please do have a good reason though! By adapting to the community standard, you will:
 
 1. Train your brain to more easily parse most of the community code you encounter
@@ -40,6 +36,7 @@ This is the default order we recommend for component options. They're split into
    - `inheritAttrs`
    - `props`
    - `emits`
+   - `expose`
 
 6. **Composition API** (the entry point for using the Composition API)
 
@@ -67,6 +64,7 @@ This is the default order we recommend for component options. They're split into
      - `errorCaptured`
      - `renderTracked`
      - `renderTriggered`
+     - `serverPrefetch` (SSR only)
 
 9. **Non-Reactive Properties** (instance properties independent of the reactivity system)
 
