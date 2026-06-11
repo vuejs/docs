@@ -196,7 +196,7 @@ In addition, in order to load the client files in the browser, we also need to:
 
 1. Serve client files by adding `server.use(express.static('.'))` in `server.js`.
 2. Load the client entry by adding `<script type="module" src="/client.js"></script>` to the HTML shell.
-3. Support usage like `import * from 'vue'` in the browser by adding an [Import Map](https://github.com/WICG/import-maps) to the HTML shell.
+3. Support usage like `import * from 'vue'` in the browser by adding an [Import Map](https://html.spec.whatwg.org/multipage/webappapis.html#import-maps) to the HTML shell.
 
 [Try the completed example on StackBlitz](https://stackblitz.com/fork/vue-ssr-example?file=index.js). The button is now interactive!
 
