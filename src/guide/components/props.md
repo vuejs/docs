@@ -349,7 +349,7 @@ When `v-bind` is used alongside explicit bindings on the same component, Vue int
 <BlogPost title="foo" v-bind="{ title: 'bar' }" />
 ```
 
-- **Event listeners** — when passing listeners in a `v-bind` object, [use the `onXxx` key convention](/guide/extras/render-function#v-on). All handlers for the same event will be called (see [v-on Listener Inheritance](/guide/components/attrs#v-on-listener-inheritance)):
+- **Event listeners** — when passing listeners in a `v-bind` object, [use the `onEventName` key convention](/guide/extras/render-function#v-on). All handlers for the same event will be called (see [v-on Listener Inheritance](/guide/components/attrs#v-on-listener-inheritance)):
 
 ```vue-html
 <!-- logs 1 and 2 -->
