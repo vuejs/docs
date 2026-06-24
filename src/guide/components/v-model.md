@@ -524,7 +524,7 @@ export default {
 For `v-model` bindings with both argument and modifiers, the generated prop name will be `arg + "Modifiers"`. For example:
 
 ```vue-html
-<MyComponent v-model:title.capitalize="myText">
+<MyComponent v-model:title.capitalize="myText" />
 ```
 
 The corresponding declarations should be:
