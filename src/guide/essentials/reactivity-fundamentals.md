@@ -580,7 +580,7 @@ To keep each component instance's debounced function independent of the others, 
 export default {
   created() {
     // each instance now has its own copy of debounced handler
-    this.debouncedClick = _.debounce(this.click, 500)
+    this.debouncedClick = debounce(this.click, 500)
   },
   unmounted() {
     // also a good idea to cancel the timer
