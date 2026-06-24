@@ -208,7 +208,7 @@ More details: [Typing Component Emits](/guide/typescript/composition-api#typing-
 </div>
 <div class="options-api">
 
-```js
+```ts
 export default {
   emits: {
     submit(payload: { email: string, password: string }) {
