@@ -278,7 +278,7 @@ type DebuggerEvent = {
 
 ### Computed Debugging {#computed-debugging}
 
-<!-- TODO options API equivalent -->
+<div class="composition-api">
 
 We can debug computed properties by passing `computed()` a second options object with `onTrack` and `onTrigger` callbacks:
 
@@ -310,9 +310,17 @@ count.value++
 `onTrack` and `onTrigger` computed options only work in development mode.
 :::
 
+</div>
+
+<div class="options-api">
+
+Computed debugging options are only available via the Composition API `computed()` function.
+
+</div>
+
 ### Watcher Debugging {#watcher-debugging}
 
-<!-- TODO options API equivalent -->
+<div class="composition-api">
 
 Similar to `computed()`, watchers also support the `onTrack` and `onTrigger` options:
 
@@ -335,6 +343,32 @@ watchEffect(callback, {
   }
 })
 ```
+
+</div>
+
+<div class="options-api">
+
+Watchers declared with the object syntax also support the `onTrack` and `onTrigger` options:
+
+```js
+export default {
+  watch: {
+    source: {
+      handler() {
+        // ...
+      },
+      onTrack(e) {
+        debugger
+      },
+      onTrigger(e) {
+        debugger
+      }
+    }
+  }
+}
+```
+
+</div>
 
 :::tip
 `onTrack` and `onTrigger` watcher options only work in development mode.
