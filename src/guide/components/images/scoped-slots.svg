@@ -9,11 +9,6 @@
         fill: #8E67CD;
       }
 
-      .code {
-        font: 700 18px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        fill: #42B883;
-      }
-
       .code-small {
         font: 700 17px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         fill: #42B883;
@@ -33,23 +28,20 @@
   <rect width="678" height="425" fill="#FFFFFF"/>
 
   <text x="52" y="34" class="label">ParentComponent.vue (usage)</text>
-  <rect x="52" y="52" width="574" height="170" rx="4" stroke="#8E67CD" stroke-width="3" stroke-dasharray="4 4"/>
-  <text x="78" y="84" class="code">&lt;template&gt;</text>
-  <text x="108" y="116" class="code-small">&lt;ChildComponent v-slot="receivedProps"&gt;</text>
-  <rect x="108" y="132" width="360" height="58" rx="4" fill="#FF6464"/>
-  <text x="130" y="156" class="code-slot">{{ receivedProps.text }}</text>
-  <text x="130" y="180" class="code-slot">{{ receivedProps.count }}</text>
-  <text x="108" y="211" class="code-small">&lt;/ChildComponent&gt;</text>
+  <rect x="52" y="52" width="574" height="144" rx="4" stroke="#8E67CD" stroke-width="3" stroke-dasharray="4 4"/>
+  <text x="78" y="89" class="code-small">&lt;ChildComponent v-slot="receivedProps"&gt;</text>
+  <rect x="78" y="106" width="360" height="58" rx="4" fill="#FF6464"/>
+  <text x="100" y="130" class="code-slot">{{ receivedProps.text }}</text>
+  <text x="100" y="154" class="code-slot">{{ receivedProps.count }}</text>
+  <text x="78" y="181" class="code-small">&lt;/ChildComponent&gt;</text>
 
-  <text x="52" y="254" class="label">ChildComponent.vue (slot definition)</text>
-  <rect x="52" y="272" width="574" height="98" rx="4" stroke="#8E67CD" stroke-width="3" stroke-dasharray="4 4"/>
-  <text x="78" y="302" class="code">&lt;template&gt;</text>
-  <rect x="108" y="310" width="448" height="34" rx="4" fill="#4B7EFF"/>
-  <text x="130" y="333" class="code-slot">&lt;slot text="hello" :count="1"&gt;&lt;/slot&gt;</text>
-  <text x="78" y="364" class="code">&lt;/template&gt;</text>
+  <text x="52" y="240" class="label">ChildComponent.vue (slot definition)</text>
+  <rect x="52" y="258" width="574" height="78" rx="4" stroke="#8E67CD" stroke-width="3" stroke-dasharray="4 4"/>
+  <rect x="78" y="281" width="448" height="34" rx="4" fill="#4B7EFF"/>
+  <text x="100" y="304" class="code-slot">&lt;slot text="hello" :count="1"&gt;&lt;/slot&gt;</text>
 
-  <path d="M556 327H592V156H480" stroke="#4B7EFF" stroke-width="3" marker-end="url(#arrow)"/>
-  <text x="494" y="246" class="legend" fill="#4B7EFF">slot props</text>
+  <path d="M526 298H592V135H450" stroke="#4B7EFF" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="494" y="218" class="legend" fill="#4B7EFF">slot props</text>
 
   <circle cx="70" cy="399" r="9" fill="#FF6464"/>
   <text x="90" y="405" class="legend" fill="#FF6464">scoped slot content</text>
