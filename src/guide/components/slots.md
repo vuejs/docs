@@ -438,7 +438,7 @@ Named scoped slots work similarly - slot props are accessible as the value of th
 Passing props to a named slot:
 
 ```vue-html
-<slot name="header" message="hello"></slot>
+<slot name="header" message="hello" />
 ```
 
 Note the `name` of a slot won't be included in the props because it is reserved - so the resulting `headerProps` would be `{ message: 'hello' }`.
@@ -448,7 +448,7 @@ If you are mixing named slots with the default scoped slot, you need to use an e
 ```vue-html
 <!-- <MyComponent> template -->
 <div>
-  <slot message="hello"></slot>
+  <slot message="hello" />
   <slot name="footer" />
 </div>
 ```
@@ -499,7 +499,7 @@ Inside `<FancyList>`, we can render the same `<slot>` multiple times with differ
 ```vue-html
 <ul>
   <li v-for="item in items">
-    <slot name="item" v-bind="item"></slot>
+    <slot name="item" v-bind="item" />
   </li>
 </ul>
 ```
