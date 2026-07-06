@@ -350,25 +350,24 @@ As discussed in [Render Scope](#render-scope), slot content does not have access
 
 However, there are cases where it could be useful if a slot's content can make use of data from both the parent scope and the child scope. To achieve that, we need a way for the child to pass data to a slot when rendering it.
 
-In fact, we can do exactly that - we can pass attributes to a slot outlet just like passing props to a component. First, the parent component receives the slot props with `v-slot`:
+In fact, we can do exactly that - we can pass attributes to a slot outlet just like passing props to a component. First, in the parent template, receive the slot props with `v-slot`:
 
 ```vue-html
-<!-- Usage in parent component (ParentComponent.vue) -->
-<template>
-  <ChildComponent v-slot="receivedProps">
-    {{ receivedProps.text }} {{ receivedProps.count }}
-  </ChildComponent>
-</template>
+<!-- Parent template (usage) -->
+<ChildComponent v-slot="receivedProps">
+  {{ receivedProps.text }} {{ receivedProps.count }}
+</ChildComponent>
 ```
 
-The child component passes props to the slot outlet when rendering it:
+In the child template, pass props to the slot outlet when rendering it:
 
 ```vue-html
-<!-- Slotted component def (ChildComponent.vue) -->
-<template>
-  <!-- render with props! -->
-  <slot text="hello" :count="1"></slot>
-</template>
+<!-- Child template (slot definition) -->
+<!-- render with props! -->
+<slot
+  text="hello"
+  :count="1"
+/>
 ```
 
 Receiving the slot props is a bit different when using a single default slot vs. using named slots. The example above receives props using a single default slot, by using `v-slot` directly on the `ChildComponent` tag.
@@ -379,12 +378,12 @@ Receiving the slot props is a bit different when using a single default slot vs.
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eJxlj00Kg0AMha8SsummVbqVcaB4gR4gm6IpDswfM1EK4t3LWCio27zH974s+IixmifGBlXuk4kCmWWKmrxxMSSBbjR26IKLwbMXeKfg4FLV+3NBXMir+sfQ5MkrYRftS1iTB1AHznzLNkhLmLhnM/PwTCFmwq0MsCywCyrhj8C6noM+TL4k28hBSxelvwZe8WxdHt+LFi8ocy3hyNYGQmi2lZbwTqhVXSoH9voFtdx2iw==)
+[Try it in the Playground](https://play.vuejs.org/#eJxlj00Kg0AMha8SsnHTKt2KDhQv0ANkUzTFgfljJkpBvHsZhYK6fS+878uCzxDKeWKssUl91EEgsUxBkdM2+CjQjdoMnbfBO3YCn+gtFGV1jPNEQa6p9g1FjlwjbIN5CytyAM1pZ74n46UljNyznnl4RR8S4XYMsCxwKErhr8C6XoveTy43G+SkpbLSXwNveLXOjx9Fs9cukZkt4cjGeMI9qzdeS/jYk+rEWH9AQHet)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eJxlkEGKwzAMRa8itOlmmtBtcAxDLzAH0KYkKg04snGUUAi++6CUFpJu///Sf9KKvylVy8zYoJu6PCT1JMOYYla4PobQX+OYorAo3HMc4VTVe9mGTyQk/NyGer7f5qCwkgB079TUvAQ4LDWtkBQSV3/qSZzymMJN2VvAHUCW8xSitoSZOx4W7v9yTBOhfzWsK+yMSvmpUMq30cVZzNlKDnd5Q/pg4A9+n20/24MaF1hdS/jgECIhNFtLS3gh9K62yGF3+QfX0ovk)
+[Try it in the Playground](https://play.vuejs.org/#eJxlkMEKgzAMhl8l5LLLpuwqKoy9wB4gl6GRCTUtNYogffdRywbq9f+Tfl+64sO5bJ4YCyzHxvdOa5J+cNYrPD+9aZ92cFZYFDpvB7hk+T6OyxcSEl62pZa792QUVhKA5jc1FimAw6MxCySBpMz/eJJSeXDmrVzHgfIgMt9GY7Ui9NxwP3P78taNhHUirCvsikx5UQjhXDR2kthskMNddVT6a+AVz2fHP9uLRq8kEZkV4YeNsYQpKzZeRXhPSX5ghC8NDY0G)
 
 </div>
 
