@@ -350,7 +350,7 @@ As discussed in [Render Scope](#render-scope), slot content does not have access
 
 However, there are cases where it could be useful if a slot's content can make use of data from both the parent scope and the child scope. To achieve that, we need a way for the child to pass data to a slot when rendering it.
 
-In fact, we can do exactly that - we can pass attributes to a slot outlet just like passing props to a component. First, in the parent template, receive the slot props with `v-slot`:
+In fact, we can do exactly that - we can pass attributes to a slot outlet just like passing props to a component. The parent template receives slot props with `v-slot`, while the child template passes props to the slot outlet when rendering:
 
 ```vue-html
 <!-- Parent template (usage) -->
@@ -358,8 +358,6 @@ In fact, we can do exactly that - we can pass attributes to a slot outlet just l
   {{ receivedProps.text }} {{ receivedProps.count }}
 </ChildComponent>
 ```
-
-In the child template, pass props to the slot outlet when rendering it:
 
 ```vue-html
 <!-- Child template (slot definition) -->
