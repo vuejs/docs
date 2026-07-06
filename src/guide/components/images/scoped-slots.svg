@@ -5,18 +5,18 @@
     </marker>
     <style>
       .label {
-        font: 700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font: 600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         fill: #8E67CD;
       }
 
       .legend {
-        font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font: 600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
       .code {
         color: #42B883;
-        font: 700 17px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        line-height: 28px;
+        font: 600 16px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        line-height: 27px;
         white-space: nowrap;
       }
 
@@ -29,7 +29,7 @@
         border-radius: 4px;
         box-sizing: border-box;
         display: inline-block;
-        line-height: 26px;
+        line-height: 25px;
         padding: 0 8px;
       }
 
@@ -38,7 +38,7 @@
         border-radius: 4px;
         color: #FFFFFF;
         display: inline-block;
-        line-height: 26px;
+        line-height: 25px;
         padding: 0 8px;
       }
 
