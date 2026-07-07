@@ -28,7 +28,7 @@ aside: false
 - [Español / Spanish](https://vue3-spanish-docs.netlify.app/) [[source](https://github.com/icarusgk/vuejs-spanish-docs)]
 - [Deutsch / German](https://de.vuejs.org/) [[source](https://github.com/vuejs-translations/docs-de)]
 
-## Starting a new Translation {#starting-a-new-translation}
+## Contributing to Translations {#contributing-to-translations}
 
 The Vue documentation has recently undergone a major revision, so translations in other languages are still missing or work-in-progress.
 
