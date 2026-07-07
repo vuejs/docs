@@ -137,6 +137,24 @@ This will create a production-ready build of your app in the project's `./dist` 
 
 [Next Steps >](#next-steps)
 
+## Frameworks {#frameworks}
+
+There are Vue frameworks which support [SSR](/guide/scaling-up/ssr) and other features out-of-the-box:
+- [Nuxt](https://nuxt.com/)
+- [Quasar](https://quasar.dev/)
+- [Vike](https://vike.dev/)
+- [Astro](https://astro.build/)
+
+:::tip
+The general recommendation is to use a framework only if you need SSR.
+
+If you don't need SSR, you can simply use [Vite](https://vite.dev/) (this is what the section above [Creating a Vue Application](#creating-a-vue-application) scaffolds).
+:::
+
+:::info
+Vue frameworks typically use Vite under the hood, so directly using Vite instead of a Vue framework is a simpler setup if you don't need SSR. That said, frameworks also support extra features, such as UI themes, which can also be a reason to favor a Vue framework instead of just using Vite.
+:::
+
 ## Using Vue from CDN {#using-vue-from-cdn}
 
 You can use Vue directly from a CDN via a script tag:
