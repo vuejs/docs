@@ -141,9 +141,9 @@ This will create a production-ready build of your app in the project's `./dist` 
 
 There are Vue frameworks which support [SSR](/guide/scaling-up/ssr) and other features out-of-the-box:
 - [Nuxt](https://nuxt.com/)
-- [Quasar](https://quasar.dev/)
 - [Vike](https://vike.dev/)
 - [Astro](https://astro.build/)
+- [Quasar](https://quasar.dev/)
 
 :::tip
 The general recommendation is to use a framework only if you need SSR.
