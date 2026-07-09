@@ -214,7 +214,7 @@ Moving from the example to a production-ready SSR app involves a lot more. We wi
 
 - Manage routing, data fetching, and state management stores in a universal manner.
 
-A complete implementation would be quite complex and depends on the build toolchain you have chosen to work with. Therefore, we highly recommend using [Vue frameworks](/guide/quick-start#frameworks) if you need SSR - they have built-in SSR support.
+A complete implementation would be quite complex and depends on the build toolchain you have chosen to work with. Therefore, we highly recommend using [Vue frameworks](/guide/quick-start#frameworks) if you need SSR since they often have built-in SSR support.
 
 ## Writing SSR-friendly Code {#writing-ssr-friendly-code}
 
