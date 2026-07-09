@@ -137,24 +137,6 @@ This will create a production-ready build of your app in the project's `./dist` 
 
 [Next Steps >](#next-steps)
 
-## Frameworks {#frameworks}
-
-There are Vue frameworks which support [SSR](/guide/scaling-up/ssr) and other features out-of-the-box:
-- [Nuxt](https://nuxt.com/)
-- [Vike](https://vike.dev/)
-- [Astro](https://astro.build/)
-- [Quasar](https://quasar.dev/)
-
-:::tip
-The general recommendation is to use a framework only if you need SSR.
-
-If you don't need SSR, you can simply use [Vite](https://vite.dev/) (this is what the section above [Creating a Vue Application](#creating-a-vue-application) scaffolds).
-:::
-
-:::info
-Vue frameworks typically use Vite under the hood, so directly using Vite instead of a Vue framework is a simpler setup if you don't need SSR. That said, frameworks also support extra features, such as UI themes, which can also be a reason to favor a Vue framework instead of just using Vite.
-:::
-
 ## Using Vue from CDN {#using-vue-from-cdn}
 
 You can use Vue directly from a CDN via a script tag:
@@ -414,6 +396,24 @@ Due to security reasons, ES modules can only work over the `http://` protocol, w
 To start a local HTTP server, first make sure you have [Node.js](https://nodejs.org/en/) installed, then run `npx serve` from the command line in the same directory where your HTML file is. You can also use any other HTTP server that can serve static files with the correct MIME types.
 
 You may have noticed that the imported component's template is inlined as a JavaScript string. If you are using VS Code, you can install the [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) extension and prefix the strings with a `/*html*/` comment to get syntax highlighting for them.
+
+## Frameworks {#frameworks}
+
+There are Vue frameworks which support [SSR](/guide/scaling-up/ssr) and other features out-of-the-box:
+- [Nuxt](https://nuxt.com/)
+- [Vike](https://vike.dev/)
+- [Astro](https://astro.build/)
+- [Quasar](https://quasar.dev/)
+
+:::tip
+The general recommendation is to use a framework only if you need SSR.
+
+If you don't need SSR, you can simply use [Vite](https://vite.dev/) (this is what the section above [Creating a Vue Application](#creating-a-vue-application) scaffolds).
+:::
+
+:::info
+Vue frameworks typically use Vite under the hood, so directly using Vite instead of a Vue framework is a simpler setup if you don't need SSR. That said, frameworks also support extra features, such as UI themes, which can also be a reason to favor a Vue framework instead of just using Vite.
+:::
 
 ## Next Steps {#next-steps}
 
