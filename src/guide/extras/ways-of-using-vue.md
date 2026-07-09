@@ -47,7 +47,7 @@ There are two flavors of SSG: single-page and multi-page. Both flavors pre-rende
 
 Single-page SSGs are better suited if you expect non-trivial interactivity, deep session lengths, or persisted elements / state across navigations. Otherwise, multi-page SSG would be the better choice.
 
-[Vue frameworks](/guide/quick-start#frameworks) usually support SSG. Also, the Vue team maintains a static-site generator called [VitePress](https://vitepress.dev/), which powers this website you are reading right now! VitePress supports both flavors of SSG.
+The Vue team maintains a static-site generator called [VitePress](https://vitepress.dev/), which powers this website you are reading right now and support boths flavors of SSG! In addition, be sure to check out other [Vue frameworks](/guide/quick-start#frameworks) that usually support SSG.
 
 ## Beyond the Web {#beyond-the-web}
 
