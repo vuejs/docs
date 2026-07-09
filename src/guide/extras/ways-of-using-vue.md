@@ -33,7 +33,7 @@ Pure client-side SPAs are problematic when the app is sensitive to SEO and time-
 
 Vue provides first-class APIs to "render" a Vue app into HTML strings on the server. This allows the server to send back already-rendered HTML, allowing end users to see the content immediately while the JavaScript is being downloaded. Vue will then "hydrate" the application on the client side to make it interactive. This is called [Server-Side Rendering (SSR)](/guide/scaling-up/ssr) and it greatly improves Core Web Vital metrics such as [Largest Contentful Paint (LCP)](https://web.dev/lcp/).
 
-There are higher-level Vue-based frameworks built on top of this paradigm, such as [Nuxt](https://nuxt.com/), which allow you to develop a fullstack application using Vue and JavaScript.
+There are also higher level [Vue frameworks](/guide/quick-start#frameworks), which are built on top of this paradigm and provide built-in support for SSR for developing full stack applications.
 
 ## JAMStack / SSG {#jamstack-ssg}
 
@@ -47,7 +47,7 @@ There are two flavors of SSG: single-page and multi-page. Both flavors pre-rende
 
 Single-page SSGs are better suited if you expect non-trivial interactivity, deep session lengths, or persisted elements / state across navigations. Otherwise, multi-page SSG would be the better choice.
 
-The Vue team also maintains a static-site generator called [VitePress](https://vitepress.dev/), which powers this website you are reading right now! VitePress supports both flavors of SSG. [Nuxt](https://nuxt.com/) also supports SSG. You can even mix SSR and SSG for different routes in the same Nuxt app.
+The Vue team maintains a static-site generator called [VitePress](https://vitepress.dev/), which powers this website you are reading right now and support boths flavors of SSG! In addition, be sure to check out other [Vue frameworks](/guide/quick-start#frameworks) that usually support SSG.
 
 ## Beyond the Web {#beyond-the-web}
 
