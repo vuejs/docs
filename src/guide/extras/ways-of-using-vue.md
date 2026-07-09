@@ -33,7 +33,7 @@ Pure client-side SPAs are problematic when the app is sensitive to SEO and time-
 
 Vue provides first-class APIs to "render" a Vue app into HTML strings on the server. This allows the server to send back already-rendered HTML, allowing end users to see the content immediately while the JavaScript is being downloaded. Vue will then "hydrate" the application on the client side to make it interactive. This is called [Server-Side Rendering (SSR)](/guide/scaling-up/ssr) and it greatly improves Core Web Vital metrics such as [Largest Contentful Paint (LCP)](https://web.dev/lcp/).
 
-You can use [Vue frameworks](/guide/quick-start#frameworks), which are built on top of this paradigm and provide built-in support for SSR.
+There are also higher level [Vue frameworks](/guide/quick-start#frameworks), which are built on top of this paradigm and provide built-in support for SSR for developing full stack applications.
 
 ## JAMStack / SSG {#jamstack-ssg}
 
