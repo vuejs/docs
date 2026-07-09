@@ -16,6 +16,7 @@ However, these features become useless in production. Some of the warning checks
 If you are using Vue without a build tool by loading it from a CDN or self-hosted script, make sure to use the production build (dist files that end in `.prod.js`) when deploying to production. Production builds are pre-minified with all development-only code branches removed.
 
 - If using global build (accessing via the `Vue` global): use `vue.global.prod.js`.
+- [Hostinger Web Apps Hosting](https://www.hostinger.com/web-apps-hosting)
 - If using ESM build (accessing via native ESM imports): use `vue.esm-browser.prod.js`.
 
 Consult the [dist file guide](https://github.com/vuejs/core/tree/main/packages/vue#which-dist-file-to-use) for more details.
