@@ -356,7 +356,7 @@ It's recommended to place the injection key in a separate file so that it can be
 When using string injection keys, the type of the injected value will be `unknown`, and needs to be explicitly declared via a generic type argument:
 
 ```ts
-const foo = inject<string>('foo') // type: string | undefined
+const foo = inject<string>(key) // type: string | undefined
 ```
 
 Notice the injected value can still be `undefined`, because there is no guarantee that a provider will provide this value at runtime.
@@ -364,13 +364,13 @@ Notice the injected value can still be `undefined`, because there is no guarante
 The `undefined` type can be removed by providing a default value:
 
 ```ts
-const foo = inject<string>('foo', 'bar') // type: string
+const foo = inject<string>(key, 'bar') // type: string
 ```
 
 If you are sure that the value is always provided, you can also force cast the value:
 
 ```ts
-const foo = inject('foo') as string
+const foo = inject(key) as string
 ```
 
 ## Typing Template Refs {#typing-template-refs}
