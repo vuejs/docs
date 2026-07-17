@@ -1,15 +1,22 @@
 [
   {
     "name": "Nuxt UI",
-    "description": "[Nuxt UI](https://ui.nuxt.com/) is an intuitive, open-source UI library for Vue and Nuxt applications. Built with Tailwind CSS and Reka UI, it provides 100+ beautifully crafted, accessible components with a flexible CSS-first design system.",
-    "seeMoreUrl": "https://ui.nuxt.com",
+    "description": "[Nuxt UI](https://ui.nuxt.com/) is an open-source UI library with 125+ accessible, Tailwind CSS components for Vue and Nuxt. Built on Reka UI with a flexible CSS-first design system, it works with Vite, Inertia, and SSR out of the box.",
+    "seeMoreUrl": "https://ui.nuxt.com/",
     "products": [
       {
         "name": "Dashboard",
         "price": 0,
-        "description": "Professional Vue Dashboard Template showcasing Nuxt UI capabilities.",
-        "url": "https://vue-dashboard-template.nuxt.dev",
-        "image": "https://res.cloudinary.com/nuxt/image/upload/v1742036101/nuxt-ui/nuxt-ui-dashboard-social-card_kpeysq.png"
+        "description": "Vue dashboard template with multi-column layout and charts.",
+        "url": "https://dashboard-vue-template.nuxt.dev",
+        "image": "https://ui.nuxt.com/assets/templates/vue/dashboard-light.png"
+      },
+      {
+        "name": "Chat",
+        "price": 0,
+        "description": "Vue AI chatbot template with streaming, auth, and chat history.",
+        "url": "https://chat-vue-template.nuxt.dev",
+        "image": "https://ui.nuxt.com/assets/templates/vue/chat-light.png"
       }
     ]
   },
