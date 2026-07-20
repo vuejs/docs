@@ -399,7 +399,7 @@ Watches one or more reactive data sources and invokes a callback function when t
     | (T extends object ? T : never) // reactive object
 
   interface WatchOptions extends WatchEffectOptions {
-    signal?: AbortSignal
+    signal?: AbortSignal // default: undefined (3.6+)
     immediate?: boolean // default: false
     deep?: boolean | number // default: false
     flush?: 'pre' | 'post' | 'sync' // default: 'pre'
