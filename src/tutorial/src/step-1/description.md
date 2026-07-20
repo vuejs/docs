@@ -30,7 +30,7 @@ If you're about to use HTML-mode without a build step in your own applications, 
 import { ... } from 'vue/dist/vue.esm-bundler.js'
 ```
 
-inside your scripts or configure your build tool to resolve `vue` accordingly. Sample config for [Vite](https://vitejs.dev/):
+inside your scripts or configure your build tool to resolve `vue` accordingly. Sample config for [Vite](https://vite.dev/):
 
 ```js [vite.config.js]
 export default {

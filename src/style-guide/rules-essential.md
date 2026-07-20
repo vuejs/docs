@@ -1,9 +1,5 @@
 # Priority A Rules: Essential {#priority-a-rules-essential}
 
-::: warning Note
-This Vue.js Style Guide is outdated and needs to be reviewed. If you have any questions or suggestions, please [open an issue](https://github.com/vuejs/docs/issues/new).
-:::
-
 These rules help prevent errors, so learn and abide by them at all costs. Exceptions may exist, but should be very rare and only be made by those with expert knowledge of both JavaScript and Vue.
 
 ## Use multi-word component names {#use-multi-word-component-names}
@@ -337,7 +333,7 @@ Alternatively, we can use a `<template>` tag with `v-for` to wrap the `<li>` ele
 
 For applications, styles in a top-level `App` component and in layout components may be global, but all other components should always be scoped.
 
-This is only relevant for [Single-File Components](/guide/scaling-up/sfc). It does _not_ require that the [`scoped` attribute](https://vue-loader.vuejs.org/guide/scoped-css.html) be used. Scoping could be through [CSS modules](https://vue-loader.vuejs.org/guide/css-modules.html), a class-based strategy such as [BEM](http://getbem.com/), or another library/convention.
+This is only relevant for [Single-File Components](/guide/scaling-up/sfc). It does _not_ require that the [`scoped` attribute](/api/sfc-css-features#scoped-css) be used. Scoping could be through [CSS modules](/api/sfc-css-features#css-modules), a class-based strategy such as [BEM](https://getbem.com/), or another library/convention.
 
 **Component libraries, however, should prefer a class-based strategy instead of using the `scoped` attribute.**
 

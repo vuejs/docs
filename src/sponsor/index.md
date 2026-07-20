@@ -48,7 +48,7 @@ You can also try to convince your employer to sponsor Vue as a business. This ma
 - **Platinum (USD$2,000/mo)**:
   - Prominent logo placement on the front page of [vuejs.org](/).
   - Prominent logo placement in sidebar of all content pages.
-  - Prominent logo placement in the README of [`vuejs/core`](https://github.com/vuejs/core) and [`vuejs/vue`](https://github.com/vuejs/core).
+  - Prominent logo placement in the README of [`vuejs/core`](https://github.com/vuejs/core) and [`vuejs/vue`](https://github.com/vuejs/vue).
 - **Gold (USD$500/mo)**:
   - Large logo placement on the front page of [vuejs.org](/).
   - Large logo placement in the README of `vuejs/core` and `vuejs/vue`.

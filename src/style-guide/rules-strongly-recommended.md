@@ -1,9 +1,5 @@
 # Priority B Rules: Strongly Recommended {#priority-b-rules-strongly-recommended}
 
-::: warning Note
-This Vue.js Style Guide is outdated and needs to be reviewed. If you have any questions or suggestions, please [open an issue](https://github.com/vuejs/docs/issues/new).
-:::
-
 These rules have been found to improve readability and/or developer experience in most projects. Your code will still run if you violate them, but violations should be rare and well-justified.
 
 ## Component files {#component-files}
@@ -101,23 +97,15 @@ Some advantages of this convention:
 
 - Since component names should always be multi-word, this convention prevents you from having to choose an arbitrary prefix for simple component wrappers (e.g. `MyButton`, `VueButton`).
 
-- Since these components are so frequently used, you may want to simply make them global instead of importing them everywhere. A prefix makes this possible with Webpack:
+- Since these components are so frequently used, you may want to simply make them global instead of importing them everywhere. A prefix makes this possible with Vite:
 
   ```js
-  const requireComponent = require.context(
-    './src',
-    true,
-    /Base[A-Z]\w+\.(vue|js)$/
-  )
-  requireComponent.keys().forEach(function (fileName) {
-    let baseComponentConfig = requireComponent(fileName)
-    baseComponentConfig =
-      baseComponentConfig.default || baseComponentConfig
-    const baseComponentName =
-      baseComponentConfig.name ||
-      fileName.replace(/^.+\//, '').replace(/\.\w+$/, '')
-    app.component(baseComponentName, baseComponentConfig)
-  })
+  const modules = import.meta.glob('./src/**/Base*.vue', { eager: true })
+  for (const path in modules) {
+    const config = modules[path].default
+    const name = config.name || path.match(/Base[A-Z]\w+/)[0]
+    app.component(name, config)
+  }
   ```
 
   :::
@@ -317,7 +305,7 @@ components/
 
 Components that self-close communicate that they not only have no content, but are **meant** to have no content. It's the difference between a blank page in a book and one labeled "This page intentionally left blank." Your code is also cleaner without the unnecessary closing tag.
 
-Unfortunately, HTML doesn't allow custom elements to be self-closing - only [official "void" elements](https://www.w3.org/TR/html/syntax.html#void-elements). That's why the strategy is only possible when Vue's template compiler can reach the template before the DOM, then serve the DOM spec-compliant HTML.
+Unfortunately, HTML doesn't allow custom elements to be self-closing - only [official "void" elements](https://html.spec.whatwg.org/multipage/syntax.html#void-elements). That's why the strategy is only possible when Vue's template compiler can reach the template before the DOM, then serve the DOM spec-compliant HTML.
 
 <div class="style-example style-example-bad">
 <h3>Bad</h3>

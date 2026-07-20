@@ -26,7 +26,7 @@ The template of `<FancyButton>` looks like this:
 
 The `<slot>` element is a **slot outlet** that indicates where the parent-provided **slot content** should be rendered.
 
-![slot diagram](./images/slots.png)
+![Diagram showing slot content from the parent being injected into the slot outlet in the child component](./images/slots.png)
 
 <!-- https://www.figma.com/file/LjKTYVL97Ck6TEmBbstavX/slot -->
 
@@ -207,7 +207,7 @@ To pass a named slot, we need to use a `<template>` element with the `v-slot` di
 
 `v-slot` has a dedicated shorthand `#`, so `<template v-slot:header>` can be shortened to just `<template #header>`. Think of it as "render this template fragment in the child component's 'header' slot".
 
-![named slots diagram](./images/named-slots.png)
+![Diagram showing multiple named slots in a layout component, with content from the parent being directed to the corresponding header, main, and footer slots](./images/named-slots.png)
 
 <!-- https://www.figma.com/file/2BhP8gVZevttBu9oUmUUyz/named-slot -->
 
@@ -350,35 +350,38 @@ As discussed in [Render Scope](#render-scope), slot content does not have access
 
 However, there are cases where it could be useful if a slot's content can make use of data from both the parent scope and the child scope. To achieve that, we need a way for the child to pass data to a slot when rendering it.
 
-In fact, we can do exactly that - we can pass attributes to a slot outlet just like passing props to a component:
+In fact, we can do exactly that - we can pass attributes to a slot outlet just like passing props to a component. The parent template receives slot props with `v-slot`, while the child template passes props to the slot outlet when rendering:
 
 ```vue-html
-<!-- <MyComponent> template -->
-<div>
-  <slot :text="greetingMessage" :count="1"></slot>
-</div>
+<!-- Parent template (usage) -->
+<ChildComponent v-slot="receivedProps">
+  {{ receivedProps.text }} {{ receivedProps.count }}
+</ChildComponent>
 ```
-
-Receiving the slot props is a bit different when using a single default slot vs. using named slots. We are going to show how to receive props using a single default slot first, by using `v-slot` directly on the child component tag:
 
 ```vue-html
-<MyComponent v-slot="slotProps">
-  {{ slotProps.text }} {{ slotProps.count }}
-</MyComponent>
+<!-- Child template (slot definition) -->
+<!-- render with props! -->
+<slot
+  text="hello"
+  :count="1"
+/>
 ```
 
-![scoped slots diagram](./images/scoped-slots.svg)
+Receiving the slot props is a bit different when using a single default slot vs. using named slots. The example above receives props using a single default slot, by using `v-slot` directly on the `ChildComponent` tag.
+
+![Diagram showing a scoped slot where the child component passes data back to the parent-provided slot content](./images/scoped-slots.svg)
 
 <!-- https://www.figma.com/file/QRneoj8eIdL1kw3WQaaEyc/scoped-slot -->
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNp9kMEKgzAMhl8l9OJlU3aVOhg7C3uAXsRlTtC2tFE2pO++dA5xMnZqk+b/8/2dxMnadBxQ5EL62rWWwCMN9qh021vjCMrn2fBNoya4OdNDkmarXhQnSstsVrOOC8LedhVhrEiuHca97wwVSsTj4oz1SvAUgKJpgqWZEj4IQoCvZm0Gtgghzss1BDvIbFkqdmID+CNdbbQnaBwitbop0fuqQSgguWPXmX+JePe1HT/QMtJBHnE51MZOCcjfzPx04JxsydPzp2Szxxo7vABY1I/p)
+[Try it in the Playground](https://play.vuejs.org/#eJxlj00Kg0AMha8SsnHTKt2KDhQv0ANkUzTFgfljJkpBvHsZhYK6fS+878uCzxDKeWKssUl91EEgsUxBkdM2+CjQjdoMnbfBO3YCn+gtFGV1jPNEQa6p9g1FjlwjbIN5CytyAM1pZ74n46UljNyznnl4RR8S4XYMsCxwKErhr8C6XoveTy43G+SkpbLSXwNveLXOjx9Fs9cukZkt4cjGeMI9qzdeS/jYk+rEWH9AQHet)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eNqFkNFqxCAQRX9l8CUttAl9DbZQ+rzQD/AlJLNpwKjoJGwJ/nvHpAnusrAg6FzHO567iE/nynlCUQsZWj84+lBmGJ31BKffL8sng4bg7O0IRVllWnpWKAOgDF7WBx2em0kTLElt975QbwLkhkmIyvCS1TGXC8LR6YYwVSTzH8yvQVt6VyJt3966oAR38XhaFjjEkvBCECNcia2d2CLyOACZQ7CDrI6h4kXcAF7lcg+za6h5et4JPdLkzV4B9B6RBtOfMISmxxqKH9TarrGtATxMgf/bDfM/qExEUCdEDuLGXAmoV06+euNs2JK7tyCrzSNHjX9aurQf)
+[Try it in the Playground](https://play.vuejs.org/#eJxlkMEKgzAMhl8l5LLLpuwqKoy9wB4gl6GRCTUtNYogffdRywbq9f+Tfl+64sO5bJ4YCyzHxvdOa5J+cNYrPD+9aZ92cFZYFDpvB7hk+T6OyxcSEl62pZa792QUVhKA5jc1FimAw6MxCySBpMz/eJJSeXDmrVzHgfIgMt9GY7Ui9NxwP3P78taNhHUirCvsikx5UQjhXDR2kthskMNddVT6a+AVz2fHP9uLRq8kEZkV4YeNsYQpKzZeRXhPSX5ghC8NDY0G)
 
 </div>
 
@@ -387,35 +390,32 @@ The props passed to the slot by the child are available as the value of the corr
 You can think of a scoped slot as a function being passed into the child component. The child component then calls it, passing props as arguments:
 
 ```js
-MyComponent({
+ChildComponent({
   // passing the default slot, but as a function
-  default: (slotProps) => {
-    return `${slotProps.text} ${slotProps.count}`
+  default: (receivedProps) => {
+    return `${receivedProps.text} ${receivedProps.count}`
   }
 })
 
-function MyComponent(slots) {
-  const greetingMessage = 'hello'
-  return `<div>${
-    // call the slot function with props!
-    slots.default({ text: greetingMessage, count: 1 })
-  }</div>`
+function ChildComponent(slots) {
+  // call the slot function with props!
+  return slots.default({ text: 'hello', count: 1 })
 }
 ```
 
 In fact, this is very close to how scoped slots are compiled, and how you would use scoped slots in manual [render functions](/guide/extras/render-function).
 
-Notice how `v-slot="slotProps"` matches the slot function signature. Just like with function arguments, we can use destructuring in `v-slot`:
+Notice how `v-slot="receivedProps"` matches the slot function signature. Just like with function arguments, we can use destructuring in `v-slot`:
 
 ```vue-html
-<MyComponent v-slot="{ text, count }">
+<ChildComponent v-slot="{ text, count }">
   {{ text }} {{ count }}
-</MyComponent>
+</ChildComponent>
 ```
 
 ### Named Scoped Slots {#named-scoped-slots}
 
-Named scoped slots work similarly - slot props are accessible as the value of the `v-slot` directive: `v-slot:name="slotProps"`. When using the shorthand, it looks like this:
+Named scoped slots work similarly - slot props are accessible as the value of the `v-slot` directive: `v-slot:name="receivedProps"`. When using the shorthand, it looks like this:
 
 ```vue-html
 <MyComponent>
@@ -436,7 +436,7 @@ Named scoped slots work similarly - slot props are accessible as the value of th
 Passing props to a named slot:
 
 ```vue-html
-<slot name="header" message="hello"></slot>
+<slot name="header" message="hello" />
 ```
 
 Note the `name` of a slot won't be included in the props because it is reserved - so the resulting `headerProps` would be `{ message: 'hello' }`.
@@ -446,7 +446,7 @@ If you are mixing named slots with the default scoped slot, you need to use an e
 ```vue-html
 <!-- <MyComponent> template -->
 <div>
-  <slot :message="hello"></slot>
+  <slot message="hello" />
   <slot name="footer" />
 </div>
 ```
@@ -497,7 +497,7 @@ Inside `<FancyList>`, we can render the same `<slot>` multiple times with differ
 ```vue-html
 <ul>
   <li v-for="item in items">
-    <slot name="item" v-bind="item"></slot>
+    <slot name="item" v-bind="item" />
   </li>
 </ul>
 ```

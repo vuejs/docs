@@ -23,10 +23,10 @@ import { VTCodeGroup, VTCodeGroupTab } from '@vue/theme'
 :::tip Prerequisites
 
 - Familiarity with the command line
-- Install [Node.js](https://nodejs.org/) version `^20.19.0 || >=22.12.0`
+- Install [Node.js](https://nodejs.org/) version `^22.18.0 || >=24.12.0`
   :::
 
-In this section we will introduce how to scaffold a Vue [Single Page Application](/guide/extras/ways-of-using-vue#single-page-application-spa) on your local machine. The created project will be using a build setup based on [Vite](https://vitejs.dev) and allow us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
+In this section we will introduce how to scaffold a Vue [Single Page Application](/guide/extras/ways-of-using-vue#single-page-application-spa) on your local machine. The created project will be using a build setup based on [Vite](https://vite.dev/) and allow us to use Vue [Single-File Components](/guide/scaling-up/sfc) (SFCs).
 
 Make sure you have an up-to-date version of [Node.js](https://nodejs.org/) installed and your current working directory is the one where you intend to create a project. Run the following command in your command line (without the `$` sign):
 
@@ -107,7 +107,7 @@ You should now have your first Vue project running! Note that the example compon
 
 - The recommended IDE setup is [Visual Studio Code](https://code.visualstudio.com/) + [Vue - Official extension](https://marketplace.visualstudio.com/items?itemName=Vue.volar). If you use other editors, check out the [IDE support section](/guide/scaling-up/tooling#ide-support).
 - More tooling details, including integration with backend frameworks, are discussed in the [Tooling Guide](/guide/scaling-up/tooling).
-- To learn more about the underlying build tool Vite, check out the [Vite docs](https://vitejs.dev).
+- To learn more about the underlying build tool Vite, check out the [Vite docs](https://vite.dev/).
 - If you choose to use TypeScript, check out the [TypeScript Usage Guide](typescript/overview).
 
 When you are ready to ship your app to production, run the following:
@@ -396,6 +396,24 @@ Due to security reasons, ES modules can only work over the `http://` protocol, w
 To start a local HTTP server, first make sure you have [Node.js](https://nodejs.org/en/) installed, then run `npx serve` from the command line in the same directory where your HTML file is. You can also use any other HTTP server that can serve static files with the correct MIME types.
 
 You may have noticed that the imported component's template is inlined as a JavaScript string. If you are using VS Code, you can install the [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html) extension and prefix the strings with a `/*html*/` comment to get syntax highlighting for them.
+
+## Frameworks {#frameworks}
+
+There are Vue frameworks which support [SSR](/guide/scaling-up/ssr) and other features out-of-the-box:
+- [Nuxt](https://nuxt.com/)
+- [Vike](https://vike.dev/)
+- [Astro](https://astro.build/)
+- [Quasar](https://quasar.dev/)
+
+:::tip
+The general recommendation is to use a framework only if you need SSR.
+
+If you don't need SSR, you can simply use [Vite](https://vite.dev/) (this is what the section above [Creating a Vue Application](#creating-a-vue-application) scaffolds).
+:::
+
+:::info
+Vue frameworks typically use Vite under the hood, so directly using Vite instead of a Vue framework is a simpler setup if you don't need SSR. That said, frameworks also support extra features, such as UI themes, which can also be a reason to favor a Vue framework instead of just using Vite.
+:::
 
 ## Next Steps {#next-steps}
 

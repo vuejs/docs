@@ -229,6 +229,34 @@ Using [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibi
 
 ![Chrome Developer Tools showing input accessible name from aria-labelledby](./images/AccessibleARIAlabelledbyDevTools.png)
 
+When this pattern is used inside a reusable component, generate the IDs with
+[`useId()`](/api/composition-api-helpers.html#useid) instead of hard-coding
+them. This keeps each component instance's `id` values unique while still
+linking the visible text to the form control:
+
+```vue
+<script setup>
+import { useId } from 'vue'
+
+const sectionId = useId()
+const nameId = useId()
+</script>
+
+<template>
+  <section class="form-section">
+    <h2 :id="sectionId">Billing</h2>
+
+    <label :id="nameId" :for="`${nameId}-input`">Name: </label>
+    <input
+      :id="`${nameId}-input`"
+      type="text"
+      name="name"
+      :aria-labelledby="`${sectionId} ${nameId}`"
+    />
+  </section>
+</template>
+```
+
 #### `aria-describedby` {#aria-describedby}
 
 [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) is used the same way as `aria-labelledby` except provides a description with additional information that the user might need. This can be used to describe the criteria for any input:

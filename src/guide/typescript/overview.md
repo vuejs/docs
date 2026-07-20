@@ -10,7 +10,7 @@ Vue is written in TypeScript itself and provides first-class TypeScript support.
 
 ## Project Setup {#project-setup}
 
-[`create-vue`](https://github.com/vuejs/create-vue), the official project scaffolding tool, offers the options to scaffold a [Vite](https://vitejs.dev/)-powered, TypeScript-ready Vue project.
+[`create-vue`](https://github.com/vuejs/create-vue), the official project scaffolding tool, offers the options to scaffold a [Vite](https://vite.dev/)-powered, TypeScript-ready Vue project.
 
 ### Overview {#overview}
 

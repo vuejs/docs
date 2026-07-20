@@ -196,7 +196,7 @@ In addition, in order to load the client files in the browser, we also need to:
 
 1. Serve client files by adding `server.use(express.static('.'))` in `server.js`.
 2. Load the client entry by adding `<script type="module" src="/client.js"></script>` to the HTML shell.
-3. Support usage like `import * from 'vue'` in the browser by adding an [Import Map](https://github.com/WICG/import-maps) to the HTML shell.
+3. Support usage like `import * from 'vue'` in the browser by adding an [Import Map](https://html.spec.whatwg.org/multipage/webappapis.html#import-maps) to the HTML shell.
 
 [Try the completed example on StackBlitz](https://stackblitz.com/fork/vue-ssr-example?file=index.js). The button is now interactive!
 
@@ -214,21 +214,7 @@ Moving from the example to a production-ready SSR app involves a lot more. We wi
 
 - Manage routing, data fetching, and state management stores in a universal manner.
 
-A complete implementation would be quite complex and depends on the build toolchain you have chosen to work with. Therefore, we highly recommend going with a higher-level, opinionated solution that abstracts away the complexity for you. Below we will introduce a few recommended SSR solutions in the Vue ecosystem.
-
-### Nuxt {#nuxt}
-
-[Nuxt](https://nuxt.com/) is a higher-level framework built on top of the Vue ecosystem which provides a streamlined development experience for writing universal Vue applications. Better yet, you can also use it as a static site generator! We highly recommend giving it a try.
-
-### Quasar {#quasar}
-
-[Quasar](https://quasar.dev) is a complete Vue-based solution that allows you to target SPA, SSR, PWA, mobile app, desktop app, and browser extension all using one codebase. It not only handles the build setup, but also provides a full collection of Material Design compliant UI components.
-
-### Vite SSR {#vite-ssr}
-
-Vite provides built-in [support for Vue server-side rendering](https://vitejs.dev/guide/ssr.html), but it is intentionally low-level. If you wish to go directly with Vite, check out [vite-plugin-ssr](https://vite-plugin-ssr.com/), a community plugin that abstracts away many challenging details for you.
-
-You can also find an example Vue + Vite SSR project using manual setup [here](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue), which can serve as a base to build upon. Note this is only recommended if you are experienced with SSR / build tools and really want to have complete control over the higher-level architecture.
+A complete implementation would be quite complex and depends on the build toolchain you have chosen to work with. Therefore, we highly recommend using [Vue frameworks](/guide/quick-start#frameworks) if you need SSR since they often have built-in SSR support.
 
 ## Writing SSR-friendly Code {#writing-ssr-friendly-code}
 

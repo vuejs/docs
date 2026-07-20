@@ -38,7 +38,7 @@ See [Configuration Guides](#configuration-guides) on how to configure them depen
 
 ### Vite {#vite}
 
-`@vitejs/plugin-vue` automatically provides default values for these flags. To change the default values, use Vite's [`define` config option](https://vitejs.dev/config/shared-options.html#define):
+`@vitejs/plugin-vue` automatically provides default values for these flags. To change the default values, use Vite's [`define` config option](https://vite.dev/config/shared-options.html#define):
 
 ```js [vite.config.js]
 import { defineConfig } from 'vite'

@@ -94,7 +94,7 @@ export default {
 
 You can play with SFCs and explore how they are compiled in the [Vue SFC Playground](https://play.vuejs.org/).
 
-In actual projects, we typically integrate the SFC compiler with a build tool such as [Vite](https://vitejs.dev/) or [Vue CLI](http://cli.vuejs.org/) (which is based on [webpack](https://webpack.js.org/)), and Vue provides official scaffolding tools to get you started with SFCs as fast as possible. Check out more details in the [SFC Tooling](/guide/scaling-up/tooling) section.
+In actual projects, we typically integrate the SFC compiler with a build tool such as [Vite](https://vite.dev/) or [Vue CLI](http://cli.vuejs.org/) (which is based on [webpack](https://webpack.js.org/)), and Vue provides official scaffolding tools to get you started with SFCs as fast as possible. Check out more details in the [SFC Tooling](/guide/scaling-up/tooling) section.
 
 ## What About Separation of Concerns? {#what-about-separation-of-concerns}
 
