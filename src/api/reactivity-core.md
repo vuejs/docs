@@ -335,9 +335,8 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
   const controller = new AbortController()
 
   watchEffect(() => {}, { signal: controller.signal })
-  watchEffect(() => {}, { signal: controller.signal })
 
-  // when the watchers are no longer needed:
+  // when the watcher is no longer needed:
   controller.abort()
   ```
 
@@ -400,6 +399,7 @@ Watches one or more reactive data sources and invokes a callback function when t
     | (T extends object ? T : never) // reactive object
 
   interface WatchOptions extends WatchEffectOptions {
+    signal?: AbortSignal
     immediate?: boolean // default: false
     deep?: boolean | number // default: false
     flush?: 'pre' | 'post' | 'sync' // default: 'pre'
@@ -440,6 +440,7 @@ Watches one or more reactive data sources and invokes a callback function when t
   - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
   - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth#watcher-debugging).
   - **`once`**: (3.4+) run the callback only once. The watcher is automatically stopped after the first callback run.
+  - **`signal`**: (3.6+) stop the watcher when the given [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) is aborted.
 
   Compared to [`watchEffect()`](#watcheffect), `watch()` allows us to:
 
@@ -560,6 +561,18 @@ Watches one or more reactive data sources and invokes a callback function when t
     onWatcherCleanup(cancel)
     data.value = await response
   })
+  ```
+
+  Stopping the watchers with [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController): <sup class="vt-badge" data-text="3.6+" />
+
+  ```js
+  const controller = new AbortController()
+
+  watch(source, callback, { signal: controller.signal })
+  watch(source, callback, { signal: controller.signal })
+
+  // when the watchers are no longer needed:
+  controller.abort()
   ```
 
 - **See also**
