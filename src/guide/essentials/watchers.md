@@ -364,6 +364,8 @@ For examples like these, with only one dependency, the benefit of `watchEffect()
 
 - `watchEffect`, on the other hand, combines dependency tracking and side effect into one phase. It automatically tracks every reactive property accessed during its synchronous execution. This is more convenient and typically results in terser code, but makes its reactive dependencies less explicit.
 
+Because dependencies are re-evaluated on **every** run, `watchEffect` can also pick up new dependencies later in its lifetime. For example, when an `if` branch in the callback becomes truthy and accesses a previously untracked ref, that ref is tracked from the next run onwards. Conversely, a ref that stops being accessed after a control-flow change will no longer trigger the callback. This is intended behavior and safe to rely on.
+
 </div>
 
 ## Side Effect Cleanup {#side-effect-cleanup}
