@@ -4,7 +4,10 @@ import { VPTheme } from '@vue/theme'
 import PreferenceSwitch from './components/PreferenceSwitch.vue'
 import SecurityUpdateBtn from './components/SecurityUpdateBtn.vue'
 import {
+  inBrowser,
+  preferCompositionKey,
   preferComposition,
+  setPreference,
   preferSFC,
   filterHeadersByPreference
 } from './components/preferences'
@@ -16,6 +19,33 @@ import ScrimbaLink from './components/ScrimbaLink.vue'
 
 import 'vitepress/dist/client/theme-default/styles/components/vp-code-group.css'
 import 'virtual:group-icons.css'
+
+if (inBrowser) {
+  window.addEventListener('keydown', (event) => {
+    const target = event.target
+    const isEditable =
+      target instanceof HTMLElement &&
+      (target.isContentEditable ||
+        ['INPUT', 'SELECT', 'TEXTAREA'].includes(target.tagName))
+
+    if (
+      !event.repeat &&
+      event.altKey &&
+      event.shiftKey &&
+      !event.ctrlKey &&
+      !event.metaKey &&
+      event.key.toLowerCase() === 'a' &&
+      !isEditable
+    ) {
+      event.preventDefault()
+      setPreference(
+        preferCompositionKey,
+        preferComposition,
+        'prefer-composition'
+      )
+    }
+  })
+}
 
 export default Object.assign({}, VPTheme, {
   Layout: () => {

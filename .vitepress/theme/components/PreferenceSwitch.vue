@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { VTSwitch, VTIconChevronDown } from '@vue/theme'
 import { useRoute } from 'vitepress'
-import { ref, computed, inject, Ref } from 'vue'
+import { ref, computed, inject } from 'vue'
 import {
   preferCompositionKey,
   preferComposition,
   preferSFCKey,
-  preferSFC
+  preferSFC,
+  setPreference
 } from './preferences'
 import PreferenceTooltip from './PreferenceTooltip.vue'
 
@@ -30,32 +31,16 @@ const restoreOutline = (e: Event) => {
   ;(e.target as HTMLElement).classList.remove('no-outline')
 }
 
-const toggleCompositionAPI = useToggleFn(
-  preferCompositionKey,
-  preferComposition,
-  'prefer-composition'
-)
-const toggleSFC = useToggleFn(preferSFCKey, preferSFC, 'prefer-sfc')
+const toggleCompositionAPI = (value?: boolean) =>
+  setPreference(
+    preferCompositionKey,
+    preferComposition,
+    'prefer-composition',
+    value
+  )
+const toggleSFC = (value?: boolean) =>
+  setPreference(preferSFCKey, preferSFC, 'prefer-sfc', value)
 const closeSideBar = inject('close-sidebar') as () => void
-
-function useToggleFn(
-  storageKey: string,
-  state: Ref<boolean>,
-  className: string
-) {
-  if (typeof localStorage === 'undefined') {
-    return () => {}
-  }
-  const classList = document.documentElement.classList
-  return (value = !state.value) => {
-    if ((state.value = value)) {
-      classList.add(className)
-    } else {
-      classList.remove(className)
-    }
-    localStorage.setItem(storageKey, String(state.value))
-  }
-}
 </script>
 
 <template>
@@ -80,6 +65,8 @@ function useToggleFn(
         <VTSwitch
           class="api-switch"
           aria-label="prefer composition api"
+          aria-keyshortcuts="Alt+Shift+A"
+          title="Toggle API preference (Alt+Shift+A)"
           :aria-checked="preferComposition"
           @click="toggleCompositionAPI()"
         />
