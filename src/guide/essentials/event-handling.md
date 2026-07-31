@@ -57,6 +57,12 @@ data() {
 
 </div>
 
+Multiple statements can be separated by a semicolon:
+
+```vue-html
+<button @click="count++; console.log(count)">Add 1</button>
+```
+
 ## Method Handlers {#method-handlers}
 
 The logic for many event handlers will be more complex though, and likely isn't feasible with inline handlers. That's why `v-on` can also accept the name or path of a component method you'd like to call.
