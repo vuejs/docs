@@ -96,7 +96,9 @@ const model = defineModel({ required: true })
 const model = defineModel({ default: 0 })
 ```
 
-When the default value is an object or array, return it from a factory function, just as with [prop defaults](/guide/components/props#prop-validation). Otherwise every component instance that falls back to the default shares the **same** reference, and mutating the model in one instance leaks into the others:
+When the default value is an object or array, it will be shared across all instances of the component because it shares the same reference. In other words, changing the model in one instance will affect the other instances.
+
+Similar to [prop defaults](/guide/components/props#prop-validation), if you want the component instances to have their own unique values, you need to return it from a factory function.
 
 ```js
 // ❌ every instance shares one object
