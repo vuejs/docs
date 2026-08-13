@@ -324,7 +324,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
   <svg><a :xlink:special="foo"></a></svg>
   ```
 
-  The `.prop` modifier also has a dedicated shorthand, `.`:
+  The `.prop` modifier allows setting a DOM property. It has a dedicated shorthand, `.`:
 
   ```vue-html
   <div :someProperty.prop="someObject"></div>
