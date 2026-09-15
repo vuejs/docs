@@ -421,7 +421,7 @@ const slots = defineSlots<{
 </script>
 ```
 
-### Typed slot children (experimental) {#typed-slot-children}
+### Restricting Slot Children (Experimental) {#typed-slot-children}
 
 ::: warning Draft proposal
 This section describes the experimental implementation of [RFC 734](https://github.com/vuejs/rfcs/pull/734), targeting a future minor release of Vue Language Tools. It requires a build containing that implementation; it is not available in current stable tooling. The option and helper types may change before the RFC is accepted.
@@ -473,7 +473,7 @@ Here `TabItem.vue` declares `generic="T"` and `defineProps<{ value: T }>()`. A c
 
 The slot type can also be an imported interface, a re-exported type alias, or a generic type. TypeScript resolves these types, including component generic arguments; they do not need to be written inline.
 
-#### Child types and cardinality
+#### Child Types and Counts
 
 The return type describes the rendered children, with template fragments flattened:
 
@@ -496,7 +496,7 @@ Each `v-if` branch must satisfy the constraint, including the empty branch when 
 
 For dynamic slot names and dynamic components, the content must satisfy every possible slot contract. A dynamic name supplies one of its possible names, rather than all of them. Conditional named slots retain which names are present together on each branch.
 
-#### Component unions and bound props
+#### Component Unions and Bound Props
 
 Use `Renders<Component, Props>` from `vue-component-type-helpers` to describe component render types. The optional second argument constrains the props actually passed to the child:
 
@@ -526,7 +526,6 @@ SFCs checked with this option carry a distinct component identity in their gener
 For a wrapper forwarding a slot, the checker follows the children supplied by its caller and uses the fallback when the slot is absent or empty. Every possible conditional branch must satisfy the constraint. Wrapper cycles that cannot establish the requested render type are rejected; finite wrapper chains are not limited by a fixed wrapper-depth setting. As with other TypeScript types, sufficiently complex expressions can reach TypeScript's own instantiation limits.
 
 Root inference requires an SFC template checked with this option. Arbitrary render functions do not expose their rendered roots through their usual `VNode` return type. This feature checks template composition at development time and adds no runtime validation.
-
 
 ## `useSlots()` & `useAttrs()` {#useslots-useattrs}
 
