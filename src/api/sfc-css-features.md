@@ -98,7 +98,7 @@ You can also include both scoped and non-scoped styles in the same component:
 
 ### Scoped Style Tips {#scoped-style-tips}
 
-- **Scoped styles do not eliminate the need for classes**. Due to the way browsers render various CSS selectors, `p { color: red }` will be many times slower when scoped (i.e. when combined with an attribute selector). If you use classes or ids instead, such as in `.example { color: red }`, then you virtually eliminate that performance hit.
+- **Scoped styles do not eliminate the need for classes**. When scoped, `p { color: red }` becomes `p[data-v-*]`, so the selector combines an element selector with an attribute selector. The performance impact depends on the browser, the selector, and the size of the affected DOM. For large or frequently updated component trees, prefer classes or ids, such as `.example { color: red }`, and use your browser's performance tools to confirm whether selector matching is a real bottleneck.
 
 - **Be careful with descendant selectors in recursive components!** For a CSS rule with the selector `.a .b`, if the element that matches `.a` contains a recursive child component, then all `.b` in that child component will be matched by the rule.
 
