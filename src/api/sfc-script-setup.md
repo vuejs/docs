@@ -451,7 +451,9 @@ defineSlots<{
 }>()
 </script>
 
-<template><slot /></template>
+<template>
+  <slot />
+</template>
 ```
 
 Here `TabItem.vue` declares `generic="T"` and `defineProps<{ value: T }>()`. A consumer can write:
@@ -490,7 +492,9 @@ The return type describes the rendered children, with template fragments flatten
 
 Comments and formatting whitespace do not count as children. Adjacent text and interpolations form one text node. A native element's descendants belong to that element, not to the surrounding slot.
 
-Each `v-if` branch must satisfy the constraint, including the empty branch when there is no `v-else`. A `v-for` can render zero or many children, so it cannot satisfy a required single child or a fixed-length tuple. Named slots are checked independently. An optional slot may be omitted; if explicitly provided, its content must satisfy its return type.
+Each `v-if` branch must satisfy the constraint, including the empty branch when there is no `v-else`. A `v-for` can render zero or many children, so it cannot satisfy a required single child or a fixed-length tuple. Named slots are checked independently. An optional slot may be omitted; if explicitly provided, its content must satisfy its return type. Required slots whose return types exclude empty content must be provided on every branch.
+
+For dynamic slot names and dynamic components, the content must satisfy every possible slot contract. A dynamic name supplies one of its possible names, rather than all of them. Conditional named slots retain which names are present together on each branch.
 
 #### Component unions and bound props
 
@@ -513,7 +517,7 @@ An optional prop declaration alone does not satisfy a required bound prop. `Rend
 
 #### Relationship to Flow's `renders`
 
-This feature serves the same composition-contract use case as [Flow's render types](https://flow.org/en/docs/react/render-types/): a design-system component can restrict which components may appear inside it. `Renders<typeof Comp>` corresponds conceptually to `renders Comp`, `Renders<typeof Comp> | undefined` to `renders? Comp`, and `Renders<typeof Comp>[]` to `renders* Comp`. TypeScript keeps its existing generic syntax; no new keyword is needed.
+Like [Flow's render types](https://flow.org/en/docs/react/render-types/), this lets a component specify which components it accepts as children. `Renders<typeof Comp>` corresponds conceptually to `renders Comp`, `Renders<typeof Comp> | undefined` to `renders? Comp`, and `Renders<typeof Comp>[]` to `renders* Comp`. TypeScript keeps its existing generic syntax; no new keyword is needed.
 
 The tooling also infers the roots of SFC wrappers. A wrapper rendering `TabItem` can be accepted where a `TabItem` is expected, including generic wrappers and wrappers with multiple roots. A wrapper containing `<div><TabItem /></div>` renders a `div` at its root, so it does not satisfy a `TabItem` constraint.
 
