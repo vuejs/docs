@@ -409,7 +409,7 @@ defineOptions({
 
 This macro can be used to provide type hints to IDEs for slot name and props type checking.
 
-`defineSlots()` only accepts a type parameter and no runtime arguments. The type parameter should be a type literal where the property key is the slot name, and the value type is the slot function. The first argument of the function is the props the slot expects to receive, and its type will be used for slot props in the template. The return type is currently ignored and can be `any`, but we may leverage it for slot content checking in the future.
+`defineSlots()` only accepts a type parameter and no runtime arguments. The type parameter should be a type literal where the property key is the slot name, and the value type is the slot function. The first argument of the function is the props the slot expects to receive, and its type will be used for slot props in the template. The return type is ignored by default and can be `any`. Experimental tooling can use it to [check slot children](#typed-slot-children).
 
 It also returns the `slots` object, which is equivalent to the `slots` object exposed on the setup context or returned by `useSlots()`.
 
@@ -420,6 +420,109 @@ const slots = defineSlots<{
 }>()
 </script>
 ```
+
+### Typed slot children (experimental) {#typed-slot-children}
+
+::: warning Draft proposal
+This section describes the experimental implementation of [RFC 734](https://github.com/vuejs/rfcs/pull/734), targeting a future minor release of Vue Language Tools. It requires a build containing that implementation; it is not available in current stable tooling. The option and helper types may change before the RFC is accepted.
+:::
+
+Slot return types can describe which children a component accepts. Enable the experiment explicitly in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": { "strict": true },
+  "vueCompilerOptions": { "strictSlotChildren": true }
+}
+```
+
+`strictTemplates` does not enable this experiment. Both the Vue language extension and `vue-tsc` must use a version that supports it.
+
+For example, a generic `Tabs.vue` can accept only `TabItem` children with matching value types:
+
+```vue
+<script setup lang="ts" generic="T">
+import type TabItem from './TabItem.vue'
+import type { Renders } from 'vue-component-type-helpers'
+
+defineProps<{ selected: T }>()
+defineSlots<{
+  default(): Renders<typeof TabItem<T>>[]
+}>()
+</script>
+
+<template><slot /></template>
+```
+
+Here `TabItem.vue` declares `generic="T"` and `defineProps<{ value: T }>()`. A consumer can write:
+
+```vue
+<Tabs :selected="1">
+  <TabItem :value="1" />
+  <TabItem :value="2" />
+</Tabs>
+
+<!-- Type errors: the value type and the native child do not match. -->
+<Tabs :selected="1">
+  <TabItem value="wrong" />
+  <input />
+</Tabs>
+```
+
+The slot type can also be an imported interface, a re-exported type alias, or a generic type. TypeScript resolves these types, including component generic arguments; they do not need to be written inline.
+
+#### Child types and cardinality
+
+The return type describes the rendered children, with template fragments flattened:
+
+| Return type | Accepted content |
+| --- | --- |
+| `HTMLInputElement` | One input element |
+| `HTMLInputElement[]` | Zero or more input elements |
+| `readonly [HTMLInputElement, HTMLButtonElement]` | An input followed by a button |
+| `Renders<typeof TabItem<number>>` | One compatible `TabItem` with a numeric value |
+| `Renders<typeof TabItem<number>>[]` | Zero or more compatible items |
+| `string` or `Text` | One rendered text node, including interpolation |
+| `HTMLInputElement \| undefined` | An input or no rendered children |
+| `[]` | No rendered children |
+| `VNode[]` | Any number of VNodes, including text VNodes |
+| `any` or `unknown` | Unrestricted content |
+
+Comments and formatting whitespace do not count as children. Adjacent text and interpolations form one text node. A native element's descendants belong to that element, not to the surrounding slot.
+
+Each `v-if` branch must satisfy the constraint, including the empty branch when there is no `v-else`. A `v-for` can render zero or many children, so it cannot satisfy a required single child or a fixed-length tuple. Named slots are checked independently. An optional slot may be omitted; if explicitly provided, its content must satisfy its return type.
+
+#### Component unions and bound props
+
+Use `Renders<Component, Props>` from `vue-component-type-helpers` to describe component render types. The optional second argument constrains the props actually passed to the child:
+
+```ts
+import type { Renders } from 'vue-component-type-helpers'
+import type TabItem from './TabItem.vue'
+import type TabSeparator from './TabSeparator.vue'
+
+defineSlots<{
+  default(): Renders<typeof TabItem<number> | typeof TabSeparator>[]
+  selected(): Renders<typeof TabItem<number>, { selected: true }>
+}>()
+```
+
+`Renders<typeof A | typeof B>` also accepts the spelling `Renders<typeof A> | Renders<typeof B>`. Each component remains associated with its own props. `(Renders<typeof A> | Renders<typeof B>)[]` allows mixed children; `Renders<typeof A>[] | Renders<typeof B>[]` requires all children to belong to one alternative. Unions of tuples preserve their order and length constraints.
+
+An optional prop declaration alone does not satisfy a required bound prop. `Renders<unknown, { value: number }>` accepts any component receiving a numeric `value` prop. The helper describes types for tooling; slot functions still return VNodes at runtime.
+
+#### Relationship to Flow's `renders`
+
+This feature serves the same composition-contract use case as [Flow's render types](https://flow.org/en/docs/react/render-types/): a design-system component can restrict which components may appear inside it. `Renders<typeof Comp>` corresponds conceptually to `renders Comp`, `Renders<typeof Comp> | undefined` to `renders? Comp`, and `Renders<typeof Comp>[]` to `renders* Comp`. TypeScript keeps its existing generic syntax; no new keyword is needed.
+
+The tooling also infers the roots of SFC wrappers. A wrapper rendering `TabItem` can be accepted where a `TabItem` is expected, including generic wrappers and wrappers with multiple roots. A wrapper containing `<div><TabItem /></div>` renders a `div` at its root, so it does not satisfy a `TabItem` constraint.
+
+SFCs checked with this option carry a distinct component identity in their generated types. This prevents unrelated SFCs with identical props from satisfying each other's render constraints. Wrappers retain that identity across imports and declaration output. Components without this metadata and native DOM interfaces follow TypeScript's structural assignability rules.
+
+For a wrapper forwarding a slot, the checker follows the children supplied by its caller and uses the fallback when the slot is absent or empty. Every possible conditional branch must satisfy the constraint. Wrapper cycles that cannot establish the requested render type are rejected; finite wrapper chains are not limited by a fixed wrapper-depth setting. As with other TypeScript types, sufficiently complex expressions can reach TypeScript's own instantiation limits.
+
+Root inference requires an SFC template checked with this option. Arbitrary render functions do not expose their rendered roots through their usual `VNode` return type. This feature checks template composition at development time and adds no runtime validation.
+
 
 ## `useSlots()` & `useAttrs()` {#useslots-useattrs}
 

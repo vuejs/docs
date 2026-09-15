@@ -813,7 +813,7 @@ Vue.js - The Progressive JavaScript Framework
 ## Table of Contents
 
 {toc}`
-      }) as Plugin,
+      }) as Plugin[],
       groupIconVitePlugin({
         customIcon: {
           cypress: 'vscode-icons:file-type-cypress',
