@@ -96,6 +96,18 @@ const model = defineModel({ required: true })
 const model = defineModel({ default: 0 })
 ```
 
+When the default value is an object or array, it will be shared across all instances of the component because it shares the same reference. In other words, changing the model in one instance will affect the other instances.
+
+Similar to [prop defaults](/guide/components/props#prop-validation), if you want the component instances to have their own unique values, you need to return it from a factory function.
+
+```js
+// ❌ every instance shares one object
+const model = defineModel({ default: {} })
+
+// ✅ each instance gets a fresh object
+const model = defineModel({ default: () => ({}) })
+```
+
 :::warning
 If you have a `default` value for `defineModel` prop and you don't provide any value for this prop from the parent component, it can cause a de-synchronization between parent and child components. In the example below, the parent's `myRef` is undefined, but the child's `model` is 1:
 
