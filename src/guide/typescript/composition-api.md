@@ -311,6 +311,21 @@ const double = computed<number>(() => {
 })
 ```
 
+Alternatively, you can add an explicit return type annotation to the computed getter. This is useful when the getter returns an object literal and you want TypeScript to check for excess properties:
+
+```ts
+interface Book {
+  title: string
+}
+
+const book = computed(
+  (): Book => ({
+    title: 'Vue 3 Guide',
+    year: 2025, // Type error: Object literal may only specify known properties
+  }),
+)
+```
+
 ## Typing Event Handlers {#typing-event-handlers}
 
 When dealing with native DOM events, it might be useful to type the argument we pass to the handler correctly. Let's take a look at this example:
