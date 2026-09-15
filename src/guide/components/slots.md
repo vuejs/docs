@@ -102,6 +102,10 @@ Slot content does **not** have access to the child component's data. Expressions
 
 > Expressions in the parent template only have access to the parent scope; expressions in the child template only have access to the child scope.
 
+::: tip Note
+Because slot content is part of the parent's render scope, a `<style scoped>` block declared in the child component **will not** apply to it. If you need to style slotted content, do so from the parent component, or use the `:deep()` modifier in the child's scoped stylesheet (see [Scoped CSS](/api/sfc-css-features#scoped-css) for details).
+:::
+
 ## Fallback Content {#fallback-content}
 
 There are cases when it's useful to specify fallback (i.e. default) content for a slot, to be rendered only when no content is provided. For example, in a `<SubmitButton>` component:
