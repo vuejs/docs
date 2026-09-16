@@ -67,7 +67,11 @@ Array patterns require actual arrays. They do not match sets, other iterables, o
 
 Bindings are available to the branch element's props, directives, event handlers, children, and guard. They are not available in sibling branches or outside the match. Their types follow the matched pattern. In a success branch, both `request` and an `as` binding have the success variant's type. A nested `v-match` starts with the type available in its enclosing branch.
 
-Bindings cannot be reassigned, but objects they refer to are not deeply frozen. Binding names must be unique within a pattern. The initial grammar supports `const`, and rejects `let`, `var`, and bindings inside `|` alternatives. To name a whole alternative, put `as` outside it, as in `('idle' | 'loading') as pending`.
+Each arm creates a separate lexical scope. Its bindings can shadow props, setup bindings, or enclosing loop and slot bindings. A nested `v-for`, `v-slot`, or `v-match` can introduce the same name in its own scope; after that scope ends, the arm's binding is visible again. Inside an inline event handler, `$event` refers to the event parameter, even if the arm has a binding named `$event`.
+
+The subject and value patterns read from the enclosing scope before arm bindings are introduced. Guards read from the arm's scope.
+
+Bindings cannot be reassigned, but objects they refer to are not deeply frozen. Binding names must be unique within one pattern, including nested patterns, `as`, and rest bindings. Separate arms can reuse the same name. The initial grammar supports `const`, and rejects `let`, `var`, and bindings inside `|` alternatives. To name a whole alternative, put `as` outside it, as in `('idle' | 'loading') as pending`.
 
 ## Keeping the Remaining Values {#keeping-the-remaining-values}
 
