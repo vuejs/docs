@@ -2,6 +2,8 @@
 
 ::: warning RFC Reference Implementation
 This page documents the **Draft reference implementation** of [RFC #823](https://github.com/vuejs/rfcs/pull/823). Patterned templates are proposed syntax, not an accepted or released Vue feature. Trying these examples requires the compiler and language-tools reference branches linked from the RFC. The syntax and implementation can change as the RFC is discussed.
+
+The top-level SFC form currently supports inline HTML templates and requires the bundler to pass the SFC template AST to the compiler. Its integration with template preprocessors and external `src` templates remains unfinished in this reference implementation.
 :::
 
 A loading screen often renders different content for the states of one request. With `v-if`, each branch repeats the value it inspects. The proposed `v-match` directive groups those branches around a single expression:
@@ -16,16 +18,16 @@ type RequestState =
 defineProps<{ request: RequestState }>()
 </script>
 
-<template>
-  <template v-match="request">
-    <p v-when="{ status: 'loading' }">Loading…</p>
-    <h1 v-when="{ status: 'success', const title }">{{ title }}</h1>
-    <p v-when="{ status: 'error', const message }">{{ message }}</p>
-  </template>
+<template v-match="request">
+  <p v-when="{ status: 'loading' }">Loading…</p>
+  <h1 v-when="{ status: 'success', const title }">{{ title }}</h1>
+  <p v-when="{ status: 'error', const message }">{{ message }}</p>
 </template>
 ```
 
 `v-match` evaluates `request` once. Its direct children use `v-when` to describe the values they accept. Vue checks them in source order and renders the first matching branch. There is no fallthrough.
+
+When the match covers the component's entire template, put `v-match` directly on the SFC's top-level `<template>`, as above. This has the same meaning as wrapping its contents in an inner `<template v-match="request">`. The subject reads from the component's template scope; each arm still has its own bindings and must satisfy the same coverage rules. For a match inside a larger layout, use an inner `<template v-match>` or an ordinary element.
 
 The `<template>` host adds no HTML element. You can also put `v-match` on an ordinary element to keep a wrapper around the selected branch. An unmatched runtime value renders no branch, even if type checking was skipped or the value differs from its declared type.
 

@@ -9,6 +9,8 @@ These directives are proposed in [RFC #823](https://github.com/vuejs/rfcs/pull/8
 
 `v-match` evaluates one subject and selects the first matching direct `v-when` child. Patterns support literals, values, objects, arrays, `_`, `const` bindings, rest, `|` alternatives, parentheses, and `as` bindings. Bindings are local to the selected arm. The reference type checker requires exhaustive coverage by default.
 
+An SFC may place `v-match` directly on its top-level `<template>`. This is equivalent to an inner `<template v-match>` around the entire template content, with the same evaluation order, arm scopes, and exhaustive coverage requirement.
+
 See [Branching on One Value](/guide/essentials/patterned-templates) for syntax, binding scopes, rest types, guards, placement rules, and coverage diagnostics.
 
 ## v-when (RFC Reference Implementation) {#v-when}
