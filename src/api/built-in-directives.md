@@ -184,7 +184,7 @@ Attach an event listener to the element.
   - `.capture` - add event listener in capture mode.
   - `.self` - only trigger handler if event was dispatched from this element.
   - `.{keyAlias}` - only trigger handler on certain keys.
-  - `.once` - trigger handler at most once.
+  - `.once` - trigger handler at most once for each listener attachment.
   - `.left` - only trigger handler for left button mouse events.
   - `.right` - only trigger handler for right button mouse events.
   - `.middle` - only trigger handler for middle button mouse events.
@@ -199,6 +199,8 @@ Attach an event listener to the element.
   When listening to native DOM events, the method receives the native event as the only argument. If using inline statement, the statement has access to the special `$event` property: `v-on:click="handle('ok', $event)"`.
 
   `v-on` also supports binding to an object of event / listener pairs without an argument. Note when using the object syntax, it does not support any modifiers.
+
+  The `.once` modifier removes the listener after its first invocation. If the element or child component is re-created later, a new listener is attached, so it can run once again.
 
 - **Example**
 
@@ -233,7 +235,7 @@ Attach an event listener to the element.
   <!-- key modifier using keyAlias -->
   <input @keyup.enter="onEnter" />
 
-  <!-- the click event will be triggered at most once -->
+  <!-- the click listener runs only once before being removed -->
   <button v-on:click.once="doThis"></button>
 
   <!-- object syntax -->
