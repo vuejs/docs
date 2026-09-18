@@ -102,6 +102,10 @@ Slot content does **not** have access to the child component's data. Expressions
 
 > Expressions in the parent template only have access to the parent scope; expressions in the child template only have access to the child scope.
 
+::: tip Note
+Because slot content is part of the parent's render scope, a `<style scoped>` block declared in the child component **will not** apply to it. If you need to style slotted content, do so from the parent component, or use the `:deep()` modifier in the child's scoped stylesheet (see [Scoped CSS](/api/sfc-css-features#scoped-css) for details).
+:::
+
 ## Fallback Content {#fallback-content}
 
 There are cases when it's useful to specify fallback (i.e. default) content for a slot, to be rendered only when no content is provided. For example, in a `<SubmitButton>` component:
@@ -376,12 +380,12 @@ Receiving the slot props is a bit different when using a single default slot vs.
 
 <div class="composition-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eJxlj00Kg0AMha8SsnHTKt2KDhQv0ANkUzTFgfljJkpBvHsZhYK6fS+878uCzxDKeWKssUl91EEgsUxBkdM2+CjQjdoMnbfBO3YCn+gtFGV1jPNEQa6p9g1FjlwjbIN5CytyAM1pZ74n46UljNyznnl4RR8S4XYMsCxwKErhr8C6XoveTy43G+SkpbLSXwNveLXOjx9Fs9cukZkt4cjGeMI9qzdeS/jYk+rEWH9AQHet)
+[Try it in the Playground](https://play.vuejs.org/#eNplj8EKgzAQRH9l2UsvrdKrWKH4A/2AXIpuMRCzIVmlIP57EwMF9TgzyczbBZ/OFfNEWGEdOq+dQCCZXKOsHh17gXbQpm85CktW4ON5hEtR7u1UcVG2LnNH/B2F0OjMWygqgPrQM9+CYXko9NSRnql/eXZB4fYYYFlgFxRCX4F1PQcdTzYl28gBq0lIfwy84pk6Hb4HTVwZIm1GwoGMYYXZq7a96N6zUx421h9AQHet)
 
 </div>
 <div class="options-api">
 
-[Try it in the Playground](https://play.vuejs.org/#eJxlkMEKgzAMhl8l5LLLpuwqKoy9wB4gl6GRCTUtNYogffdRywbq9f+Tfl+64sO5bJ4YCyzHxvdOa5J+cNYrPD+9aZ92cFZYFDpvB7hk+T6OyxcSEl62pZa792QUVhKA5jc1FimAw6MxCySBpMz/eJJSeXDmrVzHgfIgMt9GY7Ui9NxwP3P78taNhHUirCvsikx5UQjhXDR2kthskMNddVT6a+AVz2fHP9uLRq8kEZkV4YeNsYQpKzZeRXhPSX5ghC8NDY0G)
+[Try it in the Playground](https://play.vuejs.org/#eNplkEEKhDAMRa8SunEzo8xWnMLgBeYA3YhGLNS21ChC8e7TWkZQoZv8n/S/xLOPtfkyIytZNbVOWuJCy9EaR1APUnW1CYVGTdA7M0KWF2c5DmdCC43rPtRh38yKwAsN0P67pjIJcPk0apvQ4VXFER8KwtGqhpDHhuoCsjwnZegtmMMW5YLd1xk7CcZTgvdwMnLClWDb7kZrZh2dPeSyF49IBwZ7sPva8WZn0MiVIGJmIBxQKSNY0so9L6ivpBSXjO0HDQ2NBg==)
 
 </div>
 
