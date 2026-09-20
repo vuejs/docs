@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, Ref } from 'vue'
 import { AugmentedHeader } from '../../headerMdPlugin'
 
 export const inBrowser = typeof window !== 'undefined'
@@ -12,6 +12,19 @@ export const preferComposition = ref(get(preferCompositionKey, true))
 
 export const preferSFCKey = 'vue-docs-prefer-sfc'
 export const preferSFC = ref(get(preferSFCKey, true))
+
+export function setPreference(
+  storageKey: string,
+  state: Ref<boolean>,
+  className: string,
+  value = !state.value
+) {
+  if (!inBrowser) return
+
+  state.value = value
+  document.documentElement.classList.toggle(className, value)
+  localStorage.setItem(storageKey, String(value))
+}
 
 export function filterHeadersByPreference(h: AugmentedHeader) {
   return preferComposition.value ? !h.optionsOnly : !h.compositionOnly
