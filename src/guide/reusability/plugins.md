@@ -133,6 +133,34 @@ export default {
 
 </div>
 
+### TypeScript <sup class="vt-badge ts" /> {#typescript}
+
+When writing a plugin in TypeScript, type it as a [`Plugin`](/api/application#plugin) so `app.use()` accepts it without extra casts. Prefer [`satisfies`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html#the-satisfies-operator) over `as Plugin` so the object is still checked against the plugin shape:
+
+```ts [plugins/i18n.ts]
+import type { Plugin } from 'vue'
+
+export default {
+  install: (app, options) => {
+    // Plugin code goes here
+  }
+} satisfies Plugin
+```
+
+Named exports can be annotated directly:
+
+```ts
+import type { Plugin } from 'vue'
+
+export const i18nPlugin: Plugin = {
+  install(app, options) {
+    // Plugin code goes here
+  }
+}
+```
+
+Do not import types from Vue's internal `runtime-core` build paths. `import type { Plugin } from 'vue'` is the public API.
+
 ### Bundle for NPM {#bundle-for-npm}
 
 If you further want to build and publish your plugin for others to use, see [Vite's section on Library Mode](https://vite.dev/guide/build.html#library-mode).
