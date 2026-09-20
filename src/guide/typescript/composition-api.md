@@ -311,6 +311,41 @@ const double = computed<number>(() => {
 })
 ```
 
+::: tip Note
+A generic argument like `computed<Foo>(...)` only requires the getter's return value to be *assignable* to `Foo`. Because TypeScript does not run excess property checks when inferring into a generic, returning an object with extra properties won't be flagged:
+
+```ts
+interface Foo {
+  foo: boolean
+}
+
+// no error: the extra `bar` property is silently allowed
+const loose = computed<Foo>(() => ({
+  foo: true,
+  bar: 'oops'
+}))
+```
+
+Annotate the getter's return type instead if you want stricter checking that rejects extra properties:
+
+```ts
+// TS Error: Object literal may only specify known properties
+const strict = computed((): Foo => ({
+  foo: true,
+  bar: 'oops'
+}))
+```
+
+You can also use the `satisfies` operator to keep the concise style while still enforcing an exact shape:
+
+```ts
+const exact = computed(() => ({
+  foo: true,
+  bar: 'oops' // TS Error
+}) satisfies Foo)
+```
+:::
+
 ## Typing Event Handlers {#typing-event-handlers}
 
 When dealing with native DOM events, it might be useful to type the argument we pass to the handler correctly. Let's take a look at this example:
