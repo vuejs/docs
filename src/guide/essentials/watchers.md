@@ -623,6 +623,20 @@ const unwatch = this.$watch('foo', callback)
 unwatch()
 ```
 
+You can also stop one or multiple watchers at once with the `signal` option using an [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController): <sup class="vt-badge" data-text="3.6+" />
+
+```js
+created() {
+  const controller = new AbortController()
+
+  this.$watch('foo', callback, { signal: controller.signal })
+  this.$watch('bar', callback, { signal: controller.signal })
+
+  // when the watchers are no longer needed:
+  controller.abort()
+}
+```
+
 </div>
 
 <div class="composition-api">
@@ -652,6 +666,18 @@ const unwatch = watchEffect(() => {})
 
 // ...later, when no longer needed
 unwatch()
+```
+
+You can also stop one or multiple watchers at once with the `signal` option using an [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController): <sup class="vt-badge" data-text="3.6+" />
+
+```js
+const controller = new AbortController()
+
+watch(source, callback, { signal: controller.signal })
+watchEffect(() => {}, { signal: controller.signal })
+
+// when the watchers are no longer needed:
+controller.abort()
 ```
 
 Note that there should be very few cases where you need to create watchers asynchronously, and synchronous creation should be preferred whenever possible. If you need to wait for some async data, you can make your watch logic conditional instead:
