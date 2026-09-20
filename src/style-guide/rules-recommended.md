@@ -1,4 +1,4 @@
-# Priority C Rules: Recommended {#priority-c-rules-recommended}
+# Priority C Rules: Recommended (Legacy Reference) {#priority-c-rules-recommended}
 
 Where multiple, equally good options exist, an arbitrary choice can be made to ensure consistency. In these rules, we describe each acceptable option and suggest a default choice. That means you can feel free to make a different choice in your own codebase, as long as you're consistent and have a good reason. Please do have a good reason though! By adapting to the community standard, you will:
 

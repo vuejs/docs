@@ -548,6 +548,10 @@ export const sidebar: ThemeConfig['sidebar'] = {
           link: '/style-guide/rules-essential'
         },
         {
+          text: 'A - Essential (TypeScript)',
+          link: '/style-guide/rules-essential-ts'
+        },
+        {
           text: 'B - Strongly Recommended',
           link: '/style-guide/rules-strongly-recommended'
         },

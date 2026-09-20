@@ -1,6 +1,42 @@
-# Priority B Rules: Strongly Recommended {#priority-b-rules-strongly-recommended}
+# Priority B Rules: Strongly Recommended (Legacy Reference) {#priority-b-rules-strongly-recommended}
 
 These rules have been found to improve readability and/or developer experience in most projects. Your code will still run if you violate them, but violations should be rare and well-justified.
+
+## Use multi-word component names {#use-multi-word-component-names}
+
+**In most projects, user component names should always be multi-word, except for root `App` components.**
+
+This [prevents conflicts](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) with existing and future HTML elements, since all HTML elements are a single word.
+
+In [Single-File Components](/guide/scaling-up/sfc), string templates, and [JSX](/guide/extras/render-function#jsx-tsx), [PascalCase component tags](#component-name-casing-in-templates) can also help make user components more clearly distinct from native elements. In in-DOM templates, where tags must be kebab-case, that distinction is no longer available, so the case for multi-word names is even stronger.
+
+That said, there can be pragmatic exceptions, such as route components in file-based routing.
+
+<div class="style-example style-example-bad">
+<h3>Bad</h3>
+
+```vue-html
+<!-- In Single-File Components, string templates, and JSX -->
+<Item />
+
+<!-- In in-DOM templates -->
+<item></item>
+```
+
+</div>
+
+<div class="style-example style-example-good">
+<h3>Good</h3>
+
+```vue-html
+<!-- In Single-File Components, string templates, and JSX -->
+<TodoItem />
+
+<!-- In in-DOM templates -->
+<todo-item></todo-item>
+```
+
+</div>
 
 ## Component files {#component-files}
 
