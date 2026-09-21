@@ -1,6 +1,6 @@
 # Form Bindings {#form-bindings}
 
-Using `v-bind` and `v-on` together, we can create two-way bindings on form input elements:
+The `text` variable stores the input's current value. `:value` displays that value, and `@input` updates it as the user types:
 
 ```vue-html
 <input :value="text" @input="onInput">
