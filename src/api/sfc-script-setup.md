@@ -306,6 +306,9 @@ const model = defineModel({ default: 1 })
 
 ```vue [Parent.vue]
 <script setup>
+import { ref } from 'vue'
+import Child from './Child.vue'
+
 const myRef = ref()
 </script>
 
