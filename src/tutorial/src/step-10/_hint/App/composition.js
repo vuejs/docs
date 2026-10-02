@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 
 export default {
   setup() {
@@ -13,7 +13,7 @@ export default {
       todoData.value = await res.json()
     }
 
-    fetchData()
+    onMounted(fetchData)
 
     watch(todoId, fetchData)
 
