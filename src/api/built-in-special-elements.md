@@ -12,7 +12,7 @@ A "meta component" for rendering dynamic components or elements.
 
   ```ts
   interface DynamicComponentProps {
-    is: string | Component
+    is: string | Component | VNode
   }
   ```
 
@@ -23,6 +23,8 @@ A "meta component" for rendering dynamic components or elements.
   - When `is` is a string, it could be either an HTML tag name or a component's registered name.
 
   - Alternatively, `is` can also be directly bound to the definition of a component.
+
+  - `is` can also be bound to a VNode instance, which is then rendered directly, e.g. `<component :is="vnode" />`.
 
 - **Example**
 
