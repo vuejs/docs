@@ -310,8 +310,8 @@ In a Vite-based Vue project, run:
 
 Next, update the Vite configuration to add the `test` option block:
 
-```js{5-11} [vite.config.js]
-import { defineConfig } from 'vite'
+```js{1,5-11} [vite.config.js]
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   // ...
