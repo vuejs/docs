@@ -218,6 +218,53 @@ export default defineComponent({
 })
 ```
 
+## Typing Component Slots {#typing-component-slots}
+
+In `<script setup>`, slots can be typed with the `defineSlots()` macro <sup class="vt-badge" data-text="3.3+" />, which takes a type literal where each key is a slot name and each value is a function receiving that slot's props:
+
+```vue
+<script setup lang="ts">
+defineSlots<{
+  default(props: { msg: string }): any
+}>()
+</script>
+
+<template>
+  <slot msg="hello" />
+</template>
+```
+
+This gives parent components type checking and auto-completion for slot names and slot props, so `msg` is inferred as a `string` in `<template #default="{ msg }">`. See [defineSlots()](/api/sfc-script-setup#defineslots) for more details.
+
+### Forwarding Slots in Recursive Components {#forwarding-slots-in-recursive-components}
+
+A component can forward all of a slot's props to a child component's slot with `<template #default="slotProps"><slot v-bind="slotProps" /></template>`. When that child is the component itself, as in a recursive component, TypeScript can't infer the type of `slotProps` and reports `'slotProps' implicitly has type 'any'`:
+
+```vue
+<script setup lang="ts">
+const props = defineProps<{ tier: number }>()
+
+defineSlots<{
+  default(props: { value: number }): any
+}>()
+</script>
+
+<template>
+  <div>
+    <TreeNode v-if="props.tier > 1" :tier="props.tier - 1">
+      <template #default="slotProps">
+        <slot v-bind="slotProps" />
+      </template>
+    </TreeNode>
+    <div v-else>
+      <slot :value="props.tier" />
+    </div>
+  </div>
+</template>
+```
+
+Declaring the slot type explicitly with `defineSlots()`, as above, gives `slotProps` a known type and fixes the error.
+
 ## Typing `ref()` {#typing-ref}
 
 Refs infer the type from the initial value:
