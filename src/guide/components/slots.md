@@ -417,6 +417,8 @@ Notice how `v-slot="receivedProps"` matches the slot function signature. Just li
 </ChildComponent>
 ```
 
+If you're using TypeScript, see Typing Component Slots for the [Composition API](/guide/typescript/composition-api#typing-component-slots) and the [Options API](/guide/typescript/options-api#typing-component-slots).
+
 ### Named Scoped Slots {#named-scoped-slots}
 
 Named scoped slots work similarly - slot props are accessible as the value of the `v-slot` directive: `v-slot:name="receivedProps"`. When using the shorthand, it looks like this:
