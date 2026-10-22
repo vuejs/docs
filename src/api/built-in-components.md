@@ -61,6 +61,17 @@ Provides animated transition effects to a **single** element or component.
      * Default: false
      */
     appear?: boolean
+    /**
+     * If true, indicates this is a transition that doesn't actually
+     * insert/remove the element, but toggles the show / hidden
+     * status instead.
+     * The transition hooks are injected, but will be skipped by the
+     * renderer.
+     * Instead, a custom directive can control the transition by
+     * calling the injected hooks (e.g. v-show).
+     * Default: false
+     */
+    persisted?: boolean
 
     /**
      * Props for customizing transition classes.
