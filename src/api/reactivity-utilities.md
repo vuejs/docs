@@ -184,7 +184,7 @@ Converts a reactive object to a plain object where each property of the resultin
     [K in keyof T]: ToRef<T[K]>
   }
 
-  type ToRef = T extends Ref ? T : Ref<T>
+  type ToRef<T> = T extends Ref ? T : Ref<T>
   ```
 
 - **Example**
