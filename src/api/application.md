@@ -646,8 +646,8 @@ Configure a prefix for all IDs generated via [useId()](/api/composition-api-help
 
   ```js
   // in a component:
-  const id1 = useId() // 'myApp:0'
-  const id2 = useId() // 'myApp:1'
+  const id1 = useId() // 'myApp-0'
+  const id2 = useId() // 'myApp-1'
   ```
 
 ## app.config.throwUnhandledErrorInProduction <sup class="vt-badge" data-text="3.5+" /> {#app-config-throwunhandlederrorinproduction}

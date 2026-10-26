@@ -302,6 +302,10 @@ const plusOne = computed(() => count.value + 1, {
 // access plusOne, should trigger onTrack
 console.log(plusOne.value)
 
+// onTrigger is only called while plusOne has a subscriber,
+// such as a watcher or a component that renders it
+watchEffect(() => plusOne.value)
+
 // mutate count.value, should trigger onTrigger
 count.value++
 ```

@@ -306,7 +306,7 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
 
   ```js
   watchEffect(async (onCleanup) => {
-    const { response, cancel } = doAsyncWork(newId)
+    const { response, cancel } = doAsyncWork(id.value)
     // `cancel` will be called if `id` changes, cancelling
     // the previous request if it hasn't completed yet
     onCleanup(cancel)
@@ -320,7 +320,7 @@ Runs a function immediately while reactively tracking its dependencies and re-ru
   import { onWatcherCleanup } from 'vue'
 
   watchEffect(async () => {
-    const { response, cancel } = doAsyncWork(newId)
+    const { response, cancel } = doAsyncWork(id.value)
     // `cancel` will be called if `id` changes, cancelling
     // the previous request if it hasn't completed yet
     onWatcherCleanup(cancel)
@@ -513,7 +513,7 @@ Watches one or more reactive data sources and invokes a callback function when t
   Pausing / resuming the watcher: <sup class="vt-badge" data-text="3.5+" />
 
   ```js
-  const { stop, pause, resume } = watch(() => {})
+  const { stop, pause, resume } = watch(source, callback)
 
   // temporarily pause the watcher
   pause()
