@@ -2,7 +2,7 @@
 
 ## Basic Example {#basic-example}
 
-Computed properties allow us to declaratively compute derived values. However, there are cases where we need to perform "side effects" in reaction to state changes - for example, mutating the DOM, or changing another piece of state based on the result of an async operation.
+Computed properties allow us to declaratively compute derived values without changing other state. Sometimes, however, we need to respond to state changes by doing something beyond computing a value - for example, mutating the DOM or changing another piece of state based on the result of an async operation. Such operations are called "side effects", and watchers let us perform them in response to reactive state changes.
 
 <div class="options-api">
 
