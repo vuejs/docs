@@ -183,6 +183,20 @@ defineCustomElement(MyComponent, {
 })
 ```
 
+To use a [Vue plugin](/guide/reusability/plugins) in a custom element, install it on the element's app instance inside `configureApp`:
+
+```js
+import MyPlugin from './my-plugin'
+
+defineCustomElement(MyComponent, {
+  configureApp(app) {
+    app.use(MyPlugin)
+  }
+})
+```
+
+Each custom element instance has its own Vue app, so plugins must be installed through `configureApp` for each instance that needs them.
+
 ### SFC as Custom Element {#sfc-as-custom-element}
 
 `defineCustomElement` also works with Vue Single-File Components (SFCs). However, with the default tooling setup, the `<style>` inside the SFCs will still be extracted and merged into a single CSS file during production build. When using an SFC as a custom element, it is often desirable to inject the `<style>` tags into the custom element's shadow root instead.
