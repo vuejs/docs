@@ -382,7 +382,7 @@ Denote named slots or scoped slots that expect to receive props.
 - **Limited to:**
 
   - `<template>`
-  - [components](/guide/components/slots#scoped-slots) (for a lone default slot with props)
+  - [components](/guide/components/slots#scoped-slots) (for a lone default or named slot)
 
 - **Example**
 

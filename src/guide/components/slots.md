@@ -199,7 +199,7 @@ A `<slot>` outlet without `name` implicitly has the name "default".
 
 In a parent component using `<BaseLayout>`, we need a way to pass multiple slot content fragments, each targeting a different slot outlet. This is where **named slots** come in.
 
-To pass a named slot, we need to use a `<template>` element with the `v-slot` directive, and then pass the name of the slot as an argument to `v-slot`:
+To pass a named slot, we use a `<template>` element with the `v-slot` directive, and then pass the name of the slot as an argument to `v-slot`:
 
 ```vue-html
 <BaseLayout>
@@ -210,6 +210,8 @@ To pass a named slot, we need to use a `<template>` element with the `v-slot` di
 ```
 
 `v-slot` has a dedicated shorthand `#`, so `<template v-slot:header>` can be shortened to just `<template #header>`. Think of it as "render this template fragment in the child component's 'header' slot".
+
+If the named slot is the only slot being passed, `v-slot` can also be used directly on the component, as in `<BaseLayout #header>`. All of the component's content is then passed to that slot.
 
 ![Diagram showing multiple named slots in a layout component, with content from the parent being directed to the corresponding header, main, and footer slots](./images/named-slots.png)
 
