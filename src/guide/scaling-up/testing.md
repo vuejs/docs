@@ -298,7 +298,7 @@ When end-to-end (E2E) tests are run in continuous integration/deployment pipelin
 
 - [WebdriverIO](https://webdriver.io/) is a test automation framework for web and mobile testing based on the WebDriver protocol.
 
-- [e2e](https://github.com/tester-army/e2e) is an E2E testing framework whose web engine uses Playwright. Tests can combine natural-language agent steps with locator assertions to check user flows in a running application.
+- [e2e](https://github.com/e2e-inc/e2e) is an E2E testing framework whose web engine uses Playwright. Tests can combine natural-language agent steps with locator assertions to check user flows in a running application.
 
 ## Recipes {#recipes}
 
