@@ -241,6 +241,8 @@ Returns the raw, original object of a Vue-created proxy.
   console.log(toRaw(reactiveFoo) === foo) // true
   ```
 
+`toRaw()` returns the original object, not a copy, and does not recursively unwrap nested refs or reactive objects. When cloning reactive state with APIs such as `structuredClone()`, pass plain data rather than a reactive proxy. For example, `structuredClone(toRaw(state))` works when the raw object contains only values supported by `structuredClone()`. If it contains nested refs or reactive objects, convert those nested values to plain data first.
+
 ## markRaw() {#markraw}
 
 Marks an object so that it will never be converted to a proxy. Returns the object itself.
