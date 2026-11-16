@@ -238,9 +238,8 @@ While Vue can infer slot types from `<slot>` usage in the template, `defineSlots
 
 ### Forwarding Slots in Recursive Components {#forwarding-slots-in-recursive-components}
 
-A component can forward all of a slot's props to a child component's slot with `<template #default="slotProps"><slot v-bind="slotProps" /></template>`. When that child is the component itself, as in a recursive component, TypeScript can't infer the type of `slotProps` and reports `'slotProps' implicitly has type 'any'`:
+A component can forward all of a slot's props to a child component's slot with `<template #default="slotProps"><slot v-bind="slotProps" /></template>`. When that child is the component itself, also known as a [recursive component](/api/sfc-script-setup#recursive-components), TypeScript can't infer the type of `slotProps` and reports `'slotProps' implicitly has type 'any'` unless the slot type is declared explicitly with `defineSlots()`:
 
-```vue
 <script setup lang="ts">
 const props = defineProps<{ tier: number }>()
 
@@ -263,7 +262,6 @@ defineSlots<{
 </template>
 ```
 
-Declaring the slot type explicitly with `defineSlots()`, as above, gives `slotProps` a known type and fixes the error.
 
 ## Typing `ref()` {#typing-ref}
 
