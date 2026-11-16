@@ -234,7 +234,7 @@ defineSlots<{
 </template>
 ```
 
-This gives parent components type checking and auto-completion for slot names and slot props, so `msg` is inferred as a `string` in `<template #default="{ msg }">`. See [defineSlots()](/api/sfc-script-setup#defineslots) for more details.
+While Vue can infer slot types from `<slot>` usage in the template, `defineSlots()` allows you to declare an explicit contract so parent components have better type checking and auto-completion for slot names and slot props. See [defineSlots()](/api/sfc-script-setup#defineslots) for more details.
 
 ### Forwarding Slots in Recursive Components {#forwarding-slots-in-recursive-components}
 
