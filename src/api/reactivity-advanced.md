@@ -72,20 +72,22 @@ Creates a customized ref with explicit control over its dependency tracking and 
 - **Type**
 
   ```ts
-  function customRef<T>(factory: CustomRefFactory<T>): Ref<T>
+  function customRef<T, S = T>(factory: CustomRefFactory<T, S>): Ref<T, S>
 
-  type CustomRefFactory<T> = (
+  type CustomRefFactory<T, S = T> = (
     track: () => void,
     trigger: () => void
   ) => {
     get: () => T
-    set: (value: T) => void
+    set: (value: S) => void
   }
   ```
 
 - **Details**
 
   `customRef()` expects a factory function, which receives `track` and `trigger` functions as arguments and should return an object with `get` and `set` methods.
+
+  The setter can accept a different type from the getter's return type. The setter type defaults to the getter type.
 
   In general, `track()` should be called inside `get()`, and `trigger()` should be called inside `set()`. However, you have full control over when they should be called, or whether they should be called at all.
 
