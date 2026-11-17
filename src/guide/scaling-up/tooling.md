@@ -47,6 +47,10 @@ $ yarn dlx create-vue@latest
 $ bun create vue@latest
 ```
 
+```sh [vite+]
+$ vp create vue@latest
+```
+
 :::
 
 This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool.
