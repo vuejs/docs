@@ -232,6 +232,9 @@ Takes an object (reactive or plain) or a [ref](#ref) and returns a readonly prox
 
 Runs a function immediately while reactively tracking its dependencies and re-runs it whenever the dependencies are changed.
 
+:::info Usage Note
+`watchEffect` will execute immediately upon initialization. During this initial execution, `watchEffect` will collect dependencies accessed during the first run. When the dependencies change, `watchEffect` will be re-executed. In subsequent executions, `watchEffect` will only collect dependencies accessed in the previous run, thus avoiding unnecessary executions and improving performance.
+:::
 - **Type**
 
   ```ts
