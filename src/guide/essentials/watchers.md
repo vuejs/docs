@@ -353,7 +353,9 @@ You can check out [this example](/examples/#fetching-data) of `watchEffect()` an
 For examples like these, with only one dependency, the benefit of `watchEffect()` is relatively small. But for watchers that have multiple dependencies, using `watchEffect()` removes the burden of having to maintain the list of dependencies manually. In addition, if you need to watch several properties in a nested data structure, `watchEffect()` may prove more efficient than a deep watcher, as it will only track the properties that are used in the callback, rather than recursively tracking all of them.
 
 :::tip
-`watchEffect` only tracks dependencies during its **synchronous** execution. When using it with an async callback, only properties accessed before the first `await` tick will be tracked.
+`watchEffect` tracks dependencies during each **synchronous** run of its effect function. On every re-run, dependencies are collected again from reactive properties accessed in that run, so conditional branches can change which dependencies are tracked between runs.
+
+When using it with an async callback, only properties accessed before the first `await` tick will be tracked.
 :::
 
 ### `watch` vs. `watchEffect` {#watch-vs-watcheffect}
