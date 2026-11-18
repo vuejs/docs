@@ -418,11 +418,11 @@ Watches one or more reactive data sources and invokes a callback function when t
 
   The second argument is the callback that will be called when the source changes. The callback receives three arguments: the new value, the old value, and a function for registering a side effect cleanup callback. The cleanup callback will be called right before the next time the effect is re-run, and can be used to clean up invalidated side effects, e.g. a pending async request.
 
-  When watching multiple sources, the callback receives two arrays containing new / old values corresponding to the source array.
+  When watching multiple sources, the callback receives two arrays containing the new and old values in source order.
 
   The third optional argument is an options object that supports the following options:
 
-  - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
+  - **`immediate`**: trigger the callback immediately on watcher creation. On the first call, the old value is `undefined` for a single source or an empty array for multiple sources.
   - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. In 3.5+, this can also be a number indicating the max traversal depth. See [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
   - **`onTrack / onTrigger`**: debug the watcher's dependencies. See [Watcher Debugging](/guide/extras/reactivity-in-depth#watcher-debugging).
