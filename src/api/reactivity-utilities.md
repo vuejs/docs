@@ -130,7 +130,7 @@ Can also be used to create a ref for a property on a source reactive object. The
 
   When `toRef` is used with component props, the usual restrictions around mutating the props still apply. Attempting to assign a new value to the ref is equivalent to trying to modify the prop directly and is not allowed. In that scenario you may want to consider using [`computed`](./reactivity-core#computed) with `get` and `set` instead. See the guide to [using `v-model` with components](/guide/components/v-model) for more information.
 
-  When using the object property signature, `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it possible to work with optional properties, which wouldn't be picked up by [`toRefs`](#torefs).
+  When using the object property signature, `toRef()` will return a usable ref even if the source property doesn't currently exist. This makes it possible to work with optional properties, which wouldn't be picked up by [`toRefs`](#torefs). If you supply `defaultValue`, the ref reads that fallback whenever the source property is `undefined`. Reading the fallback leaves the source property untouched. Assigning to the ref still writes to the source.
 
 ## toValue() {#tovalue}
 
