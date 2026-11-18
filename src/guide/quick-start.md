@@ -58,6 +58,7 @@ $ bun create vue@latest
 ```sh [vite+]
 $ vp create vue@latest
 ```
+
 :::
 
 This command will install and execute [create-vue](https://github.com/vuejs/create-vue), the official Vue project scaffolding tool. You will be presented with prompts for several optional features such as TypeScript and testing support:
@@ -108,6 +109,7 @@ $ bun run dev
 $ cd {{'<your-project-name>'}}
 $ vp install
 $ vp run dev
+```
 
 :::
 
