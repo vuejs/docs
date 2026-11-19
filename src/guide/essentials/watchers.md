@@ -629,7 +629,7 @@ unwatch()
 
 Watchers declared synchronously inside `setup()` or `<script setup>` are bound to the owner component instance, and will be automatically stopped when the owner component is unmounted. In most cases, you don't need to worry about stopping the watcher yourself.
 
-The key here is that the watcher must be created **synchronously**: if the watcher is created in an async callback, it won't be bound to the owner component and must be stopped manually to avoid memory leaks. Here's an example:
+The key here is that the watcher must be created **synchronously**: it must be created during the synchronous execution of `setup()` or `<script setup>`. A watcher created in a callback that runs asynchronously, such as the callback passed to `setTimeout`, won't be bound to the owner component and must be stopped manually to avoid memory leaks. In `<script setup>`, a watcher can be created after a top-level `await` because the compiler restores the active component instance context. Here's an example:
 
 ```vue
 <script setup>
