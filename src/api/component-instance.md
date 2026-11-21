@@ -200,6 +200,7 @@ Imperative API for creating watchers.
   ) => void
 
   interface WatchOptions {
+    signal?: AbortSignal
     immediate?: boolean // default: false
     deep?: boolean // default: false
     flush?: 'pre' | 'post' | 'sync' // default: 'pre'
@@ -216,6 +217,7 @@ Imperative API for creating watchers.
 
   The second argument is the callback function. The callback receives the new value and the old value of the watched source.
 
+  - **`signal`**: (3.6+) stop the watcher when the given [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) is aborted.
   - **`immediate`**: trigger the callback immediately on watcher creation. Old value will be `undefined` on the first call.
   - **`deep`**: force deep traversal of the source if it is an object, so that the callback fires on deep mutations. See [Deep Watchers](/guide/essentials/watchers#deep-watchers).
   - **`flush`**: adjust the callback's flush timing. See [Callback Flush Timing](/guide/essentials/watchers#callback-flush-timing) and [`watchEffect()`](/api/reactivity-core#watcheffect).
