@@ -47,6 +47,10 @@ $ yarn dlx create-vue@latest
 $ bun create vue@latest
 ```
 
+```sh [vlt]
+$ vlt create vue@latest
+```
+
 ```sh [vite+]
 $ vp create vue@latest
 ```
