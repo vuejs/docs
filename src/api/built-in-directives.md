@@ -1,5 +1,27 @@
 # Built-in Directives {#built-in-directives}
 
+## v-match (RFC Reference Implementation) {#v-match}
+
+These directives are proposed in [RFC #823](https://github.com/vuejs/rfcs/pull/823). They are available only in its Draft reference implementation, not in a released Vue version.
+
+- **`v-match` expects:** a subject expression.
+- **Shorthand, arguments, and modifiers:** none.
+
+`v-match` evaluates one subject and selects the first matching direct `v-when` child. Patterns support literals, values, objects, arrays, `_`, `const` bindings, rest, `|` alternatives, parentheses, and `as` bindings. Bindings are local to the selected arm. The reference type checker requires exhaustive coverage by default.
+
+An SFC may place `v-match` directly on its top-level `<template>`. This is equivalent to an inner `<template v-match>` around the entire template content, with the same evaluation order, arm scopes, and exhaustive coverage requirement.
+
+See [Branching on One Value](/guide/essentials/patterned-templates) for syntax, binding scopes, rest types, guards, placement rules, and coverage diagnostics.
+
+## v-when (RFC Reference Implementation) {#v-when}
+
+Declares a direct arm of [`v-match`](#v-match) in the [Draft reference implementation of RFC #823](https://github.com/vuejs/rfcs/pull/823).
+
+- **Expects:** a pattern, optionally followed by `if (guard)`.
+- **Shorthand, arguments, and modifiers:** none.
+
+The first matching arm renders. Pattern bindings are available to its guard, props, directives, event handlers, and children. Use an unguarded `_` as the final fallback, or enumerate every case. See [Branching on One Value](/guide/essentials/patterned-templates).
+
 ## v-text {#v-text}
 
 Update the element's text content.

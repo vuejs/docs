@@ -1,5 +1,7 @@
 # Conditional Rendering {#conditional-rendering}
 
+For the proposed `v-match` / `v-when` syntax, see [Branching on One Value](./patterned-templates). That page describes the Draft reference implementation of RFC #823; the feature has not been accepted or released.
+
 <div class="options-api">
   <VueSchoolLink href="https://vueschool.io/lessons/conditional-rendering-in-vue-3" title="Free Vue.js Conditional Rendering Lesson"/>
 </div>
