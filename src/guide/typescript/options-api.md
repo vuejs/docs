@@ -120,6 +120,27 @@ export default defineComponent({
 })
 ```
 
+## Typing Component Slots {#typing-component-slots}
+
+Slots can be typed with the `slots` option <sup class="vt-badge" data-text="3.3+" /> together with the `SlotsType` helper. The option's runtime value is not used, only its type:
+
+```ts
+import { defineComponent } from 'vue'
+import type { SlotsType } from 'vue'
+
+export default defineComponent({
+  slots: Object as SlotsType<{
+    default: { msg: string }
+    item: { id: number }
+  }>,
+  mounted() {
+    this.$slots.item // type: ((props: { id: number }) => any) | undefined
+  }
+})
+```
+
+Unlike `defineSlots()` in `<script setup>`, each key maps to the slot's props object, not a function. This gives type checking for `this.$slots` and for slot props in parent templates. See the [`slots` option](/api/options-rendering#slots) for more details.
+
 ## Typing Computed Properties {#typing-computed-properties}
 
 A computed property infers its type based on its return value:
