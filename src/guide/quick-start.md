@@ -55,6 +55,10 @@ $ yarn dlx create-vue@latest
 $ bun create vue@latest
 ```
 
+```sh [vlt]
+$ vlt create vue@latest
+```
+
 ```sh [vite+]
 $ vp create vue@latest
 ```
@@ -104,6 +108,12 @@ $ bun install
 $ bun run dev
 ```
 
+```sh-vue [vlt]
+$ cd {{'<your-project-name>'}}
+$ vlt install
+$ vlt run dev
+```
+
 ```sh-vue [vite+]
 $ cd {{'<your-project-name>'}}
 $ vp install
@@ -137,6 +147,10 @@ $ yarn build
 
 ```sh [bun]
 $ bun run build
+```
+
+```sh [vlt]
+$ vlt run build
 ```
 
 ```sh [vite+]
