@@ -106,7 +106,7 @@ Some notes:
 
 - Unlike props, fallthrough attributes preserve their original casing in JavaScript, so an attribute like `foo-bar` needs to be accessed as `$attrs['foo-bar']`.
 
-- A `v-on` event listener like `@click` will be exposed on the object as a function under `$attrs.onClick`.
+- A `v-on` event listener like `@click` will be exposed on the object as a function under `$attrs.onClick`. Hyphenated event names are converted to camelCase, so `@my-event` is exposed as `$attrs.onMyEvent`.
 
 Using our `<MyButton>` component example from the [previous section](#attribute-inheritance) - sometimes we may need to wrap the actual `<button>` element with an extra `<div>` for styling purposes:
 
