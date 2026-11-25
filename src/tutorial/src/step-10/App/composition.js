@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 export default {
   setup() {
@@ -13,7 +13,7 @@ export default {
       todoData.value = await res.json()
     }
 
-    fetchData()
+    onMounted(fetchData)
 
     return {
       todoId,
