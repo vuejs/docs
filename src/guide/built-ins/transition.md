@@ -169,7 +169,7 @@ Here is a more advanced example that transitions multiple properties, with diffe
 
 ### CSS Animations {#css-animations}
 
-[Native CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) are applied in the same way as CSS transitions, with the difference being that `*-enter-from` is not removed immediately after the element is inserted, but on an `animationend` event.
+[Native CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) are applied in the same way as CSS transitions, with the difference being that Vue waits for an `animationend` event, instead of `transitionend`, before removing the `*-enter-active` and `*-enter-to` classes.
 
 For most CSS animations, we can simply declare them under the `*-enter-active` and `*-leave-active` classes. Here's an example:
 
