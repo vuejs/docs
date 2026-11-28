@@ -305,7 +305,7 @@ In Vue 3.5+, it is possible to selectively suppress inevitable hydration mismatc
 
 ### Custom Directives {#custom-directives}
 
-Since most custom directives involve direct DOM manipulation, they are ignored during SSR. However, if you want to specify how a custom directive should be rendered (i.e. what attributes it should add to the rendered element), you can use the `getSSRProps` directive hook:
+Since most custom directives involve direct DOM manipulation, they are ignored during SSR. If your directive needs to add attributes to the server-rendered element, you can use the `getSSRProps` directive hook:
 
 ```js
 const myDirective = {
@@ -314,16 +314,178 @@ const myDirective = {
     // directly update the DOM
     el.id = binding.value
   },
-  getSSRProps(binding) {
+  getSSRProps(binding, vnode) {
     // server-side implementation:
     // return the props to be rendered.
-    // getSSRProps only receives the directive binding.
     return {
       id: binding.value
     }
   }
 }
 ```
+
+`getSSRProps` runs during server rendering and receives the directive binding and vnode. It returns a props object or `undefined`. This is the runtime option for render functions and templates compiled at runtime.
+
+If your toolchain precompiles templates for SSR, you can instead register a compiler transform in `compilerOptions.directiveTransforms`. The transform runs for each matching directive node when the template is compiled, not for each request, and returns compiler nodes rather than runtime values. This is useful for directives that add `src`, `poster`, or inline styles, such as lazy-loaded media.
+
+#### Transform Parameters and Return Value {#transform-parameters-and-return-value}
+
+Vue calls directive transforms with the [`DirectiveTransform`](https://github.com/vuejs/core/blob/main/packages/compiler-core/src/transform.ts) signature. The first three parameters are:
+
+- `dir`: the parsed directive node. Its `exp` property is the directive's expression node, or `undefined` when no value was provided. It also contains `arg` and `modifiers`.
+- `node`: the element or component node the directive is attached to. Use properties such as `tag`, `tagType`, and `props` to inspect it. `tagType` distinguishes native elements from components and templates.
+- `context`: the current compilation context. Use `context.inSSR` to detect SSR compilation, `context.helper()` to register runtime helpers, and `context.onError()` to report compiler errors. This is not a component instance and does not contain runtime prop values.
+
+The type also accepts an optional fourth `augmentor` parameter for platform compilers. Custom directive transforms can omit it.
+
+A transform returns a `DirectiveTransformResult`. Its `props` property is an array of property nodes describing the attributes to render. The optional `needRuntime` property preserves the runtime directive, which is useful when the same transform is used for client and server builds. The optional `ssrTagParts` property can add raw tag parts, but `props` is preferable because Vue handles attribute escaping and style serialization.
+
+#### Adding `src`, `poster`, and `background-image` {#adding-src-poster-and-background-image}
+
+The abstract syntax tree (AST) helpers used to build the result are exported by [`@vue/compiler-core`](https://github.com/vuejs/core/blob/main/packages/compiler-core/src/ast.ts):
+
+- `createObjectProperty(key, value)` creates one property, such as `{ src: expression }`.
+- `createObjectExpression(properties)` creates an object containing those properties, such as a style object.
+- `createSimpleExpression(content, isStatic)` creates an expression node. Pass `false` when `content` must be evaluated during rendering, and `true` only for static text.
+
+For `img` and `video`, reuse `dir.exp` directly so Vue keeps the expression dynamic. For a background image, return a style object and build a CSS `url(...)` expression. Using `JSON.stringify()` at runtime quotes the URL safely, while the second argument to `createSimpleExpression()` keeps the expression dynamic. The example below targets native elements; check `node.tagType` if your directive can also be used on components.
+
+Register the transform under the directive's name, without the `v-` prefix. For example, with [`@vitejs/plugin-vue`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options), assuming the transform is exported from `./lazy-media.js`:
+
+```js
+// vite.config.js
+import vue from '@vitejs/plugin-vue'
+import { lazyMediaTransform } from './lazy-media.js'
+
+export default {
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          directiveTransforms: {
+            'lazy-media': lazyMediaTransform
+          }
+        }
+      }
+    })
+  ]
+}
+```
+
+With `vue-loader`, pass the same `directiveTransforms` object through its [`compilerOptions`](https://vue-loader.vuejs.org/options.html#compileroptions) loader option. Lower-level tools can pass it to `compileTemplate()` from `vue/compiler-sfc`. These compiler options are for build-time compilation; `app.config.compilerOptions` only configures the in-browser compiler. When an SSR transform returns props without `needRuntime`, you do not also need `getSSRProps` for that directive.
+
+#### Reproducible Example {#reproducible-example}
+
+The following example compiles a template for SSR and renders it with Vue's server renderer. Install `vue`, `@vue/compiler-core`, and `@vue/compiler-ssr` at the same Vue 3 version:
+
+```sh
+npm install vue@3 @vue/compiler-core@3 @vue/compiler-ssr@3
+```
+
+Save this as `example.mjs`:
+
+```js [example.mjs]
+import {
+  createObjectExpression,
+  createObjectProperty,
+  createSimpleExpression
+} from '@vue/compiler-core'
+import { compile } from '@vue/compiler-ssr'
+import { createSSRApp } from 'vue'
+import * as serverRenderer from 'vue/server-renderer'
+import { createRequire } from 'node:module'
+
+const require = createRequire(import.meta.url)
+
+const lazyMediaTransform = (dir, node, context) => {
+  // Preserve the runtime directive in the client build.
+  if (!context.inSSR) {
+    return { props: [], needRuntime: true }
+  }
+
+  // There is no value to render for `v-lazy-media` without an expression.
+  if (!dir.exp) {
+    return { props: [] }
+  }
+
+  if (node.tag === 'img') {
+    return {
+      props: [createObjectProperty('src', dir.exp)]
+    }
+  }
+
+  if (node.tag === 'video') {
+    return {
+      props: [createObjectProperty('poster', dir.exp)]
+    }
+  }
+
+  return {
+    props: [
+      createObjectProperty(
+        'style',
+        createObjectExpression([
+          createObjectProperty(
+            'backgroundImage',
+            createSimpleExpression(
+              `'url(' + JSON.stringify(${dir.exp.content}) + ')'`,
+              false,
+              dir.exp.loc
+            )
+          )
+        ])
+      )
+    ]
+  }
+}
+
+const template = `<img v-lazy-media="image" alt="Mountains" />
+<video v-lazy-media="poster" controls></video>
+<div v-lazy-media="image" style="background-size: cover">Hero</div>`
+
+const { code } = compile(template, {
+  mode: 'function',
+  directiveTransforms: {
+    'lazy-media': lazyMediaTransform
+  }
+})
+
+const ssrRender = new Function('Vue', 'require', code)(
+  serverRenderer,
+  require
+)
+
+const app = createSSRApp({
+  ssrRender,
+  data: () => ({
+    image: '/images/mountains.jpg',
+    poster: '/images/mountains-poster.jpg'
+  })
+})
+
+console.log(await serverRenderer.renderToString(app))
+```
+
+Run it with `node example.mjs`. It prints:
+
+```html
+<!--[--><img src="/images/mountains.jpg" alt="Mountains"><video poster="/images/mountains-poster.jpg" controls></video><div style="background-image:url(&quot;/images/mountains.jpg&quot;);background-size:cover;">Hero</div><!--]-->
+```
+
+The `&quot;` entities are the HTML-escaped quotes around the CSS URL. The browser decodes them when parsing the `style` attribute. The directive's `background-image` is merged with the existing `background-size` style.
+
+When verifying your own transform, inspect both the generated `code` and the output of `renderToString()`. The generated code should reference component values such as `_ctx.image`, and the rendered HTML should contain the expected attributes. Also check the browser's initial DOM for hydration mismatches; a correct server response is not enough if the client renders different attributes or styles.
+
+#### Common Mistakes {#common-mistakes}
+
+- Adding an `ssrTransform` property to a directive object does not register a compiler transform. Use `compilerOptions.directiveTransforms`, or use `getSSRProps` for runtime SSR rendering.
+- Returning plain JavaScript values from `props` produces invalid compiler nodes. Use `createObjectProperty()`, `createObjectExpression()`, and `createSimpleExpression()` to build the result.
+- Treating `dir.exp` as the evaluated value can produce the wrong output. It is an expression node. Reuse it for direct bindings, or use `dir.exp.content` when composing a larger generated expression.
+- Passing `true` to `createSimpleExpression()` for a dynamic value prevents it from being evaluated during rendering. Dynamic expressions need `false`.
+- Forgetting to import the AST helpers causes a `ReferenceError` at compile time. Import them from `@vue/compiler-core`.
+- Omitting the `dir.exp` check can fail when the directive is used without a value.
+- Sharing a transform with the client build without returning `needRuntime: true` can remove the runtime directive from client output.
+- Building HTML with `ssrTagParts` can bypass Vue's normal attribute escaping and style handling. Prefer returning `props`.
 
 ### Teleports {#teleports}
 
